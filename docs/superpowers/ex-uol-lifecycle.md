@@ -149,6 +149,13 @@ auth_failure (401→UserException exit 1), **incremental accounting_records** (d
 manifest `incremental:true`, 103 rows). Sanitization sweep over whole `tests/` for the demo token,
 demo email, and `Authorization: Basic <b64>` → **clean (no matches)** via `DefaultSanitizer`.
 
+> **Re-verified 2026-06-08 after the post-audit redesign:** suite now **`94 passed`**. VCR coverage
+> regenerated (never hand-edited) to **all 29 registry endpoints** (cases 07–35) + special cases 01–06
+> (testConnection, listEndpoints, listDateFields with/without fields, auth_failure, incremental).
+> Multi-page pagination now exercised by real cassettes (accounting_records 11 pages, purchase_invoices
+> 3, countries 2). Leak sweep across all 35 cassettes → clean; configs use DUMMY placeholders; secrets.json
+> gitignored.
+
 ### Phase 6 — Full Developer Portal value setup · owner: `component-dev-portal`
 - [ ] complete
 
@@ -176,7 +183,7 @@ false pass).
 **Evidence:** _
 
 ### Phase 8 — Final CF-standards review · owner: `component-checklist-review`
-- [ ] complete
+- [x] complete
 
 **Definition of done:** `component-checklist-review` run over the full implementation; no open **blocking**
 (critical/important) findings; component aligns with Component Factory standards.
@@ -186,4 +193,12 @@ false pass).
 > **re-run the Phase 6 verifier afterward** to confirm the portal-owned values survived. Phase 6 is
 > only protected from the *bootstrap* `0.0.1` release automatically.
 
-**Evidence:** _
+**Evidence:** ✅ Done 2026-06-08. Full 11-agent `component-checklist-review` run; surfaced 4 blocking
+findings (Test Connection always failed due to full-config validation; incremental watermark used
+wall-clock-now against business-date filters → silent record loss; network errors + non-auth 4xx
+escaped as exit 2) plus importants. **All fixed** across passes A–D + cleanup: testConnection uses
+connection-only `ConnectionConfig`; incremental redesigned to user-driven `date_field`+`date_from`
+(`last_run`/relative/ISO via dateparser); client converts transport/4xx/non-JSON/exhausted-retry to
+`UserException`; INFO logging added; empty-PK incremental guard; freezegun → dev deps. A fresh
+re-audit of all four previously-blocking dimensions returned **no remaining blocking findings**; suite
+`94 passed`, `ruff` clean. Remaining items are nice-to-haves only.
