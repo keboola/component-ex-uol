@@ -52,11 +52,12 @@ records, …) into Keboola Storage tables, one object per config row, with optio
   2. The user account must have the **"REST API" permission** enabled.
   3. The user supplies their login email + the token to the component config.
   No platform-admin or vendor-side app registration is required.
-- **Blockers / access:** A publicly testable **demo instance** exists at
-  `https://test.demo.uol.cz/api` (demo login `demo@ucetnictvi-on-line.cz`). **One mild risk:** the
-  demo *API token* is not published — recording VCR cassettes needs a valid demo token. Mitigation:
-  obtain a demo token from the demo instance's `/api_tokens` page or request one from `api@uol.cz`;
-  until then, seed cassettes from the OpenAPI example responses. Tracked in §9.
+- **Blockers / access:** None. A publicly testable **demo instance** exists at
+  `https://test.demo.uol.cz/api` with **published, verified demo credentials** in the OpenAPI spec
+  (`api.uol.cz/openapi.yaml`, under "Where to start"): demo email + demo token. Confirmed working — a
+  live `GET /v1/ping` returns 200 and `GET /v1/contacts` returns real data. These credentials drive VCR
+  cassette recording directly (the implementer pulls them from the spec at record time; not stored in
+  this repo, and still sanitized from cassettes per §7).
 
 ## 4. Data model & endpoints
 
@@ -73,17 +74,26 @@ records, …) into Keboola Storage tables, one object per config row, with optio
   - **Accounting:** `accounting_records`, `receivables`, `internal_documents`
   - **Documents:** `uploaded_documents`, `document_templates`
   - **Reference:** `currencies`, `countries`, `predefined_texts`, `payment_rules`
+- **Response envelope (verified against the demo instance):** the list body is
+  `{ "_meta": { "pagination": { "first", "last", "next" } }, "items": [ … ] }` — records live under
+  **`items`**, and each item also carries its own `_meta.href`. The client reads `items` and follows
+  `_meta.pagination.next`.
+- **Primary keys are resource-specific** (verified: contacts use `contact_id` = e.g. `"adrian_stanek"`,
+  not `id`; other resources use `<resource>_id` or `gid`). The registry declares each resource's PK —
+  there is no universal `id` field.
 - **Pagination:** `page` (from 1) + `per_page` (component uses max **250**). Follow
-  `_meta.pagination.next` until null (fallback: increment `page` until an empty page).
+  `_meta.pagination.next` until absent (fallback: increment `page` until an empty `items`).
 - **Rate limits:** general **30 req / 10 s**; `/v1/receivables` **10 req / 10 s**. The client
   self-throttles to stay under the per-resource limit and, on **HTTP 429**, backs off (honour
   `Retry-After`, default 30 s) and retries.
 - **Bulk/async export:** none — all reads are synchronous paginated GETs.
-- **Nested data → child tables (chosen strategy).** Per the endpoint registry, declared nested arrays
-  (chiefly invoice/order `items[]`) are exploded into `<resource>_items.csv` with a `<resource>_id`
-  foreign key + the child's own PK where present. Scalar fields stay on the parent row; any *non-declared*
-  nested object/array is serialized to a JSON-string column to avoid data loss. This keeps the parent
-  relational and query-friendly while preserving fidelity.
+- **Nested data → child tables (chosen strategy).** Nested arrays are common and not limited to
+  invoice/order `items[]` — verified that `contacts` carry `addresses[]`, and records also embed nested
+  *objects* (`creator`, `modifier`, `contract`). Per the endpoint registry, declared nested **arrays**
+  are exploded into `<resource>_<array>.csv` (e.g. `sales_invoices_items.csv`, `contacts_addresses.csv`)
+  with a `<resource>_id` foreign key + the child's own PK where present. Scalar fields stay on the
+  parent row; nested **objects** and any *non-declared* array are serialized to JSON-string columns to
+  avoid data loss. This keeps the parent relational and query-friendly while preserving fidelity.
 
 ## 5. Configuration & schema
 
@@ -139,9 +149,9 @@ records, …) into Keboola Storage tables, one object per config row, with optio
   - Auth failure — 401 / error `0002` → `UserException`, **exit 1**.
 - **VCR strategy:** record real interactions against the **demo** instance (`test.demo.uol.cz`) for a
   representative set (a paginated list, a child-array resource, a 429-then-success, an empty list).
-  **Sanitizers:** strip the `Authorization` header, and scrub the demo email + token from
-  request/response bodies and query strings (`VCR_SANITIZERS`). Cassettes committed; secrets never in
-  fixtures.
+  **Sanitizers:** strip the `Authorization` header, and scrub the demo email + token (the values from
+  the OpenAPI spec) from request/response bodies and query strings (`VCR_SANITIZERS`). Cassettes
+  committed; credentials never in fixtures (even though these are demo-only).
 - **Sync action tests:** `test-connection` success (200 `/v1/ping`) and failure (401) paths.
 - **Seed payloads:** the OpenAPI spec's example responses (and a live demo capture once a token is
   available) seed the first cassettes.
@@ -158,9 +168,9 @@ records, …) into Keboola Storage tables, one object per config row, with optio
 
 ## 9. Open risks & blockers
 
-1. **Demo API token for VCR** (medium) — demo login email is public, the token is not. Need a valid
-   demo token to record live cassettes; mitigate by minting one on the demo instance or requesting via
-   `api@uol.cz`, and seed from OpenAPI examples until then. *Owner: implementer, before Phase 5.*
+1. **Demo API token for VCR** — ✅ **RESOLVED.** Published in the OpenAPI spec (`api.uol.cz/openapi.yaml`)
+   and verified working (live `/v1/ping` → 200). No blocker. (Token value lives in the spec, not in
+   this repo.)
 2. **Incremental coverage is uneven** (low) — only some endpoints expose a date cursor, and the param
    name differs per endpoint (`updated_at_from`, `created_at_from`, `issue_date_from`, `date_from`).
    The registry must encode the correct param per endpoint; endpoints with no cursor are full-load.
