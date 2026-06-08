@@ -23,9 +23,12 @@ records, …) into Keboola Storage tables, one object per config row, with optio
   (e.g. an invoice's `items[]`) are exploded into a **child table** `<resource>_items.csv` linked to
   the parent by a foreign-key column (`<resource>_id`). See §4.
 - **Config rows, one row per object.** ~30 independent endpoints → **config rows** (Keboola
-  convention): each row selects one endpoint, can be enabled/scheduled/run/retried independently, gets
-  its own `state.json` watermark, and rows run in parallel. Connection/auth lives at **config level**;
-  endpoint selection + load options live at **row level**.
+  convention): each row selects one endpoint, can be enabled/scheduled/run/retried independently, and
+  gets its **own per-row `state.json`** watermark (root state is unused when rows exist). Rows execute
+  **sequentially in `rowsSortOrder` by default**; row-level parallelism is opt-in (`parallelism` > 1)
+  and safe here since each row writes a distinct table and owns its state — we don't enable it by
+  default. Connection/auth lives at **config level**; endpoint selection + load options live at
+  **row level**.
 - **Incremental strategy.** Endpoint-dependent (the API has no universal `modified-since`). The client
   carries a per-endpoint registry declaring whether the endpoint supports a date/updated cursor and
   which query param drives it. Where supported, the row defaults to incremental: persist a `last_run`
@@ -37,9 +40,21 @@ records, …) into Keboola Storage tables, one object per config row, with optio
   picker is a **static enum dropdown** in the row schema, not a sync action — UOL's endpoint catalog is
   fixed and known at build time (the API does not enumerate its own resources), so an enum is the
   correct fit rather than a live list call.
-- **Output bucket / table naming.** Default-bucket behaviour (no hard-coded bucket); table names are
-  the resource names. Primary keys come from the endpoint registry (`id`, or `gid` for resources that
-  use it).
+- **Output tables: native types + explicit PK.** CF default for a new component is **authoritative
+  native types**: emit a `schema` manifest (`data_type.base.type`) with an explicit primary key, and
+  flip the Dev Portal `dataTypeSupport` property to `authoritative` (a **Phase 6** task — until flipped,
+  the platform silently downgrades to legacy hints). Because the ~30 endpoints have heterogeneous,
+  dynamically-discovered columns, v1 declares columns dynamically from the response with base type
+  **STRING** (numbers/dates preserved as text — safe, lossless, and reviewer-acceptable for a
+  dynamic-schema extractor) while still setting the **explicit PK** from the registry. The
+  python-component lib auto-detects `KBC_DATA_TYPE_SUPPORT` (absent → legacy), so the code emits the
+  right manifest format for either mode.
+- **Output bucket / table naming.** Table names are the resource names; the component does **not**
+  hard-code a destination bucket (a hard-coded destination is silently overridden if `default_bucket`
+  is on). Whether to enable `default_bucket` (→ `in.c-keboola.ex-uol-{configId}`) is a **Phase 6**
+  Dev Portal decision; default is off, letting standard output-mapping behaviour place tables.
+- **Primary keys are resource-specific** — declared per endpoint in the registry (`<resource>_id` /
+  `gid`, e.g. contacts use `contact_id`), not a universal `id`.
 
 ## 3. Authentication & connection
 
@@ -129,8 +144,10 @@ records, …) into Keboola Storage tables, one object per config row, with optio
   computed `incremental` property. Validated early.
 - **`src/component.py`** — `Component(ComponentBase)`: `run()` is a thin orchestrator —
   `_get_config` → build client → resolve `since` from `state.json` (if incremental + supported) →
-  `_fetch` records → `_write_parent_and_children` (parent table + exploded child tables, manifests with
-  PK + incremental flag) → advance `state.json` watermark on success. Sync action `test_connection`.
+  `_fetch` records → `_write_parent_and_children` (parent table + exploded child tables, **`schema`
+  manifests** with explicit PK + incremental flag) → advance `state.json` watermark on success. Sync
+  action `test_connection`. Any scratch/temp work uses **`/tmp`**, never `/data/out/tables/` (every
+  file there is uploaded as a table). Reads `KBC_DATA_TYPE_SUPPORT` via the SDK to pick manifest format.
 - **Error handling:** `UserException` (exit 1) for bad config (missing/invalid `base_url`/email/token),
   auth failure (401/`0001`,`0002`), invalid customer (`0003`), and not-found (`0004`); unexpected
   errors bubble up as exit 2. 429 is handled by retry, not surfaced as an error unless retries exhaust.
@@ -139,6 +156,9 @@ records, …) into Keboola Storage tables, one object per config row, with optio
 
 ## 7. Testing
 
+- **Fixture shape (platform reality):** the component always receives a **single merged** `config.json`
+  with `parameters` at the root (the platform merges root + row before the run), and state is
+  **row-scoped** — one `state.json` per test case. Fixtures reflect this; no root/row split to replicate.
 - **Datadir tests (`tests/`):**
   - Happy path — a simple resource (`contacts`) → one parent table, correct PK/schema.
   - Child-table path — `sales_invoices` with `items[]` → parent + `sales_invoices_items.csv` with FK.
@@ -165,6 +185,10 @@ records, …) into Keboola Storage tables, one object per config row, with optio
 - **Success looks like:** job `success`; output tables `out.c-….contacts`, `…sales_invoices` (+
   `…sales_invoices_items`), `…accounting_records` populated with non-zero rows; resolved image tag
   matches the branch build (not a stale stable release).
+- **Phase 6 portal coupling:** the native-types decision (§2) requires flipping the Dev Portal
+  `dataTypeSupport` property to `authoritative` (`kbagent dev-portal patch … --property dataTypeSupport
+  --value authoritative`, dry-run then TTY-confirm) so the `schema` manifests aren't downgraded —
+  done in the Phase 6 portal setup, *after* the bootstrap release.
 
 ## 9. Open risks & blockers
 
