@@ -114,7 +114,7 @@ committed; both placeholder-free; user approved the spec. **Grounding reconcilia
 - `telemetry.md` → N/A (about querying telemetry, not building an extractor) — deliberately skipped.
 
 ### Phase 4 — Implement on `initial-implementation` branch · owner: `component-develop`
-- [ ] complete
+- [x] complete
 
 > **How this gets executed:** the superpowers plan (Phase 3) is worked task-by-task via
 > `superpowers:subagent-driven-development`, with implementation tasks dispatched to `component-develop`
@@ -125,17 +125,29 @@ committed; both placeholder-free; user approved the spec. **Grounding reconcilia
 plan; `run()` is a clean orchestrator with logic in private methods; `ruff check` clean. Fine-grained
 step tracking lives in the superpowers plan file — this box tracks the phase as a whole.
 
-**Evidence:** _
+**Evidence:** ✅ Verified 2026-06-08 by fresh subagent. Branch `initial-implementation` exists. Source
+(396 lines): `src/endpoints.py` (71), `src/configuration.py` (34), `src/client.py` (106),
+`src/flatten.py` (54), `src/component.py` (131). `run()` (component.py:33) is a thin orchestrator
+delegating to `_get_config`/`_resolve_since`/`_build_params`/`_write_table`/`_child_pk` +
+`get_endpoint`/`flatten_record`. `ruff check src/ tests/` → All checks passed. Built task-by-task via
+subagent-driven-development with per-task spec+quality review; plan Tasks 1–12 all complete.
 
 ### Phase 5 — Local VCR tests + cassettes · owner: `component-test`
-- [ ] complete
+- [x] complete
 
 **Definition of done:** datadir/unit/VCR tests present; the **full `pytest` suite runs green** (paste
 the `N passed` line, not "should pass"); cassettes recorded and **verifiably sanitized** — grep every
 cassette for secret patterns (the values from `secrets.json`, common keys like `token`/`password`/
 `authorization`/`api_key`, and the configured `VCR_SANITIZERS` targets) and paste a clean result.
 
-**Evidence:** _
+**Evidence:** ✅ Verified 2026-06-08 by fresh subagent. Full suite **green: `37 passed in 0.56s`**
+(28 unit + 9 functional). Unit tests: registry, config, client (auth/pagination/throttle/429-exhaustion),
+flatten, incremental helpers, sync actions. VCR functional cases (7 cassettes at
+`tests/functional/0{1..7}_*/source/data/cassettes/requests.json`): testConnection, listEndpoints,
+full_load contacts (+addresses child), sales_invoices (+items child), currencies (no-child),
+auth_failure (401→UserException exit 1), **incremental accounting_records** (date_from applied,
+manifest `incremental:true`, 103 rows). Sanitization sweep over whole `tests/` for the demo token,
+demo email, and `Authorization: Basic <b64>` → **clean (no matches)** via `DefaultSanitizer`.
 
 ### Phase 6 — Full Developer Portal value setup · owner: `component-dev-portal`
 - [ ] complete
