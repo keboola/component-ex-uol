@@ -1,26 +1,34 @@
-import logging
+"""Validated configuration for ex-uol.
 
-from keboola.component.exceptions import UserException
-from pydantic import BaseModel, Field, ValidationError, field_validator
+The platform merges root config + the active config row into a single
+`parameters` object, so this one model holds both connection-level and
+row-level fields (see keboola-context config-rows behaviour).
+"""
+
+from __future__ import annotations
+
+from enum import StrEnum
+
+from pydantic import BaseModel, ConfigDict, Field, computed_field
+
+
+class LoadType(StrEnum):
+    full_load = "full_load"
+    incremental_load = "incremental_load"
 
 
 class Configuration(BaseModel):
-    print_hello: bool
+    model_config = ConfigDict(populate_by_name=True, extra="ignore")
+
+    base_url: str
+    email: str
     api_token: str = Field(alias="#api_token")
-    debug: bool = False
 
-    def __init__(self, **data):
-        try:
-            super().__init__(**data)
-        except ValidationError as e:
-            error_messages = [f"{err['loc'][0]}: {err['msg']}" for err in e.errors()]
-            raise UserException(f"Validation Error: {', '.join(error_messages)}")
+    endpoint: str
+    load_type: LoadType = LoadType.incremental_load
+    date_from: str | None = None
 
-        if self.debug:
-            logging.debug("Component will run in Debug mode")
-
-    @field_validator("api_token")
-    def token_must_be_uppercase(cls, v):
-        if not v.isupper():
-            raise UserException("API token must be uppercase")
-        return v
+    @computed_field
+    @property
+    def incremental(self) -> bool:
+        return self.load_type == LoadType.incremental_load
