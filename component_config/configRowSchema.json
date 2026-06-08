@@ -1,1 +1,35 @@
-{}
+{
+  "type": "object",
+  "title": "Object",
+  "required": ["endpoint", "load_type"],
+  "properties": {
+    "endpoint": {
+      "type": "string",
+      "title": "Object / Endpoint",
+      "description": "Which UOL resource to extract.",
+      "format": "select",
+      "enum": [],
+      "options": {
+        "async": {
+          "label": "Re-load objects",
+          "action": "listEndpoints"
+        }
+      },
+      "propertyOrder": 1
+    },
+    "load_type": {
+      "type": "string",
+      "title": "Load Type",
+      "enum": ["incremental_load", "full_load"],
+      "default": "incremental_load",
+      "description": "Incremental is honoured only for endpoints that expose a date cursor; others always full-load.",
+      "propertyOrder": 2
+    },
+    "date_from": {
+      "type": "string",
+      "title": "Date From (initial)",
+      "description": "ISO date lower bound for the first incremental run / full window. Ignored once a state watermark exists. Optional.",
+      "propertyOrder": 3
+    }
+  }
+}

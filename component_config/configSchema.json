@@ -1,19 +1,37 @@
 {
   "type": "object",
-  "title": "extractor configuration",
-  "required": [
-    "print_hello"
-  ],
+  "title": "UOL Connection",
+  "required": ["base_url", "email", "#api_token"],
   "properties": {
-    "print_hello": {
-      "type": "boolean",
-      "title": "Print Hello",
+    "base_url": {
+      "type": "string",
+      "title": "API Base URL",
+      "description": "Full base URL including /api, e.g. https://test.demo.uol.cz/api or https://{customerId}.ucetnictvi.uol.cz/api",
       "propertyOrder": 1
     },
-    "debug": {
-      "type": "boolean",
-      "title": "Debug",
+    "email": {
+      "type": "string",
+      "title": "Email",
+      "description": "UOL login email (Basic-auth username).",
       "propertyOrder": 2
+    },
+    "#api_token": {
+      "type": "string",
+      "title": "API Token",
+      "format": "password",
+      "description": "Token from UOL Settings → API tokens. The account needs the 'REST API' permission.",
+      "propertyOrder": 3
+    },
+    "test_connection": {
+      "type": "button",
+      "format": "test-connection",
+      "propertyOrder": 4,
+      "options": {
+        "async": {
+          "label": "Test Connection",
+          "action": "testConnection"
+        }
+      }
     }
   }
 }
