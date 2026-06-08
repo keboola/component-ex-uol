@@ -11,13 +11,16 @@ def test_known_endpoint_shapes():
     inv = get_endpoint("sales_invoices")
     assert inv.path == "v1/sales_invoices"
     assert inv.primary_key == ["gid"]
-    assert inv.child_arrays == ("items",)
     assert inv.date_fields == ("tax_payment_date_from", "issue_date_from", "due_date_from")
 
     contacts = get_endpoint("contacts")
     assert contacts.primary_key == ["contact_id"]
-    assert contacts.child_arrays == ("addresses",)
     assert contacts.date_fields == ()
+
+
+def test_endpoint_has_no_child_arrays_attribute():
+    ep = get_endpoint("sales_invoices")
+    assert not hasattr(ep, "child_arrays")
 
 
 def test_endpoint_names_sorted_and_complete():
@@ -32,46 +35,59 @@ def test_unknown_endpoint_raises():
         get_endpoint("does_not_exist")
 
 
-# --- columns field ---
+# --- columns field: flattened names ---
 
 def test_sales_invoices_columns_non_empty():
     ep = get_endpoint("sales_invoices")
     assert len(ep.columns) > 0
     assert "gid" in ep.columns
+    # flattened object columns
+    assert "creator_user_id" in ep.columns
+    assert "currency_currency_id" in ep.columns
+    # arrays kept as JSON column
+    assert "items" in ep.columns
 
 
 def test_sales_orders_columns_non_empty():
     ep = get_endpoint("sales_orders")
     assert len(ep.columns) > 0
     assert "order_id" in ep.columns
+    assert "creator_user_id" in ep.columns
+    assert "currency_currency_id" in ep.columns
 
 
 def test_purchase_invoices_columns_non_empty():
     ep = get_endpoint("purchase_invoices")
     assert len(ep.columns) > 0
     assert "gid" in ep.columns
+    assert "creator_user_id" in ep.columns
 
 
 def test_accounting_records_columns_non_empty():
     ep = get_endpoint("accounting_records")
     assert len(ep.columns) > 0
     assert "gid" in ep.columns
+    assert "creator_user_id" in ep.columns
+    assert "doc_type_document_config_id" in ep.columns
 
 
 def test_receivables_columns_non_empty():
     ep = get_endpoint("receivables")
     assert len(ep.columns) > 0
     assert "invoice_id" in ep.columns
+    # payments is an array, kept as JSON column
+    assert "payments" in ep.columns
 
 
 def test_uploaded_documents_columns_non_empty():
     ep = get_endpoint("uploaded_documents")
     assert len(ep.columns) > 0
     assert "id" in ep.columns
+    assert "creator_user_id" in ep.columns
 
 
 def test_contacts_columns_empty():
-    """Full-load-only endpoints have no pre-declared columns."""
+    """Full-load-only endpoints without pre-declared columns."""
     ep = get_endpoint("contacts")
     assert ep.columns == ()
 

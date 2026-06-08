@@ -57,18 +57,12 @@ def _active_date_field(cfg: Configuration, endpoint: Endpoint) -> str | None:
     return cfg.date_field
 
 
-def _fetch_records(
-    client: UolClient, endpoint: Endpoint, params: dict
-) -> tuple[list[dict], dict[str, list[dict]]]:
-    """Fetch all records from the API and split into parent rows and child tables."""
+def _fetch_records(client: UolClient, endpoint: Endpoint, params: dict) -> list[dict]:
+    """Fetch all records from the API and return flat parent rows."""
     parent_rows: list[dict] = []
-    child_rows: dict[str, list[dict]] = {}
     for record in client.iter_records(endpoint.path, params=params):
-        parent, children = flatten_record(record, endpoint)
-        parent_rows.append(parent)
-        for table, rows in children.items():
-            child_rows.setdefault(table, []).extend(rows)
-    return parent_rows, child_rows
+        parent_rows.append(flatten_record(record, endpoint))
+    return parent_rows
 
 
 class Component(ComponentBase):
@@ -92,13 +86,11 @@ class Component(ComponentBase):
 
         logging.info("Extracting %s (date_field=%s, since=%s)", endpoint.name, active_field, since)
 
-        parent_rows, child_rows = _fetch_records(client, endpoint, params)
+        parent_rows = _fetch_records(client, endpoint, params)
 
         logging.info("Fetched %d %s records", len(parent_rows), endpoint.name)
 
         self._write_table(endpoint.name, parent_rows, endpoint.primary_key, incremental, endpoint.columns)
-        for table, rows in child_rows.items():
-            self._write_table(table, rows, self._child_pk(endpoint), incremental)
 
         if incremental:
             self.write_state_file({STATE_LAST_RUN: run_started_at.isoformat()})
@@ -109,12 +101,6 @@ class Component(ComponentBase):
             return Configuration(**self.configuration.parameters)
         except Exception as exc:  # noqa: BLE001
             raise UserException(f"Invalid configuration: {exc}") from exc
-
-    @staticmethod
-    def _child_pk(endpoint: Endpoint) -> list[str]:
-        if not endpoint.primary_key:
-            return []
-        return [f"{endpoint.name}_{endpoint.primary_key[0]}", "_item_index"]
 
     def _write_table(
         self,

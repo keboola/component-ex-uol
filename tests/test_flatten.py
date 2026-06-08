@@ -1,56 +1,94 @@
 import json
 
-from endpoints import Endpoint, get_endpoint
+from endpoints import get_endpoint
 from flatten import flatten_record
 
 
-def test_scalar_and_nested_object_become_parent_columns():
-    ep = get_endpoint("contacts")  # pk contact_id, child_arrays ("addresses",)
+def test_scalars_passthrough():
+    ep = get_endpoint("products")
+    result = flatten_record({"product_id": "p1", "name": "X", "price": 9.99}, ep)
+    assert result == {"product_id": "p1", "name": "X", "price": 9.99}
+
+
+def test_meta_dropped_at_top_level():
+    ep = get_endpoint("products")
+    result = flatten_record({"product_id": "p1", "_meta": {"href": "h"}}, ep)
+    assert "_meta" not in result
+    assert result == {"product_id": "p1"}
+
+
+def test_nested_object_flattened():
+    ep = get_endpoint("contacts")
+    result = flatten_record({"contact_id": "acme", "creator": {"user_id": "x"}}, ep)
+    assert result["creator_user_id"] == "x"
+    assert "creator" not in result
+
+
+def test_deep_nesting_flattened():
+    ep = get_endpoint("products")
+    result = flatten_record({"a": {"b": {"c": 1}}}, ep)
+    assert result == {"a_b_c": 1}
+
+
+def test_nested_object_meta_dropped():
+    ep = get_endpoint("contacts")
     rec = {
         "contact_id": "acme",
-        "name": "Acme",
-        "creator": {"user_id": "u1"},
-        "addresses": [{"address_id": "hq"}],
+        "creator": {"user_id": "u1", "_meta": {"href": "h"}},
         "_meta": {"href": "x"},
     }
-    parent, children = flatten_record(rec, ep)
-    assert parent["contact_id"] == "acme"
-    assert parent["name"] == "Acme"
-    assert json.loads(parent["creator"]) == {"user_id": "u1"}
-    assert "_meta" not in parent
-    assert "addresses" not in parent
+    result = flatten_record(rec, ep)
+    assert result["creator_user_id"] == "u1"
+    assert "creator__meta" not in result
+    assert "_meta" not in result
 
 
-def test_child_rows_get_fk_and_item_index():
+def test_array_becomes_json_column():
     ep = get_endpoint("contacts")
-    rec = {"contact_id": "acme", "addresses": [{"address_id": "hq"}, {"address_id": "wh"}]}
-    _parent, children = flatten_record(rec, ep)
-    rows = children["contacts_addresses"]
-    assert rows[0]["contacts_contact_id"] == "acme"
-    assert rows[0]["_item_index"] == 0
-    assert rows[1]["_item_index"] == 1
-    assert rows[1]["address_id"] == "wh"
+    rec = {"contact_id": "acme", "bank_accounts": [{"x": 1}, {"x": 2}]}
+    result = flatten_record(rec, ep)
+    assert "bank_accounts" in result
+    parsed = json.loads(result["bank_accounts"])
+    assert parsed == [{"x": 1}, {"x": 2}]
 
 
-def test_no_children_for_endpoint_without_arrays():
-    ep = get_endpoint("products")  # no child_arrays
-    parent, children = flatten_record({"product_id": "p1", "name": "X"}, ep)
-    assert children == {}
-    assert parent == {"product_id": "p1", "name": "X"}
+def test_array_meta_stripped_from_json_column():
+    ep = get_endpoint("sales_invoices")
+    rec = {"gid": "g1", "items": [{"x": 1, "_meta": {"href": "h"}}, {"x": 2}]}
+    result = flatten_record(rec, ep)
+    parsed = json.loads(result["items"])
+    assert parsed == [{"x": 1}, {"x": 2}]
 
 
-def test_endpoint_without_pk_still_flattens():
-    ep = get_endpoint("bank_movement_items")  # pk []
-    parent, children = flatten_record({"number": "1", "amount": 5}, ep)
-    assert parent == {"number": "1", "amount": 5}
-    assert children == {}
+def test_array_nested_meta_stripped_recursively():
+    ep = get_endpoint("contacts")
+    rec = {
+        "contact_id": "c",
+        "bank_accounts": [{"id": 1, "_meta": {"href": "h"}, "sub": {"_meta": {}, "v": 2}}],
+    }
+    result = flatten_record(rec, ep)
+    parsed = json.loads(result["bank_accounts"])
+    assert "_meta" not in parsed[0]
+    assert parsed[0]["sub"] == {"v": 2}
 
 
-def test_child_nested_object_is_json_encoded():
-    ep = Endpoint(name="contacts", path="v1/contacts", primary_key=["contact_id"], child_arrays=("addresses",))
-    rec = {"contact_id": "acme", "addresses": [{"address_id": "hq", "creator": {"user_id": "u1"}}]}
-    _parent, children = flatten_record(rec, ep)
-    row = children["contacts_addresses"][0]
-    assert json.loads(row["creator"]) == {"user_id": "u1"}  # JSON string, not Python repr
-    assert row["contacts_contact_id"] == "acme"
-    assert row["_item_index"] == 0
+def test_returns_flat_dict_not_tuple():
+    ep = get_endpoint("products")
+    result = flatten_record({"product_id": "p1"}, ep)
+    assert isinstance(result, dict)
+
+
+def test_full_contacts_record_shape():
+    ep = get_endpoint("contacts")
+    rec = {
+        "contact_id": "c",
+        "creator": {"user_id": "u", "_meta": {"href": "h"}},
+        "bank_accounts": [{"x": 1, "_meta": {}}],
+        "_meta": {"href": "x"},
+    }
+    result = flatten_record(rec, ep)
+    assert result["contact_id"] == "c"
+    assert result["creator_user_id"] == "u"
+    assert "_meta" not in result
+    parsed = json.loads(result["bank_accounts"])
+    assert parsed == [{"x": 1}]

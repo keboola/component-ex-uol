@@ -102,18 +102,6 @@ def test_params_empty_when_no_active_field():
     assert params == {}
 
 
-# --- _child_pk shape (unchanged) ---
-
-def test_child_pk_shape():
-    ep = get_endpoint("sales_invoices")  # pk gid
-    assert Component._child_pk(ep) == ["sales_invoices_gid", "_item_index"]
-
-
-def test_child_pk_empty_for_no_pk_endpoint():
-    ep = get_endpoint("bank_movement_items")  # pk []
-    assert Component._child_pk(ep) == []
-
-
 # --- _collect_columns: known_columns seeding ---
 
 def test_collect_columns_seeds_known_columns():
