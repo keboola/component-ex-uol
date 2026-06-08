@@ -123,7 +123,6 @@ name = "ex-uol"
 source = { virtual = "." }
 dependencies = [
     { name = "dateparser" },
-    { name = "freezegun" },
     { name = "keboola-component" },
     { name = "keboola-http-client" },
     { name = "keboola-utils" },
@@ -133,6 +132,7 @@ dependencies = [
 
 [package.dev-dependencies]
 dev = [
+    { name = "freezegun" },
     { name = "keboola-datadirtest" },
     { name = "pytest" },
     { name = "responses" },
@@ -142,7 +142,6 @@ dev = [
 [package.metadata]
 requires-dist = [
     { name = "dateparser", specifier = ">=1.4.0" },
-    { name = "freezegun", specifier = ">=1.5.1" },
     { name = "keboola-component", specifier = ">=1.9.0" },
     { name = "keboola-http-client", specifier = ">=1.0.1" },
     { name = "keboola-utils", specifier = ">=1.1.0" },
@@ -152,6 +151,7 @@ requires-dist = [
 
 [package.metadata.requires-dev]
 dev = [
+    { name = "freezegun", specifier = ">=1.5.1" },
     { name = "keboola-datadirtest", specifier = ">=2.0.0" },
     { name = "pytest", specifier = ">=9.0.2" },
     { name = "responses", specifier = ">=0.26.1" },
