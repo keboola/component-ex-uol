@@ -1,4 +1,6 @@
+import pytest
 import responses
+from keboola.component.exceptions import UserException
 
 from src.client import UolClient
 
@@ -21,6 +23,26 @@ def test_retries_after_429_then_succeeds():
     client = UolClient(BASE, "e@x.cz", "t", sleep=lambda s: slept.append(s))
     assert client.ping_request() == {"status": "ok"}
     assert slept == [1.0]
+
+
+@responses.activate
+def test_persistent_429_raises_userexception():
+    for _ in range(10):
+        responses.add(responses.GET, f"{BASE}/v1/ping",
+                      json={"error_code": "0010"}, status=429, headers={"Retry-After": "0"})
+    client = UolClient(BASE, "e@x.cz", "t", max_retries=2, sleep=lambda s: None)
+    with pytest.raises(UserException):
+        client.ping_request()
+
+
+@responses.activate
+def test_persistent_500_raises_userexception():
+    for _ in range(10):
+        responses.add(responses.GET, f"{BASE}/v1/ping",
+                      json={"error": "internal"}, status=500)
+    client = UolClient(BASE, "e@x.cz", "t", max_retries=2, sleep=lambda s: None)
+    with pytest.raises(UserException):
+        client.ping_request()
 
 
 @responses.activate

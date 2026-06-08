@@ -63,16 +63,18 @@ class UolClient:
             self._throttle()
             resp = self.session.request(method, url, params=params)
             self._record_call()
-            if resp.status_code == 429 and attempt < self._max_retries:
-                self._sleep(self._retry_after(resp))
-                continue
-            if resp.status_code >= 500 and attempt < self._max_retries:
-                self._sleep(min(2 ** attempt, MAX_BACKOFF_SECONDS))
-                continue
+            if resp.status_code == 429 or resp.status_code >= 500:
+                if attempt < self._max_retries:
+                    delay = self._retry_after(resp) if resp.status_code == 429 else min(2 ** attempt, MAX_BACKOFF_SECONDS)
+                    self._sleep(delay)
+                    continue
+                raise UserException(
+                    f"UOL API still failing after {self._max_retries} retries "
+                    f"(HTTP {resp.status_code}): {url}. Try again later or reduce request volume."
+                )
             if resp.status_code >= 400:
                 self._raise_for_status(resp)
             return resp.json()
-        raise UserException(f"UOL API still failing after {self._max_retries} retries: {url}")
 
     def _throttle(self) -> None:
         now = self._clock()
