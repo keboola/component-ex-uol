@@ -29,12 +29,26 @@ records, …) into Keboola Storage tables, one object per config row, with optio
   and safe here since each row writes a distinct table and owns its state — we don't enable it by
   default. Connection/auth lives at **config level**; endpoint selection + load options live at
   **row level**.
-- **Incremental strategy.** Endpoint-dependent (the API has no universal `modified-since`). The client
-  carries a per-endpoint registry declaring whether the endpoint supports a date/updated cursor and
-  which query param drives it. Where supported, the row defaults to incremental: persist a `last_run`
-  ISO-UTC watermark in `state.json`, pass it as the endpoint's `*_from` filter, set incremental output
-  mapping with the resource primary key (upsert). Where unsupported, full load every run (stated in
-  the registry). Watermark is captured **before** fetch and persisted **after** a successful write.
+- **Incremental strategy — user-driven `date_field` + `date_from` (revised after checklist review).**
+  The API has no universal `modified-since`, and only **6 endpoints** expose any date filter at all
+  (`sales_invoices`, `sales_orders`, `purchase_invoices`, `accounting_records`, `receivables`,
+  `uploaded_documents`); the other 23 are **full-load only** by API design. Critically, the available
+  filters mix true update cursors (`updated_at_from`, `created_at_from`, `last_payment_time_from`) with
+  **business-document dates** (`issue_date_from`, `due_date_from`, `date_from`, …) — so the component
+  must **not** hardcode one cursor and stuff wall-clock-now into it (that silently drops backdated /
+  late-entered / same-date-edited records). Instead the registry stores, per endpoint, the **full list
+  of available `*_from` params**, and the user controls incrementality with two row fields:
+  - **`date_field`** — which `*_from` param to filter on, chosen from a dropdown populated by the
+    `listDateFields` sync action (reads the registry for the selected endpoint). Empty / no available
+    fields → **full load**, no date filter.
+  - **`date_from`** — the lower-bound value, accepting: **`last_run`** (use the `state.json` watermark),
+    relative phrases (**`yesterday`**, **`5 days ago`**, …), or a **hardcoded ISO date**. Parsed with
+    `dateparser`. `last_run` with no stored watermark → first run is unfiltered (full history), then the
+    watermark takes over.
+  - **Watermark:** `run_started_at` (UTC) captured **before** fetch, persisted as `last_run` **after** a
+    successful write, only when a `date_field` is active. Output mapping is incremental (PK upsert) when
+    a `date_field` is set; full-overwrite otherwise. (`load_type` is **replaced** by this `date_field` +
+    `date_from` model.)
 - **Secrets.** The API token is a `#`-prefixed key (`#api_token`) so the platform encrypts it.
 - **Sync actions.** `test-connection` (calls `/v1/ping`) validates credentials in the UI. The endpoint
   picker is a **static enum dropdown** in the row schema, not a sync action — UOL's endpoint catalog is
@@ -124,12 +138,15 @@ records, …) into Keboola Storage tables, one object per config row, with optio
   - Sync action: **test-connection** button.
 - **Row-level (`configRowSchema.json`):**
   - `endpoint` (string, required) — **enum dropdown** of the registry resources (§4).
-  - `load_type` (enum, default `incremental_load`) — `full_load` | `incremental_load`. Honoured only
-    when the selected endpoint supports an incremental cursor; otherwise full load regardless (the UI
-    note states this).
-  - `date_from` (string, optional) — ISO date seed for the **first** incremental run / lower bound of a
-    full window; ignored once a `state.json` watermark exists.
-- **Defaults:** `load_type=incremental_load`; `per_page` fixed at 250 internally (not user-exposed).
+  - `date_field` (string, optional) — which `*_from` API filter to use; a dropdown populated by the
+    **`listDateFields`** sync action (returns the selected endpoint's available date filters from the
+    registry, empty for the 23 full-load-only endpoints). Empty → full load.
+  - `date_from` (string, optional) — lower-bound value: **`last_run`** (use `state.json` watermark),
+    a relative phrase (**`yesterday`**, **`5 days ago`**), or a hardcoded **ISO date**. Parsed with
+    `dateparser`. Only applied when `date_field` is set. `last_run` with no stored watermark → unfiltered
+    first run.
+- **Defaults:** `date_field` empty (full load) unless the user opts into incremental; `per_page` fixed
+  at 250 internally (not user-exposed). `load_type` is removed (superseded by `date_field` + `date_from`).
 
 ## 6. Code architecture
 
@@ -139,20 +156,26 @@ records, …) into Keboola Storage tables, one object per config row, with optio
 - **`src/client.py`** — `UolClient`: `__init__(base_url, email, token)`; `ping()` for test-connection;
   `iter_records(endpoint, params)` generator that handles Basic auth, pagination (`_meta.next`),
   self-throttling, and 429/5xx retry+backoff (`requests` + `urllib3 Retry`/manual backoff).
-- **`src/configuration.py`** — Pydantic models: `Configuration` (`base_url`, `email`, `pswd_api_token`)
-  and `RowConfiguration` (`endpoint`, `load_type`, `date_from`), with a `LoadType` StrEnum and a
-  computed `incremental` property. Validated early.
+- **`src/configuration.py`** — Pydantic models: a connection-only `ConnectionConfig`
+  (`base_url`, `email`, `#api_token`) used by the `test_connection` sync action (must NOT require
+  row-level fields), and the full `Configuration` (adds `endpoint`, `date_field`, `date_from`) used by
+  `run()`. A `resolve_since(date_from, state)` helper parses `last_run`/relative/ISO via `dateparser`.
+  Validated early.
 - **`src/component.py`** — `Component(ComponentBase)`: `run()` is a thin orchestrator —
   `_get_config` → build client → resolve `since` from `state.json` (if incremental + supported) →
   `_fetch` records → `_write_parent_and_children` (parent table + exploded child tables, **`schema`
   manifests** with explicit PK + incremental flag) → advance `state.json` watermark on success. Sync
   action `test_connection`. Any scratch/temp work uses **`/tmp`**, never `/data/out/tables/` (every
   file there is uploaded as a table). Reads `KBC_DATA_TYPE_SUPPORT` via the SDK to pick manifest format.
-- **Error handling:** `UserException` (exit 1) for bad config (missing/invalid `base_url`/email/token),
-  auth failure (401/`0001`,`0002`), invalid customer (`0003`), and not-found (`0004`); unexpected
-  errors bubble up as exit 2. 429 is handled by retry, not surfaced as an error unless retries exhaust.
+- **Error handling:** `UserException` (exit 1) for bad config, auth failure (401/403), not-found (404),
+  **network/transport errors** (`requests.RequestException` — connection/DNS/timeout/SSL),
+  **any other 4xx** (e.g. 400/422 bad filter), **non-JSON 200 bodies**, and **exhausted 429/5xx
+  retries**. None of these may escape as a raw exception (which would be exit 2 / "internal error").
+  Unexpected/programming errors still bubble up as exit 2. 429/5xx are retried with backoff first.
+- **Logging:** `run()` emits INFO progress — selected endpoint + resolved `since`, record/row counts per
+  table, and watermark advance — never logging the token, headers, or full response bodies.
 - **Key dependencies:** `keboola.component` (core SDK), `requests` (HTTP), `pydantic` (config),
-  `urllib3 Retry` (backoff). No vendor SDK (the only one, Ruby `pina`, is archived and irrelevant).
+  `dateparser` (relative `date_from` parsing). No vendor SDK (the only one, Ruby `pina`, is archived).
 
 ## 7. Testing
 
