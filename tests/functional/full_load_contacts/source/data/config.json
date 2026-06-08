@@ -1,0 +1,9 @@
+{
+  "parameters": {
+    "base_url": "https://test.demo.uol.cz/api",
+    "email": "demo@example.com",
+    "#api_token": "token",
+    "endpoint": "contacts",
+    "load_type": "full_load"
+  }
+}

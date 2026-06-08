@@ -1,103 +1,118 @@
-"""
-Template Component main class.
+"""ex-uol — UOL Účetnictví extractor."""
 
-"""
+from __future__ import annotations
 
 import csv
-import logging
-from datetime import datetime
+from datetime import UTC, datetime
 
-from keboola.component.base import ComponentBase
+from keboola.component.base import ComponentBase, sync_action
+from keboola.component.dao import BaseType, ColumnDefinition
 from keboola.component.exceptions import UserException
+from keboola.component.sync_actions import ValidationResult
 
-from configuration import Configuration
+from src.client import UolClient
+from src.configuration import Configuration
+from src.endpoints import endpoint_names, get_endpoint
+from src.flatten import flatten_record
+
+STATE_LAST_RUN = "last_run"
 
 
 class Component(ComponentBase):
-    """
-    Extends base class for general Python components. Initializes the CommonInterface
-    and performs configuration validation.
-
-    For easier debugging the data folder is picked up by default from `../data` path,
-    relative to working directory.
-
-    If `debug` parameter is present in the `config.json`, the default logger is set to verbose DEBUG mode.
-    """
-
-    def __init__(self):
-        super().__init__()
-
     def run(self):
-        """
-        Main execution code
-        """
+        cfg = self._get_config()
+        endpoint = get_endpoint(cfg.endpoint)
+        client = UolClient(cfg.base_url, cfg.email, cfg.api_token)
 
-        # ####### EXAMPLE TO REMOVE
-        # check for missing configuration parameters
-        params = Configuration(**self.configuration.parameters)
+        run_started_at = datetime.now(UTC)
+        since = self._resolve_since(cfg, endpoint)
+        params = self._build_params(endpoint, since)
 
-        # Access parameters in configuration
-        if params.print_hello:
-            logging.info("Hello World")
+        parent_rows: list[dict] = []
+        child_rows: dict[str, list[dict]] = {}
+        for record in client.iter_records(endpoint.path, params=params):
+            parent, children = flatten_record(record, endpoint)
+            parent_rows.append(parent)
+            for table, rows in children.items():
+                child_rows.setdefault(table, []).extend(rows)
 
-        # get input table definitions
-        input_tables = self.get_input_tables_definitions()
-        for table in input_tables:
-            logging.info("Received input table: %s with path: %s", table.name, table.full_path)
+        self._write_table(endpoint.name, parent_rows, endpoint.primary_key, cfg.incremental)
+        for table, rows in child_rows.items():
+            self._write_table(table, rows, self._child_pk(endpoint), cfg.incremental)
 
-        if len(input_tables) == 0:
-            raise UserException("No input tables found")
+        if cfg.incremental and endpoint.incremental_param:
+            self.write_state_file({STATE_LAST_RUN: run_started_at.isoformat()})
 
-        # get last state data/in/state.json from previous run
-        previous_state = self.get_state_file()
-        logging.info(previous_state.get("some_parameter"))
+    def _get_config(self) -> Configuration:
+        try:
+            return Configuration(**self.configuration.parameters)
+        except Exception as exc:  # noqa: BLE001
+            raise UserException(f"Invalid configuration: {exc}") from exc
 
-        # Create output table (Table definition - just metadata)
-        table = self.create_out_table_definition("output.csv", incremental=True, primary_key=["timestamp"])
+    def _resolve_since(self, cfg: Configuration, endpoint) -> str | None:
+        if not (cfg.incremental and endpoint.incremental_param):
+            return cfg.date_from if not cfg.incremental else None
+        state = self.get_state_file() or {}
+        return state.get(STATE_LAST_RUN) or cfg.date_from
 
-        # get file path of the table (data/out/tables/Features.csv)
-        out_table_path = table.full_path
-        logging.info(out_table_path)
+    @staticmethod
+    def _build_params(endpoint, since: str | None) -> dict:
+        if since and endpoint.incremental_param:
+            return {endpoint.incremental_param: since}
+        return {}
 
-        # Add timestamp column and save into out_table_path
-        input_table = input_tables[0]
-        with (
-            open(input_table.full_path) as inp_file,
-            open(table.full_path, mode="w", encoding="utf-8", newline="") as out_file,
-        ):
-            reader = csv.DictReader(inp_file)
+    @staticmethod
+    def _child_pk(endpoint) -> list[str]:
+        if not endpoint.primary_key:
+            return []
+        return [f"{endpoint.name}_{endpoint.primary_key[0]}", "_item_index"]
 
-            columns = list(reader.fieldnames)
-            # append timestamp
-            columns.append("timestamp")
-
-            # write result with column added
-            writer = csv.DictWriter(out_file, fieldnames=columns)
+    def _write_table(self, name: str, rows: list[dict], primary_key: list[str], incremental: bool):
+        columns = self._collect_columns(rows, primary_key)
+        table = self.create_out_table_definition(
+            f"{name}.csv",
+            schema={c: ColumnDefinition(data_types=BaseType.string()) for c in columns},
+            primary_key=primary_key,
+            incremental=incremental,
+        )
+        with open(table.full_path, "w", encoding="utf-8", newline="") as fh:
+            writer = csv.DictWriter(fh, fieldnames=columns, extrasaction="ignore")
             writer.writeheader()
-            for in_row in reader:
-                in_row["timestamp"] = datetime.now().isoformat()
-                writer.writerow(in_row)
-
-        # Save table manifest (output.csv.manifest) from the Table definition
+            for row in rows:
+                writer.writerow(row)
         self.write_manifest(table)
 
-        # Write new state - will be available next run
-        self.write_state_file({"some_state_parameter": "value"})
+    @staticmethod
+    def _collect_columns(rows: list[dict], primary_key: list[str]) -> list[str]:
+        ordered: list[str] = list(primary_key)
+        for row in rows:
+            for key in row:
+                if key not in ordered:
+                    ordered.append(key)
+        return ordered
 
-        # ####### EXAMPLE TO REMOVE END
+    @sync_action("testConnection")
+    def test_connection(self) -> ValidationResult:
+        cfg = self._get_config()
+        client = UolClient(cfg.base_url, cfg.email, cfg.api_token)
+        if not client.ping():
+            raise UserException("Could not authenticate against UOL (/v1/ping failed).")
+        return ValidationResult("Connection established.")
+
+    @sync_action("listEndpoints")
+    def list_endpoints(self):
+        from keboola.component.sync_actions import SelectElement
+        return [SelectElement(value=n, label=n) for n in endpoint_names()]
 
 
-"""
-        Main entrypoint
-"""
 if __name__ == "__main__":
     try:
-        comp = Component()
-        # this triggers the run method by default and is controlled by the configuration.action parameter
-        comp.execute_action()
+        Component().execute_action()
     except UserException as exc:
+        import logging
         logging.exception(exc)
         exit(1)
-    except Exception as exc:
+    except Exception as exc:  # noqa: BLE001
+        import logging
         logging.exception(exc)
         exit(2)
