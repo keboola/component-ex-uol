@@ -1,13 +1,13 @@
 {
   "type": "object",
   "title": "UOL Connection",
-  "required": ["server_type", "email", "#api_token"],
+  "required": ["server_type", "customer_id", "email", "#api_token"],
   "properties": {
     "server_type": {
       "type": "string",
       "title": "Server",
       "description": "Which UOL environment to connect to.",
-      "enum": ["production", "sandbox", "demo"],
+      "enum": ["production", "sandbox"],
       "default": "production",
       "format": "select",
       "propertyOrder": 1
@@ -15,13 +15,8 @@
     "customer_id": {
       "type": "string",
       "title": "Customer ID",
-      "description": "Your UOL customer ID (the subdomain assigned by UOL). Required for Production and Sandbox; leave empty for Demo.",
-      "propertyOrder": 2,
-      "options": {
-        "dependencies": {
-          "server_type": ["production", "sandbox"]
-        }
-      }
+      "description": "Your UOL customer ID (the subdomain assigned by UOL).",
+      "propertyOrder": 2
     },
     "email": {
       "type": "string",

@@ -20,6 +20,10 @@ from pydantic import BaseModel, ConfigDict, Field, model_validator
 class ServerType(StrEnum):
     production = "production"
     sandbox = "sandbox"
+    # `demo` is intentionally NOT offered in configSchema.json's server_type enum
+    # (no customer configures Demo). It is kept here so our VCR/datadir tests and
+    # internal smoke-test configs can target the shared demo tenant by setting
+    # `server_type=demo` directly in config JSON (bypassing the UI). Do not remove.
     demo = "demo"
 
 
