@@ -1,6 +1,6 @@
 import json
 
-from src.endpoints import get_endpoint
+from src.endpoints import Endpoint, get_endpoint
 from src.flatten import flatten_record
 
 
@@ -44,3 +44,13 @@ def test_endpoint_without_pk_still_flattens():
     parent, children = flatten_record({"number": "1", "amount": 5}, ep)
     assert parent == {"number": "1", "amount": 5}
     assert children == {}
+
+
+def test_child_nested_object_is_json_encoded():
+    ep = Endpoint(name="contacts", path="v1/contacts", primary_key=["contact_id"], child_arrays=("addresses",))
+    rec = {"contact_id": "acme", "addresses": [{"address_id": "hq", "creator": {"user_id": "u1"}}]}
+    _parent, children = flatten_record(rec, ep)
+    row = children["contacts_addresses"][0]
+    assert json.loads(row["creator"]) == {"user_id": "u1"}  # JSON string, not Python repr
+    assert row["contacts_contact_id"] == "acme"
+    assert row["_item_index"] == 0
