@@ -52,12 +52,44 @@ class UolClient:
                 break
             query["page"] += 1
 
+    def ping_request(self) -> dict:
+        return self._request("GET", "v1/ping")
+
     def _request(self, method: str, path: str, params: dict | None = None) -> dict:
         url = f"{self.base_url}/{path.lstrip('/')}"
-        resp = self.session.request(method, url, params=params)
-        if resp.status_code >= 400:
-            self._raise_for_status(resp)
-        return resp.json()
+        for attempt in range(self._max_retries + 1):
+            self._throttle()
+            resp = self.session.request(method, url, params=params)
+            self._record_call()
+            if resp.status_code == 429 and attempt < self._max_retries:
+                self._sleep(self._retry_after(resp))
+                continue
+            if resp.status_code >= 500 and attempt < self._max_retries:
+                self._sleep(min(2 ** attempt, 30))
+                continue
+            if resp.status_code >= 400:
+                self._raise_for_status(resp)
+            return resp.json()
+        raise UserException(f"UOL API still failing after {self._max_retries} retries: {url}")
+
+    def _throttle(self) -> None:
+        now = self._clock()
+        while self._calls and now - self._calls[0] >= self._window_seconds:
+            self._calls.popleft()
+        if len(self._calls) >= self._max_per_window:
+            wait = self._window_seconds - (now - self._calls[0])
+            if wait > 0:
+                self._sleep(wait)
+
+    def _record_call(self) -> None:
+        self._calls.append(self._clock())
+
+    @staticmethod
+    def _retry_after(resp: requests.Response) -> float:
+        try:
+            return float(resp.headers.get("Retry-After", 30))
+        except (TypeError, ValueError):
+            return 30.0
 
     def _raise_for_status(self, resp: requests.Response) -> None:
         if resp.status_code in (401, 403):
