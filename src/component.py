@@ -178,9 +178,11 @@ class Component(ComponentBase):
             primary_key=primary_key,
             incremental=incremental,
         )
+        # Headerless CSV: when a `schema` is passed, create_out_table_definition sets
+        # has_header=false (the schema declares the columns), so writing a header row
+        # would make Storage load it as data and fail type enforcement (e.g. "gid" → INTEGER).
         with open(table.full_path, "w", encoding="utf-8", newline="") as fh:
             writer = csv.DictWriter(fh, fieldnames=columns, extrasaction="ignore")
-            writer.writeheader()
             for row in rows:
                 writer.writerow(row)
         self.write_manifest(table)
