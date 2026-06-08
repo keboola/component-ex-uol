@@ -171,7 +171,7 @@ in the portal, confirmed via a fresh `kbagent dev-portal` GET.
 **Evidence:** _
 
 ### Phase 7 — Deploy + smoke-test in cf-dev (image-tag override) · owner: `component-test` (tier 4)
-- [ ] complete
+- [x] complete
 
 **Definition of done:** an image built from the `initial-implementation` branch exists in the
 platform; a config created in the **cf-dev** project (via kbagent) with the **image tag overridden**
@@ -180,7 +180,15 @@ to that branch build; a real job run **succeeded** end-to-end. Evidence must inc
 `initial-implementation` build, not a stale stable release (a green job against the wrong image is a
 false pass).
 
-**Evidence:** _
+**Evidence:** ✅ Done 2026-06-08 (cf-dev, config `01ktkjakfewqm9djyxjceyx7ph`). Job **`47250250` SUCCESS**
+(115s), resolved image **`initial-implementation-4`** digest `sha256:91c26e67…c901d40` (verified in the
+child job `images[]` — NOT `-3`, NOT `0.0.1`). Output tables: `contacts` 187 + `contacts_addresses` 214
+(child), `sales_invoices` 238 + `sales_invoices_items` 379 (child), `accounting_records` (incremental
+5-day window). The first attempt on `-3` caught + fixed a real packaging bug
+(`ModuleNotFoundError: No module named 'src'` — fixed in `40fb1a2` via flat imports per the CF
+template). Two follow-ups surfaced: (a) config needed a `storage.output.default_bucket` override since
+dev-portal `defaultBucket:false` → consider `defaultBucket:true` in Phase 6; (b) `accounting_records`
+returned a thin row for the 5-day window — verify the field shape (likely just sparse demo data).
 
 ### Phase 8 — Final CF-standards review · owner: `component-checklist-review`
 - [x] complete
