@@ -157,7 +157,7 @@ demo email, and `Authorization: Basic <b64>` → **clean (no matches)** via `Def
 > gitignored.
 
 ### Phase 6 — Full Developer Portal value setup · owner: `component-dev-portal`
-- [ ] complete
+- [x] complete
 
 **Definition of done — MUST happen *after* the `0.0.1` release:** configSchema (and row schema if
 config rows), sync actions, and the portal-owned properties (descriptions, UI options, etc.) are live
@@ -168,7 +168,15 @@ in the portal, confirmed via a fresh `kbagent dev-portal` GET.
 > release already happened in Phase 1, so this manual value setup is safe here — but if any further
 > release is cut afterwards, re-confirm the synced-vs-portal-owned property boundary.
 
-**Evidence:** _
+**Evidence:** ✅ Done 2026-06-08, confirmed via fresh `kbagent dev-portal get` (app **version 12**).
+Single TTY-confirmed patch applied: `configurationSchema` (real UOL Connection — base_url/email/
+#api_token + test-connection), `configurationRowSchema` (endpoint/date_field/date_from with async
+dropdowns), real short/long/configuration descriptions, `sourceCodeUrl`. Portal-direct (sync never
+touches): `dataTypeSupport=authoritative`, `defaultBucket=true` + stage `in` (resolves the Phase 7
+bucket-override finding), `encryption=true`, `uiOptions=[genericDockerUI, genericDockerUI-rows]`,
+`actions=[run, testConnection, listEndpoints, listDateFields]`. The `[script]` props (schemas,
+descriptions) are also backed by the committed `component_config/*` files, so the next release re-syncs
+the same values.
 
 ### Phase 7 — Deploy + smoke-test in cf-dev (image-tag override) · owner: `component-test` (tier 4)
 - [x] complete
