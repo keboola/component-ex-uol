@@ -5,7 +5,7 @@
     "config": {
       "action": "testConnection",
       "parameters": {
-        "base_url": "https://test.demo.uol.cz/api",
+        "server_type": "demo",
         "email": "DUMMY_EMAIL",
         "#api_token": "DUMMY_TOKEN",
         "endpoint": "contacts"
@@ -18,7 +18,7 @@
     "config": {
       "action": "listEndpoints",
       "parameters": {
-        "base_url": "https://test.demo.uol.cz/api",
+        "server_type": "demo",
         "email": "DUMMY_EMAIL",
         "#api_token": "DUMMY_TOKEN",
         "endpoint": "contacts"
@@ -31,7 +31,7 @@
     "config": {
       "action": "listDateFields",
       "parameters": {
-        "base_url": "https://test.demo.uol.cz/api",
+        "server_type": "demo",
         "email": "DUMMY_EMAIL",
         "#api_token": "DUMMY_TOKEN",
         "endpoint": "sales_invoices"
@@ -44,7 +44,7 @@
     "config": {
       "action": "listDateFields",
       "parameters": {
-        "base_url": "https://test.demo.uol.cz/api",
+        "server_type": "demo",
         "email": "DUMMY_EMAIL",
         "#api_token": "DUMMY_TOKEN",
         "endpoint": "contacts"
@@ -57,10 +57,11 @@
     "config": {
       "action": "run",
       "parameters": {
-        "base_url": "https://test.demo.uol.cz/api",
+        "server_type": "demo",
         "email": "bad@example.com",
         "#api_token": "bad-token",
-        "endpoint": "contacts"
+        "endpoint": "contacts",
+        "load_type": "full_load"
       }
     }
   },
@@ -70,10 +71,11 @@
     "config": {
       "action": "run",
       "parameters": {
-        "base_url": "https://test.demo.uol.cz/api",
+        "server_type": "demo",
         "email": "DUMMY_EMAIL",
         "#api_token": "DUMMY_TOKEN",
         "endpoint": "accounting_records",
+        "load_type": "incremental_load",
         "date_field": "date_from",
         "date_from": "2026-01-01"
       }
@@ -85,10 +87,11 @@
     "config": {
       "action": "run",
       "parameters": {
-        "base_url": "https://test.demo.uol.cz/api",
+        "server_type": "demo",
         "email": "DUMMY_EMAIL",
         "#api_token": "DUMMY_TOKEN",
-        "endpoint": "accounting_records"
+        "endpoint": "accounting_records",
+        "load_type": "full_load"
       }
     }
   },
@@ -98,10 +101,11 @@
     "config": {
       "action": "run",
       "parameters": {
-        "base_url": "https://test.demo.uol.cz/api",
+        "server_type": "demo",
         "email": "DUMMY_EMAIL",
         "#api_token": "DUMMY_TOKEN",
-        "endpoint": "bank_movement_items"
+        "endpoint": "bank_movement_items",
+        "load_type": "full_load"
       }
     }
   },
@@ -111,10 +115,11 @@
     "config": {
       "action": "run",
       "parameters": {
-        "base_url": "https://test.demo.uol.cz/api",
+        "server_type": "demo",
         "email": "DUMMY_EMAIL",
         "#api_token": "DUMMY_TOKEN",
-        "endpoint": "bank_movements"
+        "endpoint": "bank_movements",
+        "load_type": "full_load"
       }
     }
   },
@@ -124,10 +129,11 @@
     "config": {
       "action": "run",
       "parameters": {
-        "base_url": "https://test.demo.uol.cz/api",
+        "server_type": "demo",
         "email": "DUMMY_EMAIL",
         "#api_token": "DUMMY_TOKEN",
-        "endpoint": "contact_bank_accounts"
+        "endpoint": "contact_bank_accounts",
+        "load_type": "full_load"
       }
     }
   },
@@ -137,10 +143,11 @@
     "config": {
       "action": "run",
       "parameters": {
-        "base_url": "https://test.demo.uol.cz/api",
+        "server_type": "demo",
         "email": "DUMMY_EMAIL",
         "#api_token": "DUMMY_TOKEN",
-        "endpoint": "contacts"
+        "endpoint": "contacts",
+        "load_type": "full_load"
       }
     }
   },
@@ -150,10 +157,11 @@
     "config": {
       "action": "run",
       "parameters": {
-        "base_url": "https://test.demo.uol.cz/api",
+        "server_type": "demo",
         "email": "DUMMY_EMAIL",
         "#api_token": "DUMMY_TOKEN",
-        "endpoint": "contracts"
+        "endpoint": "contracts",
+        "load_type": "full_load"
       }
     }
   },
@@ -163,10 +171,11 @@
     "config": {
       "action": "run",
       "parameters": {
-        "base_url": "https://test.demo.uol.cz/api",
+        "server_type": "demo",
         "email": "DUMMY_EMAIL",
         "#api_token": "DUMMY_TOKEN",
-        "endpoint": "countries"
+        "endpoint": "countries",
+        "load_type": "full_load"
       }
     }
   },
@@ -176,10 +185,11 @@
     "config": {
       "action": "run",
       "parameters": {
-        "base_url": "https://test.demo.uol.cz/api",
+        "server_type": "demo",
         "email": "DUMMY_EMAIL",
         "#api_token": "DUMMY_TOKEN",
-        "endpoint": "currencies"
+        "endpoint": "currencies",
+        "load_type": "full_load"
       }
     }
   },
@@ -189,10 +199,11 @@
     "config": {
       "action": "run",
       "parameters": {
-        "base_url": "https://test.demo.uol.cz/api",
+        "server_type": "demo",
         "email": "DUMMY_EMAIL",
         "#api_token": "DUMMY_TOKEN",
-        "endpoint": "demands_for_payment"
+        "endpoint": "demands_for_payment",
+        "load_type": "full_load"
       }
     }
   },
@@ -202,10 +213,11 @@
     "config": {
       "action": "run",
       "parameters": {
-        "base_url": "https://test.demo.uol.cz/api",
+        "server_type": "demo",
         "email": "DUMMY_EMAIL",
         "#api_token": "DUMMY_TOKEN",
-        "endpoint": "departments"
+        "endpoint": "departments",
+        "load_type": "full_load"
       }
     }
   },
@@ -215,10 +227,11 @@
     "config": {
       "action": "run",
       "parameters": {
-        "base_url": "https://test.demo.uol.cz/api",
+        "server_type": "demo",
         "email": "DUMMY_EMAIL",
         "#api_token": "DUMMY_TOKEN",
-        "endpoint": "document_templates"
+        "endpoint": "document_templates",
+        "load_type": "full_load"
       }
     }
   },
@@ -228,10 +241,11 @@
     "config": {
       "action": "run",
       "parameters": {
-        "base_url": "https://test.demo.uol.cz/api",
+        "server_type": "demo",
         "email": "DUMMY_EMAIL",
         "#api_token": "DUMMY_TOKEN",
-        "endpoint": "internal_documents"
+        "endpoint": "internal_documents",
+        "load_type": "full_load"
       }
     }
   },
@@ -241,10 +255,11 @@
     "config": {
       "action": "run",
       "parameters": {
-        "base_url": "https://test.demo.uol.cz/api",
+        "server_type": "demo",
         "email": "DUMMY_EMAIL",
         "#api_token": "DUMMY_TOKEN",
-        "endpoint": "my_bank_accounts"
+        "endpoint": "my_bank_accounts",
+        "load_type": "full_load"
       }
     }
   },
@@ -254,10 +269,11 @@
     "config": {
       "action": "run",
       "parameters": {
-        "base_url": "https://test.demo.uol.cz/api",
+        "server_type": "demo",
         "email": "DUMMY_EMAIL",
         "#api_token": "DUMMY_TOKEN",
-        "endpoint": "my_companies"
+        "endpoint": "my_companies",
+        "load_type": "full_load"
       }
     }
   },
@@ -267,10 +283,11 @@
     "config": {
       "action": "run",
       "parameters": {
-        "base_url": "https://test.demo.uol.cz/api",
+        "server_type": "demo",
         "email": "DUMMY_EMAIL",
         "#api_token": "DUMMY_TOKEN",
-        "endpoint": "payment_rules"
+        "endpoint": "payment_rules",
+        "load_type": "full_load"
       }
     }
   },
@@ -280,10 +297,11 @@
     "config": {
       "action": "run",
       "parameters": {
-        "base_url": "https://test.demo.uol.cz/api",
+        "server_type": "demo",
         "email": "DUMMY_EMAIL",
         "#api_token": "DUMMY_TOKEN",
-        "endpoint": "petty_cash_disburstments"
+        "endpoint": "petty_cash_disburstments",
+        "load_type": "full_load"
       }
     }
   },
@@ -293,10 +311,11 @@
     "config": {
       "action": "run",
       "parameters": {
-        "base_url": "https://test.demo.uol.cz/api",
+        "server_type": "demo",
         "email": "DUMMY_EMAIL",
         "#api_token": "DUMMY_TOKEN",
-        "endpoint": "petty_cash_incomes"
+        "endpoint": "petty_cash_incomes",
+        "load_type": "full_load"
       }
     }
   },
@@ -306,10 +325,11 @@
     "config": {
       "action": "run",
       "parameters": {
-        "base_url": "https://test.demo.uol.cz/api",
+        "server_type": "demo",
         "email": "DUMMY_EMAIL",
         "#api_token": "DUMMY_TOKEN",
-        "endpoint": "petty_cashes"
+        "endpoint": "petty_cashes",
+        "load_type": "full_load"
       }
     }
   },
@@ -319,10 +339,11 @@
     "config": {
       "action": "run",
       "parameters": {
-        "base_url": "https://test.demo.uol.cz/api",
+        "server_type": "demo",
         "email": "DUMMY_EMAIL",
         "#api_token": "DUMMY_TOKEN",
-        "endpoint": "predefined_texts"
+        "endpoint": "predefined_texts",
+        "load_type": "full_load"
       }
     }
   },
@@ -332,10 +353,11 @@
     "config": {
       "action": "run",
       "parameters": {
-        "base_url": "https://test.demo.uol.cz/api",
+        "server_type": "demo",
         "email": "DUMMY_EMAIL",
         "#api_token": "DUMMY_TOKEN",
-        "endpoint": "price_lists"
+        "endpoint": "price_lists",
+        "load_type": "full_load"
       }
     }
   },
@@ -345,10 +367,11 @@
     "config": {
       "action": "run",
       "parameters": {
-        "base_url": "https://test.demo.uol.cz/api",
+        "server_type": "demo",
         "email": "DUMMY_EMAIL",
         "#api_token": "DUMMY_TOKEN",
-        "endpoint": "product_categories"
+        "endpoint": "product_categories",
+        "load_type": "full_load"
       }
     }
   },
@@ -358,10 +381,11 @@
     "config": {
       "action": "run",
       "parameters": {
-        "base_url": "https://test.demo.uol.cz/api",
+        "server_type": "demo",
         "email": "DUMMY_EMAIL",
         "#api_token": "DUMMY_TOKEN",
-        "endpoint": "products"
+        "endpoint": "products",
+        "load_type": "full_load"
       }
     }
   },
@@ -371,10 +395,11 @@
     "config": {
       "action": "run",
       "parameters": {
-        "base_url": "https://test.demo.uol.cz/api",
+        "server_type": "demo",
         "email": "DUMMY_EMAIL",
         "#api_token": "DUMMY_TOKEN",
-        "endpoint": "purchase_invoices"
+        "endpoint": "purchase_invoices",
+        "load_type": "full_load"
       }
     }
   },
@@ -384,10 +409,11 @@
     "config": {
       "action": "run",
       "parameters": {
-        "base_url": "https://test.demo.uol.cz/api",
+        "server_type": "demo",
         "email": "DUMMY_EMAIL",
         "#api_token": "DUMMY_TOKEN",
-        "endpoint": "purchase_orders"
+        "endpoint": "purchase_orders",
+        "load_type": "full_load"
       }
     }
   },
@@ -397,10 +423,11 @@
     "config": {
       "action": "run",
       "parameters": {
-        "base_url": "https://test.demo.uol.cz/api",
+        "server_type": "demo",
         "email": "DUMMY_EMAIL",
         "#api_token": "DUMMY_TOKEN",
-        "endpoint": "receivables"
+        "endpoint": "receivables",
+        "load_type": "full_load"
       }
     }
   },
@@ -410,10 +437,11 @@
     "config": {
       "action": "run",
       "parameters": {
-        "base_url": "https://test.demo.uol.cz/api",
+        "server_type": "demo",
         "email": "DUMMY_EMAIL",
         "#api_token": "DUMMY_TOKEN",
-        "endpoint": "retails"
+        "endpoint": "retails",
+        "load_type": "full_load"
       }
     }
   },
@@ -423,10 +451,11 @@
     "config": {
       "action": "run",
       "parameters": {
-        "base_url": "https://test.demo.uol.cz/api",
+        "server_type": "demo",
         "email": "DUMMY_EMAIL",
         "#api_token": "DUMMY_TOKEN",
-        "endpoint": "sales_invoices"
+        "endpoint": "sales_invoices",
+        "load_type": "full_load"
       }
     }
   },
@@ -436,10 +465,11 @@
     "config": {
       "action": "run",
       "parameters": {
-        "base_url": "https://test.demo.uol.cz/api",
+        "server_type": "demo",
         "email": "DUMMY_EMAIL",
         "#api_token": "DUMMY_TOKEN",
-        "endpoint": "sales_orders"
+        "endpoint": "sales_orders",
+        "load_type": "full_load"
       }
     }
   },
@@ -449,10 +479,11 @@
     "config": {
       "action": "run",
       "parameters": {
-        "base_url": "https://test.demo.uol.cz/api",
+        "server_type": "demo",
         "email": "DUMMY_EMAIL",
         "#api_token": "DUMMY_TOKEN",
-        "endpoint": "uploaded_documents"
+        "endpoint": "uploaded_documents",
+        "load_type": "full_load"
       }
     }
   }

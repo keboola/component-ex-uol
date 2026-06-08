@@ -1,9 +1,10 @@
 {
   "action": "run",
   "parameters": {
-    "base_url": "https://test.demo.uol.cz/api",
+    "server_type": "demo",
     "email": "bad@example.com",
     "#api_token": "bad-token",
-    "endpoint": "contacts"
+    "endpoint": "contacts",
+    "load_type": "full_load"
   }
 }

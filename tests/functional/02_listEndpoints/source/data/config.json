@@ -1,7 +1,7 @@
 {
   "action": "listEndpoints",
   "parameters": {
-    "base_url": "https://test.demo.uol.cz/api",
+    "server_type": "demo",
     "email": "DUMMY_EMAIL",
     "#api_token": "DUMMY_TOKEN",
     "endpoint": "contacts"
