@@ -213,6 +213,16 @@ returned a thin row for the 5-day window — verify the field shape (likely just
 > `bank_account_bank_account_id`, …) — no JSON-blob reference objects, no child tables. Note: changing the
 > output schema required dropping the pre-existing tables first (Storage rejects column-set mismatch on
 > incremental import) — a known reload-on-schema-change operational step, not a component bug.
+>
+> **Native typing validated 2026-06-08** (value-inference, copying the CF `ex-premier`/`salesforce-v2`
+> pattern: bool/int/float + ISO date/datetime heuristic, STRING fallback): job **`47272451` SUCCESS** on
+> **`initial-implementation-14`** with `KBC.dataTypesEnabled: true`. Storage column types confirmed —
+> INTEGER (`gid`, `invoice_id`), NUMERIC (`exchange_rate` NUMBER(38,9)), DATE (`issue_date`/`due_date`),
+> TIMESTAMP (`created_at`/`updated_at` TIMESTAMP_LTZ), BOOLEAN (`send_by_email`/`generated`), STRING for
+> text + string-encoded numbers. The platform run caught a real header bug — `create_out_table_definition`
+> with a `schema` sets `has_header=false`, but the component was writing a CSV header → Snowflake loaded
+> it as data and rejected types; fixed by writing headerless CSV (`973e192`). Local datadir tests can't
+> catch this (no Snowflake type enforcement) — only the platform run did.
 
 ### Phase 8 — Final CF-standards review · owner: `component-checklist-review`
 - [x] complete
