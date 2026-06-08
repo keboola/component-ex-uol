@@ -1,7 +1,7 @@
 {
   "type": "object",
   "title": "Object",
-  "required": ["endpoint", "load_type"],
+  "required": ["endpoint"],
   "properties": {
     "endpoint": {
       "type": "string",
@@ -17,18 +17,24 @@
       },
       "propertyOrder": 1
     },
-    "load_type": {
+    "date_field": {
       "type": "string",
-      "title": "Load Type",
-      "enum": ["incremental_load", "full_load"],
-      "default": "incremental_load",
-      "description": "Incremental is honoured only for endpoints that expose a date cursor; others always full-load.",
+      "title": "Date Field (incremental)",
+      "description": "Which date field to filter on for incremental loads. Leave empty for a full load. Only some endpoints offer date filters.",
+      "format": "select",
+      "enum": [],
+      "options": {
+        "async": {
+          "label": "Re-load date fields",
+          "action": "listDateFields"
+        }
+      },
       "propertyOrder": 2
     },
     "date_from": {
       "type": "string",
-      "title": "Date From (initial)",
-      "description": "ISO date lower bound for the first incremental run / full window. Ignored once a state watermark exists. Optional.",
+      "title": "Date From",
+      "description": "Lower bound for the selected date field. Accepts 'last_run' (continue from last run), a relative value like 'yesterday' or '5 days ago', or an ISO date (YYYY-MM-DD). Applies only when a Date Field is set.",
       "propertyOrder": 3
     }
   }
