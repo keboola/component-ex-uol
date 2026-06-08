@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import csv
 import logging
+import re
 from datetime import UTC, datetime
 
 from keboola.component.base import ComponentBase, sync_action
@@ -16,6 +17,62 @@ from client import UolClient
 from configuration import Configuration, ConnectionConfig, LoadType, resolve_since
 from endpoints import Endpoint, endpoint_names, get_endpoint
 from flatten import flatten_record
+
+# ---------------------------------------------------------------------------
+# Type-inference helpers
+# ---------------------------------------------------------------------------
+
+_ISO_DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
+_ISO_DATETIME_RE = re.compile(r"^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}")
+
+
+def _infer_base_type(values: list) -> BaseType:
+    """Infer a Keboola BaseType from a column's non-null Python values.
+
+    Rules (conservative — STRING fallback on any ambiguity):
+    - bool checked BEFORE int because bool is a subclass of int.
+    - String-encoded numbers (e.g. "3.0") stay STRING — UOL quotes some
+      numeric fields and importing them as NUMERIC would risk type errors.
+    - JSON-array strings won't match the date/timestamp regex → STRING.
+    - Empty list → STRING (no evidence to infer from).
+    """
+    if not values:
+        return BaseType.string()
+    if all(isinstance(v, bool) for v in values):
+        return BaseType.boolean()
+    # Exclude booleans from numeric checks (bool is subclass of int).
+    non_bool = [v for v in values if not isinstance(v, bool)]
+    if non_bool and len(non_bool) == len(values):
+        if all(isinstance(v, int) for v in non_bool):
+            return BaseType.integer()
+        if all(isinstance(v, (int, float)) for v in non_bool):
+            return BaseType.numeric()
+    # Date / timestamp heuristic on pure-string columns.
+    if all(isinstance(v, str) for v in values):
+        if all(_ISO_DATE_RE.match(v) for v in values):
+            return BaseType.date()
+        if all(_ISO_DATETIME_RE.match(v) for v in values):
+            return BaseType.timestamp()
+    return BaseType.string()
+
+
+def _build_schema(
+    columns: list[str],
+    rows: list[dict],
+    primary_key: list[str],
+) -> dict[str, ColumnDefinition]:
+    """Build a typed schema dict mapping column name → ColumnDefinition."""
+    schema: dict[str, ColumnDefinition] = {}
+    for col in columns:
+        vals = [row[col] for row in rows if row.get(col) is not None]
+        base_type = _infer_base_type(vals)
+        is_pk = col in primary_key
+        schema[col] = ColumnDefinition(
+            data_types=base_type,
+            primary_key=is_pk,
+            nullable=not is_pk,
+        )
+    return schema
 
 STATE_LAST_RUN = "last_run"
 
@@ -114,9 +171,10 @@ class Component(ComponentBase):
         if not primary_key:
             incremental = False
         columns = self._collect_columns(rows, primary_key, known_columns)
+        schema = _build_schema(columns, rows, primary_key)
         table = self.create_out_table_definition(
             f"{name}.csv",
-            schema={c: ColumnDefinition(data_types=BaseType.string()) for c in columns},
+            schema=schema,
             primary_key=primary_key,
             incremental=incremental,
         )
