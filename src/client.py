@@ -4,9 +4,10 @@ from __future__ import annotations
 
 import time
 from collections import deque
+from collections.abc import Iterator
 
 import requests
-from keboola.component.exceptions import UserException  # noqa: F401
+from keboola.component.exceptions import UserException
 from requests.auth import HTTPBasicAuth
 
 
@@ -37,3 +38,33 @@ class UolClient:
     def ping(self) -> bool:
         resp = self.session.get(f"{self.base_url}/v1/ping")
         return resp.status_code == 200
+
+    def iter_records(self, path: str, params: dict | None = None) -> Iterator[dict]:
+        query = dict(params or {})
+        query.setdefault("per_page", 250)
+        query["page"] = 1
+        while True:
+            data = self._request("GET", path, params=query)
+            items = data.get("items", [])
+            yield from items
+            has_next = bool(data.get("_meta", {}).get("pagination", {}).get("next"))
+            if not has_next or not items:
+                break
+            query["page"] += 1
+
+    def _request(self, method: str, path: str, params: dict | None = None) -> dict:
+        url = f"{self.base_url}/{path.lstrip('/')}"
+        resp = self.session.request(method, url, params=params)
+        if resp.status_code >= 400:
+            self._raise_for_status(resp)
+        return resp.json()
+
+    def _raise_for_status(self, resp: requests.Response) -> None:
+        if resp.status_code in (401, 403):
+            raise UserException(
+                "UOL authentication failed (check email + API token and that the "
+                f"account has the 'REST API' permission). HTTP {resp.status_code}."
+            )
+        if resp.status_code == 404:
+            raise UserException(f"UOL endpoint not found: {resp.url} (HTTP 404).")
+        resp.raise_for_status()
