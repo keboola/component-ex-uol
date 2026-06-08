@@ -75,23 +75,43 @@ Dev Portal app `keboola.ex-uol` exists (type extractor). Release `0.0.1` tag pre
 `27125422167` completed **success** (2m33s), image digest `sha256:5711ee47…ad9ac1` pushed to ECR.
 
 ### Phase 2 — Research the source/target system · owner: `component-plan-new`
-- [ ] complete
+- [x] complete
 
 **Definition of done:** a research summary settles API style(s), auth method(s) and which the vendor
 recommends, pagination, rate limits, incremental/cursor support — plus a **feasibility & provisioning
 verdict** (sandbox availability, headless-auth vs admin-only setup). Blockers surfaced to the user.
 
-**Evidence:** _
+**Evidence:** ✅ Verified 2026-06-08 (spec commit `4d25724`, §1–4). UOL Účetnictví REST/JSON API;
+auth = HTTP **Basic** (email + token, headless, customer self-service); pagination `page`+`per_page`
+(max 250) via `_meta.pagination.next` (verified live); rate limits 30 req/10s general, 10 req/10s
+receivables, 429+backoff; incremental is **per-endpoint** (registry declares cursor param, e.g.
+`issue_date_from`, `updated_at_from`, or None). **Provisioning verdict: GREEN** — public demo instance
+`test.demo.uol.cz`, demo creds published in the OpenAPI spec, live `/v1/ping` → 200; no admin-only
+blocker. All ~30 endpoints' PKs/child-arrays captured from real demo responses.
 
 ### Phase 3 — Spec + implementation plan · owner: `component-plan-new`
-- [ ] complete
+- [x] complete
 
 **Definition of done:** `docs/superpowers/specs/...-design.md` committed (full scope: source system,
 Keboola mapping, auth/provisioning, data model, config/schema, code architecture, datadir + VCR
 tests, cf-dev deployment, risks) with **no placeholders/TODOs**, AND a superpowers plan committed at
-`docs/superpowers/plans/...md`. User approved the spec.
+`docs/superpowers/plans/...md`. User approved the spec. The **grounding reconciliation gate** ran:
+the evidence below contains a per-reference reconciliation list covering each behaviour-relevant
+`keboola-context` file (`[reference] → correct | corrected: …`), and every `corrected:` item is
+reflected in the committed spec.
 
-**Evidence:** _
+**Evidence:** ✅ Verified 2026-06-08. Spec committed `4d25724`, plan `docs/superpowers/plans/2026-06-08-ex-uol.md`
+committed; both placeholder-free; user approved the spec. **Grounding reconciliation list** (keboola-context):
+- `architecture-conventions.md` → correct (config rows, `#` secrets, sync actions, client/`run()` split applied).
+- `config-rows.md` → **corrected:** dropped "rows run in parallel" → rows are **sequential by default**, parallelism opt-in; per-row `state.json` (root state unused). (spec §2)
+- `incremental-state.md` → correct (watermark captured before fetch, persisted after success; PK upsert).
+- `native-data-types.md` → **corrected:** vague "where supported" → emit `schema` manifest + explicit PK, dynamic STRING columns, flip Dev Portal `dataTypeSupport=authoritative` in Phase 6. (spec §2, §8)
+- `output-mapping.md` → **corrected:** added `/tmp` scratch rule (everything in `/data/out/tables` is uploaded); incremental+PK=upsert confirmed. (spec §6)
+- `default-bucket.md` → **corrected:** no hard-coded destination (silently overridden if default_bucket on); default_bucket left a Phase 6 decision. (spec §2)
+- `encryption.md` → correct (`#api_token` → `KBC::ProjectSecure`).
+- `exit-codes.md` → correct (UserException=1, unexpected=2).
+- `environment-variables.md` → correct (no `forward_token`; SDK auto-detects `KBC_DATA_TYPE_SUPPORT`; merged config.json + row-scoped state noted in spec §7).
+- `telemetry.md` → N/A (about querying telemetry, not building an extractor) — deliberately skipped.
 
 ### Phase 4 — Implement on `initial-implementation` branch · owner: `component-develop`
 - [ ] complete
