@@ -10,6 +10,8 @@ import requests
 from keboola.component.exceptions import UserException
 from requests.auth import HTTPBasicAuth
 
+MAX_BACKOFF_SECONDS = 30
+
 
 class UolClient:
     def __init__(
@@ -65,7 +67,7 @@ class UolClient:
                 self._sleep(self._retry_after(resp))
                 continue
             if resp.status_code >= 500 and attempt < self._max_retries:
-                self._sleep(min(2 ** attempt, 30))
+                self._sleep(min(2 ** attempt, MAX_BACKOFF_SECONDS))
                 continue
             if resp.status_code >= 400:
                 self._raise_for_status(resp)
@@ -87,9 +89,9 @@ class UolClient:
     @staticmethod
     def _retry_after(resp: requests.Response) -> float:
         try:
-            return float(resp.headers.get("Retry-After", 30))
+            return float(resp.headers.get("Retry-After", MAX_BACKOFF_SECONDS))
         except (TypeError, ValueError):
-            return 30.0
+            return float(MAX_BACKOFF_SECONDS)
 
     def _raise_for_status(self, resp: requests.Response) -> None:
         if resp.status_code in (401, 403):
