@@ -19,12 +19,6 @@
       "logger": "root",
       "message": "Wrote 142 rows to petty_cash_incomes",
       "timestamp": "2026-06-08T13:36:54.000Z"
-    },
-    {
-      "level": "INFO",
-      "logger": "root",
-      "message": "Wrote 142 rows to petty_cash_incomes_items",
-      "timestamp": "2026-06-08T13:36:54.000Z"
     }
   ]
 }

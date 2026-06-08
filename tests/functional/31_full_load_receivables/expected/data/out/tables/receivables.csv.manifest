@@ -143,6 +143,15 @@
       "nullable": true
     },
     {
+      "name": "payments",
+      "data_type": {
+        "base": {
+          "type": "STRING"
+        }
+      },
+      "nullable": true
+    },
+    {
       "name": "exchange_rate",
       "data_type": {
         "base": {

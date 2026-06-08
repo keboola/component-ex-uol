@@ -7,16 +7,16 @@
         "department_id",
         "created_at",
         "updated_at",
-        "creator",
-        "modifier",
+        "creator_user_id",
+        "modifier_user_id",
         "building_number",
-        "country",
+        "country_country_id",
         "email",
         "external_id",
         "default",
         "hidden",
         "status",
-        "language",
+        "language_language_id",
         "main_activity",
         "mobile_phone",
         "name",
@@ -28,15 +28,15 @@
         "url",
         "vatin"
       ],
-      "hash": "sha256:2eebe3fdcd9f9372e3374a9e29ebc5869ea3bfe5a0a20a51327dc717ae6c1b83",
+      "hash": "sha256:9cc363a089339326330012afb0b00a2b957a357ac66eec75777f914956d81d0b",
       "row_count": 5,
-      "size_bytes": 1115
+      "size_bytes": 790
     },
     "departments.csv.manifest": {
       "columns": null,
-      "hash": "sha256:ca0261776c2b6fcb05c189ef9f4e63c18d50e472f79daf56c6b7109fdbf1f74f",
+      "hash": "sha256:27615e2b460b57ebd4694ad40bc0ee2432a889f9bb5f76813e0ef8dee0241415",
       "row_count": null,
-      "size_bytes": 3573
+      "size_bytes": 3612
     }
   },
   "version": "1.0"

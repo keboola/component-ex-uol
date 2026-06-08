@@ -7,8 +7,8 @@
         "type_id",
         "created_at",
         "updated_at",
-        "creator",
-        "modifier",
+        "creator_user_id",
+        "modifier_user_id",
         "deferred_income",
         "name",
         "external_id",
@@ -17,15 +17,15 @@
         "may_have_incidental_acquisition_costs",
         "recapitulative_statement_code"
       ],
-      "hash": "sha256:13483276534d67689fb99b15f74f3e577095e778aa01255fe0d590e5a888c6d3",
+      "hash": "sha256:cf4aacd966ffa7da3e86aaf83bb7c72f31d87089ac622159cf257caa6c83aa4b",
       "row_count": 34,
-      "size_bytes": 6434
+      "size_bytes": 5064
     },
     "product_categories.csv.manifest": {
       "columns": null,
-      "hash": "sha256:a147e0ad82cd4144dc40bf3af4b8a37e2891a11a874b93d2ec1e416f9ae8e4c5",
+      "hash": "sha256:5b25841d857b412877e414e78900f07c83120ffc83c5a86cc7a7f323934004f1",
       "row_count": null,
-      "size_bytes": 2027
+      "size_bytes": 2043
     }
   },
   "version": "1.0"

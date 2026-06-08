@@ -6,26 +6,27 @@
       "columns": [
         "number",
         "created_at",
-        "creator",
+        "creator_user_id",
         "updated_at",
-        "modifier",
-        "department",
-        "contract",
+        "modifier_user_id",
+        "department_department_id",
+        "contract_contract_id",
         "date",
         "note",
         "vat_document",
         "coefficient",
-        "status"
+        "status",
+        "items"
       ],
-      "hash": "sha256:17371c05371d2bca54b5a56d8bb767d26a50a856926e9423f85fc1fabbbfeed3",
+      "hash": "sha256:2cec58ed2f96f82806aa4875cbd26124ebc4feec4705ee3336469fbca41e09d4",
       "row_count": 100,
-      "size_bytes": 25343
+      "size_bytes": 502789
     },
     "internal_documents.csv.manifest": {
       "columns": null,
-      "hash": "sha256:7254d11ccda03aa1a400a81e3e32d445ba00f22c90091ecdab2e1aa7e3bc1dec",
+      "hash": "sha256:2b29edb25e1afc8909cd9771ebb64aa09e3c70ff2c88aaecb025b31e8ed28f5d",
       "row_count": null,
-      "size_bytes": 1951
+      "size_bytes": 2137
     },
     "internal_documents_items.csv": {
       "columns": [

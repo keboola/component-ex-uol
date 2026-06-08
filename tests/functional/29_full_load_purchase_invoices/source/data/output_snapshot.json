@@ -7,13 +7,13 @@
         "gid",
         "created_at",
         "updated_at",
-        "creator",
-        "modifier",
-        "seller",
-        "currency",
-        "department",
-        "order",
-        "contract",
+        "creator_user_id",
+        "modifier_user_id",
+        "currency_currency_id",
+        "department_department_id",
+        "order_order_id",
+        "contract_contract_id",
+        "items",
         "date_of_receipt",
         "due_date",
         "issue_date",
@@ -33,7 +33,6 @@
         "payment_method",
         "exchange_rate",
         "rounding",
-        "shipper",
         "shipping_method",
         "specific_symbol",
         "total_amount",
@@ -46,15 +45,15 @@
         "public_id",
         "linked_doc_number"
       ],
-      "hash": "sha256:b56be532a03ef8003ba1eee12241d66002b1835e251e687ff0997b584b98da70",
+      "hash": "sha256:4f93771365722a4982715a3aef4ef390d57a2e6cc0be0cd87c1521b35e6a5bf4",
       "row_count": 602,
-      "size_bytes": 332978
+      "size_bytes": 696175
     },
     "purchase_invoices.csv.manifest": {
       "columns": null,
-      "hash": "sha256:8bf322ff54ca9b54a84484173cdcef1a447ab353087229c60720ecf5e41de8e6",
+      "hash": "sha256:00fe27ac453b6e2976556d01d3ca40e6a23ebfbe057ae11d2efe0a0bb89e1778",
       "row_count": null,
-      "size_bytes": 6313
+      "size_bytes": 6229
     },
     "purchase_invoices_items.csv": {
       "columns": [

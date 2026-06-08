@@ -17,7 +17,7 @@
       "primary_key": true
     },
     {
-      "name": "creator",
+      "name": "creator_user_id",
       "data_type": {
         "base": {
           "type": "STRING"
@@ -26,7 +26,7 @@
       "nullable": true
     },
     {
-      "name": "language",
+      "name": "language_language_id",
       "data_type": {
         "base": {
           "type": "STRING"
@@ -35,7 +35,7 @@
       "nullable": true
     },
     {
-      "name": "modifier",
+      "name": "modifier_user_id",
       "data_type": {
         "base": {
           "type": "STRING"

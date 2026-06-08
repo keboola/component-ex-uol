@@ -7,7 +7,7 @@
   "has_header": false,
   "schema": [
     {
-      "name": "bank_movements_gid",
+      "name": "contact_id",
       "data_type": {
         "base": {
           "type": "STRING"
@@ -17,17 +17,7 @@
       "primary_key": true
     },
     {
-      "name": "_item_index",
-      "data_type": {
-        "base": {
-          "type": "STRING"
-        }
-      },
-      "nullable": true,
-      "primary_key": true
-    },
-    {
-      "name": "number",
+      "name": "creator_user_id",
       "data_type": {
         "base": {
           "type": "STRING"
@@ -36,7 +26,7 @@
       "nullable": true
     },
     {
-      "name": "amount",
+      "name": "modifier_user_id",
       "data_type": {
         "base": {
           "type": "STRING"
@@ -45,7 +35,7 @@
       "nullable": true
     },
     {
-      "name": "confirmed",
+      "name": "contract_contract_id",
       "data_type": {
         "base": {
           "type": "STRING"
@@ -54,7 +44,7 @@
       "nullable": true
     },
     {
-      "name": "note",
+      "name": "acquisition_country_id",
       "data_type": {
         "base": {
           "type": "STRING"
@@ -63,7 +53,7 @@
       "nullable": true
     },
     {
-      "name": "variable_symbol",
+      "name": "business_entity",
       "data_type": {
         "base": {
           "type": "STRING"
@@ -72,7 +62,7 @@
       "nullable": true
     },
     {
-      "name": "specific_symbol",
+      "name": "company_number",
       "data_type": {
         "base": {
           "type": "STRING"
@@ -81,7 +71,7 @@
       "nullable": true
     },
     {
-      "name": "constant_symbol",
+      "name": "consumption_country_id",
       "data_type": {
         "base": {
           "type": "STRING"
@@ -90,7 +80,7 @@
       "nullable": true
     },
     {
-      "name": "date",
+      "name": "country_id",
       "data_type": {
         "base": {
           "type": "STRING"
@@ -108,7 +98,25 @@
       "nullable": true
     },
     {
-      "name": "updated_at",
+      "name": "days_till_due_date",
+      "data_type": {
+        "base": {
+          "type": "STRING"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "department_id",
+      "data_type": {
+        "base": {
+          "type": "STRING"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "duplicate_variable_symbol",
       "data_type": {
         "base": {
           "type": "STRING"
@@ -126,7 +134,7 @@
       "nullable": true
     },
     {
-      "name": "creator",
+      "name": "hidden",
       "data_type": {
         "base": {
           "type": "STRING"
@@ -135,7 +143,7 @@
       "nullable": true
     },
     {
-      "name": "modifier",
+      "name": "import_received_documents",
       "data_type": {
         "base": {
           "type": "STRING"
@@ -144,7 +152,7 @@
       "nullable": true
     },
     {
-      "name": "payment_rule",
+      "name": "language_id",
       "data_type": {
         "base": {
           "type": "STRING"
@@ -153,7 +161,7 @@
       "nullable": true
     },
     {
-      "name": "bank_account",
+      "name": "name",
       "data_type": {
         "base": {
           "type": "STRING"
@@ -162,7 +170,7 @@
       "nullable": true
     },
     {
-      "name": "contact",
+      "name": "note",
       "data_type": {
         "base": {
           "type": "STRING"
@@ -171,7 +179,7 @@
       "nullable": true
     },
     {
-      "name": "department",
+      "name": "percent_discount",
       "data_type": {
         "base": {
           "type": "STRING"
@@ -180,7 +188,7 @@
       "nullable": true
     },
     {
-      "name": "contract",
+      "name": "received_invoice_public_id_setting",
       "data_type": {
         "base": {
           "type": "STRING"
@@ -189,7 +197,97 @@
       "nullable": true
     },
     {
-      "name": "linked_doc",
+      "name": "received_invoice_variable_symbol_setting",
+      "data_type": {
+        "base": {
+          "type": "STRING"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "status",
+      "data_type": {
+        "base": {
+          "type": "STRING"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "sipo_number",
+      "data_type": {
+        "base": {
+          "type": "STRING"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "specific_symbol",
+      "data_type": {
+        "base": {
+          "type": "STRING"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "tin",
+      "data_type": {
+        "base": {
+          "type": "STRING"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "unreliable_payer",
+      "data_type": {
+        "base": {
+          "type": "STRING"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "updated_at",
+      "data_type": {
+        "base": {
+          "type": "STRING"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "vat_payer",
+      "data_type": {
+        "base": {
+          "type": "STRING"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "vatin",
+      "data_type": {
+        "base": {
+          "type": "STRING"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "addresses",
+      "data_type": {
+        "base": {
+          "type": "STRING"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "bank_accounts",
       "data_type": {
         "base": {
           "type": "STRING"

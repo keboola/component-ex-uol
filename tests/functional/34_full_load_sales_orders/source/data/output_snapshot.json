@@ -7,24 +7,24 @@
         "order_id",
         "created_at",
         "updated_at",
-        "creator",
-        "modifier",
-        "accounting_address",
-        "buyer_address",
-        "document_recipient_address",
-        "delivery_address",
-        "contact",
-        "currency",
+        "creator_user_id",
+        "modifier_user_id",
+        "accounting_address_address_id",
+        "buyer_address_address_id",
+        "document_recipient_address_address_id",
+        "delivery_address_address_id",
+        "contact_contact_id",
+        "currency_currency_id",
         "date_of_receipt",
         "delivery_method",
-        "department",
+        "department_department_id",
         "percent_discount",
         "external_id",
         "fullfilled_on",
         "group_id",
         "invoicing_method",
         "status",
-        "contract",
+        "contract_contract_id",
         "shipper_id",
         "shipping_method",
         "specific_symbol",
@@ -34,17 +34,18 @@
         "repeat_interval",
         "next_repeat_time",
         "text",
-        "note"
+        "note",
+        "items"
       ],
-      "hash": "sha256:5e5715067451b4f194d1d8f4de42e1d210a46309aa0a819e8186311e7f726a4f",
+      "hash": "sha256:0f5f5ad73c61f168759e271f3399b0648a0dc108ef42141db7e091e9ddcbb04f",
       "row_count": 4,
-      "size_bytes": 1831
+      "size_bytes": 2669
     },
     "sales_orders.csv.manifest": {
       "columns": null,
-      "hash": "sha256:19f7ef8f6f0eefe17a291df39649828b24d21b399608f52a922a857e21f56798",
+      "hash": "sha256:53e8c75afb5eea42ccf4f73ccb70e6a8416057ef7afbc24905e9cdf8956b2710",
       "row_count": null,
-      "size_bytes": 4873
+      "size_bytes": 5126
     },
     "sales_orders_items.csv": {
       "columns": [

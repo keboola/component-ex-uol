@@ -19,6 +19,7 @@
         "total_amount_in_currency",
         "paid_amount",
         "last_payment_date",
+        "payments",
         "exchange_rate",
         "department",
         "total_amount_currency_ids",
@@ -29,15 +30,15 @@
         "paid_amount_in_currency",
         "paid_amount_currency_ids"
       ],
-      "hash": "sha256:c1ca73f4f1dcd6ff60a64ec7b61bdedd7c93205adcc1896a27bc75b006dc0a37",
+      "hash": "sha256:d17add342c7defb3ca40acf891c5210a48f39ca236dbf7603ec8dee2c39512fb",
       "row_count": 210,
-      "size_bytes": 32901
+      "size_bytes": 44742
     },
     "receivables.csv.manifest": {
       "columns": null,
-      "hash": "sha256:705357207d131f48a695e2016d24c8ea0fe4d6669a48b38b9e1693bd8b79d99d",
+      "hash": "sha256:150bb69ea403f1ddab1b53dfc127638505d589d4e58fc5051a6de236968a56b8",
       "row_count": null,
-      "size_bytes": 3887
+      "size_bytes": 4034
     },
     "receivables_payments.csv": {
       "columns": [

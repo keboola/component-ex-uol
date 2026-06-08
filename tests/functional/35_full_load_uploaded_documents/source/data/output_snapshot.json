@@ -10,18 +10,18 @@
         "note",
         "created_at",
         "updated_at",
-        "creator",
-        "modifier"
+        "creator_user_id",
+        "modifier_user_id"
       ],
-      "hash": "sha256:8dc1b09047c3be4dff358f042978eb5553aced5658c2fe98d9a62aab67393e9a",
+      "hash": "sha256:ac18ddfe90a2f85a74947e117ef930ce7a0884ce1a9691a0be785177d42d450e",
       "row_count": 4,
-      "size_bytes": 610
+      "size_bytes": 500
     },
     "uploaded_documents.csv.manifest": {
       "columns": null,
-      "hash": "sha256:9bbcab56cf9b5cc46eb28772d735a42e5af0bc003b0337a2ace8a15b1cfe77f8",
+      "hash": "sha256:a4bc17520d69ef57fb7311a4aae0b66785b641dd70f7de722f7aca9defa60b1c",
       "row_count": null,
-      "size_bytes": 1349
+      "size_bytes": 1365
     }
   },
   "version": "1.0"

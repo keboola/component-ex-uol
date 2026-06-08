@@ -5,10 +5,10 @@
     "bank_movements.csv": {
       "columns": [
         "gid",
-        "creator",
-        "modifier",
-        "bank_account",
-        "contact",
+        "creator_user_id",
+        "modifier_user_id",
+        "bank_account_bank_account_id",
+        "contact_contact_id",
         "bank_movement_id",
         "constant_symbol",
         "specific_symbol",
@@ -20,17 +20,18 @@
         "note",
         "created_at",
         "updated_at",
-        "external_id"
+        "external_id",
+        "items"
       ],
-      "hash": "sha256:6632ba6aa0feb3422a95434a5ea9bb75e5c7a2b2945c89308ff55a3412ec49ab",
+      "hash": "sha256:f63aa6ac4bfd055148ab77d00c302794e51625f0be7fe1891538754d48a9a3a2",
       "row_count": 55,
-      "size_bytes": 13844
+      "size_bytes": 46510
     },
     "bank_movements.csv.manifest": {
       "columns": null,
-      "hash": "sha256:98943e019854480590ad86240645b375fb1986b108605aa0bfba5940ca817565",
+      "hash": "sha256:2c0749c3def3a6e02f05582281fd117521c81948025ab6a12d7dd82fc8835455",
       "row_count": null,
-      "size_bytes": 2719
+      "size_bytes": 2906
     },
     "bank_movements_items.csv": {
       "columns": [

@@ -15,24 +15,25 @@
         "created_at",
         "updated_at",
         "external_id",
-        "creator",
-        "modifier",
-        "payment_rule",
-        "bank_account",
-        "contact",
-        "department",
-        "contract",
-        "linked_doc"
+        "creator_user_id",
+        "modifier_user_id",
+        "payment_rule_payment_rule_id",
+        "bank_account_bank_account_id",
+        "contact_contact_id",
+        "department_department_id",
+        "contract_contract_id",
+        "linked_doc_linked_doc_number",
+        "linked_doc_linked_doc_code"
       ],
-      "hash": "sha256:c2e466a67d443118838ecc0760dccd958f1d415a6946f6bd6aaf727b04668c50",
+      "hash": "sha256:f768110d0b6056fbb7a024fa60ee5fec44874394c631f59a380dbd1d37ed0077",
       "row_count": 55,
-      "size_bytes": 19946
+      "size_bytes": 7578
     },
     "bank_movement_items.csv.manifest": {
       "columns": null,
-      "hash": "sha256:aae502025f943233f0d93a3981c8ae8a072bd39dab5b1a8a43510699362b7ba5",
+      "hash": "sha256:483f658fe92f6cc2ad5e44610aaf712e707ce7e250d2d843a198027d3f9e6c30",
       "row_count": null,
-      "size_bytes": 2980
+      "size_bytes": 3248
     }
   },
   "version": "1.0"

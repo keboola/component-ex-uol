@@ -5,9 +5,9 @@
     "contacts.csv": {
       "columns": [
         "contact_id",
-        "creator",
-        "modifier",
-        "contract",
+        "creator_user_id",
+        "modifier_user_id",
+        "contract_contract_id",
         "acquisition_country_id",
         "business_entity",
         "company_number",
@@ -34,17 +34,18 @@
         "updated_at",
         "vat_payer",
         "vatin",
+        "addresses",
         "bank_accounts"
       ],
-      "hash": "sha256:81fa4677540cf4031543266ff849eca277137fe762985f744967bb364d1435c0",
-      "row_count": 187,
-      "size_bytes": 102200
+      "hash": "sha256:167cda485debc4ffd4b1df45abec7328f3ab4b4fa6b3c22cc55b732d96ccc0ab",
+      "row_count": 188,
+      "size_bytes": 208714
     },
     "contacts.csv.manifest": {
       "columns": null,
-      "hash": "sha256:ef2fdaf40c2ba060178e77ad8a37692ab70cba58de5c84d2bd21dbb48c4d0056",
+      "hash": "sha256:6ef79de215c72f5ea460e38c113363ddaef606b11b627078841cc7af3287bf5a",
       "row_count": null,
-      "size_bytes": 4917
+      "size_bytes": 5093
     },
     "contacts_addresses.csv": {
       "columns": [

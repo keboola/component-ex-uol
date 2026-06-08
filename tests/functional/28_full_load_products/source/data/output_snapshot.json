@@ -7,8 +7,8 @@
         "product_id",
         "created_at",
         "updated_at",
-        "creator",
-        "modifier",
+        "creator_user_id",
+        "modifier_user_id",
         "barcode",
         "deferred_period_in_months",
         "description",
@@ -31,15 +31,15 @@
         "allow_vat_change",
         "moss_code"
       ],
-      "hash": "sha256:66d7b63c751bf705708c1312fac19440080c1cf106639dc7530553dd8cf73632",
+      "hash": "sha256:cd9de8ef39b26e9d8a7bb19cba2180ba57475150b33c90f6ccac69e989896575",
       "row_count": 74,
-      "size_bytes": 14359
+      "size_bytes": 11309
     },
     "products.csv.manifest": {
       "columns": null,
-      "hash": "sha256:851ad4656c2feeb85608c84e82579bb3c6d5c712ef517f0a333719786893972b",
+      "hash": "sha256:4ae2cd1f305945cb5e4f6bd022b5a9dc02ba8ad24fa7434ad8c03ddfae476dfb",
       "row_count": null,
-      "size_bytes": 4086
+      "size_bytes": 4102
     }
   },
   "version": "1.0"

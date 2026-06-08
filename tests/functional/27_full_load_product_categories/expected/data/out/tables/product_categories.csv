@@ -1,34 +1,34 @@
-type_id,created_at,updated_at,creator,modifier,deferred_income,name,external_id,incidental_acquisition_costs,status,may_have_incidental_acquisition_costs,recapitulative_statement_code
-material,2004-07-29T21:01:38+02:00,2004-07-29T21:01:46+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",False,Materiál,,False,locked,True,goods
-cennina,2004-07-29T21:01:38+02:00,2004-07-29T21:01:46+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",False,Cenniny,,False,locked,False,not_entering
-energia,2004-07-29T21:01:38+02:00,2004-07-29T21:01:46+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",False,"Energie, para, plyn voda ...",,False,locked,False,not_entering
-zbozi_504,2005-12-07T18:08:29+01:00,2005-12-07T18:08:29+01:00,"{""user_id"": ""pickova""}","{""user_id"": ""pickova""}",False,Zboží (mimo skladovou evidenci),,False,valid,False,goods
-financni,2005-12-07T18:08:04+01:00,2005-12-07T18:08:04+01:00,"{""user_id"": ""pickova""}","{""user_id"": ""pickova""}",False,Finanční náklady a výnosy,,False,valid,False,not_entering
-cestovne,2005-12-30T15:46:31+01:00,2005-12-30T15:46:31+01:00,"{""user_id"": ""hlavacova""}","{""user_id"": ""hlavacova""}",False,Cestovné,,False,valid,False,not_entering
-rozprac,2004-07-29T21:01:38+02:00,2004-07-29T21:01:46+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",False,Nedokončená výroba,,False,locked,False,not_entering
-ostatni_dane_a_popl,2006-06-25T21:07:49+02:00,2006-06-25T21:07:49+02:00,"{""user_id"": ""pickova""}","{""user_id"": ""pickova""}",False,Daně a poplatky,,False,valid,False,not_entering
-material_spotreba,2005-12-07T18:07:43+01:00,2005-12-07T18:07:43+01:00,"{""user_id"": ""pickova""}","{""user_id"": ""pickova""}",False,Materiál do spotřeby,,False,valid,False,goods
-provozni,2006-06-25T21:17:29+02:00,2006-06-25T21:17:29+02:00,"{""user_id"": ""pickova""}","{""user_id"": ""pickova""}",False,Provozní náklady a výnosy,,False,valid,False,not_entering
-repre,2005-12-07T18:09:10+01:00,2005-12-07T18:09:10+01:00,"{""user_id"": ""pickova""}","{""user_id"": ""pickova""}",False,Repre,,False,valid,False,not_entering
-vynosy_po,2013-07-31T14:33:12+02:00,2013-07-31T14:33:12+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",True,Výnosy příštích období,,False,valid,False,services
-vydaje_po,2013-07-31T14:33:12+02:00,2013-07-31T14:33:12+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",False,Výdaje příštích období,,False,valid,False,not_entering
-prijmy_po,2013-07-31T14:33:12+02:00,2013-07-31T14:33:12+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",True,Příjmy příštích období,,False,valid,False,services
-balicek,2015-01-24T14:55:57+01:00,2015-01-24T14:55:57+01:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",False,Balíček produktů,,False,valid,False,goods
-sestava,2015-01-25T16:29:58+01:00,2015-01-25T16:29:58+01:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",False,Sestava produktů,,False,valid,False,goods
-naklady_po,2013-07-31T14:33:12+02:00,2013-07-31T14:33:12+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",False,Náklady příštích období,,False,valid,False,services
-spolecnik,2020-12-23T00:08:06+01:00,2020-12-23T00:08:06+01:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",False,Společník,,False,valid,False,goods
-unknown,2022-12-13T10:57:19+01:00,2022-12-13T10:57:19+01:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",False,Unknown product type,,True,valid,False,goods
-tovar,2004-07-29T21:01:38+02:00,2004-07-29T21:01:46+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",False,Zboží,,False,locked,True,goods
-soc_naklad,2025-09-29T12:16:56+02:00,2025-09-29T12:16:56+02:00,"{""user_id"": ""prochazkovaq""}","{""user_id"": ""prochazkovaq""}",False,sociální náklady,,False,valid,False,not_entering
-him,2004-07-29T21:01:38+02:00,2004-07-29T21:01:46+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",False,Hmotný investiční majetek,,False,locked,True,goods
-sluzba,2004-07-29T21:01:38+02:00,2004-07-29T21:01:46+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",False,"Ostatní služby - telefon, doprava, poštovné ... pro nákup, všechny prodávané služby",,False,locked,False,services
-penale_dn,2004-07-29T21:01:38+02:00,2004-07-29T21:01:46+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",False,Penále - daňově neuznatelné náklady,,False,locked,False,not_entering
-nhim,2004-07-29T21:01:38+02:00,2004-07-29T21:01:46+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",False,Nehmotný investiční majetek,,False,locked,True,goods
-zaloha,2004-07-29T21:01:38+02:00,2004-07-29T21:01:46+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",False,"Fakturovaná záloha, odpočet fakturované zálohy",,False,locked,False,not_entering
-penale_du,2004-07-29T21:01:38+02:00,2004-07-29T21:01:46+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",False,Penále - daňově uznatelné náklady,,False,locked,False,not_entering
-non_materialu,2004-07-29T21:01:38+02:00,2004-07-29T21:01:46+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",False,Nepřiřaditelné pořizovací náklady materiálu vedené na samostatném účtu a postupně spotřebovávané,,False,locked,False,not_entering
-on,2004-07-29T21:01:38+02:00,2004-07-29T21:01:46+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",False,"Pořizovací náklady rozpočítávané na všechny položky, u kterých jsou pořizovací náklady součástí pořizovací ceny",,True,locked,False,not_entering
-non_tovaru,2004-07-29T21:01:38+02:00,2004-07-29T21:01:46+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",False,Nepřiřaditelné pořizovací náklady zboží vedené na samostatném účtu a postupně spotřebovávané,,False,locked,False,not_entering
-vyrobok,2004-07-29T21:01:38+02:00,2004-07-29T21:01:46+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",False,Vlastní výrobky,,False,locked,False,goods
-polotovar,2004-07-29T21:01:38+02:00,2004-07-29T21:01:46+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",False,Vlastní polotovary,,False,locked,False,not_entering
-opravy,2004-07-29T21:01:38+02:00,2004-07-29T21:01:46+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",False,Opravy a údržba - pouze pro nákup,,False,locked,False,services
+type_id,created_at,updated_at,creator_user_id,modifier_user_id,deferred_income,name,external_id,incidental_acquisition_costs,status,may_have_incidental_acquisition_costs,recapitulative_statement_code
+material,2004-07-29T21:01:38+02:00,2004-07-29T21:01:46+02:00,uoladm,uoladm,False,Materiál,,False,locked,True,goods
+cennina,2004-07-29T21:01:38+02:00,2004-07-29T21:01:46+02:00,uoladm,uoladm,False,Cenniny,,False,locked,False,not_entering
+energia,2004-07-29T21:01:38+02:00,2004-07-29T21:01:46+02:00,uoladm,uoladm,False,"Energie, para, plyn voda ...",,False,locked,False,not_entering
+zbozi_504,2005-12-07T18:08:29+01:00,2005-12-07T18:08:29+01:00,pickova,pickova,False,Zboží (mimo skladovou evidenci),,False,valid,False,goods
+financni,2005-12-07T18:08:04+01:00,2005-12-07T18:08:04+01:00,pickova,pickova,False,Finanční náklady a výnosy,,False,valid,False,not_entering
+cestovne,2005-12-30T15:46:31+01:00,2005-12-30T15:46:31+01:00,hlavacova,hlavacova,False,Cestovné,,False,valid,False,not_entering
+rozprac,2004-07-29T21:01:38+02:00,2004-07-29T21:01:46+02:00,uoladm,uoladm,False,Nedokončená výroba,,False,locked,False,not_entering
+ostatni_dane_a_popl,2006-06-25T21:07:49+02:00,2006-06-25T21:07:49+02:00,pickova,pickova,False,Daně a poplatky,,False,valid,False,not_entering
+material_spotreba,2005-12-07T18:07:43+01:00,2005-12-07T18:07:43+01:00,pickova,pickova,False,Materiál do spotřeby,,False,valid,False,goods
+provozni,2006-06-25T21:17:29+02:00,2006-06-25T21:17:29+02:00,pickova,pickova,False,Provozní náklady a výnosy,,False,valid,False,not_entering
+repre,2005-12-07T18:09:10+01:00,2005-12-07T18:09:10+01:00,pickova,pickova,False,Repre,,False,valid,False,not_entering
+vynosy_po,2013-07-31T14:33:12+02:00,2013-07-31T14:33:12+02:00,uoladm,uoladm,True,Výnosy příštích období,,False,valid,False,services
+vydaje_po,2013-07-31T14:33:12+02:00,2013-07-31T14:33:12+02:00,uoladm,uoladm,False,Výdaje příštích období,,False,valid,False,not_entering
+prijmy_po,2013-07-31T14:33:12+02:00,2013-07-31T14:33:12+02:00,uoladm,uoladm,True,Příjmy příštích období,,False,valid,False,services
+balicek,2015-01-24T14:55:57+01:00,2015-01-24T14:55:57+01:00,uoladm,uoladm,False,Balíček produktů,,False,valid,False,goods
+sestava,2015-01-25T16:29:58+01:00,2015-01-25T16:29:58+01:00,uoladm,uoladm,False,Sestava produktů,,False,valid,False,goods
+naklady_po,2013-07-31T14:33:12+02:00,2013-07-31T14:33:12+02:00,uoladm,uoladm,False,Náklady příštích období,,False,valid,False,services
+spolecnik,2020-12-23T00:08:06+01:00,2020-12-23T00:08:06+01:00,uoladm,uoladm,False,Společník,,False,valid,False,goods
+unknown,2022-12-13T10:57:19+01:00,2022-12-13T10:57:19+01:00,uoladm,uoladm,False,Unknown product type,,True,valid,False,goods
+tovar,2004-07-29T21:01:38+02:00,2004-07-29T21:01:46+02:00,uoladm,uoladm,False,Zboží,,False,locked,True,goods
+soc_naklad,2025-09-29T12:16:56+02:00,2025-09-29T12:16:56+02:00,prochazkovaq,prochazkovaq,False,sociální náklady,,False,valid,False,not_entering
+him,2004-07-29T21:01:38+02:00,2004-07-29T21:01:46+02:00,uoladm,uoladm,False,Hmotný investiční majetek,,False,locked,True,goods
+sluzba,2004-07-29T21:01:38+02:00,2004-07-29T21:01:46+02:00,uoladm,uoladm,False,"Ostatní služby - telefon, doprava, poštovné ... pro nákup, všechny prodávané služby",,False,locked,False,services
+penale_dn,2004-07-29T21:01:38+02:00,2004-07-29T21:01:46+02:00,uoladm,uoladm,False,Penále - daňově neuznatelné náklady,,False,locked,False,not_entering
+nhim,2004-07-29T21:01:38+02:00,2004-07-29T21:01:46+02:00,uoladm,uoladm,False,Nehmotný investiční majetek,,False,locked,True,goods
+zaloha,2004-07-29T21:01:38+02:00,2004-07-29T21:01:46+02:00,uoladm,uoladm,False,"Fakturovaná záloha, odpočet fakturované zálohy",,False,locked,False,not_entering
+penale_du,2004-07-29T21:01:38+02:00,2004-07-29T21:01:46+02:00,uoladm,uoladm,False,Penále - daňově uznatelné náklady,,False,locked,False,not_entering
+non_materialu,2004-07-29T21:01:38+02:00,2004-07-29T21:01:46+02:00,uoladm,uoladm,False,Nepřiřaditelné pořizovací náklady materiálu vedené na samostatném účtu a postupně spotřebovávané,,False,locked,False,not_entering
+on,2004-07-29T21:01:38+02:00,2004-07-29T21:01:46+02:00,uoladm,uoladm,False,"Pořizovací náklady rozpočítávané na všechny položky, u kterých jsou pořizovací náklady součástí pořizovací ceny",,True,locked,False,not_entering
+non_tovaru,2004-07-29T21:01:38+02:00,2004-07-29T21:01:46+02:00,uoladm,uoladm,False,Nepřiřaditelné pořizovací náklady zboží vedené na samostatném účtu a postupně spotřebovávané,,False,locked,False,not_entering
+vyrobok,2004-07-29T21:01:38+02:00,2004-07-29T21:01:46+02:00,uoladm,uoladm,False,Vlastní výrobky,,False,locked,False,goods
+polotovar,2004-07-29T21:01:38+02:00,2004-07-29T21:01:46+02:00,uoladm,uoladm,False,Vlastní polotovary,,False,locked,False,not_entering
+opravy,2004-07-29T21:01:38+02:00,2004-07-29T21:01:46+02:00,uoladm,uoladm,False,Opravy a údržba - pouze pro nákup,,False,locked,False,services

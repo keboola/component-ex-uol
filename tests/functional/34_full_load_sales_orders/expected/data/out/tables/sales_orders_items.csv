@@ -1,4 +1,0 @@
-sales_orders_order_id,_item_index,id,created_at,updated_at,creator,modifier,batch,expiration_date,external_id,status,order,product,quantity,description,serial_numbers,unit_price
-2025000003,0,2768260,2025-10-06T13:09:28+02:00,2025-10-06T13:09:28+02:00,"{""user_id"": ""sevcikm""}","{""user_id"": ""sevcikm""}",,,,valid,"{""order_id"": 2025000003}","{""product_id"": ""ahoj-1_33""}",1.0,ahoj-1_33,,1.0
-2025000002,0,2768248,2025-10-06T13:05:14+02:00,2025-10-06T13:05:14+02:00,"{""user_id"": ""sevcikm""}","{""user_id"": ""sevcikm""}",,,,valid,"{""order_id"": 2025000002}","{""product_id"": ""ahoj-1_33""}",1.0,ahoj-1_33,,1.0
-2025000001,0,2768165,2025-10-03T08:43:16+02:00,2025-10-03T08:43:16+02:00,"{""user_id"": ""sevcikm""}","{""user_id"": ""sevcikm""}",,,,valid,"{""order_id"": 2025000001}","{""product_id"": ""ahoj-1_33""}",1.0,ahoj-1_33,,1.0

@@ -19,12 +19,6 @@
       "logger": "root",
       "message": "Wrote 601 rows to purchase_invoices",
       "timestamp": "2026-06-08T13:36:54.000Z"
-    },
-    {
-      "level": "INFO",
-      "logger": "root",
-      "message": "Wrote 745 rows to purchase_invoices_items",
-      "timestamp": "2026-06-08T13:36:54.000Z"
     }
   ]
 }

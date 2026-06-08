@@ -1,18 +1,24 @@
 {
-  "exit_code": 1,
-  "stderr": "UOL authentication failed (check email + API token and that the account has the 'REST API' permission). HTTP 401.\nTraceback (most recent call last):\n  File \"src/component.py\", line 149, in <module>\n    Component().execute_action()\n    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^\n  File \"/Users/matyasjirat/VSCodeProjects/Keboola/component-ex-uol/.venv/lib/python3.14/site-packages/keboola/component/base.py\", line 251, in execute_action\n    return self._do_execute_action()\n           ~~~~~~~~~~~~~~~~~~~~~~~^^\n  File \"/Users/matyasjirat/VSCodeProjects/Keboola/component-ex-uol/.venv/lib/python3.14/site-packages/keboola/component/base.py\", line 265, in _do_execute_action\n    return action_method()\n  File \"src/component.py\", line 62, in run\n    for record in client.iter_records(endpoint.path, params=params):\n                  ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/matyasjirat/VSCodeProjects/Keboola/component-ex-uol/src/client.py\", line 52, in iter_records\n    data = self._request(\"GET\", path, params=query)\n  File \"/Users/matyasjirat/VSCodeProjects/Keboola/component-ex-uol/src/client.py\", line 88, in _request\n    self._raise_for_status(resp)\n    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^\n  File \"/Users/matyasjirat/VSCodeProjects/Keboola/component-ex-uol/src/client.py\", line 117, in _raise_for_status\n    raise UserException(\n    ...<2 lines>...\n    )\nkeboola.component.exceptions.UserException: UOL authentication failed (check email + API token and that the account has the 'REST API' permission). HTTP 401.\n",
+  "exit_code": null,
+  "stderr": "",
   "logs": [
     {
       "level": "INFO",
       "logger": "root",
       "message": "Extracting contacts (date_field=None, since=None)",
-      "timestamp": "2026-06-08T11:38:47.376Z"
+      "timestamp": "2026-06-08T13:36:54.000Z"
     },
     {
-      "level": "ERROR",
+      "level": "INFO",
       "logger": "root",
-      "message": "UOL authentication failed (check email + API token and that the account has the 'REST API' permission). HTTP 401.\nTraceback (most recent call last):\n  File \"src/component.py\", line 149, in <module>\n    Component().execute_action()\n    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^\n  File \"/Users/matyasjirat/VSCodeProjects/Keboola/component-ex-uol/.venv/lib/python3.14/site-packages/keboola/component/base.py\", line 251, in execute_action\n    return self._do_execute_action()\n           ~~~~~~~~~~~~~~~~~~~~~~~^^\n  File \"/Users/matyasjirat/VSCodeProjects/Keboola/component-ex-uol/.venv/lib/python3.14/site-packages/keboola/component/base.py\", line 265, in _do_execute_action\n    return action_method()\n  File \"src/component.py\", line 62, in run\n    for record in client.iter_records(endpoint.path, params=params):\n                  ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/matyasjirat/VSCodeProjects/Keboola/component-ex-uol/src/client.py\", line 52, in iter_records\n    data = self._request(\"GET\", path, params=query)\n  File \"/Users/matyasjirat/VSCodeProjects/Keboola/component-ex-uol/src/client.py\", line 88, in _request\n    self._raise_for_status(resp)\n    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^\n  File \"/Users/matyasjirat/VSCodeProjects/Keboola/component-ex-uol/src/client.py\", line 117, in _raise_for_status\n    raise UserException(\n    ...<2 lines>...\n    )\nkeboola.component.exceptions.UserException: UOL authentication failed (check email + API token and that the account has the 'REST API' permission). HTTP 401.",
-      "timestamp": "2026-06-08T11:38:47.448Z"
+      "message": "Fetched 187 contacts records",
+      "timestamp": "2026-06-08T13:36:54.000Z"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Wrote 187 rows to contacts",
+      "timestamp": "2026-06-08T13:36:54.000Z"
     }
   ]
 }

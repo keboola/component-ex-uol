@@ -7,20 +7,21 @@
         "price_list_id",
         "created_at",
         "updated_at",
-        "creator",
-        "modifier",
+        "creator_user_id",
+        "modifier_user_id",
         "name",
-        "currency"
+        "currency_currency_id",
+        "items"
       ],
-      "hash": "sha256:dc4bdfb243bd3207ce615a9a21137e35fb818c6f89693370512047df5ecf3497",
+      "hash": "sha256:15c34cbcf5b7d734aafc12eb4d740d907b402b34188f5c068f323d7ff724f322",
       "row_count": 3,
-      "size_bytes": 410
+      "size_bytes": 3374
     },
     "price_lists.csv.manifest": {
       "columns": null,
-      "hash": "sha256:c911196c78f3dc6e950f4af7aeb8339a25db27b31ac78ce720543aeb57467885",
+      "hash": "sha256:d865393a3c0fea5270390d521740de559521a58deb7d6df052751b4ec9a331e2",
       "row_count": null,
-      "size_bytes": 1220
+      "size_bytes": 1392
     },
     "price_lists_items.csv": {
       "columns": [

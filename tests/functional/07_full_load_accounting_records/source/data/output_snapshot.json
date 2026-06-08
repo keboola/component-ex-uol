@@ -5,18 +5,17 @@
     "accounting_records.csv": {
       "columns": [
         "gid",
-        "creator",
-        "modifier",
-        "product",
-        "contact",
-        "currency",
-        "department",
-        "contract",
-        "doc_type",
-        "linked_doc_type",
-        "period",
-        "debit_account",
-        "credit_account",
+        "creator_user_id",
+        "modifier_user_id",
+        "product_product_id",
+        "currency_currency_id",
+        "department_department_id",
+        "contract_contract_id",
+        "doc_type_document_config_id",
+        "linked_doc_type_document_config_id",
+        "period_period_id",
+        "debit_account_chart_of_account_id",
+        "credit_account_chart_of_account_id",
         "accounting_amount",
         "amount",
         "batch",
@@ -37,15 +36,15 @@
         "status",
         "updated_at"
       ],
-      "hash": "sha256:b92c1d226935857b510c562408825493642341121c8ff341daa2448412d917b2",
+      "hash": "sha256:6b92cf050ff6c1b2dd86e1e93ece31c189074abd38047575c0709c91e03eb115",
       "row_count": 2587,
-      "size_bytes": 1567779
+      "size_bytes": 596776
     },
     "accounting_records.csv.manifest": {
       "columns": null,
-      "hash": "sha256:defcc31533222495e5ed487f48a36454c2e6f8d8288a6280ac2524779a4866de",
+      "hash": "sha256:62b9b15a008890e41faaa9569f46adced619e8fd8e389fb5b53a31187cde2dee",
       "row_count": null,
-      "size_bytes": 4934
+      "size_bytes": 4941
     }
   },
   "version": "1.0"

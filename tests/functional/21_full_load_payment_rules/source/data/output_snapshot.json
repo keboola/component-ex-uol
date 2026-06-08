@@ -7,8 +7,8 @@
         "gid",
         "created_at",
         "updated_at",
-        "creator",
-        "modifier",
+        "creator_user_id",
+        "modifier_user_id",
         "rule_id",
         "doc_type",
         "vat_code",
@@ -16,15 +16,15 @@
         "debit_account_id",
         "credit_account_id"
       ],
-      "hash": "sha256:e5a2a767aa61462cc11b9a0c5c9cc0fb39ccacbed33f02e696398e462cb8dc70",
+      "hash": "sha256:074612c88cb282ea3cb48c0807aaab882cfd04839b0a06e650e81c4dbfb59b47",
       "row_count": 89,
-      "size_bytes": 14838
+      "size_bytes": 11158
     },
     "payment_rules.csv.manifest": {
       "columns": null,
-      "hash": "sha256:20ea63cbca192919b042069f67f3eb33d75319371c44a40b3775898422e53522",
+      "hash": "sha256:612918f2eb0ba2ce1a32404fc4978de0fb9b4f61980379dc7924596312d2509e",
       "row_count": null,
-      "size_bytes": 1821
+      "size_bytes": 1837
     }
   },
   "version": "1.0"

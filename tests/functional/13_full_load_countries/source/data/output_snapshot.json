@@ -7,8 +7,8 @@
         "country_id",
         "created_at",
         "updated_at",
-        "creator",
-        "modifier",
+        "creator_user_id",
+        "modifier_user_id",
         "currency_id",
         "eu_entry_date",
         "external_id",
@@ -19,15 +19,15 @@
         "vatin_regex",
         "postal_code_regex"
       ],
-      "hash": "sha256:69dfef72bb06cb6cac30a9e871ddf7aa4cebb55f6c6c886d029c423f2a61d52a",
+      "hash": "sha256:5bd90d8e70fa1a3131c1b57e2a61590c3b873b9b4d28b051efb066760e3c30f0",
       "row_count": 253,
-      "size_bytes": 43050
+      "size_bytes": 32482
     },
     "countries.csv.manifest": {
       "columns": null,
-      "hash": "sha256:6d51b0829cc0a05d8b877864913bcef1df011c4e4d72d80a3c5e7d25e5cb85ce",
+      "hash": "sha256:a3dc2e55c1f4bea70696a2063c1774ffdf8df6aad4ca43f2e9570b47b1221ea5",
       "row_count": null,
-      "size_bytes": 2281
+      "size_bytes": 2297
     }
   },
   "version": "1.0"

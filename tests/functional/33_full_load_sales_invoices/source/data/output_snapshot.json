@@ -5,21 +5,20 @@
     "sales_invoices.csv": {
       "columns": [
         "gid",
-        "accounting_address",
-        "buyer_address",
-        "bank_account",
-        "creator",
-        "currency",
-        "delivery_address",
-        "department",
-        "document_recipient_address",
+        "accounting_address_address_id",
+        "buyer_address_address_id",
+        "bank_account_bank_account_id",
+        "creator_user_id",
+        "currency_currency_id",
+        "delivery_address_address_id",
+        "department_department_id",
+        "document_recipient_address_address_id",
         "linked_doc",
-        "logo",
-        "modifier",
-        "order",
-        "contract",
-        "shipper",
-        "buyer",
+        "logo_url",
+        "modifier_user_id",
+        "order_order_id",
+        "contract_contract_id",
+        "items",
         "cancellation_date",
         "constant_symbol",
         "consumption_country_id",
@@ -53,15 +52,15 @@
         "vat3_amount",
         "vat_document"
       ],
-      "hash": "sha256:eb54f77d8e34d62f3bf02f2e202fcdb1cf24d7d1688ddd8776b4eba79b38181b",
+      "hash": "sha256:b1c02768d747abe6cce5a23b3a904e59ba61760900f2d48e5a7852ff07d3bfaf",
       "row_count": 238,
-      "size_bytes": 168532
+      "size_bytes": 356133
     },
     "sales_invoices.csv.manifest": {
       "columns": null,
-      "hash": "sha256:1b41075ff23d8634e2ec3734c47ea9a2048131a204e9d0cb11d6aba672ad3970",
+      "hash": "sha256:0b975cd9a4d8c064695d8102322a7c764075ecb368c4c5448a8e55efe0d7bb97",
       "row_count": null,
-      "size_bytes": 7402
+      "size_bytes": 7383
     },
     "sales_invoices_items.csv": {
       "columns": [

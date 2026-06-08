@@ -5,24 +5,24 @@
     "predefined_texts.csv": {
       "columns": [
         "predefined_text_id",
-        "creator",
+        "creator_user_id",
         "created_at",
-        "modifier",
+        "modifier_user_id",
         "updated_at",
         "status",
         "external_id",
         "private",
         "text"
       ],
-      "hash": "sha256:e063abecc172c41bd929fe92eeea7ab5899027ab672b55431fc3fd8aba683ad1",
+      "hash": "sha256:e0f66b03401909137476b6a0158e0fd1d5b38d19d3a0cc2218065e595449bf59",
       "row_count": 6,
-      "size_bytes": 1762
+      "size_bytes": 1568
     },
     "predefined_texts.csv.manifest": {
       "columns": null,
-      "hash": "sha256:b430843d82d72ff48b0a766e02bd5125965f982bdffd255f9675172d9212c787",
+      "hash": "sha256:75f43ae158eb334c934a490a35ead8a6e084348b305714a96abee6bb7e423c0b",
       "row_count": null,
-      "size_bytes": 1519
+      "size_bytes": 1535
     }
   },
   "version": "1.0"

@@ -7,33 +7,34 @@
         "retail_id",
         "created_at",
         "updated_at",
-        "creator",
-        "modifier",
-        "accounting_address",
-        "buyer_address",
+        "creator_user_id",
+        "modifier_user_id",
+        "accounting_address_address_id",
+        "buyer_address_address_id",
         "confirmed",
-        "contact",
-        "contract",
-        "delivery_address",
+        "contact_contact_id",
+        "contract_contract_id",
+        "delivery_address_address_id",
         "percent_discount",
         "external_id",
         "status",
         "note",
         "payment_method",
         "rounding",
-        "department",
+        "department_department_id",
         "total_amount",
-        "vat_document"
+        "vat_document",
+        "items"
       ],
-      "hash": "sha256:aba78db322f02b2b66c275659152d87497faeccfc8003013c5e99b2cbcbbfe43",
+      "hash": "sha256:6e803ed30dda4f2b14e95722f25a269128f14f4d6b045b562323c84085f14ea2",
       "row_count": 6,
-      "size_bytes": 1910
+      "size_bytes": 5514
     },
     "retails.csv.manifest": {
       "columns": null,
-      "hash": "sha256:078903fada96c2c37b0bfed49b0d7e44e567971314ea3f6b0b0dbcb9a65a8d1d",
+      "hash": "sha256:d46ec85b7dc4d4ae3cd99f0c21ef31ba8bc7622c040703c1022fc25d2c70135c",
       "row_count": null,
-      "size_bytes": 3175
+      "size_bytes": 3405
     },
     "retails_items.csv": {
       "columns": [

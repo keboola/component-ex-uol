@@ -5,24 +5,24 @@
     "document_templates.csv": {
       "columns": [
         "id",
-        "creator",
-        "language",
-        "modifier",
+        "creator_user_id",
+        "language_language_id",
+        "modifier_user_id",
         "created_at",
         "default",
         "name",
         "title",
         "updated_at"
       ],
-      "hash": "sha256:b126456167eab01fdb1ff58049fbdd2ce16c1366358ee787a8ef6b58cf4a7893",
+      "hash": "sha256:28f16f1d9803f17fd958390f351be9f23e0a58e79afc384f72f9b93cddc15da1",
       "row_count": 71,
-      "size_bytes": 13814
+      "size_bytes": 9152
     },
     "document_templates.csv.manifest": {
       "columns": null,
-      "hash": "sha256:54f789b6472fa4a09b2e4c1eb331fc3ee2555ae1459a16d89edc419cdafe0862",
+      "hash": "sha256:07a6f3a2d98ac72a0e77be6c54199bdbce3f703f7ca45f117198bbfc429473c8",
       "row_count": null,
-      "size_bytes": 1499
+      "size_bytes": 1527
     }
   },
   "version": "1.0"

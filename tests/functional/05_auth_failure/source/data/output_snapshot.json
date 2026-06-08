@@ -1,6 +1,52 @@
 {
   "files": {},
   "hash_algorithm": "sha256",
-  "tables": {},
+  "tables": {
+    "contacts.csv": {
+      "columns": [
+        "contact_id",
+        "creator_user_id",
+        "modifier_user_id",
+        "contract_contract_id",
+        "acquisition_country_id",
+        "business_entity",
+        "company_number",
+        "consumption_country_id",
+        "country_id",
+        "created_at",
+        "days_till_due_date",
+        "department_id",
+        "duplicate_variable_symbol",
+        "external_id",
+        "hidden",
+        "import_received_documents",
+        "language_id",
+        "name",
+        "note",
+        "percent_discount",
+        "received_invoice_public_id_setting",
+        "received_invoice_variable_symbol_setting",
+        "status",
+        "sipo_number",
+        "specific_symbol",
+        "tin",
+        "unreliable_payer",
+        "updated_at",
+        "vat_payer",
+        "vatin",
+        "addresses",
+        "bank_accounts"
+      ],
+      "hash": "sha256:167cda485debc4ffd4b1df45abec7328f3ab4b4fa6b3c22cc55b732d96ccc0ab",
+      "row_count": 188,
+      "size_bytes": 208714
+    },
+    "contacts.csv.manifest": {
+      "columns": null,
+      "hash": "sha256:6ef79de215c72f5ea460e38c113363ddaef606b11b627078841cc7af3287bf5a",
+      "row_count": null,
+      "size_bytes": 5093
+    }
+  },
   "version": "1.0"
 }

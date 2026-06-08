@@ -7,10 +7,10 @@
         "my_company_id",
         "created_at",
         "updated_at",
-        "creator",
-        "modifier",
+        "creator_user_id",
+        "modifier_user_id",
         "building_number",
-        "country",
+        "country_country_id",
         "email",
         "external_id",
         "buyer",
@@ -43,15 +43,15 @@
         "withholding_tax",
         "tax_from_employment"
       ],
-      "hash": "sha256:e90f1257c1defec2af7b3af2124ca2c686bef58560bba5ca2dfc69d6786b5c6c",
+      "hash": "sha256:eb034f8006d6b8fefc61e66dd06bab8184be4b50db76ed1f0691794ff5888b94",
       "row_count": 2,
-      "size_bytes": 763
+      "size_bytes": 724
     },
     "my_companies.csv.manifest": {
       "columns": null,
-      "hash": "sha256:e72f3b6a75988a0c8fc30d3ae414063551602810cd3f74c50fefa38b72a534b6",
+      "hash": "sha256:6ea52d30199493c9c942435acfe86edbee4dbec1d7c3855154c00e2fa7ddcda1",
       "row_count": null,
-      "size_bytes": 5832
+      "size_bytes": 5859
     }
   },
   "version": "1.0"

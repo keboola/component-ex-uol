@@ -7,30 +7,31 @@
         "reminder_id",
         "created_at",
         "updated_at",
-        "creator",
-        "modifier",
-        "accounting_address",
-        "address",
-        "buyer_address",
+        "creator_user_id",
+        "modifier_user_id",
+        "accounting_address_address_id",
+        "address_address_id",
+        "buyer_address_address_id",
         "confirmed",
-        "contact",
+        "contact_contact_id",
         "date",
-        "delivery_address",
+        "delivery_address_address_id",
         "external_id",
         "status",
         "note",
         "send_by_email",
-        "send_by_mail"
+        "send_by_mail",
+        "items"
       ],
-      "hash": "sha256:ada829194168a3cf3419652809b0dbb64943777f1487dbead6711b7139450fb9",
+      "hash": "sha256:bca4bdf0b089823f27265d8456349a199cc5b73cd9eb70726b9e43b5e32406a3",
       "row_count": 3,
-      "size_bytes": 812
+      "size_bytes": 1941
     },
     "demands_for_payment.csv.manifest": {
       "columns": null,
-      "hash": "sha256:364b737b6263243b3604f4712a7a1253311071d093e76a89d2121d7061ada4fc",
+      "hash": "sha256:27856d5ad8615993eb51a86e27cc84885fb913c48f8aa249b1d3a7b7f5ab9571",
       "row_count": null,
-      "size_bytes": 2716
+      "size_bytes": 2931
     },
     "demands_for_payment_items.csv": {
       "columns": [

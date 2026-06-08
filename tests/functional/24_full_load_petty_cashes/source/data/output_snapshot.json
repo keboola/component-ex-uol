@@ -7,14 +7,14 @@
         "petty_cash_id",
         "created_at",
         "updated_at",
-        "creator",
-        "modifier",
+        "creator_user_id",
+        "modifier_user_id",
         "opening_balance_date",
         "after_retail_issued",
         "after_credit_issued",
         "after_credit_received",
-        "currency",
-        "department",
+        "currency_currency_id",
+        "department_department_id",
         "external_id",
         "opening_balance",
         "after_invoice_issued",
@@ -24,15 +24,15 @@
         "name",
         "allow_negative"
       ],
-      "hash": "sha256:3e2489b1161670be478ee5e5600349439192e11700eed0a539da833f641884eb",
+      "hash": "sha256:28daf749dce802c7d735eb57f22cf4f9152d2ff7d37c41336be2338be5038e36",
       "row_count": 3,
-      "size_bytes": 902
+      "size_bytes": 756
     },
     "petty_cashes.csv.manifest": {
       "columns": null,
-      "hash": "sha256:8db1b7800800f2cc45fac0fc6cd3f342648dac814cdf65f438c81c60285cbb61",
+      "hash": "sha256:219bd960fa27d52947b7c7b2ccd8ec230c8efa6e74d5aa6a27b0e8956a061774",
       "row_count": null,
-      "size_bytes": 3072
+      "size_bytes": 3114
     }
   },
   "version": "1.0"

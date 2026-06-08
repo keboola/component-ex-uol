@@ -1,253 +1,253 @@
-country_id,created_at,updated_at,creator,modifier,currency_id,eu_entry_date,external_id,international_name,status,name,phone_prefix,vatin_regex,postal_code_regex
-AQ,2009-02-03T14:46:50+01:00,2009-02-03T14:47:06+01:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",,,,Antarctica,valid,Antarktida,,,
-BV,2009-02-03T14:46:50+01:00,2009-02-03T14:47:06+01:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",,,,Bouvet Island,valid,Bouvetův ostrov,,,
-TF,2009-02-03T14:46:51+01:00,2009-02-03T14:47:06+01:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",,,,French Southern Territories,valid,Francouzská jižní a antarktická území,,,
-AN,2009-02-03T14:46:50+01:00,2009-02-03T14:47:17+01:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",,,,Netherlands Antilles,valid,Nizozemské Antily,+599,,
-SV,2009-02-03T14:46:51+01:00,2014-07-24T16:31:06+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",USD,,,El Salvador,valid,Salvador,+503,,
-TL,2009-02-03T14:46:51+01:00,2014-07-24T16:31:06+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",USD,,,Timor-Leste,valid,Východní Timor,+670,,
-IE,2009-02-03T14:46:50+01:00,2014-07-24T16:31:06+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",EUR,1973-01-01,,Ireland,valid,Irsko,+353,^IE[0-9]+[0-9A-Z+*]+[0-9]{5}[A-Z]+$,
-VG,2009-02-03T14:46:51+01:00,2014-07-24T16:31:06+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",USD,,,"Virgin Islands, British",valid,Britské Panenské ostrovy,+1284,,
-GS,2009-02-03T14:46:50+01:00,2015-09-15T15:47:09+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",,,,South Georgia and the South Sandwich Islands,valid,Jižní Georgie a Jižní Sandwichovy ostrovy,,,^SIQQ 1ZZ$
-HM,2009-02-03T14:46:50+01:00,2015-09-15T15:47:09+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",,,,Heard Island and McDonald Islands,valid,Heardův ostrov a McDonaldovy ostrovy,,,^[0-9]{4}$
-IO,2009-02-03T14:46:50+01:00,2015-09-15T15:47:09+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",,,,British Indian Ocean Territory,valid,Britské indickooceánské území,,,^BBND 1ZZ$
-US,2009-02-03T14:46:51+01:00,2015-09-15T15:47:09+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",USD,,,United States,valid,Spojené státy americké,+1,,^[0-9]{5}([ -][0-9]{4})?$
-GU,2009-02-03T14:46:50+01:00,2015-09-15T15:47:09+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",USD,,,Guam,valid,Guam,+1671,,^969[123][0-9]([ -][0-9]{4})?$
-EC,2009-02-03T14:46:50+01:00,2015-09-15T15:47:09+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",USD,,,Ecuador,valid,Ekvádor,+593,,^([A-Z][0-9]{4}[A-Z]|(?:[A-Z]{2})?[0-9]{6})?$
-FM,2009-02-03T14:46:50+01:00,2015-09-15T15:47:09+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",USD,,,Federated States of Micronesia,valid,Mikronésie,+691,,^(9694[1-4])([ -][0-9]{4})?$
-YT,2009-02-03T14:46:51+01:00,2015-09-15T15:47:09+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",EUR,,,Mayotte,valid,Mayotte,,,^976[0-9]{2}$
-RE,2009-02-03T14:46:51+01:00,2015-09-15T15:47:09+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",EUR,,,Réunion,valid,Réunion,+262,,^9[78]4[0-9]{2}$
-KR,2009-02-03T14:46:50+01:00,2024-06-12T14:42:11+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",KRW,,,Republic of Korea,valid,Jižní Korea,+82,,^[0-9]{5}$
-GP,2009-02-03T14:46:50+01:00,2015-09-15T15:47:09+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",EUR,,,Guadeloupe,valid,Guadeloupe,+590,,^9[78][01][0-9]{2}$
-GF,2009-02-03T14:46:50+01:00,2015-09-15T15:47:09+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",EUR,,,French Guiana,valid,Francouzská Guyana,+594,,^9[78]3[0-9]{2}$
-MQ,2009-02-03T14:46:51+01:00,2015-09-15T15:47:09+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",EUR,,,Martinique,valid,Martinik,+596,,^9[78]2[0-9]{2}$
-EE,2009-02-03T14:46:50+01:00,2015-09-15T15:47:09+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",EUR,2004-05-01,,Estonia,valid,Estonsko,+372,^EE[0-9]{9}$,^[0-9]{5}$
-FI,2009-02-03T14:46:50+01:00,2015-09-15T15:47:09+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",EUR,1995-01-01,,Finland,valid,Finsko,+358,^FI[0-9]{8}$,^[0-9]{5}$
-FR,2009-02-03T14:46:50+01:00,2015-09-15T15:47:09+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",EUR,1952-01-01,,France,valid,Francie,+33,^FR[0-9A-Z]{2}[0-9]{9}$,^[0-9]{2} ?[0-9]{3}$
-IT,2009-02-03T14:46:50+01:00,2015-09-15T15:47:09+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",EUR,1952-01-01,,Italy,valid,Itálie,+39,^IT[0-9]{11}$,^[0-9]{5}$
-CY,2009-02-03T14:46:50+01:00,2015-09-15T15:47:09+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",EUR,2004-05-01,,Cyprus,valid,Kypr,+357,^CY[0-9A-Z]{9}$,^[0-9]{4}$
-LV,2009-02-03T14:46:50+01:00,2015-09-15T15:47:09+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",EUR,2004-05-01,,Latvia,valid,Lotyšsko,+371,^LV[0-9]{11}$,^[0-9]{4}$
-LU,2009-02-03T14:46:50+01:00,2015-09-15T15:47:09+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",EUR,1952-01-01,,Luxembourg,valid,Lucembursko,+352,^LU[0-9]{8}$,^[0-9]{4}$
-MT,2009-02-03T14:46:51+01:00,2015-09-15T15:47:09+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",EUR,2004-05-01,,Malta,valid,Malta,+356,^MT[0-9]{8}$,"^[A-Z]{3} ?[0-9]{2,4}$"
-DE,2009-02-03T14:46:50+01:00,2015-09-15T15:47:09+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",EUR,1952-01-01,,Germany,valid,Německo,+49,^DE[0-9]{9}$,^[0-9]{5}$
-NL,2009-02-03T14:46:51+01:00,2015-09-15T15:47:09+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",EUR,1952-01-01,,Netherlands,valid,Nizozemsko,+31,^NL[0-9A-Z]{12}$,^[0-9]{4} ?[A-Z]{2}$
-PT,2009-02-03T14:46:51+01:00,2015-09-15T15:47:09+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",EUR,1986-01-01,,Portugal,valid,Portugalsko,+351,^PT[0-9]{9}$,^[0-9]{4}(-[0-9]{3})?$
-AT,2009-02-03T14:46:50+01:00,2015-09-15T15:47:09+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",EUR,1995-01-01,,Austria,valid,Rakousko,+43,^ATU[0-9A-Z]{8}$,^[0-9]{4}$
-GR,2009-02-03T14:46:50+01:00,2015-09-15T15:47:09+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",EUR,1981-01-01,,Greece,valid,Řecko,+30,^EL[0-9]{9}$,^[0-9]{3} ?[0-9]{2}$
-SI,2009-02-03T14:46:51+01:00,2015-09-15T15:47:09+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",EUR,2004-05-01,,Slovenia,valid,Slovinsko,+386,^SI[0-9]{8}$,^[0-9]{4}$
-ES,2009-02-03T14:46:50+01:00,2015-09-15T15:47:09+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",EUR,1986-01-01,,Spain,valid,Španělsko,+34,^ES[0-9A-Z]+[0-9]{7}[0-9A-Z]+$,^[0-9]{5}$
-TC,2009-02-03T14:46:51+01:00,2015-09-15T15:47:09+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",USD,,,Turks and Caicos Islands,valid,Turks a Caicos,+1649,,^TKCA 1ZZ$
-VI,2009-02-03T14:46:51+01:00,2015-09-15T15:47:09+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",USD,,,"Virgin Islands, U.S.",valid,Americké Panenské ostrovy,+134,,^008(([0-4][0-9])|(5[01]))([ -][0-9]{4})?$
-MP,2009-02-03T14:46:51+01:00,2015-09-15T15:47:09+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",USD,,,Northern Mariana Islands,valid,Severní Mariany,+167,,^9695[012]([ -][0-9]{4})?$
-AS,2009-02-03T14:46:50+01:00,2015-09-15T15:47:09+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",USD,,,American Samoa,valid,Americká Samoa,+1684,,^96799$
-PR,2009-02-03T14:46:51+01:00,2015-09-15T15:47:09+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",USD,,,Puerto Rico,valid,Portoriko,+1939,,^00[679][0-9]{2}([ -][0-9]{4})?$
-PW,2009-02-03T14:46:51+01:00,2015-09-15T15:47:09+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",USD,,,Palau,valid,Palau,+680,,^96940$
-MH,2009-02-03T14:46:51+01:00,2015-09-15T15:47:09+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",USD,,,Marshall Islands,valid,Marshallovy ostrovy,+692,,^969[67][0-9]([ -][0-9]{4})?$
-AX,2009-02-03T14:46:50+01:00,2016-05-04T16:05:22+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",EUR,,,Aland Islands,valid,Alandy,,,^22[0-9]{3}$
-VA,2009-02-03T14:46:51+01:00,2016-05-04T16:05:22+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",EUR,,,Holy See (Vatican City State),valid,Vatikán,+39,,^00120$
-AD,2009-02-03T14:46:50+01:00,2016-05-04T16:05:22+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",EUR,,,Andorra,valid,Andorra,+376,,^AD[0-9]{3}$
-SM,2009-02-03T14:46:51+01:00,2016-05-04T16:05:22+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",EUR,,,San Marino,valid,San Marino,+378,,^4789[0-9]$
-ME,2009-02-03T14:46:51+01:00,2016-05-04T16:05:22+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",EUR,,,Montenegro,valid,Černá Hora,+382,,^8[0-9]{4}$
-PM,2009-02-03T14:46:51+01:00,2016-05-04T16:05:22+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",EUR,,,Saint Pierre and Miquelon,valid,Saint Pierre a Miquelon,+508,,^9[78]5[0-9]{2}$
-LT,2009-02-03T14:46:50+01:00,2016-05-04T16:05:22+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",EUR,2004-05-01,,Lithuania,valid,Litva,+370,"^LT[0-9]{9,12}$",^[0-9]{5}$
-EH,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",MAD,,,Western Sahara,valid,Západní Sahara,,,
-UM,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",USD,,,United States Minor Outlying Islands,valid,Menší odlehlé ostrovy USA,,,
-BS,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",BSD,,,Bahamas,valid,Bahamy,+1242,,
-AI,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",XCD,,,Anguilla,valid,Anguilla,+1264,,
-AG,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",XCD,,,Antigua and Barbuda,valid,Antigua a Barbuda,+1268,,
-KY,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",KYD,,,Cayman Islands,valid,Kajmanské ostrovy,+1345,,
-GD,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",XCD,,,Grenada,valid,Grenada,+1473,,
-MS,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",XCD,,,Montserrat,valid,Montserrat,+1664,,
-PE,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",PEN,,,Peru,valid,Peru,+51,,
-CU,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",CUC,,,Cuba,valid,Kuba,+53,,
-CO,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",COP,,,Colombia,valid,Kolumbie,+57,,
-VN,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",VND,,,Viet Nam,valid,Vietnam,+84,,
-AF,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",AFN,,,Afghanistan,valid,Afghánistán,+93,,
-MM,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",MMK,,,Myanmar,valid,Myanmar,+95,,
-IR,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",IRR,,,Islamic Republic of Iran,valid,Írán,+98,,
-LY,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",LYD,,,Libyan Arab Jamahiriya,valid,Libye,+218,,
-GM,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",GMD,,,Gambia,valid,Gambie,+220,,
-MR,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",MRU,,,Mauritania,valid,Mauritánie,+222,,
-ML,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",XOF,,,Mali,valid,Mali,+223,,
-CI,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",XOF,,,Côte d´Ivoire,valid,Pobřeží slonoviny,+225,,
-BF,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",XOF,,,Burkina Faso,valid,Burkina Faso,+226,,
-TG,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",XOF,,,Togo,valid,Togo,+228,,
-BJ,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",XOF,,,Benin,valid,Benin,+229,,
-SL,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",SLL,,,Sierra Leone,valid,Sierra Leone,+232,,
-GH,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",GHS,,,Ghana,valid,Ghana,+233,,
-TD,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",XAF,,,Chad,valid,Čad,+235,,
-CF,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",XAF,,,Central African Republic,valid,Středoafrická republika,+236,,
-CM,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",XAF,,,Cameroon,valid,Kamerun,+237,,
-ST,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",STN,,,Sao Tome and Principe,valid,Svatý Tomáš a Princův ostrov,+239,,
-GQ,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",XAF,,,Equatorial Guinea,valid,Rovníková Guinea,+240,,
-GA,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",XAF,,,Gabon,valid,Gabon,+241,,
-CG,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",CDF,,,Congo,valid,Kongo,+242,,
-CD,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",CDF,,,Democratic Republic of the Congo,valid,Demokratická republika Kongo,+243,,
-AO,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",AOA,,,Angola,valid,Angola,+244,,
-SC,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",SCR,,,Seychelles,valid,Seychely,+248,,
-SD,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",SDG,,,Sudan,valid,Súdán,+249,,
-RW,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",RWF,,,Rwanda,valid,Rwanda,+250,,
-DJ,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",DJF,,,Djibouti,valid,Džibutsko,+253,,
-TZ,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",TZS,,,United Republic of Tanzani,valid,Tanzanie,+255,,
-UG,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",UGX,,,Uganda,valid,Uganda,+256,,
-BI,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",BIF,,,Burundi,valid,Burundi,+257,,
-MZ,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",MZN,,,Mozambique,valid,Mosambik,+258,,
-ZW,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",USD,,,Zimbabwe,valid,Zimbabwe,+263,,
-NA,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",NAD,,,Namibia,valid,Namibie,+264,,
-MW,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",MWK,,,Malawi,valid,Malawi,+265,,
-BW,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",BWP,,,Botswana,valid,Botswana,+267,,
-KM,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",KMF,,,Comoros,valid,Komory,+269,,
-ER,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",ERN,,,Eritrea,valid,Eritrea,+291,,
-AW,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",AWG,,,Aruba,valid,Aruba,+297,,
-GI,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",GIP,,,Gibraltar,valid,Gibraltar,+350,,
-LC,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",XCD,,,Saint Lucia,valid,Svatá Lucie,+1758,,
-AL,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",ALL,,,Albania,valid,Albánie,+355,,
-DM,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",XCD,,,Dominica,valid,Dominika,+1767,,
-VC,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",XCD,,,Saint Vincent and the Grenadines,valid,Svatý Vincenc a Grenadiny,+1784,,
-TT,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",TTD,,,Trinidad and Tobago,valid,Trinidad a Tobago,+1868,,
-KN,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",XCD,,,Saint Kitts and Nevis,valid,Svatý Kryštof a Nevis,+1869,,
-JM,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",JMD,,,Jamaica,valid,Jamajka,+1876,,
-BZ,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",BZD,,,Belize,valid,Belize,+501,,
-BO,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",BOB,,,Bolivia,valid,Bolívie,+591,,
-GY,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",GYD,,,Guyana,valid,Guyana,+592,,
-SR,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",SRD,,,Suriname,valid,Surinam,+597,,
-NR,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",AUD,,,Nauru,valid,Nauru,+674,,
-TO,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",TOP,,,Tonga,valid,Tonga,+676,,
-SB,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",SBD,,,Solomon Islands,valid,Šalamounovy ostrovy,+677,,
-VU,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",VUV,,,Vanuatu,valid,Vanuatu,+678,,
-FJ,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",FJD,,,Fiji,valid,Fidži,+679,,
-NU,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",NZD,,,Niue,valid,Niue,+683,,
-WS,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",WST,,,Samoa,valid,Samoa,+685,,
-PA,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",PAB,,,Panama,valid,Panama,+507,,
-KI,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",AUD,,,Kiribati,valid,Kiribati,+686,,
-TV,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",AUD,,,Tuvalu,valid,Tuvalu,+688,,
-TK,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",NZD,,,Tokelau,valid,Tokelau,+690,,
-KP,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",KPW,,,Democratic People´s Republic of Korea,valid,Severní Korea,+850,,
-HK,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",HKD,,,Hong Kong,valid,Hongkong,+852,,
-MO,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",MOP,,,Macao,valid,Macao,+853,,
-SY,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",SYP,,,Syrian Arab Republic,valid,Sýrie,+963,,
-YE,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",YER,,,Yemen,valid,Jemen,+967,,
-PS,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",ILS,,,Occupied Palestinian Territory,valid,Palestina,+970,,
-AE,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",AED,,,United Arab Emirates,valid,Spojené arabské emiráty,+971,,
-QA,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",QAR,,,Qatar,valid,Katar,+974,,
-BT,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",BTN,,,Bhutan,valid,Bhútán,+975,,
-IN,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",INR,,,India,valid,Indie,+91,,^[0-9]{6}$
-CC,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",AUD,,,Cocos (Keeling) Islands,valid,Kokosové ostrovy,,,^6799$
-CX,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",AUD,,,Christmas Island,valid,Vánoční ostrov,,,^6798$
-GG,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",GBP,,,Guernsey,valid,Guernsey,,,^GY[0-9][0-9A-Z]? ?[0-9][ABD-HJLN-UW-Z]{2}$
-IM,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",GBP,,,Isle of Man,valid,Man,,,^IM[0-9][0-9A-Z]? ?[0-9][ABD-HJLN-UW-Z]{2}$
-JE,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",GBP,,,Jersey,valid,Jersey,,,^JE[0-9][0-9A-Z]? ?[0-9][ABD-HJLN-UW-Z]{2}$
-NF,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",AUD,,,Norfolk Island,valid,Norfolk,,,^2899$
-PN,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",NZD,,,Pitcairn,valid,Pitcairn,,,^PCRN 1ZZ$
-SJ,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",NOK,,,Svalbard and Jan Mayen,valid,Svalbard a Jan Mayen,,,^[0-9]{4}$
-CA,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",CAD,,,Canada,valid,Kanada,+1,,^[ABCEGHJKLMNPRSTVXY][0-9][ABCEGHJ-NPRSTV-Z] ?[0-9][ABCEGHJ-NPRSTV-Z][0-9]$
-RU,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",RUB,,,Russian Federation,valid,Rusko,+7,,^[0-9]{6}$
-KZ,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",KZT,,,Kazakhstan,valid,Kazachstán,+7,,^[0-9]{6}$
-EG,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",EGP,,,Egypt,valid,Egypt,+20,,^[0-9]{5}$
-ZA,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",ZAR,,,South Africa,valid,Jihoafrická republika,+27,,^[0-9]{4}$
-GE,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",GEL,,,Georgia,valid,Gruzie,+995,,^[0-9]{4}$
-KG,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",KGS,,,Kyrgyzstan,valid,Kyrgyzstán,+996,,^[0-9]{6}$
-UZ,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",UZS,,,Uzbekistan,valid,Uzbekistán,+998,,^[0-9]{6}$
-BB,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",BBD,,,Barbados,valid,Barbados,+1246,,^(BB[0-9]{5})?$
-CH,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",CHF,,,Switzerland,valid,Švýcarsko,+41,,^[0-9]{4}$
-BM,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",BMD,,,Bermuda,valid,Bermudy,+1441,,^[A-Z]{2} ?[A-Z0-9]{2}$
-NO,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",NOK,,,Norway,valid,Norsko,+47,,^[0-9]{4}$
-MX,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",MXN,,,Mexico,valid,Mexiko,+52,,^[0-9]{5}$
-AR,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",ARS,,,Argentina,valid,Argentina,+54,,^([A-HJ-NP-Z])?[0-9]{4}([A-Z]{3})?$
-BR,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",BRL,,,Brazil,valid,Brazílie,+55,,^[0-9]{5}-?[0-9]{3}$
-CL,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",CLP,,,Chile,valid,Chile,+56,,^[0-9]{7}$
-VE,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",VEF,,,Venezuela,valid,Venezuela,+58,,^[0-9]{4}$
-MY,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",MYR,,,Malaysia,valid,Malajsie,+60,,^[0-9]{5}$
-AU,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",AUD,,,Australia,valid,Austrálie,+61,,^[0-9]{4}$
-ID,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",IDR,,,Indonesia,valid,Indonésie,+62,,^[0-9]{5}$
-PH,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",PHP,,,Philippines,valid,Filipíny,+63,,^[0-9]{4}$
-NZ,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",NZD,,,New Zealand,valid,Nový Zéland,+64,,^[0-9]{4}$
-SG,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",SGD,,,Singapore,valid,Singapur,+65,,^[0-9]{6}$
-TH,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",THB,,,Thailand,valid,Thajsko,+66,,^[0-9]{5}$
-JP,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",JPY,,,Japan,valid,Japonsko,+81,,^[0-9]{3}-[0-9]{4}$
-CZ,2009-02-03T14:46:50+01:00,2026-01-08T13:52:42+01:00,"{""user_id"": ""uoladm""}","{""user_id"": ""dusilf""}",CZK,2004-05-01,,Czech Republic,valid,Česká republika,+420,"^CZ([0-9]{8,9}|[0-9]{2}[0-3,5-8]{1}[0-9]{1}[0-3,5-8]{1}[0-9]{4,5})$",^[1-7]{1}[0-9]{2} ?[0-9]{2}$
-CN,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",CNY,,,China,valid,Čína,+86,,^[0-9]{6}$
-TR,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",TRY,,,Turkey,valid,Turecko,+90,,^[0-9]{5}$
-PK,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",PKR,,,Pakistan,valid,Pákistán,+92,,^[0-9]{5}$
-LK,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",LKR,,,Sri Lanka,valid,Šrí Lanka,+94,,^[0-9]{5}$
-MA,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",MAD,,,Morocco,valid,Maroko,+212,,^[0-9]{5}$
-DZ,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",DZD,,,Algeria,valid,Alžírsko,+213,,^[0-9]{5}$
-TN,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",TND,,,Tunisia,valid,Tunisko,+216,,^[0-9]{4}$
-SN,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",XOF,,,Senegal,valid,Senegal,+221,,^[0-9]{5}$
-GN,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",GNF,,,Guinea,valid,Guinea,+224,,^[0-9]{3}$
-NE,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",XOF,,,Niger,valid,Niger,+227,,^[0-9]{4}$
-MU,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",MUR,,,Mauritius,valid,Mauricius,+230,,^([0-9]{3}[A-Z]{2}[0-9]{3})?$
-LR,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",LRD,,,Liberia,valid,Libérie,+231,,^[0-9]{4}$
-NG,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",NGN,,,Nigeria,valid,Nigérie,+234,,^([0-9]{6})?$
-CV,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",CVE,,,Cape Verde,valid,Kapverdy,+238,,^[0-9]{4}$
-GW,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",XOF,,,Guinea-Bissau,valid,Guinea-Bissau,+245,,^[0-9]{4}$
-ET,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",ETB,,,Ethiopia,valid,Etiopie,+251,,^[0-9]{4}$
-SO,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",SOS,,,Somalia,valid,Somálsko,+252,,^[0-9]{5}$
-KE,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",KES,,,Kenya,valid,Keňa,+254,,^[0-9]{5}$
-ZM,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",ZMW,,,Zambia,valid,Zambie,+260,,^[0-9]{5}$
-MG,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",MGA,,,Madagascar,valid,Madagaskar,+261,,^[0-9]{3}$
-LS,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",LSL,,,Lesotho,valid,Lesotho,+266,,^[0-9]{3}$
-SZ,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",SZL,,,Swaziland,valid,Svazijsko,+268,,^[HLMS][0-9]{3}$
-SH,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",SHP,,,Saint Helena,valid,Svatá Helena,+290,,^(ASCN|STHL) 1ZZ$
-FO,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",DKK,,,Faroe Islands,valid,Faerské ostrovy,+298,,^[0-9]{3}$
-GL,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",DKK,,,Greenland,valid,Grónsko,+299,,^39[0-9]{2}$
-IS,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",ISK,,,Iceland,valid,Island,+354,,^[0-9]{3}$
-DO,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",DOP,,,Dominican Republic,valid,Dominikánská republika,+1809,,^[0-9]{5}$
-MD,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",MDL,,,Republic of Moldova,valid,Moldavsko,+373,,^[0-9]{4}$
-AM,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",AMD,,,Armenia,valid,Arménie,+374,,^(37)?[0-9]{4}$
-BY,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",BYN,,,Belarus,valid,Bělorusko,+375,,^[0-9]{6}$
-UA,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",UAH,,,Ukraine,valid,Ukrajina,+380,,^[0-9]{5}$
-BA,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",BAM,,,Bosnia and Herzegovina,valid,Bosna a Hercegovina,+387,,^[0-9]{5}$
-MK,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",MKD,,,Macedonia,valid,Makedonie,+389,,^[0-9]{4}$
-BG,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",BGN,2007-01-01,,Bulgaria,valid,Bulharsko,+359,"^BG[0-9]{9,10}$",^[0-9]{4}$
-LI,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",CHF,,,Liechtenstein,valid,Lichtenštejnsko,+423,,^(948[5-9])|(949[0-7])$
-FK,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",FKP,,,Falkland Islands (Malvinas),valid,Falklandy (Malvíny),+500,,^FIQQ 1ZZ$
-GT,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",GTQ,,,Guatemala,valid,Guatemala,+502,,^[0-9]{5}$
-HN,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",HNL,,,Honduras,valid,Honduras,+504,,^(?:[0-9]{5})?$
-RS,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",RSD,,,Serbia,valid,Srbsko,+381,,"^[0-9]{5,6}$"
-NI,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",NIO,,,Nicaragua,valid,Nikaragua,+505,,^(([0-9]{4}-)?[0-9]{3}-[0-9]{3}(-[0-9]{1})?)?$
-CR,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",CRC,,,Costa Rica,valid,Kostarika,+506,,"^[0-9]{4,5}|[0-9]{3}-[0-9]{4}$"
-HT,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",HTG,,,Haiti,valid,Haiti,+509,,^[0-9]{4}$
-PY,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",PYG,,,Paraguay,valid,Paraguay,+595,,^[0-9]{4}$
-UY,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",UYU,,,Uruguay,valid,Uruguay,+598,,^[0-9]{5}$
-BN,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",BND,,,Brunei Darussalam,valid,Brunej,+673,,^[A-Z]{2} ?[0-9]{4}$
-PG,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",PGK,,,Papua New Guinea,valid,Papua-Nová Guinea,+675,,^[0-9]{3}$
-WF,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",XPF,,,Wallis and Futuna,valid,Wallis a Futuna,+681,,^986[0-9]{2}$
-CK,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",NZD,,,Cook Islands,valid,Cookovy ostrovy,+682,,^[0-9]{4}$
-NC,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",XPF,,,New Caledonia,valid,Nová Kaledonie,+687,,^988[0-9]{2}$
-PF,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",XPF,,,French Polynesia,valid,Francouzská Polynésie,+689,,^987[0-9]{2}$
-KH,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",KHR,,,Cambodia,valid,Kambodža,+855,,^[0-9]{5}$
-LA,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",LAK,,,Lao People´s Democratic Republic,valid,Laos,+856,,^[0-9]{5}$
-BD,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",BDT,,,Bangladesh,valid,Bangladéš,+880,,^[0-9]{4}$
-MV,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",MVR,,,Maldives,valid,Maledivy,+960,,^[0-9]{5}$
-LB,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",LBP,,,Lebanon,valid,Libanon,+961,,^([0-9]{4}( ?[0-9]{4})?)?$
-JO,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",JOD,,,Jordan,valid,Jordánsko,+962,,^[0-9]{5}$
-IQ,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",IQD,,,Iraq,valid,Irák,+964,,^[0-9]{5}$
-KW,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",KWD,,,Kuwait,valid,Kuvajt,+965,,^[0-9]{5}$
-SA,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",SAR,,,Saudi Arabia,valid,Saudská Arábie,+966,,^[0-9]{5}$
-OM,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",OMR,,,Oman,valid,Omán,+968,,^(PC )?[0-9]{3}$
-BH,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",BHD,,,Bahrain,valid,Bahrajn,+973,,^((1[0-2]|[2-9])[0-9]{2})?$
-MN,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",MNT,,,Mongolia,valid,Mongolsko,+976,,^[0-9]{6}$
-NP,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",NPR,,,Nepal,valid,Nepál,+977,,^[0-9]{5}$
-TJ,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",TJS,,,Tajikistan,valid,Tádžikistán,+992,,^[0-9]{6}$
-TM,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",TMT,,,Turkmenistan,valid,Turkmenistán,+993,,^[0-9]{6}$
-AZ,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",AZN,,,Azerbaijan,valid,Ázerbájdžán,+994,,^[0-9]{4}$
-DK,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",DKK,1973-01-01,,Denmark,valid,Dánsko,+45,^DK[0-9]{2} *[0-9]{2} *[0-9]{2} *[0-9]{2}$,^[0-9]{4}$
-HU,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",HUF,2004-05-01,,Hungary,valid,Maďarsko,+36,^HU[0-9]{8}$,^[0-9]{4}$
-PL,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",PLN,2004-05-01,,Poland,valid,Polsko,+48,^PL[0-9]{10}$,^[0-9]{2}-[0-9]{3}$
-RO,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",RON,2007-01-01,,Romania,valid,Rumunsko,+40,"^RO[0-9]{2,10}$",^[0-9]{6}$
-SE,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",SEK,1995-01-01,,Sweden,valid,Švédsko,+46,^SE[0-9]{10}01$,^[0-9]{3} ?[0-9]{2}$
-TW,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",TWD,,,"Taiwan, Republic of China",valid,Tchaj-wan,+886,,^[0-9]{3}([0-9]{2})?$
-MC,2009-02-03T14:46:50+01:00,2020-03-06T12:01:04+01:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",EUR,2003-03-26,,Monaco,valid,Monako,+377,,^980[0-9]{2}$
-BQ,2020-05-18T16:07:28+02:00,2020-05-18T16:07:28+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",USD,,,"Bonaire, Sint Eustatius and Saba",valid,"Bonaire, Svatý Eustach a Saba",+599,,
-CW,2020-05-18T16:07:28+02:00,2020-05-18T16:07:28+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",,,,Curaçao,valid,Curaçao,,,
-SS,2020-05-18T16:07:28+02:00,2020-05-18T16:07:28+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",,,,South Sudan,valid,Jižní Súdán,+211,,
-BL,2020-05-18T16:07:28+02:00,2020-05-18T16:07:28+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",EUR,,,Saint Barthélemy,valid,Svatý Bartoloměj,+590,,
-MF,2020-05-18T16:07:28+02:00,2020-05-18T16:07:28+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",EUR,,,Saint Martin,valid,Svatý Martin (francouzská část),+590,,
-SX,2020-05-18T16:07:28+02:00,2020-05-18T16:07:28+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",ANG,,,Sint Maarten,valid,Svatý Martin (nizozemská část),+1-721,,
-SK,2009-02-03T14:46:51+01:00,2020-08-27T16:04:48+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",EUR,2004-05-01,,Slovakia,valid,Slovensko,+421,^SK[12347]{1}[0-9]{9}$,^[089]{1}[0-9]{2} ?[0-9]{2}$
-XI,2020-12-28T09:22:38+01:00,2020-12-28T09:22:38+01:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",GBP,2021-01-01,,United Kingdom - Northern Ireland,valid,Spojené království - Severní Irsko,+44,^XI[0-9A-Z ]*$,"^GIR ?0AA|((AB|AL|B|BA|BB|BD|BH|BL|BN|BR|BS|BT|CA|CB|CF|CH|CM|CO|CR|CT|CV|CW|DA|DD|DE|DG|DH|DL|DN|DT|DY|E|EC|EH|EN|EX|FK|FY|G|GL|GY|GU|HA|HD|HG|HP|HR|HS|HU|HX|IG|IM|IP|IV|JE|KA|KT|KW|KY|L|LA|LD|LE|LL|LN|LS|LU|M|ME|MK|ML|N|NE|NG|NN|NP|NR|NW|OL|OX|PA|PE|PH|PL|PO|PR|RG|RH|RM|S|SA|SE|SG|SK|SL|SM|SN|SO|SP|SR|SS|ST|SW|SY|TA|TD|TF|TN|TQ|TR|TS|TW|UB|W|WA|WC|WD|WF|WN|WR|WS|WV|YO|ZE)([0-9][0-9A-Z]? ?[0-9][ABD-HJLN-UW-Z]{2}))|BFPO ?[0-9]{1,4}$"
-IL,2009-02-03T14:46:50+01:00,2021-02-26T11:13:35+01:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",ILS,,,Israel,valid,Izrael,+972,,^[0-9]{5}([0-9]{2})?$
-HR,2009-02-03T14:46:50+01:00,2023-02-07T11:02:23+01:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",EUR,2013-07-01,,Croatia,valid,Chorvatsko,+385,^HR[0-9]{11}$,^[0-9]{5}$
-BE,2009-02-03T14:46:50+01:00,2024-03-04T11:14:04+01:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",EUR,1952-01-01,,Belgium,valid,Belgie,+32,^BE(0|1)[0-9]{9}$,^[0-9]{4}$
-GB,2009-02-03T14:46:50+01:00,2020-12-28T17:41:39+01:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",GBP,1973-01-01,,United Kingdom,valid,Spojené království,+44,^GB[0-9A-Z ]*$,"^GIR ?0AA|((AB|AL|B|BA|BB|BD|BH|BL|BN|BR|BS|BT|CA|CB|CF|CH|CM|CO|CR|CT|CV|CW|DA|DD|DE|DG|DH|DL|DN|DT|DY|E|EC|EH|EN|EX|FK|FY|G|GL|GY|GU|HA|HD|HG|HP|HR|HS|HU|HX|IG|IM|IP|IV|JE|KA|KT|KW|KY|L|LA|LD|LE|LL|LN|LS|LU|M|ME|MK|ML|N|NE|NG|NN|NP|NR|NW|OL|OX|PA|PE|PH|PL|PO|PR|RG|RH|RM|S|SA|SE|SG|SK|SL|SM|SN|SO|SP|SR|SS|ST|SW|SY|TA|TD|TF|TN|TQ|TR|TS|TW|UB|W|WA|WC|WD|WF|WN|WR|WS|WV|YO|ZE)([0-9][0-9A-Z]? ?[0-9][ABD-HJLN-UW-Z]{2}))|BFPO ?[0-9]{1,4}$"
-XK,2022-09-10T11:42:34+02:00,2022-09-10T11:42:34+02:00,"{""user_id"": ""uoladm""}","{""user_id"": ""uoladm""}",EUR,,,Kosovo,valid,Kosovo,+383,,^[1-8]00[1-9]{2}$
+country_id,created_at,updated_at,creator_user_id,modifier_user_id,currency_id,eu_entry_date,external_id,international_name,status,name,phone_prefix,vatin_regex,postal_code_regex
+AQ,2009-02-03T14:46:50+01:00,2009-02-03T14:47:06+01:00,uoladm,uoladm,,,,Antarctica,valid,Antarktida,,,
+BV,2009-02-03T14:46:50+01:00,2009-02-03T14:47:06+01:00,uoladm,uoladm,,,,Bouvet Island,valid,Bouvetův ostrov,,,
+TF,2009-02-03T14:46:51+01:00,2009-02-03T14:47:06+01:00,uoladm,uoladm,,,,French Southern Territories,valid,Francouzská jižní a antarktická území,,,
+AN,2009-02-03T14:46:50+01:00,2009-02-03T14:47:17+01:00,uoladm,uoladm,,,,Netherlands Antilles,valid,Nizozemské Antily,+599,,
+SV,2009-02-03T14:46:51+01:00,2014-07-24T16:31:06+02:00,uoladm,uoladm,USD,,,El Salvador,valid,Salvador,+503,,
+TL,2009-02-03T14:46:51+01:00,2014-07-24T16:31:06+02:00,uoladm,uoladm,USD,,,Timor-Leste,valid,Východní Timor,+670,,
+IE,2009-02-03T14:46:50+01:00,2014-07-24T16:31:06+02:00,uoladm,uoladm,EUR,1973-01-01,,Ireland,valid,Irsko,+353,^IE[0-9]+[0-9A-Z+*]+[0-9]{5}[A-Z]+$,
+VG,2009-02-03T14:46:51+01:00,2014-07-24T16:31:06+02:00,uoladm,uoladm,USD,,,"Virgin Islands, British",valid,Britské Panenské ostrovy,+1284,,
+GS,2009-02-03T14:46:50+01:00,2015-09-15T15:47:09+02:00,uoladm,uoladm,,,,South Georgia and the South Sandwich Islands,valid,Jižní Georgie a Jižní Sandwichovy ostrovy,,,^SIQQ 1ZZ$
+HM,2009-02-03T14:46:50+01:00,2015-09-15T15:47:09+02:00,uoladm,uoladm,,,,Heard Island and McDonald Islands,valid,Heardův ostrov a McDonaldovy ostrovy,,,^[0-9]{4}$
+IO,2009-02-03T14:46:50+01:00,2015-09-15T15:47:09+02:00,uoladm,uoladm,,,,British Indian Ocean Territory,valid,Britské indickooceánské území,,,^BBND 1ZZ$
+US,2009-02-03T14:46:51+01:00,2015-09-15T15:47:09+02:00,uoladm,uoladm,USD,,,United States,valid,Spojené státy americké,+1,,^[0-9]{5}([ -][0-9]{4})?$
+GU,2009-02-03T14:46:50+01:00,2015-09-15T15:47:09+02:00,uoladm,uoladm,USD,,,Guam,valid,Guam,+1671,,^969[123][0-9]([ -][0-9]{4})?$
+EC,2009-02-03T14:46:50+01:00,2015-09-15T15:47:09+02:00,uoladm,uoladm,USD,,,Ecuador,valid,Ekvádor,+593,,^([A-Z][0-9]{4}[A-Z]|(?:[A-Z]{2})?[0-9]{6})?$
+FM,2009-02-03T14:46:50+01:00,2015-09-15T15:47:09+02:00,uoladm,uoladm,USD,,,Federated States of Micronesia,valid,Mikronésie,+691,,^(9694[1-4])([ -][0-9]{4})?$
+YT,2009-02-03T14:46:51+01:00,2015-09-15T15:47:09+02:00,uoladm,uoladm,EUR,,,Mayotte,valid,Mayotte,,,^976[0-9]{2}$
+RE,2009-02-03T14:46:51+01:00,2015-09-15T15:47:09+02:00,uoladm,uoladm,EUR,,,Réunion,valid,Réunion,+262,,^9[78]4[0-9]{2}$
+KR,2009-02-03T14:46:50+01:00,2024-06-12T14:42:11+02:00,uoladm,uoladm,KRW,,,Republic of Korea,valid,Jižní Korea,+82,,^[0-9]{5}$
+GP,2009-02-03T14:46:50+01:00,2015-09-15T15:47:09+02:00,uoladm,uoladm,EUR,,,Guadeloupe,valid,Guadeloupe,+590,,^9[78][01][0-9]{2}$
+GF,2009-02-03T14:46:50+01:00,2015-09-15T15:47:09+02:00,uoladm,uoladm,EUR,,,French Guiana,valid,Francouzská Guyana,+594,,^9[78]3[0-9]{2}$
+MQ,2009-02-03T14:46:51+01:00,2015-09-15T15:47:09+02:00,uoladm,uoladm,EUR,,,Martinique,valid,Martinik,+596,,^9[78]2[0-9]{2}$
+EE,2009-02-03T14:46:50+01:00,2015-09-15T15:47:09+02:00,uoladm,uoladm,EUR,2004-05-01,,Estonia,valid,Estonsko,+372,^EE[0-9]{9}$,^[0-9]{5}$
+FI,2009-02-03T14:46:50+01:00,2015-09-15T15:47:09+02:00,uoladm,uoladm,EUR,1995-01-01,,Finland,valid,Finsko,+358,^FI[0-9]{8}$,^[0-9]{5}$
+FR,2009-02-03T14:46:50+01:00,2015-09-15T15:47:09+02:00,uoladm,uoladm,EUR,1952-01-01,,France,valid,Francie,+33,^FR[0-9A-Z]{2}[0-9]{9}$,^[0-9]{2} ?[0-9]{3}$
+IT,2009-02-03T14:46:50+01:00,2015-09-15T15:47:09+02:00,uoladm,uoladm,EUR,1952-01-01,,Italy,valid,Itálie,+39,^IT[0-9]{11}$,^[0-9]{5}$
+CY,2009-02-03T14:46:50+01:00,2015-09-15T15:47:09+02:00,uoladm,uoladm,EUR,2004-05-01,,Cyprus,valid,Kypr,+357,^CY[0-9A-Z]{9}$,^[0-9]{4}$
+LV,2009-02-03T14:46:50+01:00,2015-09-15T15:47:09+02:00,uoladm,uoladm,EUR,2004-05-01,,Latvia,valid,Lotyšsko,+371,^LV[0-9]{11}$,^[0-9]{4}$
+LU,2009-02-03T14:46:50+01:00,2015-09-15T15:47:09+02:00,uoladm,uoladm,EUR,1952-01-01,,Luxembourg,valid,Lucembursko,+352,^LU[0-9]{8}$,^[0-9]{4}$
+MT,2009-02-03T14:46:51+01:00,2015-09-15T15:47:09+02:00,uoladm,uoladm,EUR,2004-05-01,,Malta,valid,Malta,+356,^MT[0-9]{8}$,"^[A-Z]{3} ?[0-9]{2,4}$"
+DE,2009-02-03T14:46:50+01:00,2015-09-15T15:47:09+02:00,uoladm,uoladm,EUR,1952-01-01,,Germany,valid,Německo,+49,^DE[0-9]{9}$,^[0-9]{5}$
+NL,2009-02-03T14:46:51+01:00,2015-09-15T15:47:09+02:00,uoladm,uoladm,EUR,1952-01-01,,Netherlands,valid,Nizozemsko,+31,^NL[0-9A-Z]{12}$,^[0-9]{4} ?[A-Z]{2}$
+PT,2009-02-03T14:46:51+01:00,2015-09-15T15:47:09+02:00,uoladm,uoladm,EUR,1986-01-01,,Portugal,valid,Portugalsko,+351,^PT[0-9]{9}$,^[0-9]{4}(-[0-9]{3})?$
+AT,2009-02-03T14:46:50+01:00,2015-09-15T15:47:09+02:00,uoladm,uoladm,EUR,1995-01-01,,Austria,valid,Rakousko,+43,^ATU[0-9A-Z]{8}$,^[0-9]{4}$
+GR,2009-02-03T14:46:50+01:00,2015-09-15T15:47:09+02:00,uoladm,uoladm,EUR,1981-01-01,,Greece,valid,Řecko,+30,^EL[0-9]{9}$,^[0-9]{3} ?[0-9]{2}$
+SI,2009-02-03T14:46:51+01:00,2015-09-15T15:47:09+02:00,uoladm,uoladm,EUR,2004-05-01,,Slovenia,valid,Slovinsko,+386,^SI[0-9]{8}$,^[0-9]{4}$
+ES,2009-02-03T14:46:50+01:00,2015-09-15T15:47:09+02:00,uoladm,uoladm,EUR,1986-01-01,,Spain,valid,Španělsko,+34,^ES[0-9A-Z]+[0-9]{7}[0-9A-Z]+$,^[0-9]{5}$
+TC,2009-02-03T14:46:51+01:00,2015-09-15T15:47:09+02:00,uoladm,uoladm,USD,,,Turks and Caicos Islands,valid,Turks a Caicos,+1649,,^TKCA 1ZZ$
+VI,2009-02-03T14:46:51+01:00,2015-09-15T15:47:09+02:00,uoladm,uoladm,USD,,,"Virgin Islands, U.S.",valid,Americké Panenské ostrovy,+134,,^008(([0-4][0-9])|(5[01]))([ -][0-9]{4})?$
+MP,2009-02-03T14:46:51+01:00,2015-09-15T15:47:09+02:00,uoladm,uoladm,USD,,,Northern Mariana Islands,valid,Severní Mariany,+167,,^9695[012]([ -][0-9]{4})?$
+AS,2009-02-03T14:46:50+01:00,2015-09-15T15:47:09+02:00,uoladm,uoladm,USD,,,American Samoa,valid,Americká Samoa,+1684,,^96799$
+PR,2009-02-03T14:46:51+01:00,2015-09-15T15:47:09+02:00,uoladm,uoladm,USD,,,Puerto Rico,valid,Portoriko,+1939,,^00[679][0-9]{2}([ -][0-9]{4})?$
+PW,2009-02-03T14:46:51+01:00,2015-09-15T15:47:09+02:00,uoladm,uoladm,USD,,,Palau,valid,Palau,+680,,^96940$
+MH,2009-02-03T14:46:51+01:00,2015-09-15T15:47:09+02:00,uoladm,uoladm,USD,,,Marshall Islands,valid,Marshallovy ostrovy,+692,,^969[67][0-9]([ -][0-9]{4})?$
+AX,2009-02-03T14:46:50+01:00,2016-05-04T16:05:22+02:00,uoladm,uoladm,EUR,,,Aland Islands,valid,Alandy,,,^22[0-9]{3}$
+VA,2009-02-03T14:46:51+01:00,2016-05-04T16:05:22+02:00,uoladm,uoladm,EUR,,,Holy See (Vatican City State),valid,Vatikán,+39,,^00120$
+AD,2009-02-03T14:46:50+01:00,2016-05-04T16:05:22+02:00,uoladm,uoladm,EUR,,,Andorra,valid,Andorra,+376,,^AD[0-9]{3}$
+SM,2009-02-03T14:46:51+01:00,2016-05-04T16:05:22+02:00,uoladm,uoladm,EUR,,,San Marino,valid,San Marino,+378,,^4789[0-9]$
+ME,2009-02-03T14:46:51+01:00,2016-05-04T16:05:22+02:00,uoladm,uoladm,EUR,,,Montenegro,valid,Černá Hora,+382,,^8[0-9]{4}$
+PM,2009-02-03T14:46:51+01:00,2016-05-04T16:05:22+02:00,uoladm,uoladm,EUR,,,Saint Pierre and Miquelon,valid,Saint Pierre a Miquelon,+508,,^9[78]5[0-9]{2}$
+LT,2009-02-03T14:46:50+01:00,2016-05-04T16:05:22+02:00,uoladm,uoladm,EUR,2004-05-01,,Lithuania,valid,Litva,+370,"^LT[0-9]{9,12}$",^[0-9]{5}$
+EH,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,MAD,,,Western Sahara,valid,Západní Sahara,,,
+UM,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,USD,,,United States Minor Outlying Islands,valid,Menší odlehlé ostrovy USA,,,
+BS,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,BSD,,,Bahamas,valid,Bahamy,+1242,,
+AI,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,XCD,,,Anguilla,valid,Anguilla,+1264,,
+AG,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,XCD,,,Antigua and Barbuda,valid,Antigua a Barbuda,+1268,,
+KY,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,KYD,,,Cayman Islands,valid,Kajmanské ostrovy,+1345,,
+GD,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,XCD,,,Grenada,valid,Grenada,+1473,,
+MS,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,XCD,,,Montserrat,valid,Montserrat,+1664,,
+PE,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,PEN,,,Peru,valid,Peru,+51,,
+CU,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,CUC,,,Cuba,valid,Kuba,+53,,
+CO,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,COP,,,Colombia,valid,Kolumbie,+57,,
+VN,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,VND,,,Viet Nam,valid,Vietnam,+84,,
+AF,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,AFN,,,Afghanistan,valid,Afghánistán,+93,,
+MM,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,MMK,,,Myanmar,valid,Myanmar,+95,,
+IR,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,IRR,,,Islamic Republic of Iran,valid,Írán,+98,,
+LY,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,LYD,,,Libyan Arab Jamahiriya,valid,Libye,+218,,
+GM,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,GMD,,,Gambia,valid,Gambie,+220,,
+MR,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,MRU,,,Mauritania,valid,Mauritánie,+222,,
+ML,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,XOF,,,Mali,valid,Mali,+223,,
+CI,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,XOF,,,Côte d´Ivoire,valid,Pobřeží slonoviny,+225,,
+BF,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,XOF,,,Burkina Faso,valid,Burkina Faso,+226,,
+TG,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,XOF,,,Togo,valid,Togo,+228,,
+BJ,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,XOF,,,Benin,valid,Benin,+229,,
+SL,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,SLL,,,Sierra Leone,valid,Sierra Leone,+232,,
+GH,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,GHS,,,Ghana,valid,Ghana,+233,,
+TD,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,XAF,,,Chad,valid,Čad,+235,,
+CF,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,XAF,,,Central African Republic,valid,Středoafrická republika,+236,,
+CM,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,XAF,,,Cameroon,valid,Kamerun,+237,,
+ST,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,STN,,,Sao Tome and Principe,valid,Svatý Tomáš a Princův ostrov,+239,,
+GQ,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,XAF,,,Equatorial Guinea,valid,Rovníková Guinea,+240,,
+GA,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,XAF,,,Gabon,valid,Gabon,+241,,
+CG,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,CDF,,,Congo,valid,Kongo,+242,,
+CD,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,CDF,,,Democratic Republic of the Congo,valid,Demokratická republika Kongo,+243,,
+AO,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,AOA,,,Angola,valid,Angola,+244,,
+SC,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,SCR,,,Seychelles,valid,Seychely,+248,,
+SD,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,SDG,,,Sudan,valid,Súdán,+249,,
+RW,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,RWF,,,Rwanda,valid,Rwanda,+250,,
+DJ,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,DJF,,,Djibouti,valid,Džibutsko,+253,,
+TZ,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,TZS,,,United Republic of Tanzani,valid,Tanzanie,+255,,
+UG,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,UGX,,,Uganda,valid,Uganda,+256,,
+BI,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,BIF,,,Burundi,valid,Burundi,+257,,
+MZ,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,MZN,,,Mozambique,valid,Mosambik,+258,,
+ZW,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,USD,,,Zimbabwe,valid,Zimbabwe,+263,,
+NA,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,NAD,,,Namibia,valid,Namibie,+264,,
+MW,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,MWK,,,Malawi,valid,Malawi,+265,,
+BW,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,BWP,,,Botswana,valid,Botswana,+267,,
+KM,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,KMF,,,Comoros,valid,Komory,+269,,
+ER,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,ERN,,,Eritrea,valid,Eritrea,+291,,
+AW,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,AWG,,,Aruba,valid,Aruba,+297,,
+GI,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,GIP,,,Gibraltar,valid,Gibraltar,+350,,
+LC,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,XCD,,,Saint Lucia,valid,Svatá Lucie,+1758,,
+AL,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,ALL,,,Albania,valid,Albánie,+355,,
+DM,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,XCD,,,Dominica,valid,Dominika,+1767,,
+VC,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,XCD,,,Saint Vincent and the Grenadines,valid,Svatý Vincenc a Grenadiny,+1784,,
+TT,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,TTD,,,Trinidad and Tobago,valid,Trinidad a Tobago,+1868,,
+KN,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,XCD,,,Saint Kitts and Nevis,valid,Svatý Kryštof a Nevis,+1869,,
+JM,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,JMD,,,Jamaica,valid,Jamajka,+1876,,
+BZ,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,BZD,,,Belize,valid,Belize,+501,,
+BO,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,BOB,,,Bolivia,valid,Bolívie,+591,,
+GY,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,GYD,,,Guyana,valid,Guyana,+592,,
+SR,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,SRD,,,Suriname,valid,Surinam,+597,,
+NR,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,AUD,,,Nauru,valid,Nauru,+674,,
+TO,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,TOP,,,Tonga,valid,Tonga,+676,,
+SB,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,SBD,,,Solomon Islands,valid,Šalamounovy ostrovy,+677,,
+VU,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,VUV,,,Vanuatu,valid,Vanuatu,+678,,
+FJ,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,FJD,,,Fiji,valid,Fidži,+679,,
+NU,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,NZD,,,Niue,valid,Niue,+683,,
+WS,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,WST,,,Samoa,valid,Samoa,+685,,
+PA,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,PAB,,,Panama,valid,Panama,+507,,
+KI,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,AUD,,,Kiribati,valid,Kiribati,+686,,
+TV,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,AUD,,,Tuvalu,valid,Tuvalu,+688,,
+TK,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,NZD,,,Tokelau,valid,Tokelau,+690,,
+KP,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,KPW,,,Democratic People´s Republic of Korea,valid,Severní Korea,+850,,
+HK,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,HKD,,,Hong Kong,valid,Hongkong,+852,,
+MO,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,MOP,,,Macao,valid,Macao,+853,,
+SY,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,SYP,,,Syrian Arab Republic,valid,Sýrie,+963,,
+YE,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,YER,,,Yemen,valid,Jemen,+967,,
+PS,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,ILS,,,Occupied Palestinian Territory,valid,Palestina,+970,,
+AE,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,AED,,,United Arab Emirates,valid,Spojené arabské emiráty,+971,,
+QA,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,QAR,,,Qatar,valid,Katar,+974,,
+BT,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,BTN,,,Bhutan,valid,Bhútán,+975,,
+IN,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,INR,,,India,valid,Indie,+91,,^[0-9]{6}$
+CC,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,AUD,,,Cocos (Keeling) Islands,valid,Kokosové ostrovy,,,^6799$
+CX,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,AUD,,,Christmas Island,valid,Vánoční ostrov,,,^6798$
+GG,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,GBP,,,Guernsey,valid,Guernsey,,,^GY[0-9][0-9A-Z]? ?[0-9][ABD-HJLN-UW-Z]{2}$
+IM,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,GBP,,,Isle of Man,valid,Man,,,^IM[0-9][0-9A-Z]? ?[0-9][ABD-HJLN-UW-Z]{2}$
+JE,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,GBP,,,Jersey,valid,Jersey,,,^JE[0-9][0-9A-Z]? ?[0-9][ABD-HJLN-UW-Z]{2}$
+NF,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,AUD,,,Norfolk Island,valid,Norfolk,,,^2899$
+PN,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,NZD,,,Pitcairn,valid,Pitcairn,,,^PCRN 1ZZ$
+SJ,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,NOK,,,Svalbard and Jan Mayen,valid,Svalbard a Jan Mayen,,,^[0-9]{4}$
+CA,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,CAD,,,Canada,valid,Kanada,+1,,^[ABCEGHJKLMNPRSTVXY][0-9][ABCEGHJ-NPRSTV-Z] ?[0-9][ABCEGHJ-NPRSTV-Z][0-9]$
+RU,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,RUB,,,Russian Federation,valid,Rusko,+7,,^[0-9]{6}$
+KZ,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,KZT,,,Kazakhstan,valid,Kazachstán,+7,,^[0-9]{6}$
+EG,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,EGP,,,Egypt,valid,Egypt,+20,,^[0-9]{5}$
+ZA,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,ZAR,,,South Africa,valid,Jihoafrická republika,+27,,^[0-9]{4}$
+GE,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,GEL,,,Georgia,valid,Gruzie,+995,,^[0-9]{4}$
+KG,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,KGS,,,Kyrgyzstan,valid,Kyrgyzstán,+996,,^[0-9]{6}$
+UZ,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,UZS,,,Uzbekistan,valid,Uzbekistán,+998,,^[0-9]{6}$
+BB,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,BBD,,,Barbados,valid,Barbados,+1246,,^(BB[0-9]{5})?$
+CH,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,CHF,,,Switzerland,valid,Švýcarsko,+41,,^[0-9]{4}$
+BM,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,BMD,,,Bermuda,valid,Bermudy,+1441,,^[A-Z]{2} ?[A-Z0-9]{2}$
+NO,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,NOK,,,Norway,valid,Norsko,+47,,^[0-9]{4}$
+MX,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,MXN,,,Mexico,valid,Mexiko,+52,,^[0-9]{5}$
+AR,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,ARS,,,Argentina,valid,Argentina,+54,,^([A-HJ-NP-Z])?[0-9]{4}([A-Z]{3})?$
+BR,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,BRL,,,Brazil,valid,Brazílie,+55,,^[0-9]{5}-?[0-9]{3}$
+CL,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,CLP,,,Chile,valid,Chile,+56,,^[0-9]{7}$
+VE,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,VEF,,,Venezuela,valid,Venezuela,+58,,^[0-9]{4}$
+MY,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,MYR,,,Malaysia,valid,Malajsie,+60,,^[0-9]{5}$
+AU,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,AUD,,,Australia,valid,Austrálie,+61,,^[0-9]{4}$
+ID,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,IDR,,,Indonesia,valid,Indonésie,+62,,^[0-9]{5}$
+PH,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,PHP,,,Philippines,valid,Filipíny,+63,,^[0-9]{4}$
+NZ,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,NZD,,,New Zealand,valid,Nový Zéland,+64,,^[0-9]{4}$
+SG,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,SGD,,,Singapore,valid,Singapur,+65,,^[0-9]{6}$
+TH,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,THB,,,Thailand,valid,Thajsko,+66,,^[0-9]{5}$
+JP,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,JPY,,,Japan,valid,Japonsko,+81,,^[0-9]{3}-[0-9]{4}$
+CZ,2009-02-03T14:46:50+01:00,2026-01-08T13:52:42+01:00,uoladm,dusilf,CZK,2004-05-01,,Czech Republic,valid,Česká republika,+420,"^CZ([0-9]{8,9}|[0-9]{2}[0-3,5-8]{1}[0-9]{1}[0-3,5-8]{1}[0-9]{4,5})$",^[1-7]{1}[0-9]{2} ?[0-9]{2}$
+CN,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,CNY,,,China,valid,Čína,+86,,^[0-9]{6}$
+TR,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,TRY,,,Turkey,valid,Turecko,+90,,^[0-9]{5}$
+PK,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,PKR,,,Pakistan,valid,Pákistán,+92,,^[0-9]{5}$
+LK,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,LKR,,,Sri Lanka,valid,Šrí Lanka,+94,,^[0-9]{5}$
+MA,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,MAD,,,Morocco,valid,Maroko,+212,,^[0-9]{5}$
+DZ,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,DZD,,,Algeria,valid,Alžírsko,+213,,^[0-9]{5}$
+TN,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,TND,,,Tunisia,valid,Tunisko,+216,,^[0-9]{4}$
+SN,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,XOF,,,Senegal,valid,Senegal,+221,,^[0-9]{5}$
+GN,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,GNF,,,Guinea,valid,Guinea,+224,,^[0-9]{3}$
+NE,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,XOF,,,Niger,valid,Niger,+227,,^[0-9]{4}$
+MU,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,MUR,,,Mauritius,valid,Mauricius,+230,,^([0-9]{3}[A-Z]{2}[0-9]{3})?$
+LR,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,LRD,,,Liberia,valid,Libérie,+231,,^[0-9]{4}$
+NG,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,NGN,,,Nigeria,valid,Nigérie,+234,,^([0-9]{6})?$
+CV,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,CVE,,,Cape Verde,valid,Kapverdy,+238,,^[0-9]{4}$
+GW,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,XOF,,,Guinea-Bissau,valid,Guinea-Bissau,+245,,^[0-9]{4}$
+ET,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,ETB,,,Ethiopia,valid,Etiopie,+251,,^[0-9]{4}$
+SO,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,SOS,,,Somalia,valid,Somálsko,+252,,^[0-9]{5}$
+KE,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,KES,,,Kenya,valid,Keňa,+254,,^[0-9]{5}$
+ZM,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,ZMW,,,Zambia,valid,Zambie,+260,,^[0-9]{5}$
+MG,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,MGA,,,Madagascar,valid,Madagaskar,+261,,^[0-9]{3}$
+LS,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,LSL,,,Lesotho,valid,Lesotho,+266,,^[0-9]{3}$
+SZ,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,SZL,,,Swaziland,valid,Svazijsko,+268,,^[HLMS][0-9]{3}$
+SH,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,SHP,,,Saint Helena,valid,Svatá Helena,+290,,^(ASCN|STHL) 1ZZ$
+FO,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,DKK,,,Faroe Islands,valid,Faerské ostrovy,+298,,^[0-9]{3}$
+GL,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,DKK,,,Greenland,valid,Grónsko,+299,,^39[0-9]{2}$
+IS,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,ISK,,,Iceland,valid,Island,+354,,^[0-9]{3}$
+DO,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,DOP,,,Dominican Republic,valid,Dominikánská republika,+1809,,^[0-9]{5}$
+MD,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,MDL,,,Republic of Moldova,valid,Moldavsko,+373,,^[0-9]{4}$
+AM,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,AMD,,,Armenia,valid,Arménie,+374,,^(37)?[0-9]{4}$
+BY,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,BYN,,,Belarus,valid,Bělorusko,+375,,^[0-9]{6}$
+UA,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,UAH,,,Ukraine,valid,Ukrajina,+380,,^[0-9]{5}$
+BA,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,BAM,,,Bosnia and Herzegovina,valid,Bosna a Hercegovina,+387,,^[0-9]{5}$
+MK,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,MKD,,,Macedonia,valid,Makedonie,+389,,^[0-9]{4}$
+BG,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,BGN,2007-01-01,,Bulgaria,valid,Bulharsko,+359,"^BG[0-9]{9,10}$",^[0-9]{4}$
+LI,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,CHF,,,Liechtenstein,valid,Lichtenštejnsko,+423,,^(948[5-9])|(949[0-7])$
+FK,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,FKP,,,Falkland Islands (Malvinas),valid,Falklandy (Malvíny),+500,,^FIQQ 1ZZ$
+GT,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,GTQ,,,Guatemala,valid,Guatemala,+502,,^[0-9]{5}$
+HN,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,HNL,,,Honduras,valid,Honduras,+504,,^(?:[0-9]{5})?$
+RS,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,RSD,,,Serbia,valid,Srbsko,+381,,"^[0-9]{5,6}$"
+NI,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,NIO,,,Nicaragua,valid,Nikaragua,+505,,^(([0-9]{4}-)?[0-9]{3}-[0-9]{3}(-[0-9]{1})?)?$
+CR,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,CRC,,,Costa Rica,valid,Kostarika,+506,,"^[0-9]{4,5}|[0-9]{3}-[0-9]{4}$"
+HT,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,HTG,,,Haiti,valid,Haiti,+509,,^[0-9]{4}$
+PY,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,PYG,,,Paraguay,valid,Paraguay,+595,,^[0-9]{4}$
+UY,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,UYU,,,Uruguay,valid,Uruguay,+598,,^[0-9]{5}$
+BN,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,BND,,,Brunei Darussalam,valid,Brunej,+673,,^[A-Z]{2} ?[0-9]{4}$
+PG,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,PGK,,,Papua New Guinea,valid,Papua-Nová Guinea,+675,,^[0-9]{3}$
+WF,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,XPF,,,Wallis and Futuna,valid,Wallis a Futuna,+681,,^986[0-9]{2}$
+CK,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,NZD,,,Cook Islands,valid,Cookovy ostrovy,+682,,^[0-9]{4}$
+NC,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,XPF,,,New Caledonia,valid,Nová Kaledonie,+687,,^988[0-9]{2}$
+PF,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,XPF,,,French Polynesia,valid,Francouzská Polynésie,+689,,^987[0-9]{2}$
+KH,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,KHR,,,Cambodia,valid,Kambodža,+855,,^[0-9]{5}$
+LA,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,LAK,,,Lao People´s Democratic Republic,valid,Laos,+856,,^[0-9]{5}$
+BD,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,BDT,,,Bangladesh,valid,Bangladéš,+880,,^[0-9]{4}$
+MV,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,MVR,,,Maldives,valid,Maledivy,+960,,^[0-9]{5}$
+LB,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,LBP,,,Lebanon,valid,Libanon,+961,,^([0-9]{4}( ?[0-9]{4})?)?$
+JO,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,JOD,,,Jordan,valid,Jordánsko,+962,,^[0-9]{5}$
+IQ,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,IQD,,,Iraq,valid,Irák,+964,,^[0-9]{5}$
+KW,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,KWD,,,Kuwait,valid,Kuvajt,+965,,^[0-9]{5}$
+SA,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,SAR,,,Saudi Arabia,valid,Saudská Arábie,+966,,^[0-9]{5}$
+OM,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,OMR,,,Oman,valid,Omán,+968,,^(PC )?[0-9]{3}$
+BH,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,BHD,,,Bahrain,valid,Bahrajn,+973,,^((1[0-2]|[2-9])[0-9]{2})?$
+MN,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,MNT,,,Mongolia,valid,Mongolsko,+976,,^[0-9]{6}$
+NP,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,NPR,,,Nepal,valid,Nepál,+977,,^[0-9]{5}$
+TJ,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,TJS,,,Tajikistan,valid,Tádžikistán,+992,,^[0-9]{6}$
+TM,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,TMT,,,Turkmenistan,valid,Turkmenistán,+993,,^[0-9]{6}$
+AZ,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,AZN,,,Azerbaijan,valid,Ázerbájdžán,+994,,^[0-9]{4}$
+DK,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,DKK,1973-01-01,,Denmark,valid,Dánsko,+45,^DK[0-9]{2} *[0-9]{2} *[0-9]{2} *[0-9]{2}$,^[0-9]{4}$
+HU,2009-02-03T14:46:50+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,HUF,2004-05-01,,Hungary,valid,Maďarsko,+36,^HU[0-9]{8}$,^[0-9]{4}$
+PL,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,PLN,2004-05-01,,Poland,valid,Polsko,+48,^PL[0-9]{10}$,^[0-9]{2}-[0-9]{3}$
+RO,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,RON,2007-01-01,,Romania,valid,Rumunsko,+40,"^RO[0-9]{2,10}$",^[0-9]{6}$
+SE,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,SEK,1995-01-01,,Sweden,valid,Švédsko,+46,^SE[0-9]{10}01$,^[0-9]{3} ?[0-9]{2}$
+TW,2009-02-03T14:46:51+01:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,TWD,,,"Taiwan, Republic of China",valid,Tchaj-wan,+886,,^[0-9]{3}([0-9]{2})?$
+MC,2009-02-03T14:46:50+01:00,2020-03-06T12:01:04+01:00,uoladm,uoladm,EUR,2003-03-26,,Monaco,valid,Monako,+377,,^980[0-9]{2}$
+BQ,2020-05-18T16:07:28+02:00,2020-05-18T16:07:28+02:00,uoladm,uoladm,USD,,,"Bonaire, Sint Eustatius and Saba",valid,"Bonaire, Svatý Eustach a Saba",+599,,
+CW,2020-05-18T16:07:28+02:00,2020-05-18T16:07:28+02:00,uoladm,uoladm,,,,Curaçao,valid,Curaçao,,,
+SS,2020-05-18T16:07:28+02:00,2020-05-18T16:07:28+02:00,uoladm,uoladm,,,,South Sudan,valid,Jižní Súdán,+211,,
+BL,2020-05-18T16:07:28+02:00,2020-05-18T16:07:28+02:00,uoladm,uoladm,EUR,,,Saint Barthélemy,valid,Svatý Bartoloměj,+590,,
+MF,2020-05-18T16:07:28+02:00,2020-05-18T16:07:28+02:00,uoladm,uoladm,EUR,,,Saint Martin,valid,Svatý Martin (francouzská část),+590,,
+SX,2020-05-18T16:07:28+02:00,2020-05-18T16:07:28+02:00,uoladm,uoladm,ANG,,,Sint Maarten,valid,Svatý Martin (nizozemská část),+1-721,,
+SK,2009-02-03T14:46:51+01:00,2020-08-27T16:04:48+02:00,uoladm,uoladm,EUR,2004-05-01,,Slovakia,valid,Slovensko,+421,^SK[12347]{1}[0-9]{9}$,^[089]{1}[0-9]{2} ?[0-9]{2}$
+XI,2020-12-28T09:22:38+01:00,2020-12-28T09:22:38+01:00,uoladm,uoladm,GBP,2021-01-01,,United Kingdom - Northern Ireland,valid,Spojené království - Severní Irsko,+44,^XI[0-9A-Z ]*$,"^GIR ?0AA|((AB|AL|B|BA|BB|BD|BH|BL|BN|BR|BS|BT|CA|CB|CF|CH|CM|CO|CR|CT|CV|CW|DA|DD|DE|DG|DH|DL|DN|DT|DY|E|EC|EH|EN|EX|FK|FY|G|GL|GY|GU|HA|HD|HG|HP|HR|HS|HU|HX|IG|IM|IP|IV|JE|KA|KT|KW|KY|L|LA|LD|LE|LL|LN|LS|LU|M|ME|MK|ML|N|NE|NG|NN|NP|NR|NW|OL|OX|PA|PE|PH|PL|PO|PR|RG|RH|RM|S|SA|SE|SG|SK|SL|SM|SN|SO|SP|SR|SS|ST|SW|SY|TA|TD|TF|TN|TQ|TR|TS|TW|UB|W|WA|WC|WD|WF|WN|WR|WS|WV|YO|ZE)([0-9][0-9A-Z]? ?[0-9][ABD-HJLN-UW-Z]{2}))|BFPO ?[0-9]{1,4}$"
+IL,2009-02-03T14:46:50+01:00,2021-02-26T11:13:35+01:00,uoladm,uoladm,ILS,,,Israel,valid,Izrael,+972,,^[0-9]{5}([0-9]{2})?$
+HR,2009-02-03T14:46:50+01:00,2023-02-07T11:02:23+01:00,uoladm,uoladm,EUR,2013-07-01,,Croatia,valid,Chorvatsko,+385,^HR[0-9]{11}$,^[0-9]{5}$
+BE,2009-02-03T14:46:50+01:00,2024-03-04T11:14:04+01:00,uoladm,uoladm,EUR,1952-01-01,,Belgium,valid,Belgie,+32,^BE(0|1)[0-9]{9}$,^[0-9]{4}$
+GB,2009-02-03T14:46:50+01:00,2020-12-28T17:41:39+01:00,uoladm,uoladm,GBP,1973-01-01,,United Kingdom,valid,Spojené království,+44,^GB[0-9A-Z ]*$,"^GIR ?0AA|((AB|AL|B|BA|BB|BD|BH|BL|BN|BR|BS|BT|CA|CB|CF|CH|CM|CO|CR|CT|CV|CW|DA|DD|DE|DG|DH|DL|DN|DT|DY|E|EC|EH|EN|EX|FK|FY|G|GL|GY|GU|HA|HD|HG|HP|HR|HS|HU|HX|IG|IM|IP|IV|JE|KA|KT|KW|KY|L|LA|LD|LE|LL|LN|LS|LU|M|ME|MK|ML|N|NE|NG|NN|NP|NR|NW|OL|OX|PA|PE|PH|PL|PO|PR|RG|RH|RM|S|SA|SE|SG|SK|SL|SM|SN|SO|SP|SR|SS|ST|SW|SY|TA|TD|TF|TN|TQ|TR|TS|TW|UB|W|WA|WC|WD|WF|WN|WR|WS|WV|YO|ZE)([0-9][0-9A-Z]? ?[0-9][ABD-HJLN-UW-Z]{2}))|BFPO ?[0-9]{1,4}$"
+XK,2022-09-10T11:42:34+02:00,2022-09-10T11:42:34+02:00,uoladm,uoladm,EUR,,,Kosovo,valid,Kosovo,+383,,^[1-8]00[1-9]{2}$

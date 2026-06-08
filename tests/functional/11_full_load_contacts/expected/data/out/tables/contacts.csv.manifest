@@ -17,7 +17,7 @@
       "primary_key": true
     },
     {
-      "name": "creator",
+      "name": "creator_user_id",
       "data_type": {
         "base": {
           "type": "STRING"
@@ -26,7 +26,7 @@
       "nullable": true
     },
     {
-      "name": "modifier",
+      "name": "modifier_user_id",
       "data_type": {
         "base": {
           "type": "STRING"
@@ -35,7 +35,7 @@
       "nullable": true
     },
     {
-      "name": "contract",
+      "name": "contract_contract_id",
       "data_type": {
         "base": {
           "type": "STRING"
@@ -270,6 +270,15 @@
     },
     {
       "name": "vatin",
+      "data_type": {
+        "base": {
+          "type": "STRING"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "addresses",
       "data_type": {
         "base": {
           "type": "STRING"

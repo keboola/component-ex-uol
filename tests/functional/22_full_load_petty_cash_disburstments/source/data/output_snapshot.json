@@ -7,31 +7,32 @@
         "gid",
         "created_at",
         "updated_at",
-        "creator",
-        "modifier",
+        "creator_user_id",
+        "modifier_user_id",
+        "items",
         "number",
         "issue_date",
         "receipt_date",
         "note",
         "coefficient",
-        "petty_cash",
-        "department",
+        "petty_cash_petty_cash_id",
+        "department_department_id",
         "total",
-        "contact",
-        "contract",
+        "contact_contact_id",
+        "contract_contract_id",
         "vat_document",
         "confirmed",
         "status"
       ],
-      "hash": "sha256:bb37f8019bd33a8612a9530c9a37c52aaaab2fb2081ec1757e805ee9b6df8660",
+      "hash": "sha256:34883d2ec538fff01923590f751c8c675a01c29e5fd7b0a149e686f91180c0e0",
       "row_count": 141,
-      "size_bytes": 44542
+      "size_bytes": 88131
     },
     "petty_cash_disburstments.csv.manifest": {
       "columns": null,
-      "hash": "sha256:a218c7430a7ec3cb485564c45fac4183cd52eb1c6527d76ab7a5931a569f3b7b",
+      "hash": "sha256:104401bff0488c568b5c221b45908ff87d8313064269edbd1ef2ef814e820909",
       "row_count": null,
-      "size_bytes": 2837
+      "size_bytes": 3048
     },
     "petty_cash_disburstments_items.csv": {
       "columns": [

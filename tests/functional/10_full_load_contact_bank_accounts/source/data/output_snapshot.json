@@ -7,13 +7,13 @@
         "bank_account_id",
         "created_at",
         "updated_at",
-        "creator",
-        "modifier",
+        "creator_user_id",
+        "modifier_user_id",
         "bank_account",
         "bank_code",
-        "contact",
-        "country",
-        "currency",
+        "contact_contact_id",
+        "country_country_id",
+        "currency_currency_id",
         "external_id",
         "iban",
         "default",
@@ -21,15 +21,15 @@
         "name",
         "published"
       ],
-      "hash": "sha256:4df2f87550013c1a236dc91a7ae772e30d336fbeeb8c09fd7a89e912ae53c8f8",
+      "hash": "sha256:489d10767c485836390eb43732c1d50e675bd5a190860bcf20fd663aee94b895",
       "row_count": 77,
-      "size_bytes": 21534
+      "size_bytes": 12844
     },
     "contact_bank_accounts.csv.manifest": {
       "columns": null,
-      "hash": "sha256:6b2d50b7e30f4fe948daa82783cafb12f7b49d2965f7502dbb40fe974e7eacd2",
+      "hash": "sha256:86b4a4b411910cf9d1926f2f40f10e9d37a6ac8fcdd93b199bf40a894b6d7891",
       "row_count": null,
-      "size_bytes": 2545
+      "size_bytes": 2595
     }
   },
   "version": "1.0"

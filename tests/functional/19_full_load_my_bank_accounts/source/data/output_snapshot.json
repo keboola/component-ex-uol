@@ -7,15 +7,15 @@
         "bank_account_id",
         "created_at",
         "updated_at",
-        "creator",
-        "modifier",
+        "creator_user_id",
+        "modifier_user_id",
         "opening_balance_date",
         "auth_token_stub",
         "bank_account",
         "bank_code",
-        "country",
+        "country_country_id",
         "after_credit_issued",
-        "currency",
+        "currency_currency_id",
         "statement_download_interval",
         "statement_download_type",
         "order_type",
@@ -29,15 +29,15 @@
         "officially_published",
         "send_order_to_bank"
       ],
-      "hash": "sha256:95089a092de51d2bde67382c4936897065e9b500399402178f3959e19e0f641b",
+      "hash": "sha256:bdc8883ec493b83271bb3a57cded1b8204eb13b104e918b6c7c40e9da68226a2",
       "row_count": 4,
-      "size_bytes": 1229
+      "size_bytes": 995
     },
     "my_bank_accounts.csv.manifest": {
       "columns": null,
-      "hash": "sha256:5cce45bee4ff35151015b21bf4654f674154f763664d46a8a3787601c38347f0",
+      "hash": "sha256:e0af948aa3a9c7e2ba15f86bb98ad1100409975980321d34a9451c8753780798",
       "row_count": null,
-      "size_bytes": 3832
+      "size_bytes": 3871
     }
   },
   "version": "1.0"
