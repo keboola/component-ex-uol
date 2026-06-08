@@ -4,62 +4,35 @@
   "tables": {
     "petty_cash_disburstments.csv": {
       "columns": [
-        "gid",
-        "created_at",
-        "updated_at",
-        "creator_user_id",
-        "modifier_user_id",
-        "items",
-        "number",
-        "issue_date",
-        "receipt_date",
-        "note",
-        "coefficient",
-        "petty_cash_petty_cash_id",
-        "department_department_id",
-        "total",
-        "contact_contact_id",
-        "contract_contract_id",
-        "vat_document",
-        "confirmed",
-        "status"
+        "2817076",
+        "2026-02-10T12:24:59+01:00",
+        "2026-02-10T12:24:59+01:00",
+        "robot",
+        "bazarovad",
+        "[{\"created_at\": \"2026-02-10T12:24:59+01:00\", \"updated_at\": \"2026-02-10T12:24:59+01:00\", \"creator\": {\"user_id\": \"robot\"}, \"modifier\": {\"user_id\": \"robot\"}, \"external_id\": null, \"rule\": {\"rule_id\": \"-faktura\"}, \"variable_symbol\": 36932652, \"price\": \"97.0\", \"description\": \"\u00dahrada faktury 2024000017\", \"department\": {\"department_id\": null}, \"contract\": {\"contract_id\": null}, \"linked_doc_number\": 2024000017}]",
+        "2024000006",
+        "2024-11-22",
+        "2024-11-22",
+        "\u00dahrada faktury",
+        "False",
+        "p1_czk",
+        "brno",
+        "97.0",
+        "ceske_drahy_as",
+        "",
+        "False",
+        "True",
+        "valid"
       ],
-      "hash": "sha256:34883d2ec538fff01923590f751c8c675a01c29e5fd7b0a149e686f91180c0e0",
-      "row_count": 141,
-      "size_bytes": 88131
+      "hash": "sha256:211f1b079dd1ffea21d472995ec1706f1fdf562ddc8a51da52b124fba7b7b0ad",
+      "row_count": 140,
+      "size_bytes": 87891
     },
     "petty_cash_disburstments.csv.manifest": {
       "columns": null,
-      "hash": "sha256:104401bff0488c568b5c221b45908ff87d8313064269edbd1ef2ef814e820909",
+      "hash": "sha256:e91650afd0b8f0ddbf3e818b030cfc1a70b6d3b7af0d83f8c4b28dbe2531656a",
       "row_count": null,
-      "size_bytes": 3048
-    },
-    "petty_cash_disburstments_items.csv": {
-      "columns": [
-        "petty_cash_disburstments_gid",
-        "_item_index",
-        "created_at",
-        "updated_at",
-        "creator",
-        "modifier",
-        "external_id",
-        "rule",
-        "variable_symbol",
-        "price",
-        "description",
-        "department",
-        "contract",
-        "linked_doc_number"
-      ],
-      "hash": "sha256:c379003b3048109e0cb898d5bbc7faae2828633be270bcf23751b15c12f84f8c",
-      "row_count": 143,
-      "size_bytes": 34020
-    },
-    "petty_cash_disburstments_items.csv.manifest": {
-      "columns": null,
-      "hash": "sha256:e601c3b5411cce33c78df86d24971fabee7b7e3b582e9abe944375c2ddbcbbfc",
-      "row_count": null,
-      "size_bytes": 2315
+      "size_bytes": 3031
     }
   },
   "version": "1.0"

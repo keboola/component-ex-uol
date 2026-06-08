@@ -6,19 +6,19 @@
       "level": "INFO",
       "logger": "root",
       "message": "Extracting my_companies (date_field=None, since=None)",
-      "timestamp": "2026-06-08T13:36:54.000Z"
+      "timestamp": "2026-06-08T19:09:41.000Z"
     },
     {
       "level": "INFO",
       "logger": "root",
       "message": "Fetched 1 my_companies records",
-      "timestamp": "2026-06-08T13:36:54.000Z"
+      "timestamp": "2026-06-08T19:09:41.000Z"
     },
     {
       "level": "INFO",
       "logger": "root",
       "message": "Wrote 1 rows to my_companies",
-      "timestamp": "2026-06-08T13:36:54.000Z"
+      "timestamp": "2026-06-08T19:09:41.000Z"
     }
   ]
 }

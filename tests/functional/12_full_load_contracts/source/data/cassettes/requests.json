@@ -1,5 +1,5 @@
 {
-  "_metadata": {"freeze_time": "2026-06-08T13:36:54", "keboola_vcr_version": "0.5.0", "recorded_at": "2026-06-08T16:18:09.925989+00:00"},
+  "_metadata": {"freeze_time": "2026-06-08T19:09:41", "keboola_vcr_version": "0.5.0", "recorded_at": "2026-06-08T17:09:45.665800+00:00"},
   "interactions": [
     {"request": {"body": null, "headers": {"Accept": ["application/json"]}, "method": "GET", "uri": "https://test.demo.uol.cz/api/v1/contracts?per_page=250&page=1"}, "response": {"body": {"string": "{\"_meta\":{\"href\":\"https://test.demo.uol.cz/api/v1/contracts\",\"pagination\":{\"first\":\"https://test.demo.uol.cz/api/v1/contracts?page=1\\u0026per_page=250\",\"last\":\"https://test.demo.uol.cz/api/v1/contracts?page=1\\u0026per_page=250\"}},\"items\":[]}"}, "headers": {"Content-Length": ["241"], "Content-Type": ["application/json"]}, "status": {"code": 200, "message": "OK"}}}
   ],

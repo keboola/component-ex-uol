@@ -1,4 +1,3 @@
-currency_id,created_at,updated_at,creator_user_id,modifier_user_id,alternative_currency_id,external_id,status,name,rounded_to
 AED,2019-08-15T19:32:54+02:00,2026-02-11T09:49:44+01:00,uoladm,gieckoval,,,valid,Dirham SAE,0.01
 AFN,2019-08-15T19:32:54+02:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,,,valid,Afghánský afghání,0.01
 ALL,2019-08-15T19:32:54+02:00,2019-08-15T19:32:54+02:00,uoladm,uoladm,,,valid,Albánský lek,0.01

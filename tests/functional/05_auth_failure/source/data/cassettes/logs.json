@@ -6,19 +6,19 @@
       "level": "INFO",
       "logger": "root",
       "message": "Extracting contacts (date_field=None, since=None)",
-      "timestamp": "2026-06-08T13:36:54.000Z"
+      "timestamp": "2026-06-08T19:09:41.000Z"
     },
     {
       "level": "INFO",
       "logger": "root",
       "message": "Fetched 187 contacts records",
-      "timestamp": "2026-06-08T13:36:54.000Z"
+      "timestamp": "2026-06-08T19:09:41.000Z"
     },
     {
       "level": "INFO",
       "logger": "root",
       "message": "Wrote 187 rows to contacts",
-      "timestamp": "2026-06-08T13:36:54.000Z"
+      "timestamp": "2026-06-08T19:09:41.000Z"
     }
   ]
 }

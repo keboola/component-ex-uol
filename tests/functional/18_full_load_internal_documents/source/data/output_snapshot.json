@@ -4,66 +4,29 @@
   "tables": {
     "internal_documents.csv": {
       "columns": [
-        "number",
-        "created_at",
-        "creator_user_id",
-        "updated_at",
-        "modifier_user_id",
-        "department_department_id",
-        "contract_contract_id",
-        "date",
-        "note",
-        "vat_document",
-        "coefficient",
-        "status",
-        "items"
+        "2025000001",
+        "2025-09-26T11:47:18+02:00",
+        "prochazkovaq",
+        "2025-09-26T13:07:55+02:00",
+        "prochazkovaq",
+        "",
+        "",
+        "2025-03-09",
+        "Cestovn\u00e9-Luk\u00e1\u0161 Hurt, Rakousko, 9.-11.3.2025",
+        "False",
+        "False",
+        "confirmed",
+        "[{\"created_at\": \"2025-09-26T12:02:07+02:00\", \"creator\": {\"user_id\": \"prochazkovaq\"}, \"updated_at\": \"2025-09-26T12:02:07+02:00\", \"modifier\": {\"user_id\": \"prochazkovaq\"}, \"currency\": {\"currency_id\": \"CZK\"}, \"company\": {\"company_id\": null}, \"product\": {\"product_id\": null}, \"department\": {\"department_id\": null}, \"credit_account_id\": \"333000\", \"debit_account_id\": \"512000\", \"amount\": \"0.47\", \"accounting_amount\": \"0.47\", \"description\": \"zaokrouhlen\u00ed\", \"linked_doc_type\": null, \"linked_doc_code\": null, \"quantity\": null, \"batch\": null, \"warranty\": null, \"serial_numbers\": null, \"warehouse_changed\": false, \"address\": null, \"status\": \"valid\"}, {\"created_at\": \"2025-09-26T12:01:08+02:00\", \"creator\": {\"user_id\": \"prochazkovaq\"}, \"updated_at\": \"2025-09-26T12:06:37+02:00\", \"modifier\": {\"user_id\": \"prochazkovaq\"}, \"currency\": {\"currency_id\": \"CZK\"}, \"company\": {\"company_id\": null}, \"product\": {\"product_id\": null}, \"department\": {\"department_id\": null}, \"credit_account_id\": \"333000\", \"debit_account_id\": \"512000\", \"amount\": \"1406.53\", \"accounting_amount\": \"1406.53\", \"description\": \"Stravn\u00e9\", \"linked_doc_type\": null, \"linked_doc_code\": null, \"quantity\": null, \"batch\": null, \"warranty\": null, \"serial_numbers\": null, \"warehouse_changed\": false, \"address\": null, \"status\": \"valid\"}, {\"created_at\": \"2025-09-26T12:27:13+02:00\", \"creator\": {\"user_id\": \"prochazkovaq\"}, \"updated_at\": \"2025-09-26T12:27:13+02:00\", \"modifier\": {\"user_id\": \"prochazkovaq\"}, \"currency\": {\"currency_id\": \"EUR\"}, \"company\": {\"company_id\": null}, \"product\": {\"product_id\": null}, \"department\": {\"department_id\": null}, \"credit_account_id\": \"333000\", \"debit_account_id\": \"513000\", \"amount\": \"7.8\", \"accounting_amount\": \"194.57\", \"description\": \"Ob\u010derstven\u00ed \", \"linked_doc_type\": null, \"linked_doc_code\": null, \"quantity\": null, \"batch\": null, \"warranty\": null, \"serial_numbers\": null, \"warehouse_changed\": false, \"address\": null, \"status\": \"valid\"}, {\"created_at\": \"2025-09-26T12:50:46+02:00\", \"creator\": {\"user_id\": \"prochazkovaq\"}, \"updated_at\": \"2025-09-26T12:50:46+02:00\", \"modifier\": {\"user_id\": \"prochazkovaq\"}, \"currency\": {\"currency_id\": \"EUR\"}, \"company\": {\"company_id\": null}, \"product\": {\"product_id\": null}, \"department\": {\"department_id\": null}, \"credit_account_id\": \"333000\", \"debit_account_id\": \"513000\", \"amount\": \"7.7\", \"accounting_amount\": \"192.08\", \"description\": \"Ob\u010derstven\u00ed \", \"linked_doc_type\": null, \"linked_doc_code\": null, \"quantity\": null, \"batch\": null, \"warranty\": null, \"serial_numbers\": null, \"warehouse_changed\": false, \"address\": null, \"status\": \"valid\"}, {\"created_at\": \"2025-09-26T12:51:12+02:00\", \"creator\": {\"user_id\": \"prochazkovaq\"}, \"updated_at\": \"2025-09-26T12:51:12+02:00\", \"modifier\": {\"user_id\": \"prochazkovaq\"}, \"currency\": {\"currency_id\": \"EUR\"}, \"company\": {\"company_id\": null}, \"product\": {\"product_id\": null}, \"department\": {\"department_id\": null}, \"credit_account_id\": \"333000\", \"debit_account_id\": \"513000\", \"amount\": \"1.8\", \"accounting_amount\": \"44.9\", \"description\": \"Ob\u010derstven\u00ed \", \"linked_doc_type\": null, \"linked_doc_code\": null, \"quantity\": null, \"batch\": null, \"warranty\": null, \"serial_numbers\": null, \"warehouse_changed\": false, \"address\": null, \"status\": \"valid\"}, {\"created_at\": \"2025-09-26T12:51:41+02:00\", \"creator\": {\"user_id\": \"prochazkovaq\"}, \"updated_at\": \"2025-09-26T12:51:41+02:00\", \"modifier\": {\"user_id\": \"prochazkovaq\"}, \"currency\": {\"currency_id\": \"EUR\"}, \"company\": {\"company_id\": null}, \"product\": {\"product_id\": null}, \"department\": {\"department_id\": null}, \"credit_account_id\": \"333000\", \"debit_account_id\": \"513000\", \"amount\": \"23.79\", \"accounting_amount\": \"593.44\", \"description\": \"Ob\u010derstven\u00ed \", \"linked_doc_type\": null, \"linked_doc_code\": null, \"quantity\": null, \"batch\": null, \"warranty\": null, \"serial_numbers\": null, \"warehouse_changed\": false, \"address\": null, \"status\": \"valid\"}, {\"created_at\": \"2025-09-26T12:52:43+02:00\", \"creator\": {\"user_id\": \"prochazkovaq\"}, \"updated_at\": \"2025-09-26T12:52:43+02:00\", \"modifier\": {\"user_id\": \"prochazkovaq\"}, \"currency\": {\"currency_id\": \"EUR\"}, \"company\": {\"company_id\": null}, \"product\": {\"product_id\": null}, \"department\": {\"department_id\": null}, \"credit_account_id\": \"333000\", \"debit_account_id\": \"513000\", \"amount\": \"3.8\", \"accounting_amount\": \"94.79\", \"description\": \"Ob\u010derstven\u00ed \", \"linked_doc_type\": null, \"linked_doc_code\": null, \"quantity\": null, \"batch\": null, \"warranty\": null, \"serial_numbers\": null, \"warehouse_changed\": false, \"address\": null, \"status\": \"valid\"}, {\"created_at\": \"2025-09-26T12:53:06+02:00\", \"creator\": {\"user_id\": \"prochazkovaq\"}, \"updated_at\": \"2025-09-26T12:53:06+02:00\", \"modifier\": {\"user_id\": \"prochazkovaq\"}, \"currency\": {\"currency_id\": \"EUR\"}, \"company\": {\"company_id\": null}, \"product\": {\"product_id\": null}, \"department\": {\"department_id\": null}, \"credit_account_id\": \"333000\", \"debit_account_id\": \"513000\", \"amount\": \"15.8\", \"accounting_amount\": \"394.13\", \"description\": \"Ob\u010derstven\u00ed \", \"linked_doc_type\": null, \"linked_doc_code\": null, \"quantity\": null, \"batch\": null, \"warranty\": null, \"serial_numbers\": null, \"warehouse_changed\": false, \"address\": null, \"status\": \"valid\"}, {\"created_at\": \"2025-09-26T12:53:40+02:00\", \"creator\": {\"user_id\": \"prochazkovaq\"}, \"updated_at\": \"2025-09-26T12:53:40+02:00\", \"modifier\": {\"user_id\": \"prochazkovaq\"}, \"currency\": {\"currency_id\": \"CZK\"}, \"company\": {\"company_id\": null}, \"product\": {\"product_id\": null}, \"department\": {\"department_id\": null}, \"credit_account_id\": \"333000\", \"debit_account_id\": \"513000\", \"amount\": \"118.0\", \"accounting_amount\": \"118.0\", \"description\": \"Ob\u010derstven\u00ed \", \"linked_doc_type\": null, \"linked_doc_code\": null, \"quantity\": null, \"batch\": null, \"warranty\": null, \"serial_numbers\": null, \"warehouse_changed\": false, \"address\": null, \"status\": \"valid\"}, {\"created_at\": \"2025-09-26T12:55:18+02:00\", \"creator\": {\"user_id\": \"prochazkovaq\"}, \"updated_at\": \"2025-09-26T12:55:18+02:00\", \"modifier\": {\"user_id\": \"prochazkovaq\"}, \"currency\": {\"currency_id\": \"EUR\"}, \"company\": {\"company_id\": null}, \"product\": {\"product_id\": null}, \"department\": {\"department_id\": null}, \"credit_account_id\": \"333000\", \"debit_account_id\": \"513000\", \"amount\": \"7.5\", \"accounting_amount\": \"187.09\", \"description\": \"Ob\u010derstven\u00ed \", \"linked_doc_type\": null, \"linked_doc_code\": null, \"quantity\": null, \"batch\": null, \"warranty\": null, \"serial_numbers\": null, \"warehouse_changed\": false, \"address\": null, \"status\": \"valid\"}, {\"created_at\": \"2025-09-26T12:55:46+02:00\", \"creator\": {\"user_id\": \"prochazkovaq\"}, \"updated_at\": \"2025-09-26T12:55:46+02:00\", \"modifier\": {\"user_id\": \"prochazkovaq\"}, \"currency\": {\"currency_id\": \"CZK\"}, \"company\": {\"company_id\": null}, \"product\": {\"product_id\": null}, \"department\": {\"department_id\": null}, \"credit_account_id\": \"333000\", \"debit_account_id\": \"513000\", \"amount\": \"235.0\", \"accounting_amount\": \"235.0\", \"description\": \"Ob\u010derstven\u00ed \", \"linked_doc_type\": null, \"linked_doc_code\": null, \"quantity\": null, \"batch\": null, \"warranty\": null, \"serial_numbers\": null, \"warehouse_changed\": false, \"address\": null, \"status\": \"valid\"}, {\"created_at\": \"2025-09-26T12:54:52+02:00\", \"creator\": {\"user_id\": \"prochazkovaq\"}, \"updated_at\": \"2025-09-26T12:59:43+02:00\", \"modifier\": {\"user_id\": \"prochazkovaq\"}, \"currency\": {\"currency_id\": \"EUR\"}, \"company\": {\"company_id\": null}, \"product\": {\"product_id\": null}, \"department\": {\"department_id\": null}, \"credit_account_id\": \"333000\", \"debit_account_id\": \"355999\", \"amount\": \"9.2\", \"accounting_amount\": \"229.49\", \"description\": \"Alkohol - spole\u010dn\u00edk\", \"linked_doc_type\": null, \"linked_doc_code\": null, \"quantity\": null, \"batch\": null, \"warranty\": null, \"serial_numbers\": null, \"warehouse_changed\": false, \"address\": null, \"status\": \"valid\"}, {\"created_at\": \"2025-09-26T13:04:38+02:00\", \"creator\": {\"user_id\": \"prochazkovaq\"}, \"updated_at\": \"2025-09-26T13:04:57+02:00\", \"modifier\": {\"user_id\": \"prochazkovaq\"}, \"currency\": {\"currency_id\": \"CZK\"}, \"company\": {\"company_id\": null}, \"product\": {\"product_id\": null}, \"department\": {\"department_id\": null}, \"credit_account_id\": \"333000\", \"debit_account_id\": \"563000\", \"amount\": \"53.58\", \"accounting_amount\": \"53.58\", \"description\": \"Kurzov\u00fd rozd\u00edl\", \"linked_doc_type\": null, \"linked_doc_code\": null, \"quantity\": null, \"batch\": null, \"warranty\": null, \"serial_numbers\": null, \"warehouse_changed\": false, \"address\": null, \"status\": \"valid\"}, {\"created_at\": \"2025-09-26T13:06:22+02:00\", \"creator\": {\"user_id\": \"prochazkovaq\"}, \"updated_at\": \"2025-09-26T13:06:22+02:00\", \"modifier\": {\"user_id\": \"prochazkovaq\"}, \"currency\": {\"currency_id\": \"EUR\"}, \"company\": {\"company_id\": null}, \"product\": {\"product_id\": null}, \"department\": {\"department_id\": null}, \"credit_account_id\": \"333000\", \"debit_account_id\": \"513000\", \"amount\": \"6.2\", \"accounting_amount\": \"154.66\", \"description\": \"Ob\u010derstven\u00ed \", \"linked_doc_type\": null, \"linked_doc_code\": null, \"quantity\": null, \"batch\": null, \"warranty\": null, \"serial_numbers\": null, \"warehouse_changed\": false, \"address\": null, \"status\": \"valid\"}]"
       ],
-      "hash": "sha256:2cec58ed2f96f82806aa4875cbd26124ebc4feec4705ee3336469fbca41e09d4",
-      "row_count": 100,
-      "size_bytes": 502789
+      "hash": "sha256:ff7460a0b75077a6e46d5428e03b5727017bd860940b520c8801627a0cceea91",
+      "row_count": 99,
+      "size_bytes": 502632
     },
     "internal_documents.csv.manifest": {
       "columns": null,
-      "hash": "sha256:2b29edb25e1afc8909cd9771ebb64aa09e3c70ff2c88aaecb025b31e8ed28f5d",
+      "hash": "sha256:47d2aba346847e076186f03b5be7784455be95a6dc2bc8ce5a7705fa1934f25b",
       "row_count": null,
-      "size_bytes": 2137
-    },
-    "internal_documents_items.csv": {
-      "columns": [
-        "internal_documents_number",
-        "_item_index",
-        "created_at",
-        "creator",
-        "updated_at",
-        "modifier",
-        "currency",
-        "company",
-        "product",
-        "department",
-        "credit_account_id",
-        "debit_account_id",
-        "amount",
-        "accounting_amount",
-        "description",
-        "linked_doc_type",
-        "linked_doc_code",
-        "quantity",
-        "batch",
-        "warranty",
-        "serial_numbers",
-        "warehouse_changed",
-        "address",
-        "status"
-      ],
-      "hash": "sha256:d3def6e8af9d958a1ceb15ed2ed6d3cbd58a09aa0619778e43dfc725f3c9d45a",
-      "row_count": 674,
-      "size_bytes": 205075
-    },
-    "internal_documents_items.csv.manifest": {
-      "columns": null,
-      "hash": "sha256:8e067336fe05a5c6c6023d3911f42241c347eae262aaf3a6bf3014a7fcd8fff4",
-      "row_count": null,
-      "size_bytes": 3815
+      "size_bytes": 2120
     }
   },
   "version": "1.0"

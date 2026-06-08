@@ -4,71 +4,37 @@
   "tables": {
     "retails.csv": {
       "columns": [
-        "retail_id",
-        "created_at",
-        "updated_at",
-        "creator_user_id",
-        "modifier_user_id",
-        "accounting_address_address_id",
-        "buyer_address_address_id",
+        "2014000001",
+        "2014-10-21T13:18:52+02:00",
+        "2014-10-21T14:13:11+02:00",
+        "jakes",
+        "jakes",
+        "",
+        "",
+        "True",
+        "",
+        "",
+        "",
+        "0.0",
+        "",
         "confirmed",
-        "contact_contact_id",
-        "contract_contract_id",
-        "delivery_address_address_id",
-        "percent_discount",
-        "external_id",
-        "status",
-        "note",
-        "payment_method",
-        "rounding",
-        "department_department_id",
-        "total_amount",
-        "vat_document",
-        "items"
+        "3 mal\u00e9 obr\u00e1zky",
+        "cash",
+        "0.0",
+        "sidlo",
+        "600.0",
+        "True",
+        "[{\"created_at\": \"2014-10-21T13:54:49+02:00\", \"updated_at\": \"2014-10-21T13:54:49+02:00\", \"creator\": {\"user_id\": \"jakes\"}, \"modifier\": {\"user_id\": \"jakes\"}, \"batch\": null, \"description\": \"Mal\u00fd obr\u00e1zek\", \"percent_discount\": 0.0, \"expiration_date\": null, \"external_id\": null, \"status\": \"valid\", \"retail_id\": 2014000001, \"product\": {\"product_id\": \"obraz-maly\"}, \"quantity\": \"3.0\", \"serial_numbers\": null, \"department\": {\"department_id\": \"sidlo\"}, \"unit_price\": \"165.28\", \"unit_price_vat_inclusive\": \"200.0\", \"vat_calculation_method\": \"from_above\", \"vat_rate\": 21.0}]"
       ],
-      "hash": "sha256:6e803ed30dda4f2b14e95722f25a269128f14f4d6b045b562323c84085f14ea2",
-      "row_count": 6,
-      "size_bytes": 5514
+      "hash": "sha256:5577473ab04db0be4a5766f1657a4a79a536651c45d418aa84fbd093fa426e94",
+      "row_count": 5,
+      "size_bytes": 5193
     },
     "retails.csv.manifest": {
       "columns": null,
-      "hash": "sha256:d46ec85b7dc4d4ae3cd99f0c21ef31ba8bc7622c040703c1022fc25d2c70135c",
+      "hash": "sha256:a2278df759d44b43c9f50446201ecbc5188c4499477fd09e0662c5e286657f3a",
       "row_count": null,
-      "size_bytes": 3405
-    },
-    "retails_items.csv": {
-      "columns": [
-        "retails_retail_id",
-        "_item_index",
-        "created_at",
-        "updated_at",
-        "creator",
-        "modifier",
-        "batch",
-        "description",
-        "percent_discount",
-        "expiration_date",
-        "external_id",
-        "status",
-        "retail_id",
-        "product",
-        "quantity",
-        "serial_numbers",
-        "department",
-        "unit_price",
-        "unit_price_vat_inclusive",
-        "vat_calculation_method",
-        "vat_rate"
-      ],
-      "hash": "sha256:926aca1a7ec119ec56cc04a75d8367e70d45e6b854ff40ccde96c651fb7ce932",
-      "row_count": 8,
-      "size_bytes": 2104
-    },
-    "retails_items.csv.manifest": {
-      "columns": null,
-      "hash": "sha256:1a79854eb057e5a3d5e280b0c10bbdaf7eb93d26f88683a2e809214eac967853",
-      "row_count": null,
-      "size_bytes": 3372
+      "size_bytes": 3391
     }
   },
   "version": "1.0"

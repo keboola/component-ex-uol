@@ -4,27 +4,27 @@
   "tables": {
     "payment_rules.csv": {
       "columns": [
-        "gid",
-        "created_at",
-        "updated_at",
-        "creator_user_id",
-        "modifier_user_id",
-        "rule_id",
-        "doc_type",
-        "vat_code",
-        "description",
-        "debit_account_id",
-        "credit_account_id"
+        "6164",
+        "2004-12-29T20:40:40+01:00",
+        "2004-12-28T14:59:48+01:00",
+        "uoladm",
+        "hlavacova",
+        "-cestovne",
+        "PV",
+        "O",
+        "Cestovn\u00e9 ze slu\u017eebn\u00edch cest (diety, ubytov\u00e1n\u00ed, ...)",
+        "512",
+        ""
       ],
-      "hash": "sha256:074612c88cb282ea3cb48c0807aaab882cfd04839b0a06e650e81c4dbfb59b47",
-      "row_count": 89,
-      "size_bytes": 11158
+      "hash": "sha256:69324f1466fdd287777779a66a9ceac6f77be4c0c342ecf8d4d2ecf557b84c13",
+      "row_count": 88,
+      "size_bytes": 11025
     },
     "payment_rules.csv.manifest": {
       "columns": null,
-      "hash": "sha256:612918f2eb0ba2ce1a32404fc4978de0fb9b4f61980379dc7924596312d2509e",
+      "hash": "sha256:323ac3778f11805949271a3651d4626d212345349d127ec800f5d0a956d28f8f",
       "row_count": null,
-      "size_bytes": 1837
+      "size_bytes": 1820
     }
   },
   "version": "1.0"

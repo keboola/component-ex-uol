@@ -1,5 +1,5 @@
 {
-  "_metadata": {"freeze_time": "2026-06-08T13:36:54", "keboola_vcr_version": "0.5.0", "recorded_at": "2026-06-08T16:18:06.325048+00:00"},
+  "_metadata": {"freeze_time": "2026-06-08T19:09:41", "keboola_vcr_version": "0.5.0", "recorded_at": "2026-06-08T17:09:41.981394+00:00"},
   "interactions": [
     {"request": {"body": null, "headers": {"Accept": ["application/json"]}, "method": "GET", "uri": "https://test.demo.uol.cz/api/v1/ping"}, "response": {"body": {"string": "{\"ping\":\"pong\",\"_meta\":{\"href\":\"https://test.demo.uol.cz/api/v1/ping\"}}"}, "headers": {"Content-Length": ["71"], "Content-Type": ["application/json"]}, "status": {"code": 200, "message": "OK"}}}
   ],

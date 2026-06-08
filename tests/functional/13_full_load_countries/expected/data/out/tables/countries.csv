@@ -1,4 +1,3 @@
-country_id,created_at,updated_at,creator_user_id,modifier_user_id,currency_id,eu_entry_date,external_id,international_name,status,name,phone_prefix,vatin_regex,postal_code_regex
 AQ,2009-02-03T14:46:50+01:00,2009-02-03T14:47:06+01:00,uoladm,uoladm,,,,Antarctica,valid,Antarktida,,,
 BV,2009-02-03T14:46:50+01:00,2009-02-03T14:47:06+01:00,uoladm,uoladm,,,,Bouvet Island,valid,Bouvetův ostrov,,,
 TF,2009-02-03T14:46:51+01:00,2009-02-03T14:47:06+01:00,uoladm,uoladm,,,,French Southern Territories,valid,Francouzská jižní a antarktická území,,,

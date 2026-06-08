@@ -6,19 +6,19 @@
       "level": "INFO",
       "logger": "root",
       "message": "Extracting demands_for_payment (date_field=None, since=None)",
-      "timestamp": "2026-06-08T13:36:54.000Z"
+      "timestamp": "2026-06-08T19:09:41.000Z"
     },
     {
       "level": "INFO",
       "logger": "root",
       "message": "Fetched 2 demands_for_payment records",
-      "timestamp": "2026-06-08T13:36:54.000Z"
+      "timestamp": "2026-06-08T19:09:41.000Z"
     },
     {
       "level": "INFO",
       "logger": "root",
       "message": "Wrote 2 rows to demands_for_payment",
-      "timestamp": "2026-06-08T13:36:54.000Z"
+      "timestamp": "2026-06-08T19:09:41.000Z"
     }
   ]
 }

@@ -4,26 +4,26 @@
   "tables": {
     "currencies.csv": {
       "columns": [
-        "currency_id",
-        "created_at",
-        "updated_at",
-        "creator_user_id",
-        "modifier_user_id",
-        "alternative_currency_id",
-        "external_id",
-        "status",
-        "name",
-        "rounded_to"
+        "AED",
+        "2019-08-15T19:32:54+02:00",
+        "2026-02-11T09:49:44+01:00",
+        "uoladm",
+        "gieckoval",
+        "",
+        "",
+        "valid",
+        "Dirham SAE",
+        "0.01"
       ],
-      "hash": "sha256:da30458ba3a014effe51e7d4b554ace30b94445e24c2cce62fce99fcb73829df",
-      "row_count": 156,
-      "size_bytes": 15923
+      "hash": "sha256:9b1eca392c23f8944719facff6d0cac7130a82060826291320e962e3c0a0cb70",
+      "row_count": 155,
+      "size_bytes": 15796
     },
     "currencies.csv.manifest": {
       "columns": null,
-      "hash": "sha256:3c300d63018d5c2759d980a56607c0888862aebfdf915d35afcb7cc7d0f41f34",
+      "hash": "sha256:d3af9fb6826e9bdb677505827a8f75b4f140ec708ef696f0136d0001fb43cf69",
       "row_count": null,
-      "size_bytes": 1693
+      "size_bytes": 1675
     }
   },
   "version": "1.0"

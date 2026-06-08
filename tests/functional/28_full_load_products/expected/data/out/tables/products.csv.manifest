@@ -1,1 +1,244 @@
-{"incremental": false, "write_always": false, "delimiter": ",", "enclosure": "\"", "manifest_type": "out", "has_header": false, "schema": [{"name": "product_id", "data_type": {"base": {"type": "STRING"}}, "primary_key": true}, {"name": "created_at", "data_type": {"base": {"type": "TIMESTAMP"}}, "nullable": true}, {"name": "updated_at", "data_type": {"base": {"type": "TIMESTAMP"}}, "nullable": true}, {"name": "creator_user_id", "data_type": {"base": {"type": "STRING"}}, "nullable": true}, {"name": "modifier_user_id", "data_type": {"base": {"type": "STRING"}}, "nullable": true}, {"name": "barcode", "data_type": {"base": {"type": "STRING"}}, "nullable": true}, {"name": "deferred_period_in_months", "data_type": {"base": {"type": "STRING"}}, "nullable": true}, {"name": "description", "data_type": {"base": {"type": "STRING"}}, "nullable": true}, {"name": "dimensions", "data_type": {"base": {"type": "STRING"}}, "nullable": true}, {"name": "external_id", "data_type": {"base": {"type": "STRING"}}, "nullable": true}, {"name": "group_id", "data_type": {"base": {"type": "STRING"}}, "nullable": true}, {"name": "intrastat_id", "data_type": {"base": {"type": "STRING"}}, "nullable": true}, {"name": "status", "data_type": {"base": {"type": "STRING"}}, "nullable": true}, {"name": "hidden", "data_type": {"base": {"type": "BOOLEAN"}}, "nullable": true}, {"name": "category_id", "data_type": {"base": {"type": "STRING"}}, "nullable": true}, {"name": "name", "data_type": {"base": {"type": "STRING"}}, "nullable": true}, {"name": "purchase_price", "data_type": {"base": {"type": "STRING"}}, "nullable": true}, {"name": "track_serial_numbers", "data_type": {"base": {"type": "BOOLEAN"}}, "nullable": true}, {"name": "reverse_charge_code", "data_type": {"base": {"type": "STRING"}}, "nullable": true}, {"name": "unit_id", "data_type": {"base": {"type": "STRING"}}, "nullable": true}, {"name": "vat_code", "data_type": {"base": {"type": "STRING"}}, "nullable": true}, {"name": "weight_gross", "data_type": {"base": {"type": "STRING"}}, "nullable": true}, {"name": "weight_net", "data_type": {"base": {"type": "STRING"}}, "nullable": true}, {"name": "weight_unit_id", "data_type": {"base": {"type": "STRING"}}, "nullable": true}, {"name": "allow_vat_change", "data_type": {"base": {"type": "BOOLEAN"}}, "nullable": true}, {"name": "moss_code", "data_type": {"base": {"type": "STRING"}}, "nullable": true}]}
+{
+  "incremental": false,
+  "write_always": false,
+  "delimiter": ",",
+  "enclosure": "\"",
+  "manifest_type": "out",
+  "has_header": false,
+  "schema": [
+    {
+      "name": "product_id",
+      "data_type": {
+        "base": {
+          "type": "STRING"
+        }
+      },
+      "primary_key": true
+    },
+    {
+      "name": "created_at",
+      "data_type": {
+        "base": {
+          "type": "TIMESTAMP"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "updated_at",
+      "data_type": {
+        "base": {
+          "type": "TIMESTAMP"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "creator_user_id",
+      "data_type": {
+        "base": {
+          "type": "STRING"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "modifier_user_id",
+      "data_type": {
+        "base": {
+          "type": "STRING"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "barcode",
+      "data_type": {
+        "base": {
+          "type": "STRING"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "deferred_period_in_months",
+      "data_type": {
+        "base": {
+          "type": "STRING"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "description",
+      "data_type": {
+        "base": {
+          "type": "STRING"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "dimensions",
+      "data_type": {
+        "base": {
+          "type": "STRING"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "external_id",
+      "data_type": {
+        "base": {
+          "type": "STRING"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "group_id",
+      "data_type": {
+        "base": {
+          "type": "STRING"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "intrastat_id",
+      "data_type": {
+        "base": {
+          "type": "STRING"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "status",
+      "data_type": {
+        "base": {
+          "type": "STRING"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "hidden",
+      "data_type": {
+        "base": {
+          "type": "BOOLEAN"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "category_id",
+      "data_type": {
+        "base": {
+          "type": "STRING"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "name",
+      "data_type": {
+        "base": {
+          "type": "STRING"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "purchase_price",
+      "data_type": {
+        "base": {
+          "type": "STRING"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "track_serial_numbers",
+      "data_type": {
+        "base": {
+          "type": "BOOLEAN"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "reverse_charge_code",
+      "data_type": {
+        "base": {
+          "type": "STRING"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "unit_id",
+      "data_type": {
+        "base": {
+          "type": "STRING"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "vat_code",
+      "data_type": {
+        "base": {
+          "type": "STRING"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "weight_gross",
+      "data_type": {
+        "base": {
+          "type": "STRING"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "weight_net",
+      "data_type": {
+        "base": {
+          "type": "STRING"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "weight_unit_id",
+      "data_type": {
+        "base": {
+          "type": "STRING"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "allow_vat_change",
+      "data_type": {
+        "base": {
+          "type": "BOOLEAN"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "moss_code",
+      "data_type": {
+        "base": {
+          "type": "STRING"
+        }
+      },
+      "nullable": true
+    }
+  ]
+}

@@ -1,1 +1,298 @@
-{"incremental": false, "write_always": false, "delimiter": ",", "enclosure": "\"", "manifest_type": "out", "has_header": false, "schema": [{"name": "contact_id", "data_type": {"base": {"type": "STRING"}}, "primary_key": true}, {"name": "creator_user_id", "data_type": {"base": {"type": "STRING"}}, "nullable": true}, {"name": "modifier_user_id", "data_type": {"base": {"type": "STRING"}}, "nullable": true}, {"name": "contract_contract_id", "data_type": {"base": {"type": "STRING"}}, "nullable": true}, {"name": "acquisition_country_id", "data_type": {"base": {"type": "STRING"}}, "nullable": true}, {"name": "business_entity", "data_type": {"base": {"type": "BOOLEAN"}}, "nullable": true}, {"name": "company_number", "data_type": {"base": {"type": "STRING"}}, "nullable": true}, {"name": "consumption_country_id", "data_type": {"base": {"type": "STRING"}}, "nullable": true}, {"name": "country_id", "data_type": {"base": {"type": "STRING"}}, "nullable": true}, {"name": "created_at", "data_type": {"base": {"type": "TIMESTAMP"}}, "nullable": true}, {"name": "days_till_due_date", "data_type": {"base": {"type": "INTEGER"}}, "nullable": true}, {"name": "department_id", "data_type": {"base": {"type": "STRING"}}, "nullable": true}, {"name": "duplicate_variable_symbol", "data_type": {"base": {"type": "BOOLEAN"}}, "nullable": true}, {"name": "external_id", "data_type": {"base": {"type": "STRING"}}, "nullable": true}, {"name": "hidden", "data_type": {"base": {"type": "BOOLEAN"}}, "nullable": true}, {"name": "import_received_documents", "data_type": {"base": {"type": "STRING"}}, "nullable": true}, {"name": "language_id", "data_type": {"base": {"type": "STRING"}}, "nullable": true}, {"name": "name", "data_type": {"base": {"type": "STRING"}}, "nullable": true}, {"name": "note", "data_type": {"base": {"type": "STRING"}}, "nullable": true}, {"name": "percent_discount", "data_type": {"base": {"type": "NUMERIC"}}, "nullable": true}, {"name": "received_invoice_public_id_setting", "data_type": {"base": {"type": "STRING"}}, "nullable": true}, {"name": "received_invoice_variable_symbol_setting", "data_type": {"base": {"type": "STRING"}}, "nullable": true}, {"name": "status", "data_type": {"base": {"type": "STRING"}}, "nullable": true}, {"name": "sipo_number", "data_type": {"base": {"type": "STRING"}}, "nullable": true}, {"name": "specific_symbol", "data_type": {"base": {"type": "INTEGER"}}, "nullable": true}, {"name": "tin", "data_type": {"base": {"type": "STRING"}}, "nullable": true}, {"name": "unreliable_payer", "data_type": {"base": {"type": "BOOLEAN"}}, "nullable": true}, {"name": "updated_at", "data_type": {"base": {"type": "TIMESTAMP"}}, "nullable": true}, {"name": "vat_payer", "data_type": {"base": {"type": "BOOLEAN"}}, "nullable": true}, {"name": "vatin", "data_type": {"base": {"type": "STRING"}}, "nullable": true}, {"name": "addresses", "data_type": {"base": {"type": "STRING"}}, "nullable": true}, {"name": "bank_accounts", "data_type": {"base": {"type": "STRING"}}, "nullable": true}]}
+{
+  "incremental": false,
+  "write_always": false,
+  "delimiter": ",",
+  "enclosure": "\"",
+  "manifest_type": "out",
+  "has_header": false,
+  "schema": [
+    {
+      "name": "contact_id",
+      "data_type": {
+        "base": {
+          "type": "STRING"
+        }
+      },
+      "primary_key": true
+    },
+    {
+      "name": "creator_user_id",
+      "data_type": {
+        "base": {
+          "type": "STRING"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "modifier_user_id",
+      "data_type": {
+        "base": {
+          "type": "STRING"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "contract_contract_id",
+      "data_type": {
+        "base": {
+          "type": "STRING"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "acquisition_country_id",
+      "data_type": {
+        "base": {
+          "type": "STRING"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "business_entity",
+      "data_type": {
+        "base": {
+          "type": "BOOLEAN"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "company_number",
+      "data_type": {
+        "base": {
+          "type": "STRING"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "consumption_country_id",
+      "data_type": {
+        "base": {
+          "type": "STRING"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "country_id",
+      "data_type": {
+        "base": {
+          "type": "STRING"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "created_at",
+      "data_type": {
+        "base": {
+          "type": "TIMESTAMP"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "days_till_due_date",
+      "data_type": {
+        "base": {
+          "type": "INTEGER"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "department_id",
+      "data_type": {
+        "base": {
+          "type": "STRING"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "duplicate_variable_symbol",
+      "data_type": {
+        "base": {
+          "type": "BOOLEAN"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "external_id",
+      "data_type": {
+        "base": {
+          "type": "STRING"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "hidden",
+      "data_type": {
+        "base": {
+          "type": "BOOLEAN"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "import_received_documents",
+      "data_type": {
+        "base": {
+          "type": "STRING"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "language_id",
+      "data_type": {
+        "base": {
+          "type": "STRING"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "name",
+      "data_type": {
+        "base": {
+          "type": "STRING"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "note",
+      "data_type": {
+        "base": {
+          "type": "STRING"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "percent_discount",
+      "data_type": {
+        "base": {
+          "type": "NUMERIC"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "received_invoice_public_id_setting",
+      "data_type": {
+        "base": {
+          "type": "STRING"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "received_invoice_variable_symbol_setting",
+      "data_type": {
+        "base": {
+          "type": "STRING"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "status",
+      "data_type": {
+        "base": {
+          "type": "STRING"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "sipo_number",
+      "data_type": {
+        "base": {
+          "type": "STRING"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "specific_symbol",
+      "data_type": {
+        "base": {
+          "type": "INTEGER"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "tin",
+      "data_type": {
+        "base": {
+          "type": "STRING"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "unreliable_payer",
+      "data_type": {
+        "base": {
+          "type": "BOOLEAN"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "updated_at",
+      "data_type": {
+        "base": {
+          "type": "TIMESTAMP"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "vat_payer",
+      "data_type": {
+        "base": {
+          "type": "BOOLEAN"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "vatin",
+      "data_type": {
+        "base": {
+          "type": "STRING"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "addresses",
+      "data_type": {
+        "base": {
+          "type": "STRING"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "bank_accounts",
+      "data_type": {
+        "base": {
+          "type": "STRING"
+        }
+      },
+      "nullable": true
+    }
+  ]
+}

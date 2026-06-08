@@ -4,68 +4,34 @@
   "tables": {
     "bank_movements.csv": {
       "columns": [
-        "gid",
-        "creator_user_id",
-        "modifier_user_id",
-        "bank_account_bank_account_id",
-        "contact_contact_id",
-        "bank_movement_id",
-        "constant_symbol",
-        "specific_symbol",
-        "variable_symbol",
-        "amount",
-        "status",
-        "contact_bank_account",
-        "iban",
-        "note",
-        "created_at",
-        "updated_at",
-        "external_id",
-        "items"
+        "2817082",
+        "jac",
+        "jac",
+        "cs_czk",
+        "",
+        "57",
+        "",
+        "",
+        "",
+        "-2000.0",
+        "valid",
+        "",
+        "",
+        "vklad do pokladny",
+        "2026-02-10T14:45:53+01:00",
+        "2026-02-10T14:45:53+01:00",
+        "",
+        "[{\"number\": 57, \"amount\": \"2000.0\", \"confirmed\": false, \"note\": null, \"variable_symbol\": null, \"specific_symbol\": null, \"constant_symbol\": null, \"date\": \"2026-02-10\", \"created_at\": \"2026-02-10T14:45:53+01:00\", \"updated_at\": \"2026-02-10T14:45:53+01:00\", \"external_id\": null, \"creator\": {\"user_id\": \"robot\"}, \"modifier\": {\"user_id\": \"robot\"}, \"payment_rule\": {\"payment_rule_id\": \"-neco\"}, \"bank_account\": {\"bank_account_id\": \"cs_czk\"}, \"contact\": {\"contact_id\": null}, \"department\": {\"department_id\": null}, \"contract\": {\"contract_id\": null}, \"linked_doc\": {\"linked_doc_number\": null, \"linked_doc_code\": null}}]"
       ],
-      "hash": "sha256:f63aa6ac4bfd055148ab77d00c302794e51625f0be7fe1891538754d48a9a3a2",
-      "row_count": 55,
-      "size_bytes": 46510
+      "hash": "sha256:0c49073727898f525f5819fea0d5259acd50c95af215bf10854ce14a92e76c58",
+      "row_count": 54,
+      "size_bytes": 46274
     },
     "bank_movements.csv.manifest": {
       "columns": null,
-      "hash": "sha256:2c0749c3def3a6e02f05582281fd117521c81948025ab6a12d7dd82fc8835455",
+      "hash": "sha256:9e839e1aea44899896604c1712ee16e59619f53ec615bcff1afd17ea63bc171b",
       "row_count": null,
-      "size_bytes": 2906
-    },
-    "bank_movements_items.csv": {
-      "columns": [
-        "bank_movements_gid",
-        "_item_index",
-        "number",
-        "amount",
-        "confirmed",
-        "note",
-        "variable_symbol",
-        "specific_symbol",
-        "constant_symbol",
-        "date",
-        "created_at",
-        "updated_at",
-        "external_id",
-        "creator",
-        "modifier",
-        "payment_rule",
-        "bank_account",
-        "contact",
-        "department",
-        "contract",
-        "linked_doc"
-      ],
-      "hash": "sha256:4f7925851b85971303952aaee5cc1a84f23be241326cede5daf0781e7924a15b",
-      "row_count": 55,
-      "size_bytes": 20440
-    },
-    "bank_movements_items.csv.manifest": {
-      "columns": null,
-      "hash": "sha256:1971d486ae57b1fbdf348c4c8425f0a4760f8d8beb3a61ef088cdf20e630ff82",
-      "row_count": null,
-      "size_bytes": 3341
+      "size_bytes": 2893
     }
   },
   "version": "1.0"

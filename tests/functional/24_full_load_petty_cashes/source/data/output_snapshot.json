@@ -4,35 +4,35 @@
   "tables": {
     "petty_cashes.csv": {
       "columns": [
-        "petty_cash_id",
-        "created_at",
-        "updated_at",
-        "creator_user_id",
-        "modifier_user_id",
-        "opening_balance_date",
-        "after_retail_issued",
-        "after_credit_issued",
-        "after_credit_received",
-        "currency_currency_id",
-        "department_department_id",
-        "external_id",
-        "opening_balance",
-        "after_invoice_issued",
-        "after_invoice_received",
-        "status",
-        "default",
-        "name",
-        "allow_negative"
+        "p1_eur",
+        "2006-06-25T21:22:42+02:00",
+        "2009-02-03T14:46:37+01:00",
+        "pickova",
+        "uoladm",
+        "2006-01-01",
+        "P",
+        "book_in_bank_movement",
+        "book_in_bank_movement",
+        "EUR",
+        "",
+        "",
+        "0.0",
+        "book_in_bank_movement",
+        "book_in_bank_movement",
+        "valid",
+        "False",
+        "Pokladna EUR",
+        "False"
       ],
-      "hash": "sha256:28daf749dce802c7d735eb57f22cf4f9152d2ff7d37c41336be2338be5038e36",
-      "row_count": 3,
-      "size_bytes": 756
+      "hash": "sha256:a62f79f3af951aaff9586cea8c603980f78a101574636a66c581f71e3435aaa6",
+      "row_count": 2,
+      "size_bytes": 450
     },
     "petty_cashes.csv.manifest": {
       "columns": null,
-      "hash": "sha256:219bd960fa27d52947b7c7b2ccd8ec230c8efa6e74d5aa6a27b0e8956a061774",
+      "hash": "sha256:518a59631902a28e7d58c6aec7755166b85cc8c4ab84b5bb0fc562d8de782a51",
       "row_count": null,
-      "size_bytes": 3114
+      "size_bytes": 3096
     }
   },
   "version": "1.0"

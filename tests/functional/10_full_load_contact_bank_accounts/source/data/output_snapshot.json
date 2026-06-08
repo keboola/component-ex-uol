@@ -4,32 +4,32 @@
   "tables": {
     "contact_bank_accounts.csv": {
       "columns": [
-        "bank_account_id",
-        "created_at",
-        "updated_at",
-        "creator_user_id",
-        "modifier_user_id",
-        "bank_account",
-        "bank_code",
-        "contact_contact_id",
-        "country_country_id",
-        "currency_currency_id",
-        "external_id",
-        "iban",
-        "default",
-        "status",
-        "name",
-        "published"
+        "65969",
+        "2014-10-21T19:11:57+02:00",
+        "2014-10-21T19:11:57+02:00",
+        "uoladm",
+        "uoladm",
+        "107-8408500267/0100",
+        "0100",
+        "czccz_sro",
+        "CZ",
+        "",
+        "",
+        "CZ0501000001078408500267",
+        "True",
+        "valid",
+        "",
+        "False"
       ],
-      "hash": "sha256:489d10767c485836390eb43732c1d50e675bd5a190860bcf20fd663aee94b895",
-      "row_count": 77,
-      "size_bytes": 12844
+      "hash": "sha256:c6dbadcdf610e89aa4ca5d3a9be3f1f0dd66e108f63808bed9cf7c54758813a4",
+      "row_count": 76,
+      "size_bytes": 12643
     },
     "contact_bank_accounts.csv.manifest": {
       "columns": null,
-      "hash": "sha256:86b4a4b411910cf9d1926f2f40f10e9d37a6ac8fcdd93b199bf40a894b6d7891",
+      "hash": "sha256:ae5fcb30e9b557d75cd3c85adc8dc739265558e10d521b92ff2210b68d552da1",
       "row_count": null,
-      "size_bytes": 2595
+      "size_bytes": 2580
     }
   },
   "version": "1.0"

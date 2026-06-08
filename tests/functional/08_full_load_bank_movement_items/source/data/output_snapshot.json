@@ -4,36 +4,36 @@
   "tables": {
     "bank_movement_items.csv": {
       "columns": [
-        "number",
-        "amount",
-        "confirmed",
-        "note",
-        "variable_symbol",
-        "specific_symbol",
-        "constant_symbol",
-        "date",
-        "created_at",
-        "updated_at",
-        "external_id",
-        "creator_user_id",
-        "modifier_user_id",
-        "payment_rule_payment_rule_id",
-        "bank_account_bank_account_id",
-        "contact_contact_id",
-        "department_department_id",
-        "contract_contract_id",
-        "linked_doc_linked_doc_number",
-        "linked_doc_linked_doc_code"
+        "1",
+        "2178.0",
+        "True",
+        "",
+        "3686492022",
+        "",
+        "",
+        "2014-09-29",
+        "2014-10-21T12:54:07+02:00",
+        "2014-10-21T12:54:25+02:00",
+        "",
+        "robot",
+        "jakes",
+        "-faktura",
+        "cs_czk",
+        "vodafone_czech_republi",
+        "",
+        "",
+        "2014000004",
+        ""
       ],
-      "hash": "sha256:f768110d0b6056fbb7a024fa60ee5fec44874394c631f59a380dbd1d37ed0077",
-      "row_count": 55,
-      "size_bytes": 7578
+      "hash": "sha256:df1b41cdf95ad0bf1b7d68c31a5fb95387153afaef4a1ee787acc9eb1dbf779d",
+      "row_count": 54,
+      "size_bytes": 7249
     },
     "bank_movement_items.csv.manifest": {
       "columns": null,
-      "hash": "sha256:483f658fe92f6cc2ad5e44610aaf712e707ce7e250d2d843a198027d3f9e6c30",
+      "hash": "sha256:1c26f008064cfa98c5bad454911a2963ff2cc1fcae18152bc906f61370b7bb1d",
       "row_count": null,
-      "size_bytes": 3248
+      "size_bytes": 3258
     }
   },
   "version": "1.0"

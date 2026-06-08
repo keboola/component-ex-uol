@@ -1,1 +1,433 @@
-{"incremental": false, "write_always": false, "delimiter": ",", "enclosure": "\"", "manifest_type": "out", "has_header": false, "schema": [{"name": "gid", "data_type": {"base": {"type": "INTEGER"}}, "primary_key": true}, {"name": "accounting_address_address_id", "data_type": {"base": {"type": "STRING"}}, "nullable": true}, {"name": "buyer_address_address_id", "data_type": {"base": {"type": "STRING"}}, "nullable": true}, {"name": "bank_account_bank_account_id", "data_type": {"base": {"type": "STRING"}}, "nullable": true}, {"name": "creator_user_id", "data_type": {"base": {"type": "STRING"}}, "nullable": true}, {"name": "currency_currency_id", "data_type": {"base": {"type": "STRING"}}, "nullable": true}, {"name": "delivery_address_address_id", "data_type": {"base": {"type": "STRING"}}, "nullable": true}, {"name": "department_department_id", "data_type": {"base": {"type": "STRING"}}, "nullable": true}, {"name": "document_recipient_address_address_id", "data_type": {"base": {"type": "STRING"}}, "nullable": true}, {"name": "linked_doc", "data_type": {"base": {"type": "STRING"}}, "nullable": true}, {"name": "logo_url", "data_type": {"base": {"type": "STRING"}}, "nullable": true}, {"name": "modifier_user_id", "data_type": {"base": {"type": "STRING"}}, "nullable": true}, {"name": "order_order_id", "data_type": {"base": {"type": "INTEGER"}}, "nullable": true}, {"name": "contract_contract_id", "data_type": {"base": {"type": "STRING"}}, "nullable": true}, {"name": "items", "data_type": {"base": {"type": "STRING"}}, "nullable": true}, {"name": "cancellation_date", "data_type": {"base": {"type": "DATE"}}, "nullable": true}, {"name": "constant_symbol", "data_type": {"base": {"type": "INTEGER"}}, "nullable": true}, {"name": "consumption_country_id", "data_type": {"base": {"type": "STRING"}}, "nullable": true}, {"name": "created_at", "data_type": {"base": {"type": "TIMESTAMP"}}, "nullable": true}, {"name": "delivery_note", "data_type": {"base": {"type": "BOOLEAN"}}, "nullable": true}, {"name": "delivery_note_note", "data_type": {"base": {"type": "STRING"}}, "nullable": true}, {"name": "delivery_note_text", "data_type": {"base": {"type": "STRING"}}, "nullable": true}, {"name": "due_date", "data_type": {"base": {"type": "DATE"}}, "nullable": true}, {"name": "exchange_rate", "data_type": {"base": {"type": "NUMERIC"}}, "nullable": true}, {"name": "external_id", "data_type": {"base": {"type": "STRING"}}, "nullable": true}, {"name": "invoice_id", "data_type": {"base": {"type": "INTEGER"}}, "nullable": true}, {"name": "issue_date", "data_type": {"base": {"type": "DATE"}}, "nullable": true}, {"name": "note", "data_type": {"base": {"type": "STRING"}}, "nullable": true}, {"name": "payment_method", "data_type": {"base": {"type": "STRING"}}, "nullable": true}, {"name": "percent_discount", "data_type": {"base": {"type": "NUMERIC"}}, "nullable": true}, {"name": "public_id", "data_type": {"base": {"type": "STRING"}}, "nullable": true}, {"name": "rounding", "data_type": {"base": {"type": "STRING"}}, "nullable": true}, {"name": "status", "data_type": {"base": {"type": "STRING"}}, "nullable": true}, {"name": "send_by_email", "data_type": {"base": {"type": "BOOLEAN"}}, "nullable": true}, {"name": "send_by_mail", "data_type": {"base": {"type": "BOOLEAN"}}, "nullable": true}, {"name": "shipping_method", "data_type": {"base": {"type": "STRING"}}, "nullable": true}, {"name": "specific_symbol", "data_type": {"base": {"type": "INTEGER"}}, "nullable": true}, {"name": "tax_payment_date", "data_type": {"base": {"type": "DATE"}}, "nullable": true}, {"name": "text", "data_type": {"base": {"type": "STRING"}}, "nullable": true}, {"name": "total_amount", "data_type": {"base": {"type": "STRING"}}, "nullable": true}, {"name": "type", "data_type": {"base": {"type": "STRING"}}, "nullable": true}, {"name": "updated_at", "data_type": {"base": {"type": "TIMESTAMP"}}, "nullable": true}, {"name": "variable_symbol", "data_type": {"base": {"type": "INTEGER"}}, "nullable": true}, {"name": "vat1_amount", "data_type": {"base": {"type": "STRING"}}, "nullable": true}, {"name": "vat2_amount", "data_type": {"base": {"type": "STRING"}}, "nullable": true}, {"name": "vat3_amount", "data_type": {"base": {"type": "STRING"}}, "nullable": true}, {"name": "vat_document", "data_type": {"base": {"type": "BOOLEAN"}}, "nullable": true}]}
+{
+  "incremental": false,
+  "write_always": false,
+  "delimiter": ",",
+  "enclosure": "\"",
+  "manifest_type": "out",
+  "has_header": false,
+  "schema": [
+    {
+      "name": "gid",
+      "data_type": {
+        "base": {
+          "type": "INTEGER"
+        }
+      },
+      "primary_key": true
+    },
+    {
+      "name": "accounting_address_address_id",
+      "data_type": {
+        "base": {
+          "type": "STRING"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "buyer_address_address_id",
+      "data_type": {
+        "base": {
+          "type": "STRING"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "bank_account_bank_account_id",
+      "data_type": {
+        "base": {
+          "type": "STRING"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "creator_user_id",
+      "data_type": {
+        "base": {
+          "type": "STRING"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "currency_currency_id",
+      "data_type": {
+        "base": {
+          "type": "STRING"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "delivery_address_address_id",
+      "data_type": {
+        "base": {
+          "type": "STRING"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "department_department_id",
+      "data_type": {
+        "base": {
+          "type": "STRING"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "document_recipient_address_address_id",
+      "data_type": {
+        "base": {
+          "type": "STRING"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "linked_doc",
+      "data_type": {
+        "base": {
+          "type": "STRING"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "logo_url",
+      "data_type": {
+        "base": {
+          "type": "STRING"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "modifier_user_id",
+      "data_type": {
+        "base": {
+          "type": "STRING"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "order_order_id",
+      "data_type": {
+        "base": {
+          "type": "INTEGER"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "contract_contract_id",
+      "data_type": {
+        "base": {
+          "type": "STRING"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "items",
+      "data_type": {
+        "base": {
+          "type": "STRING"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "cancellation_date",
+      "data_type": {
+        "base": {
+          "type": "DATE"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "constant_symbol",
+      "data_type": {
+        "base": {
+          "type": "INTEGER"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "consumption_country_id",
+      "data_type": {
+        "base": {
+          "type": "STRING"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "created_at",
+      "data_type": {
+        "base": {
+          "type": "TIMESTAMP"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "delivery_note",
+      "data_type": {
+        "base": {
+          "type": "BOOLEAN"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "delivery_note_note",
+      "data_type": {
+        "base": {
+          "type": "STRING"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "delivery_note_text",
+      "data_type": {
+        "base": {
+          "type": "STRING"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "due_date",
+      "data_type": {
+        "base": {
+          "type": "DATE"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "exchange_rate",
+      "data_type": {
+        "base": {
+          "type": "NUMERIC"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "external_id",
+      "data_type": {
+        "base": {
+          "type": "STRING"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "invoice_id",
+      "data_type": {
+        "base": {
+          "type": "INTEGER"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "issue_date",
+      "data_type": {
+        "base": {
+          "type": "DATE"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "note",
+      "data_type": {
+        "base": {
+          "type": "STRING"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "payment_method",
+      "data_type": {
+        "base": {
+          "type": "STRING"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "percent_discount",
+      "data_type": {
+        "base": {
+          "type": "NUMERIC"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "public_id",
+      "data_type": {
+        "base": {
+          "type": "STRING"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "rounding",
+      "data_type": {
+        "base": {
+          "type": "STRING"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "status",
+      "data_type": {
+        "base": {
+          "type": "STRING"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "send_by_email",
+      "data_type": {
+        "base": {
+          "type": "BOOLEAN"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "send_by_mail",
+      "data_type": {
+        "base": {
+          "type": "BOOLEAN"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "shipping_method",
+      "data_type": {
+        "base": {
+          "type": "STRING"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "specific_symbol",
+      "data_type": {
+        "base": {
+          "type": "INTEGER"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "tax_payment_date",
+      "data_type": {
+        "base": {
+          "type": "DATE"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "text",
+      "data_type": {
+        "base": {
+          "type": "STRING"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "total_amount",
+      "data_type": {
+        "base": {
+          "type": "STRING"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "type",
+      "data_type": {
+        "base": {
+          "type": "STRING"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "updated_at",
+      "data_type": {
+        "base": {
+          "type": "TIMESTAMP"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "variable_symbol",
+      "data_type": {
+        "base": {
+          "type": "INTEGER"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "vat1_amount",
+      "data_type": {
+        "base": {
+          "type": "STRING"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "vat2_amount",
+      "data_type": {
+        "base": {
+          "type": "STRING"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "vat3_amount",
+      "data_type": {
+        "base": {
+          "type": "STRING"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "vat_document",
+      "data_type": {
+        "base": {
+          "type": "BOOLEAN"
+        }
+      },
+      "nullable": true
+    }
+  ]
+}

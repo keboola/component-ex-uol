@@ -6,19 +6,19 @@
       "level": "INFO",
       "logger": "root",
       "message": "Extracting petty_cash_incomes (date_field=None, since=None)",
-      "timestamp": "2026-06-08T13:36:54.000Z"
+      "timestamp": "2026-06-08T19:09:41.000Z"
     },
     {
       "level": "INFO",
       "logger": "root",
       "message": "Fetched 142 petty_cash_incomes records",
-      "timestamp": "2026-06-08T13:36:54.000Z"
+      "timestamp": "2026-06-08T19:09:41.000Z"
     },
     {
       "level": "INFO",
       "logger": "root",
       "message": "Wrote 142 rows to petty_cash_incomes",
-      "timestamp": "2026-06-08T13:36:54.000Z"
+      "timestamp": "2026-06-08T19:09:41.000Z"
     }
   ]
 }

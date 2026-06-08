@@ -1,4 +1,3 @@
-id,creator_user_id,language_language_id,modifier_user_id,created_at,default,name,title,updated_at
 2187,uoladm,en-US,uoladm,2017-05-03T17:56:56+02:00,True,offer,Offer - english,2017-07-13T10:13:39+02:00
 2185,uoladm,sk-SK,uoladm,2017-05-03T17:56:56+02:00,True,purchase_invoice,Faktúra přijatá - slovensky,2017-06-16T00:23:58+02:00
 2171,uoladm,en-US,uoladm,2017-05-03T17:56:55+02:00,True,sales_order,Order - english,2019-01-31T14:50:48+01:00

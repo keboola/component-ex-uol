@@ -4,60 +4,33 @@
   "tables": {
     "petty_cash_incomes.csv": {
       "columns": [
-        "gid",
-        "created_at",
-        "updated_at",
-        "creator_user_id",
-        "modifier_user_id",
-        "items",
-        "number",
-        "issue_date",
-        "note",
-        "petty_cash_petty_cash_id",
-        "department_department_id",
-        "total",
-        "contact_contact_id",
-        "contract_contract_id",
-        "vat_document",
-        "confirmed",
-        "status"
+        "65534",
+        "2014-10-03T21:54:45+02:00",
+        "2014-10-03T21:54:45+02:00",
+        "robot",
+        "robot",
+        "[{\"created_at\": \"2014-10-03T21:54:45+02:00\", \"updated_at\": \"2014-10-03T21:54:45+02:00\", \"creator\": {\"user_id\": \"robot\"}, \"modifier\": {\"user_id\": \"jakes\"}, \"external_id\": null, \"rule\": {\"rule_id\": \"+faktura\"}, \"variable_symbol\": 2014000002, \"price\": \"121000.0\", \"description\": \"\u00dahrada faktury 2014000002\", \"department\": {\"department_id\": null}, \"contract\": {\"contract_id\": null}, \"linked_doc_number\": 2014000002}]",
+        "2014000001",
+        "2014-08-31",
+        "\u00dahrada faktury",
+        "p1_czk",
+        "",
+        "121000.0",
+        "porsche_ceska_republik",
+        "",
+        "False",
+        "True",
+        "valid"
       ],
-      "hash": "sha256:9d2f9848d57ed279d1f2faa51217f8d0b47eb7ae82833d8b4992c44f935ae387",
-      "row_count": 143,
-      "size_bytes": 88582
+      "hash": "sha256:f3740b08002aa8d823457e01c251fda967e29b58fdec7a5419ff4284b470d963",
+      "row_count": 142,
+      "size_bytes": 88367
     },
     "petty_cash_incomes.csv.manifest": {
       "columns": null,
-      "hash": "sha256:2a2383e352e42ba8589448c80d0614bd98b7cca6ae79ba9f8027c652bc2f7556",
+      "hash": "sha256:5eb6c553bdd3fef513649520852c694dbb6264cf17854356053b4bacb4f7d68c",
       "row_count": null,
-      "size_bytes": 2747
-    },
-    "petty_cash_incomes_items.csv": {
-      "columns": [
-        "petty_cash_incomes_gid",
-        "_item_index",
-        "created_at",
-        "updated_at",
-        "creator",
-        "modifier",
-        "external_id",
-        "rule",
-        "variable_symbol",
-        "price",
-        "description",
-        "department",
-        "contract",
-        "linked_doc_number"
-      ],
-      "hash": "sha256:0d283484695f80255244f0b5768789c4df10fc8234e57f81206c410a166c29db",
-      "row_count": 143,
-      "size_bytes": 35600
-    },
-    "petty_cash_incomes_items.csv.manifest": {
-      "columns": null,
-      "hash": "sha256:f23d4da3474e687c1a8c154078f4e59f257847c3003078799b0898e3f256ff56",
-      "row_count": null,
-      "size_bytes": 2309
+      "size_bytes": 2731
     }
   },
   "version": "1.0"

@@ -6,19 +6,19 @@
       "level": "INFO",
       "logger": "root",
       "message": "Extracting bank_movement_items (date_field=None, since=None)",
-      "timestamp": "2026-06-08T13:36:54.000Z"
+      "timestamp": "2026-06-08T19:09:41.000Z"
     },
     {
       "level": "INFO",
       "logger": "root",
       "message": "Fetched 54 bank_movement_items records",
-      "timestamp": "2026-06-08T13:36:54.000Z"
+      "timestamp": "2026-06-08T19:09:41.000Z"
     },
     {
       "level": "INFO",
       "logger": "root",
       "message": "Wrote 54 rows to bank_movement_items",
-      "timestamp": "2026-06-08T13:36:54.000Z"
+      "timestamp": "2026-06-08T19:09:41.000Z"
     }
   ]
 }
