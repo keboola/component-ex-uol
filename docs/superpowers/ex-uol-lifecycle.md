@@ -198,6 +198,14 @@ template). Two follow-ups surfaced: (a) config needed a `storage.output.default_
 dev-portal `defaultBucket:false` → consider `defaultBucket:true` in Phase 6; (b) `accounting_records`
 returned a thin row for the 5-day window — verify the field shape (likely just sparse demo data).
 
+> **Re-validated 2026-06-08 after the post-review redesign** (server_type/customer_id, load_type switch,
+> humanized labels, stable empty-result columns): config updated to the new shape (`server_type=demo`,
+> per-row `load_type`) and re-run → job **`47257195` SUCCESS** on **`initial-implementation-7`**
+> (commit `ce5597e`). Tables: contacts 187 + addresses 214, sales_invoices 238 + items 379,
+> **accounting_records 258** (incremental `2026-01-01`, upsert by gid) — confirming the earlier thin row
+> was just the empty 5-day window, not a bug. `defaultBucket:true` (Phase 6) removed the need for a
+> per-config bucket override.
+
 ### Phase 8 — Final CF-standards review · owner: `component-checklist-review`
 - [x] complete
 
