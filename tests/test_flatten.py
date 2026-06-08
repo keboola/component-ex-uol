@@ -1,4 +1,5 @@
 import json
+
 from src.endpoints import get_endpoint
 from src.flatten import flatten_record
 

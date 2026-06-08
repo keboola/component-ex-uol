@@ -1,5 +1,7 @@
 import base64
+
 import responses
+
 from src.client import UolClient
 
 BASE = "https://test.demo.uol.cz/api"

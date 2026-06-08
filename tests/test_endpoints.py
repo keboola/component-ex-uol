@@ -1,5 +1,6 @@
 import pytest
-from src.endpoints import ENDPOINTS, Endpoint, get_endpoint, endpoint_names
+
+from src.endpoints import ENDPOINTS, endpoint_names, get_endpoint
 
 
 def test_registry_has_29_endpoints():
