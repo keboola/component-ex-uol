@@ -1,6 +1,6 @@
 import responses
 
-from src.client import UolClient
+from client import UolClient
 
 BASE = "https://test.demo.uol.cz/api"
 

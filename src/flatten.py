@@ -11,7 +11,7 @@ from __future__ import annotations
 
 import json
 
-from src.endpoints import Endpoint
+from endpoints import Endpoint
 
 
 def _fk_column(ep: Endpoint) -> str | None:

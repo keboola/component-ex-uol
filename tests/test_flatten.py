@@ -1,7 +1,7 @@
 import json
 
-from src.endpoints import Endpoint, get_endpoint
-from src.flatten import flatten_record
+from endpoints import Endpoint, get_endpoint
+from flatten import flatten_record
 
 
 def test_scalar_and_nested_object_become_parent_columns():

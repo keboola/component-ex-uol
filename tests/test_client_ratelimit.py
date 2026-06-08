@@ -2,7 +2,7 @@ import pytest
 import responses
 from keboola.component.exceptions import UserException
 
-from src.client import UolClient
+from client import UolClient
 
 BASE = "https://test.demo.uol.cz/api"
 

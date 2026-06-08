@@ -1,8 +1,8 @@
 import pytest
 from keboola.component.exceptions import UserException
 
-from src.component import Component
-from src.endpoints import get_endpoint
+from component import Component
+from endpoints import get_endpoint
 
 # --- active_field selection ---
 

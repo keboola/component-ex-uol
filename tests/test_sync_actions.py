@@ -1,7 +1,7 @@
 from unittest.mock import MagicMock, patch
 
-from src.component import Component
-from src.endpoints import endpoint_names
+from component import Component
+from endpoints import endpoint_names
 
 
 def _patch_configuration(comp, parameters=None, action="run"):

@@ -12,10 +12,10 @@ from keboola.component.exceptions import UserException
 from keboola.component.sync_actions import SelectElement, ValidationResult
 from keboola.vcr import DefaultSanitizer
 
-from src.client import UolClient
-from src.configuration import Configuration, ConnectionConfig, resolve_since
-from src.endpoints import Endpoint, endpoint_names, get_endpoint
-from src.flatten import flatten_record
+from client import UolClient
+from configuration import Configuration, ConnectionConfig, resolve_since
+from endpoints import Endpoint, endpoint_names, get_endpoint
+from flatten import flatten_record
 
 STATE_LAST_RUN = "last_run"
 

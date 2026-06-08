@@ -2,7 +2,7 @@ import pytest
 from keboola.component.exceptions import UserException
 from pydantic import ValidationError
 
-from src.configuration import Configuration, ConnectionConfig, resolve_since
+from configuration import Configuration, ConnectionConfig, resolve_since
 
 
 def _conn_params(**over):
