@@ -10,21 +10,50 @@ ConnectionConfig holds only connection fields and is used by sync actions
 
 from __future__ import annotations
 
+from enum import StrEnum
+
 import dateparser
 from keboola.component.exceptions import UserException
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, model_validator
+
+
+class ServerType(StrEnum):
+    production = "production"
+    sandbox = "sandbox"
+    demo = "demo"
+
+
+class LoadType(StrEnum):
+    full_load = "full_load"
+    incremental_load = "incremental_load"
 
 
 class ConnectionConfig(BaseModel):
     model_config = ConfigDict(populate_by_name=True, extra="ignore")
 
-    base_url: str
+    server_type: ServerType = ServerType.production
+    customer_id: str | None = None
     email: str
     api_token: str = Field(alias="#api_token")
+
+    @model_validator(mode="after")
+    def _check_customer_id(self) -> ConnectionConfig:
+        if self.server_type != ServerType.demo and not (self.customer_id or "").strip():
+            raise ValueError("customer_id is required for sandbox/production servers.")
+        return self
+
+    @property
+    def base_url(self) -> str:
+        if self.server_type == ServerType.demo:
+            return "https://test.demo.uol.cz/api"
+        if self.server_type == ServerType.sandbox:
+            return f"https://{self.customer_id}.sandbox.uol.cz/api"
+        return f"https://{self.customer_id}.ucetnictvi.uol.cz/api"
 
 
 class Configuration(ConnectionConfig):
     endpoint: str
+    load_type: LoadType = LoadType.full_load
     date_field: str | None = None
     date_from: str | None = None
 

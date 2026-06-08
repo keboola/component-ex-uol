@@ -13,7 +13,7 @@ from keboola.component.sync_actions import SelectElement, ValidationResult
 from keboola.vcr import DefaultSanitizer
 
 from client import UolClient
-from configuration import Configuration, ConnectionConfig, resolve_since
+from configuration import Configuration, ConnectionConfig, LoadType, resolve_since
 from endpoints import Endpoint, endpoint_names, get_endpoint
 from flatten import flatten_record
 
@@ -29,6 +29,48 @@ VCR_SANITIZERS = [
 ]
 
 
+def _active_date_field(cfg: Configuration, endpoint: Endpoint) -> str | None:
+    """Determine the active date filter field based on load_type and config.
+
+    Returns the active date field name, or None for a full load.
+
+    Raises UserException if incremental_load is requested but:
+    - no date_field is configured, or
+    - the configured date_field is not valid for the endpoint.
+    """
+    if cfg.load_type == LoadType.full_load:
+        return None
+
+    # incremental_load path
+    if not cfg.date_field:
+        raise UserException(
+            "Incremental load requires a Date Field; choose one or switch to full load."
+        )
+
+    if cfg.date_field not in endpoint.date_fields:
+        available = ", ".join(endpoint.date_fields) or "none (full load only)"
+        raise UserException(
+            f"date_field '{cfg.date_field}' is not available for endpoint '{cfg.endpoint}'. "
+            f"Available: {available}."
+        )
+
+    return cfg.date_field
+
+
+def _fetch_records(
+    client: UolClient, endpoint: Endpoint, params: dict
+) -> tuple[list[dict], dict[str, list[dict]]]:
+    """Fetch all records from the API and split into parent rows and child tables."""
+    parent_rows: list[dict] = []
+    child_rows: dict[str, list[dict]] = {}
+    for record in client.iter_records(endpoint.path, params=params):
+        parent, children = flatten_record(record, endpoint)
+        parent_rows.append(parent)
+        for table, rows in children.items():
+            child_rows.setdefault(table, []).extend(rows)
+    return parent_rows, child_rows
+
+
 class Component(ComponentBase):
     def run(self) -> None:
         cfg = self._get_config()
@@ -39,14 +81,7 @@ class Component(ComponentBase):
                 f"Unknown endpoint '{cfg.endpoint}'. Valid endpoints: {', '.join(endpoint_names())}."
             ) from None
 
-        # Validate and resolve the active date field
-        if cfg.date_field and cfg.date_field not in endpoint.date_fields:
-            available = ", ".join(endpoint.date_fields) or "none (full load only)"
-            raise UserException(
-                f"date_field '{cfg.date_field}' is not available for endpoint '{cfg.endpoint}'. "
-                f"Available: {available}."
-            )
-        active_field = cfg.date_field if (cfg.date_field and cfg.date_field in endpoint.date_fields) else None
+        active_field = _active_date_field(cfg, endpoint)
         incremental = active_field is not None
 
         client = UolClient(cfg.base_url, cfg.email, cfg.api_token)
@@ -57,17 +92,11 @@ class Component(ComponentBase):
 
         logging.info("Extracting %s (date_field=%s, since=%s)", endpoint.name, active_field, since)
 
-        parent_rows: list[dict] = []
-        child_rows: dict[str, list[dict]] = {}
-        for record in client.iter_records(endpoint.path, params=params):
-            parent, children = flatten_record(record, endpoint)
-            parent_rows.append(parent)
-            for table, rows in children.items():
-                child_rows.setdefault(table, []).extend(rows)
+        parent_rows, child_rows = _fetch_records(client, endpoint, params)
 
         logging.info("Fetched %d %s records", len(parent_rows), endpoint.name)
 
-        self._write_table(endpoint.name, parent_rows, endpoint.primary_key, incremental)
+        self._write_table(endpoint.name, parent_rows, endpoint.primary_key, incremental, endpoint.columns)
         for table, rows in child_rows.items():
             self._write_table(table, rows, self._child_pk(endpoint), incremental)
 
@@ -88,12 +117,17 @@ class Component(ComponentBase):
         return [f"{endpoint.name}_{endpoint.primary_key[0]}", "_item_index"]
 
     def _write_table(
-        self, name: str, rows: list[dict], primary_key: list[str], incremental: bool
+        self,
+        name: str,
+        rows: list[dict],
+        primary_key: list[str],
+        incremental: bool,
+        known_columns: tuple[str, ...] = (),
     ) -> None:
         # Guard: if there is no primary key, force full-overwrite (incremental upsert requires a PK)
         if not primary_key:
             incremental = False
-        columns = self._collect_columns(rows, primary_key)
+        columns = self._collect_columns(rows, primary_key, known_columns)
         table = self.create_out_table_definition(
             f"{name}.csv",
             schema={c: ColumnDefinition(data_types=BaseType.string()) for c in columns},
@@ -109,8 +143,13 @@ class Component(ComponentBase):
         logging.info("Wrote %d rows to %s", len(rows), name)
 
     @staticmethod
-    def _collect_columns(rows: list[dict], primary_key: list[str]) -> list[str]:
+    def _collect_columns(
+        rows: list[dict], primary_key: list[str], known_columns: tuple[str, ...] = ()
+    ) -> list[str]:
         ordered: list[str] = list(primary_key)
+        for col in known_columns:
+            if col not in ordered:
+                ordered.append(col)
         for row in rows:
             for key in row:
                 if key not in ordered:
@@ -130,7 +169,10 @@ class Component(ComponentBase):
 
     @sync_action("listEndpoints")
     def list_endpoints(self) -> list[SelectElement]:
-        return [SelectElement(value=n, label=n) for n in endpoint_names()]
+        return [
+            SelectElement(value=n, label=n.replace("_", " ").title())
+            for n in endpoint_names()
+        ]
 
     @sync_action("listDateFields")
     def list_date_fields(self) -> list[SelectElement]:

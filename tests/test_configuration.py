@@ -2,13 +2,24 @@ import pytest
 from keboola.component.exceptions import UserException
 from pydantic import ValidationError
 
-from configuration import Configuration, ConnectionConfig, resolve_since
+from configuration import Configuration, ConnectionConfig, LoadType, ServerType, resolve_since
 
 
 def _conn_params(**over):
     base = {
-        "base_url": "https://test.demo.uol.cz/api",
+        "server_type": "demo",
         "email": "demo@example.com",
+        "#api_token": "secret",
+    }
+    base.update(over)
+    return base
+
+
+def _conn_params_prod(**over):
+    base = {
+        "server_type": "production",
+        "customer_id": "myco",
+        "email": "user@example.com",
         "#api_token": "secret",
     }
     base.update(over)
@@ -22,13 +33,63 @@ def _full_params(**over):
     return base
 
 
-# --- ConnectionConfig ---
+# --- ConnectionConfig base_url assembly ---
+
+def test_demo_base_url_no_customer_id():
+    conn = ConnectionConfig(**_conn_params())
+    assert conn.base_url == "https://test.demo.uol.cz/api"
+
+
+def test_demo_base_url_ignores_customer_id():
+    conn = ConnectionConfig(**_conn_params(customer_id="irrelevant"))
+    assert conn.base_url == "https://test.demo.uol.cz/api"
+
+
+def test_sandbox_base_url():
+    conn = ConnectionConfig(
+        server_type="sandbox", customer_id="acme", email="u@e.com", **{"#api_token": "t"}
+    )
+    assert conn.base_url == "https://acme.sandbox.uol.cz/api"
+
+
+def test_production_base_url():
+    conn = ConnectionConfig(
+        server_type="production", customer_id="acme", email="u@e.com", **{"#api_token": "t"}
+    )
+    assert conn.base_url == "https://acme.ucetnictvi.uol.cz/api"
+
+
+# --- customer_id validation ---
+
+def test_demo_without_customer_id_is_valid():
+    conn = ConnectionConfig(**_conn_params())
+    assert conn.customer_id is None
+
+
+def test_sandbox_missing_customer_id_raises():
+    with pytest.raises(ValidationError, match="customer_id is required"):
+        ConnectionConfig(server_type="sandbox", email="u@e.com", **{"#api_token": "t"})
+
+
+def test_production_missing_customer_id_raises():
+    with pytest.raises(ValidationError, match="customer_id is required"):
+        ConnectionConfig(server_type="production", email="u@e.com", **{"#api_token": "t"})
+
+
+def test_production_blank_customer_id_raises():
+    with pytest.raises(ValidationError, match="customer_id is required"):
+        ConnectionConfig(
+            server_type="production", customer_id="   ", email="u@e.com", **{"#api_token": "t"}
+        )
+
+
+# --- ConnectionConfig basic field tests ---
 
 def test_connection_config_parses_connection_fields():
     conn = ConnectionConfig(**_conn_params())
-    assert conn.base_url == "https://test.demo.uol.cz/api"
     assert conn.email == "demo@example.com"
     assert conn.api_token == "secret"
+    assert conn.server_type == ServerType.demo
 
 
 def test_connection_config_ignores_row_fields():
@@ -37,9 +98,9 @@ def test_connection_config_ignores_row_fields():
     assert conn.api_token == "secret"
 
 
-def test_connection_config_missing_required_raises():
+def test_connection_config_missing_email_raises():
     p = _conn_params()
-    del p["base_url"]
+    del p["email"]
     with pytest.raises(ValidationError):
         ConnectionConfig(**p)
 
@@ -66,9 +127,19 @@ def test_configuration_with_date_field_and_date_from():
 
 def test_configuration_missing_required_field_raises():
     p = _full_params()
-    del p["base_url"]
+    del p["email"]
     with pytest.raises(ValidationError):
         Configuration(**p)
+
+
+def test_configuration_load_type_defaults_full_load():
+    cfg = Configuration(**_full_params())
+    assert cfg.load_type == LoadType.full_load
+
+
+def test_configuration_load_type_incremental():
+    cfg = Configuration(**_full_params(load_type="incremental_load"))
+    assert cfg.load_type == LoadType.incremental_load
 
 
 # --- resolve_since ---

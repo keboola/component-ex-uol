@@ -21,6 +21,29 @@ def test_list_endpoints_returns_all_names():
     assert "sales_invoices" in values
 
 
+def test_list_endpoints_labels_are_humanized():
+    comp = Component.__new__(Component)
+    with _patch_configuration(comp):
+        elements = comp.list_endpoints()
+
+    label_map = {e.value: e.label for e in elements}
+    assert label_map["sales_invoices"] == "Sales Invoices"
+    assert label_map["accounting_records"] == "Accounting Records"
+    assert label_map["purchase_invoices"] == "Purchase Invoices"
+    assert label_map["uploaded_documents"] == "Uploaded Documents"
+
+
+def test_list_endpoints_value_stays_raw():
+    comp = Component.__new__(Component)
+    with _patch_configuration(comp):
+        elements = comp.list_endpoints()
+
+    values = [e.value for e in elements]
+    # values must be raw snake_case names, not humanized
+    assert "sales_invoices" in values
+    assert "Sales Invoices" not in values
+
+
 def test_list_date_fields_sales_invoices():
     comp = Component.__new__(Component)
     with _patch_configuration(comp, parameters={"endpoint": "sales_invoices"}):

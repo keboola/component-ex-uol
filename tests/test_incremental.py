@@ -1,56 +1,85 @@
 import pytest
 from keboola.component.exceptions import UserException
 
-from component import Component
+from component import Component, _active_date_field
+from configuration import Configuration
 from endpoints import get_endpoint
 
-# --- active_field selection ---
 
-def test_valid_date_field_is_accepted():
-    """A date_field that exists in endpoint.date_fields becomes active_field."""
+def _make_cfg(**over) -> Configuration:
+    """Build a minimal demo Configuration."""
+    base = {
+        "server_type": "demo",
+        "email": "demo@example.com",
+        "#api_token": "secret",
+        "endpoint": "accounting_records",
+    }
+    base.update(over)
+    return Configuration(**base)
+
+
+# --- _active_date_field: full_load always returns None ---
+
+def test_full_load_ignores_date_field():
+    cfg = _make_cfg(load_type="full_load", date_field="date_from")
     endpoint = get_endpoint("accounting_records")
-    date_field = "date_from"
-    # Simulate the selection logic from run()
-    active_field = date_field if (date_field and date_field in endpoint.date_fields) else None
-    assert active_field == "date_from"
+    assert _active_date_field(cfg, endpoint) is None
 
 
-def test_invalid_date_field_raises_user_exception():
-    """A date_field not in endpoint.date_fields must raise UserException."""
-    comp = Component.__new__(Component)
-    comp.get_state_file = lambda: {}
-
+def test_full_load_no_date_field_returns_none():
+    cfg = _make_cfg(load_type="full_load")
     endpoint = get_endpoint("accounting_records")
-    # accounting_records only has ("date_from",) — "issue_date_from" is invalid
-    date_field = "issue_date_from"
-    if date_field and date_field not in endpoint.date_fields:
-        available = ", ".join(endpoint.date_fields) or "none (full load only)"
-        with pytest.raises(UserException, match="date_field"):
-            raise UserException(
-                f"date_field '{date_field}' is not available for endpoint 'accounting_records'. "
-                f"Available: {available}."
-            )
+    assert _active_date_field(cfg, endpoint) is None
 
 
-def test_endpoint_with_no_date_fields_is_full_load():
-    """Endpoints with no date_fields always use full load (active_field=None)."""
-    endpoint = get_endpoint("contacts")
-    assert endpoint.date_fields == ()
-    date_field = None
-    active_field = date_field if (date_field and date_field in endpoint.date_fields) else None
-    assert active_field is None
-    assert not active_field  # => incremental = False
+# --- _active_date_field: incremental_load + valid date_field ---
+
+def test_incremental_valid_date_field_returns_field():
+    cfg = _make_cfg(load_type="incremental_load", date_field="date_from")
+    endpoint = get_endpoint("accounting_records")
+    assert _active_date_field(cfg, endpoint) == "date_from"
 
 
-def test_no_date_field_config_means_full_load():
-    """When date_field is not set in config, active_field is None and incremental is False."""
+def test_incremental_valid_date_field_sales_invoices():
+    cfg = _make_cfg(
+        load_type="incremental_load",
+        date_field="issue_date_from",
+        endpoint="sales_invoices",
+    )
     endpoint = get_endpoint("sales_invoices")
-    date_field = None  # not set in config
-    active_field = date_field if (date_field and date_field in endpoint.date_fields) else None
-    assert active_field is None
+    assert _active_date_field(cfg, endpoint) == "issue_date_from"
 
 
-# --- params building ---
+# --- _active_date_field: incremental_load + missing date_field → UserException ---
+
+def test_incremental_no_date_field_raises():
+    cfg = _make_cfg(load_type="incremental_load")
+    endpoint = get_endpoint("accounting_records")
+    with pytest.raises(UserException, match="Incremental load requires a Date Field"):
+        _active_date_field(cfg, endpoint)
+
+
+# --- _active_date_field: incremental_load + invalid date_field → UserException ---
+
+def test_incremental_invalid_date_field_raises():
+    cfg = _make_cfg(load_type="incremental_load", date_field="issue_date_from")
+    endpoint = get_endpoint("accounting_records")  # only has "date_from"
+    with pytest.raises(UserException, match="date_field"):
+        _active_date_field(cfg, endpoint)
+
+
+def test_incremental_date_field_on_full_load_only_endpoint_raises():
+    cfg = _make_cfg(
+        load_type="incremental_load",
+        date_field="date_from",
+        endpoint="contacts",
+    )
+    endpoint = get_endpoint("contacts")  # date_fields == ()
+    with pytest.raises(UserException, match="date_field"):
+        _active_date_field(cfg, endpoint)
+
+
+# --- params building (unchanged logic) ---
 
 def test_params_built_with_active_field_and_since():
     active_field = "date_from"
@@ -83,3 +112,41 @@ def test_child_pk_shape():
 def test_child_pk_empty_for_no_pk_endpoint():
     ep = get_endpoint("bank_movement_items")  # pk []
     assert Component._child_pk(ep) == []
+
+
+# --- _collect_columns: known_columns seeding ---
+
+def test_collect_columns_seeds_known_columns():
+    rows: list[dict] = []
+    pk = ["gid"]
+    known = ("gid", "status", "total_amount")
+    cols = Component._collect_columns(rows, pk, known)
+    # PK first, then known (gid already there), then discovered
+    assert cols[0] == "gid"
+    assert "status" in cols
+    assert "total_amount" in cols
+
+
+def test_collect_columns_no_dupes_from_known_and_pk():
+    rows = [{"gid": "1", "extra": "x"}]
+    pk = ["gid"]
+    known = ("gid", "status")
+    cols = Component._collect_columns(rows, pk, known)
+    assert cols.count("gid") == 1
+    assert "extra" in cols
+
+
+def test_collect_columns_empty_rows_uses_known():
+    pk = ["invoice_id"]
+    known = ("invoice_id", "total_amount", "status")
+    cols = Component._collect_columns([], pk, known)
+    assert cols == ["invoice_id", "total_amount", "status"]
+
+
+def test_collect_columns_discovered_appended_after_known():
+    rows = [{"gid": "1", "new_field": "v"}]
+    pk = ["gid"]
+    known = ("gid", "status")
+    cols = Component._collect_columns(rows, pk, known)
+    # known fields come before discovered
+    assert cols.index("status") < cols.index("new_field")
