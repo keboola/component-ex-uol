@@ -1,0 +1,100 @@
+[
+  {
+    "name": "01_testConnection",
+    "description": "Verify API connection returns success with valid demo credentials",
+    "config": {
+      "action": "testConnection",
+      "parameters": {
+        "base_url": "https://test.demo.uol.cz/api",
+        "email": "DUMMY_EMAIL",
+        "#api_token": "DUMMY_TOKEN",
+        "endpoint": "contacts",
+        "load_type": "full_load"
+      }
+    }
+  },
+  {
+    "name": "02_listEndpoints",
+    "description": "List available endpoints — no HTTP call, static list",
+    "config": {
+      "action": "listEndpoints",
+      "parameters": {
+        "base_url": "https://test.demo.uol.cz/api",
+        "email": "DUMMY_EMAIL",
+        "#api_token": "DUMMY_TOKEN",
+        "endpoint": "contacts",
+        "load_type": "full_load"
+      }
+    }
+  },
+  {
+    "name": "03_full_load_contacts",
+    "description": "Full load of contacts — parent table contacts.csv + child contacts_addresses.csv",
+    "config": {
+      "action": "run",
+      "parameters": {
+        "base_url": "https://test.demo.uol.cz/api",
+        "email": "DUMMY_EMAIL",
+        "#api_token": "DUMMY_TOKEN",
+        "endpoint": "contacts",
+        "load_type": "full_load"
+      }
+    }
+  },
+  {
+    "name": "04_full_load_sales_invoices",
+    "description": "Full load of sales_invoices — parent table + child items table",
+    "config": {
+      "action": "run",
+      "parameters": {
+        "base_url": "https://test.demo.uol.cz/api",
+        "email": "DUMMY_EMAIL",
+        "#api_token": "DUMMY_TOKEN",
+        "endpoint": "sales_invoices",
+        "load_type": "full_load"
+      }
+    }
+  },
+  {
+    "name": "05_full_load_currencies",
+    "description": "Full load of currencies — no child arrays, expected small dataset (edge/empty case)",
+    "config": {
+      "action": "run",
+      "parameters": {
+        "base_url": "https://test.demo.uol.cz/api",
+        "email": "DUMMY_EMAIL",
+        "#api_token": "DUMMY_TOKEN",
+        "endpoint": "currencies",
+        "load_type": "full_load"
+      }
+    }
+  },
+  {
+    "name": "full_load_contacts",
+    "description": "Pre-existing full load of contacts (same scenario as 03_full_load_contacts, kept for compatibility)",
+    "config": {
+      "action": "run",
+      "parameters": {
+        "base_url": "https://test.demo.uol.cz/api",
+        "email": "DUMMY_EMAIL",
+        "#api_token": "DUMMY_TOKEN",
+        "endpoint": "contacts",
+        "load_type": "full_load"
+      }
+    }
+  },
+  {
+    "name": "06_auth_failure",
+    "description": "Run with invalid credentials — must raise UserException (exit code 1)",
+    "config": {
+      "action": "run",
+      "parameters": {
+        "base_url": "https://test.demo.uol.cz/api",
+        "email": "bad@example.com",
+        "#api_token": "bad-token",
+        "endpoint": "contacts",
+        "load_type": "full_load"
+      }
+    }
+  }
+]

@@ -1,0 +1,30 @@
+{
+  "files": {},
+  "hash_algorithm": "sha256",
+  "tables": {
+    "currencies.csv": {
+      "columns": [
+        "currency_id",
+        "created_at",
+        "updated_at",
+        "creator",
+        "modifier",
+        "alternative_currency_id",
+        "external_id",
+        "status",
+        "name",
+        "rounded_to"
+      ],
+      "hash": "sha256:d2ebfd3937394ff8cfe6ccba54c9fe7017ef5893e6cccc55309cf990a87c2b52",
+      "row_count": 156,
+      "size_bytes": 22417
+    },
+    "currencies.csv.manifest": {
+      "columns": null,
+      "hash": "sha256:219f539b992347d6420470523a65436019c1f505eea437b48c7de43d4effd453",
+      "row_count": null,
+      "size_bytes": 1677
+    }
+  },
+  "version": "1.0"
+}

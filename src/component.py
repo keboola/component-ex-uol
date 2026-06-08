@@ -10,6 +10,7 @@ from keboola.component.base import ComponentBase, sync_action
 from keboola.component.dao import BaseType, ColumnDefinition
 from keboola.component.exceptions import UserException
 from keboola.component.sync_actions import SelectElement, ValidationResult
+from keboola.vcr import DefaultSanitizer
 
 from src.client import UolClient
 from src.configuration import Configuration
@@ -17,6 +18,15 @@ from src.endpoints import endpoint_names, get_endpoint
 from src.flatten import flatten_record
 
 STATE_LAST_RUN = "last_run"
+
+# VCR sanitizers: DefaultSanitizer strips the Authorization header (which
+# carries the Basic-auth email:token credential) from every recorded cassette.
+# The demo email and token do not appear in UOL response bodies or query
+# strings — they are only ever sent as a Basic-auth header — so no additional
+# TokenSanitizer is required.
+VCR_SANITIZERS = [
+    DefaultSanitizer(),
+]
 
 
 class Component(ComponentBase):

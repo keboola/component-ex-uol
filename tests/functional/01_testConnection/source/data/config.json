@@ -1,5 +1,5 @@
 {
-  "action": "run",
+  "action": "testConnection",
   "parameters": {
     "base_url": "https://test.demo.uol.cz/api",
     "email": "DUMMY_EMAIL",

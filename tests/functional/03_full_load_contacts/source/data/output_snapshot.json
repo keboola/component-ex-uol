@@ -1,0 +1,85 @@
+{
+  "files": {},
+  "hash_algorithm": "sha256",
+  "tables": {
+    "contacts.csv": {
+      "columns": [
+        "contact_id",
+        "creator",
+        "modifier",
+        "contract",
+        "acquisition_country_id",
+        "business_entity",
+        "company_number",
+        "consumption_country_id",
+        "country_id",
+        "created_at",
+        "days_till_due_date",
+        "department_id",
+        "duplicate_variable_symbol",
+        "external_id",
+        "hidden",
+        "import_received_documents",
+        "language_id",
+        "name",
+        "note",
+        "percent_discount",
+        "received_invoice_public_id_setting",
+        "received_invoice_variable_symbol_setting",
+        "status",
+        "sipo_number",
+        "specific_symbol",
+        "tin",
+        "unreliable_payer",
+        "updated_at",
+        "vat_payer",
+        "vatin",
+        "bank_accounts"
+      ],
+      "hash": "sha256:0bea1df15eb5cae85cf38afb3f46cab476c70403b6a838815610def430f3bfdc",
+      "row_count": 179,
+      "size_bytes": 99974
+    },
+    "contacts.csv.manifest": {
+      "columns": null,
+      "hash": "sha256:ef2fdaf40c2ba060178e77ad8a37692ab70cba58de5c84d2bd21dbb48c4d0056",
+      "row_count": null,
+      "size_bytes": 4917
+    },
+    "contacts_addresses.csv": {
+      "columns": [
+        "contacts_contact_id",
+        "_item_index",
+        "creator",
+        "modifier",
+        "address_id",
+        "address_types",
+        "building_number",
+        "city",
+        "country_id",
+        "created_at",
+        "email",
+        "external_id",
+        "hidden",
+        "mobile_phone",
+        "name",
+        "phone",
+        "postal_code",
+        "status",
+        "street",
+        "updated_at",
+        "url"
+      ],
+      "hash": "sha256:f4827e229c6fd8e9d5a27f2fc11ca9a4808d6d1830da82bbb8e71b1a9747d97c",
+      "row_count": 214,
+      "size_bytes": 52152
+    },
+    "contacts_addresses.csv.manifest": {
+      "columns": null,
+      "hash": "sha256:4743a7f6c7348e79b5be2462a75bb43a88ec5a42e348a70e16897a3b6b9ca105",
+      "row_count": null,
+      "size_bytes": 3319
+    }
+  },
+  "version": "1.0"
+}
