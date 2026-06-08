@@ -13,8 +13,8 @@ from keboola.component.sync_actions import SelectElement, ValidationResult
 from keboola.vcr import DefaultSanitizer
 
 from src.client import UolClient
-from src.configuration import Configuration
-from src.endpoints import endpoint_names, get_endpoint
+from src.configuration import Configuration, ConnectionConfig, resolve_since
+from src.endpoints import Endpoint, endpoint_names, get_endpoint
 from src.flatten import flatten_record
 
 STATE_LAST_RUN = "last_run"
@@ -30,7 +30,7 @@ VCR_SANITIZERS = [
 
 
 class Component(ComponentBase):
-    def run(self):
+    def run(self) -> None:
         cfg = self._get_config()
         try:
             endpoint = get_endpoint(cfg.endpoint)
@@ -38,11 +38,24 @@ class Component(ComponentBase):
             raise UserException(
                 f"Unknown endpoint '{cfg.endpoint}'. Valid endpoints: {', '.join(endpoint_names())}."
             ) from None
+
+        # Validate and resolve the active date field
+        if cfg.date_field and cfg.date_field not in endpoint.date_fields:
+            available = ", ".join(endpoint.date_fields) or "none (full load only)"
+            raise UserException(
+                f"date_field '{cfg.date_field}' is not available for endpoint '{cfg.endpoint}'. "
+                f"Available: {available}."
+            )
+        active_field = cfg.date_field if (cfg.date_field and cfg.date_field in endpoint.date_fields) else None
+        incremental = active_field is not None
+
         client = UolClient(cfg.base_url, cfg.email, cfg.api_token)
 
         run_started_at = datetime.now(UTC)
-        since = self._resolve_since(cfg, endpoint)
-        params = self._build_params(endpoint, since)
+        since = resolve_since(cfg.date_from, self.get_state_file() or {}) if incremental else None
+        params = {active_field: since} if (active_field and since) else {}
+
+        logging.info("Extracting %s (date_field=%s, since=%s)", endpoint.name, active_field, since)
 
         parent_rows: list[dict] = []
         child_rows: dict[str, list[dict]] = {}
@@ -52,12 +65,15 @@ class Component(ComponentBase):
             for table, rows in children.items():
                 child_rows.setdefault(table, []).extend(rows)
 
-        self._write_table(endpoint.name, parent_rows, endpoint.primary_key, cfg.incremental)
-        for table, rows in child_rows.items():
-            self._write_table(table, rows, self._child_pk(endpoint), cfg.incremental)
+        logging.info("Fetched %d %s records", len(parent_rows), endpoint.name)
 
-        if cfg.incremental and endpoint.incremental_param:
+        self._write_table(endpoint.name, parent_rows, endpoint.primary_key, incremental)
+        for table, rows in child_rows.items():
+            self._write_table(table, rows, self._child_pk(endpoint), incremental)
+
+        if incremental:
             self.write_state_file({STATE_LAST_RUN: run_started_at.isoformat()})
+            logging.info("Saved incremental watermark last_run=%s", run_started_at.isoformat())
 
     def _get_config(self) -> Configuration:
         try:
@@ -65,25 +81,18 @@ class Component(ComponentBase):
         except Exception as exc:  # noqa: BLE001
             raise UserException(f"Invalid configuration: {exc}") from exc
 
-    def _resolve_since(self, cfg: Configuration, endpoint) -> str | None:
-        if not (cfg.incremental and endpoint.incremental_param):
-            return cfg.date_from if not cfg.incremental else None
-        state = self.get_state_file() or {}
-        return state.get(STATE_LAST_RUN) or cfg.date_from
-
     @staticmethod
-    def _build_params(endpoint, since: str | None) -> dict:
-        if since and endpoint.incremental_param:
-            return {endpoint.incremental_param: since}
-        return {}
-
-    @staticmethod
-    def _child_pk(endpoint) -> list[str]:
+    def _child_pk(endpoint: Endpoint) -> list[str]:
         if not endpoint.primary_key:
             return []
         return [f"{endpoint.name}_{endpoint.primary_key[0]}", "_item_index"]
 
-    def _write_table(self, name: str, rows: list[dict], primary_key: list[str], incremental: bool):
+    def _write_table(
+        self, name: str, rows: list[dict], primary_key: list[str], incremental: bool
+    ) -> None:
+        # Guard: if there is no primary key, force full-overwrite (incremental upsert requires a PK)
+        if not primary_key:
+            incremental = False
         columns = self._collect_columns(rows, primary_key)
         table = self.create_out_table_definition(
             f"{name}.csv",
@@ -97,6 +106,7 @@ class Component(ComponentBase):
             for row in rows:
                 writer.writerow(row)
         self.write_manifest(table)
+        logging.info("Wrote %d rows to %s", len(rows), name)
 
     @staticmethod
     def _collect_columns(rows: list[dict], primary_key: list[str]) -> list[str]:
@@ -109,15 +119,29 @@ class Component(ComponentBase):
 
     @sync_action("testConnection")
     def test_connection(self) -> ValidationResult:
-        cfg = self._get_config()
-        client = UolClient(cfg.base_url, cfg.email, cfg.api_token)
+        try:
+            conn = ConnectionConfig(**self.configuration.parameters)
+        except Exception as exc:  # noqa: BLE001
+            raise UserException(f"Invalid configuration: {exc}") from exc
+        client = UolClient(conn.base_url, conn.email, conn.api_token)
         if not client.ping():
             raise UserException("Could not authenticate against UOL (/v1/ping failed).")
         return ValidationResult("Connection established.")
 
     @sync_action("listEndpoints")
-    def list_endpoints(self):
+    def list_endpoints(self) -> list[SelectElement]:
         return [SelectElement(value=n, label=n) for n in endpoint_names()]
+
+    @sync_action("listDateFields")
+    def list_date_fields(self) -> list[SelectElement]:
+        endpoint_name = self.configuration.parameters.get("endpoint")
+        if not endpoint_name:
+            return []
+        try:
+            endpoint = get_endpoint(endpoint_name)
+        except KeyError:
+            return []
+        return [SelectElement(value=f, label=f) for f in endpoint.date_fields]
 
 
 if __name__ == "__main__":

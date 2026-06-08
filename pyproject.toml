@@ -4,6 +4,7 @@ dynamic = ["version"]
 readme = "README.md"
 requires-python = "~=3.14.0"
 dependencies = [
+    "dateparser>=1.4.0",
     "freezegun>=1.5.1",
     "keboola-component>=1.9.0",
     "keboola-http-client>=1.0.1",

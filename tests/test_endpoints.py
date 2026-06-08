@@ -12,12 +12,12 @@ def test_known_endpoint_shapes():
     assert inv.path == "v1/sales_invoices"
     assert inv.primary_key == ["gid"]
     assert inv.child_arrays == ("items",)
-    assert inv.incremental_param == "issue_date_from"
+    assert inv.date_fields == ("tax_payment_date_from", "issue_date_from", "due_date_from")
 
     contacts = get_endpoint("contacts")
     assert contacts.primary_key == ["contact_id"]
     assert contacts.child_arrays == ("addresses",)
-    assert contacts.incremental_param is None
+    assert contacts.date_fields == ()
 
 
 def test_endpoint_names_sorted_and_complete():

@@ -1,10 +1,10 @@
 """Registry of UOL Účetnictví list endpoints.
 
 Single source of truth: each Endpoint declares its API path, primary key,
-the incremental cursor query-param (or None for full-load-only endpoints),
+the available date filter query-params (empty for full-load-only endpoints),
 and any nested array fields to explode into child tables.
 
-PKs, child arrays and incremental params were verified against the live demo
+PKs, child arrays and date_fields were verified against the live demo
 instance (test.demo.uol.cz) and the OpenAPI spec (api.uol.cz/openapi.yaml).
 """
 
@@ -18,21 +18,36 @@ class Endpoint:
     name: str
     path: str
     primary_key: list[str]
-    incremental_param: str | None = None
+    date_fields: tuple[str, ...] = ()
     child_arrays: tuple[str, ...] = ()
 
 
-def _ep(name, pk, *, inc=None, children=()):
+def _ep(name: str, pk: list[str], *, date_fields: tuple[str, ...] = (), children: tuple[str, ...] = ()) -> Endpoint:
     return Endpoint(
-        name=name, path=f"v1/{name}", primary_key=pk, incremental_param=inc, child_arrays=children
+        name=name, path=f"v1/{name}", primary_key=pk, date_fields=date_fields, child_arrays=children
     )
 
 
 _ALL = [
-    _ep("sales_invoices", ["gid"], inc="issue_date_from", children=("items",)),
-    _ep("sales_orders", ["order_id"], inc="updated_at_from", children=("items",)),
+    _ep(
+        "sales_invoices",
+        ["gid"],
+        date_fields=("tax_payment_date_from", "issue_date_from", "due_date_from"),
+        children=("items",),
+    ),
+    _ep(
+        "sales_orders",
+        ["order_id"],
+        date_fields=("created_at_from", "updated_at_from", "fullfilled_on_from"),
+        children=("items",),
+    ),
     _ep("retails", ["retail_id"], children=("items",)),
-    _ep("purchase_invoices", ["gid"], inc="received_date_from", children=("items",)),
+    _ep(
+        "purchase_invoices",
+        ["gid"],
+        date_fields=("tax_payment_date_from", "due_date_from", "received_date_from"),
+        children=("items",),
+    ),
     _ep("purchase_orders", ["order_id"], children=("items",)),
     _ep("contacts", ["contact_id"], children=("addresses",)),
     _ep("contact_bank_accounts", ["bank_account_id"]),
@@ -49,10 +64,15 @@ _ALL = [
     _ep("petty_cashes", ["petty_cash_id"]),
     _ep("petty_cash_incomes", ["gid"], children=("items",)),
     _ep("petty_cash_disburstments", ["gid"], children=("items",)),
-    _ep("accounting_records", ["gid"], inc="date_from"),
-    _ep("receivables", ["invoice_id"], inc="last_payment_time_from", children=("payments",)),
+    _ep("accounting_records", ["gid"], date_fields=("date_from",)),
+    _ep(
+        "receivables",
+        ["invoice_id"],
+        date_fields=("last_payment_time_from", "invoice_issue_date_from", "due_date_from", "tax_payment_date_from"),
+        children=("payments",),
+    ),
     _ep("internal_documents", ["number"], children=("items",)),
-    _ep("uploaded_documents", ["id"], inc="created_at_from"),
+    _ep("uploaded_documents", ["id"], date_fields=("created_at_from",)),
     _ep("document_templates", ["id"]),
     _ep("currencies", ["currency_id"]),
     _ep("countries", ["country_id"]),

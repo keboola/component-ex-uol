@@ -122,6 +122,7 @@ wheels = [
 name = "ex-uol"
 source = { virtual = "." }
 dependencies = [
+    { name = "dateparser" },
     { name = "freezegun" },
     { name = "keboola-component" },
     { name = "keboola-http-client" },
@@ -140,6 +141,7 @@ dev = [
 
 [package.metadata]
 requires-dist = [
+    { name = "dateparser", specifier = ">=1.4.0" },
     { name = "freezegun", specifier = ">=1.5.1" },
     { name = "keboola-component", specifier = ">=1.9.0" },
     { name = "keboola-http-client", specifier = ">=1.0.1" },
