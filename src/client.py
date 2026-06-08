@@ -38,7 +38,10 @@ class UolClient:
         self._calls: deque[float] = deque()
 
     def ping(self) -> bool:
-        resp = self.session.get(f"{self.base_url}/v1/ping")
+        try:
+            resp = self.session.get(f"{self.base_url}/v1/ping")
+        except requests.exceptions.RequestException:
+            return False
         return resp.status_code == 200
 
     def iter_records(self, path: str, params: dict | None = None) -> Iterator[dict]:
@@ -61,7 +64,16 @@ class UolClient:
         url = f"{self.base_url}/{path.lstrip('/')}"
         for attempt in range(self._max_retries + 1):
             self._throttle()
-            resp = self.session.request(method, url, params=params)
+            try:
+                resp = self.session.request(method, url, params=params)
+            except requests.exceptions.RequestException as exc:
+                if attempt < self._max_retries:
+                    self._sleep(min(2 ** attempt, MAX_BACKOFF_SECONDS))
+                    continue
+                raise UserException(
+                    f"Could not reach the UOL API at {url}: {exc}. "
+                    "Check the API Base URL and network connectivity."
+                ) from exc
             self._record_call()
             if resp.status_code == 429 or resp.status_code >= 500:
                 if attempt < self._max_retries:
@@ -74,7 +86,12 @@ class UolClient:
                 )
             if resp.status_code >= 400:
                 self._raise_for_status(resp)
-            return resp.json()
+            try:
+                return resp.json()
+            except ValueError as exc:
+                raise UserException(
+                    f"UOL API returned a non-JSON response (HTTP {resp.status_code}) from {url}."
+                ) from exc
 
     def _throttle(self) -> None:
         now = self._clock()
@@ -103,4 +120,9 @@ class UolClient:
             )
         if resp.status_code == 404:
             raise UserException(f"UOL endpoint not found: {resp.url} (HTTP 404).")
-        resp.raise_for_status()
+        if 400 <= resp.status_code < 500:
+            raise UserException(
+                f"UOL API rejected the request (HTTP {resp.status_code}) for {resp.url}: "
+                f"{resp.text[:300]}"
+            )
+        resp.raise_for_status()  # 5xx that slipped through -> still surface, but retry handles most
