@@ -1,0 +1,52 @@
+{
+  "files": {},
+  "hash_algorithm": "sha256",
+  "tables": {
+    "accounting_records.csv": {
+      "columns": [
+        "gid",
+        "creator",
+        "modifier",
+        "product",
+        "contact",
+        "currency",
+        "department",
+        "contract",
+        "doc_type",
+        "linked_doc_type",
+        "period",
+        "debit_account",
+        "credit_account",
+        "accounting_amount",
+        "amount",
+        "batch",
+        "created_at",
+        "date",
+        "description",
+        "doc_code",
+        "doc_number",
+        "expiration_date",
+        "external_id",
+        "generated",
+        "id",
+        "linked_doc_code",
+        "linked_doc_number",
+        "quantity",
+        "rule_id",
+        "serial_numbers",
+        "status",
+        "updated_at"
+      ],
+      "hash": "sha256:e82e9dff442c2bc933bc055417cc3aca42939a740f9567484496d87da1547c2b",
+      "row_count": 103,
+      "size_bytes": 63563
+    },
+    "accounting_records.csv.manifest": {
+      "columns": null,
+      "hash": "sha256:b8babe57e7d44c37887799e503d77ec9714ced4c38675a14ccf49a6703aedc7f",
+      "row_count": null,
+      "size_bytes": 2858
+    }
+  },
+  "version": "1.0"
+}
