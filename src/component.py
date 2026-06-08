@@ -3,12 +3,13 @@
 from __future__ import annotations
 
 import csv
+import logging
 from datetime import UTC, datetime
 
 from keboola.component.base import ComponentBase, sync_action
 from keboola.component.dao import BaseType, ColumnDefinition
 from keboola.component.exceptions import UserException
-from keboola.component.sync_actions import ValidationResult
+from keboola.component.sync_actions import SelectElement, ValidationResult
 
 from src.client import UolClient
 from src.configuration import Configuration
@@ -21,7 +22,12 @@ STATE_LAST_RUN = "last_run"
 class Component(ComponentBase):
     def run(self):
         cfg = self._get_config()
-        endpoint = get_endpoint(cfg.endpoint)
+        try:
+            endpoint = get_endpoint(cfg.endpoint)
+        except KeyError:
+            raise UserException(
+                f"Unknown endpoint '{cfg.endpoint}'. Valid endpoints: {', '.join(endpoint_names())}."
+            ) from None
         client = UolClient(cfg.base_url, cfg.email, cfg.api_token)
 
         run_started_at = datetime.now(UTC)
@@ -101,7 +107,6 @@ class Component(ComponentBase):
 
     @sync_action("listEndpoints")
     def list_endpoints(self):
-        from keboola.component.sync_actions import SelectElement
         return [SelectElement(value=n, label=n) for n in endpoint_names()]
 
 
@@ -109,10 +114,8 @@ if __name__ == "__main__":
     try:
         Component().execute_action()
     except UserException as exc:
-        import logging
         logging.exception(exc)
         exit(1)
     except Exception as exc:  # noqa: BLE001
-        import logging
         logging.exception(exc)
         exit(2)
