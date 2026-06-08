@@ -1,0 +1,30 @@
+{
+  "exit_code": null,
+  "stderr": "",
+  "logs": [
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Extracting sales_orders (date_field=None, since=None)",
+      "timestamp": "2026-06-08T13:36:54.000Z"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetched 3 sales_orders records",
+      "timestamp": "2026-06-08T13:36:54.000Z"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Wrote 3 rows to sales_orders",
+      "timestamp": "2026-06-08T13:36:54.000Z"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Wrote 3 rows to sales_orders_items",
+      "timestamp": "2026-06-08T13:36:54.000Z"
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "files": {},
+  "hash_algorithm": "sha256",
+  "tables": {
+    "retails.csv": {
+      "columns": [
+        "retail_id",
+        "created_at",
+        "updated_at",
+        "creator",
+        "modifier",
+        "accounting_address",
+        "buyer_address",
+        "confirmed",
+        "contact",
+        "contract",
+        "delivery_address",
+        "percent_discount",
+        "external_id",
+        "status",
+        "note",
+        "payment_method",
+        "rounding",
+        "department",
+        "total_amount",
+        "vat_document"
+      ],
+      "hash": "sha256:aba78db322f02b2b66c275659152d87497faeccfc8003013c5e99b2cbcbbfe43",
+      "row_count": 6,
+      "size_bytes": 1910
+    },
+    "retails.csv.manifest": {
+      "columns": null,
+      "hash": "sha256:078903fada96c2c37b0bfed49b0d7e44e567971314ea3f6b0b0dbcb9a65a8d1d",
+      "row_count": null,
+      "size_bytes": 3175
+    },
+    "retails_items.csv": {
+      "columns": [
+        "retails_retail_id",
+        "_item_index",
+        "created_at",
+        "updated_at",
+        "creator",
+        "modifier",
+        "batch",
+        "description",
+        "percent_discount",
+        "expiration_date",
+        "external_id",
+        "status",
+        "retail_id",
+        "product",
+        "quantity",
+        "serial_numbers",
+        "department",
+        "unit_price",
+        "unit_price_vat_inclusive",
+        "vat_calculation_method",
+        "vat_rate"
+      ],
+      "hash": "sha256:926aca1a7ec119ec56cc04a75d8367e70d45e6b854ff40ccde96c651fb7ce932",
+      "row_count": 8,
+      "size_bytes": 2104
+    },
+    "retails_items.csv.manifest": {
+      "columns": null,
+      "hash": "sha256:1a79854eb057e5a3d5e280b0c10bbdaf7eb93d26f88683a2e809214eac967853",
+      "row_count": null,
+      "size_bytes": 3372
+    }
+  },
+  "version": "1.0"
+}

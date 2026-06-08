@@ -1,0 +1,30 @@
+{
+  "exit_code": null,
+  "stderr": "",
+  "logs": [
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Extracting sales_invoices (date_field=None, since=None)",
+      "timestamp": "2026-06-08T13:36:54.000Z"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetched 237 sales_invoices records",
+      "timestamp": "2026-06-08T13:36:54.000Z"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Wrote 237 rows to sales_invoices",
+      "timestamp": "2026-06-08T13:36:54.000Z"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Wrote 378 rows to sales_invoices_items",
+      "timestamp": "2026-06-08T13:36:54.000Z"
+    }
+  ]
+}

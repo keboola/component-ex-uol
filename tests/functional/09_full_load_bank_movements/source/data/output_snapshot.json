@@ -1,0 +1,71 @@
+{
+  "files": {},
+  "hash_algorithm": "sha256",
+  "tables": {
+    "bank_movements.csv": {
+      "columns": [
+        "gid",
+        "creator",
+        "modifier",
+        "bank_account",
+        "contact",
+        "bank_movement_id",
+        "constant_symbol",
+        "specific_symbol",
+        "variable_symbol",
+        "amount",
+        "status",
+        "contact_bank_account",
+        "iban",
+        "note",
+        "created_at",
+        "updated_at",
+        "external_id"
+      ],
+      "hash": "sha256:6632ba6aa0feb3422a95434a5ea9bb75e5c7a2b2945c89308ff55a3412ec49ab",
+      "row_count": 55,
+      "size_bytes": 13844
+    },
+    "bank_movements.csv.manifest": {
+      "columns": null,
+      "hash": "sha256:98943e019854480590ad86240645b375fb1986b108605aa0bfba5940ca817565",
+      "row_count": null,
+      "size_bytes": 2719
+    },
+    "bank_movements_items.csv": {
+      "columns": [
+        "bank_movements_gid",
+        "_item_index",
+        "number",
+        "amount",
+        "confirmed",
+        "note",
+        "variable_symbol",
+        "specific_symbol",
+        "constant_symbol",
+        "date",
+        "created_at",
+        "updated_at",
+        "external_id",
+        "creator",
+        "modifier",
+        "payment_rule",
+        "bank_account",
+        "contact",
+        "department",
+        "contract",
+        "linked_doc"
+      ],
+      "hash": "sha256:4f7925851b85971303952aaee5cc1a84f23be241326cede5daf0781e7924a15b",
+      "row_count": 55,
+      "size_bytes": 20440
+    },
+    "bank_movements_items.csv.manifest": {
+      "columns": null,
+      "hash": "sha256:1971d486ae57b1fbdf348c4c8425f0a4760f8d8beb3a61ef088cdf20e630ff82",
+      "row_count": null,
+      "size_bytes": 3341
+    }
+  },
+  "version": "1.0"
+}

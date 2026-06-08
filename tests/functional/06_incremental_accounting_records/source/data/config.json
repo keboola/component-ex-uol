@@ -1,0 +1,11 @@
+{
+  "action": "run",
+  "parameters": {
+    "base_url": "https://test.demo.uol.cz/api",
+    "email": "DUMMY_EMAIL",
+    "#api_token": "DUMMY_TOKEN",
+    "endpoint": "accounting_records",
+    "date_field": "date_from",
+    "date_from": "2026-01-01"
+  }
+}

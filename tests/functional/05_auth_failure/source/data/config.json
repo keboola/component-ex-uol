@@ -1,0 +1,9 @@
+{
+  "action": "run",
+  "parameters": {
+    "base_url": "https://test.demo.uol.cz/api",
+    "email": "bad@example.com",
+    "#api_token": "bad-token",
+    "endpoint": "contacts"
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "files": {},
+  "hash_algorithm": "sha256",
+  "tables": {
+    "my_companies.csv": {
+      "columns": [
+        "my_company_id",
+        "created_at",
+        "updated_at",
+        "creator",
+        "modifier",
+        "building_number",
+        "country",
+        "email",
+        "external_id",
+        "buyer",
+        "shipper",
+        "domestic",
+        "legal_entity",
+        "status",
+        "seller",
+        "logo",
+        "mobile_phone",
+        "name",
+        "other_identification",
+        "postal_code",
+        "register_date",
+        "register_file_ref",
+        "register_kept_at",
+        "register_text",
+        "street",
+        "phone",
+        "city",
+        "url",
+        "valid_from",
+        "vat_payer_code",
+        "vatin",
+        "vlozka",
+        "company_number",
+        "moss",
+        "road_tax",
+        "excise_tax",
+        "withholding_tax",
+        "tax_from_employment"
+      ],
+      "hash": "sha256:e90f1257c1defec2af7b3af2124ca2c686bef58560bba5ca2dfc69d6786b5c6c",
+      "row_count": 2,
+      "size_bytes": 763
+    },
+    "my_companies.csv.manifest": {
+      "columns": null,
+      "hash": "sha256:e72f3b6a75988a0c8fc30d3ae414063551602810cd3f74c50fefa38b72a534b6",
+      "row_count": null,
+      "size_bytes": 5832
+    }
+  },
+  "version": "1.0"
+}

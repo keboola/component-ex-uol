@@ -1,0 +1,65 @@
+{
+  "files": {},
+  "hash_algorithm": "sha256",
+  "tables": {
+    "petty_cash_disburstments.csv": {
+      "columns": [
+        "gid",
+        "created_at",
+        "updated_at",
+        "creator",
+        "modifier",
+        "number",
+        "issue_date",
+        "receipt_date",
+        "note",
+        "coefficient",
+        "petty_cash",
+        "department",
+        "total",
+        "contact",
+        "contract",
+        "vat_document",
+        "confirmed",
+        "status"
+      ],
+      "hash": "sha256:bb37f8019bd33a8612a9530c9a37c52aaaab2fb2081ec1757e805ee9b6df8660",
+      "row_count": 141,
+      "size_bytes": 44542
+    },
+    "petty_cash_disburstments.csv.manifest": {
+      "columns": null,
+      "hash": "sha256:a218c7430a7ec3cb485564c45fac4183cd52eb1c6527d76ab7a5931a569f3b7b",
+      "row_count": null,
+      "size_bytes": 2837
+    },
+    "petty_cash_disburstments_items.csv": {
+      "columns": [
+        "petty_cash_disburstments_gid",
+        "_item_index",
+        "created_at",
+        "updated_at",
+        "creator",
+        "modifier",
+        "external_id",
+        "rule",
+        "variable_symbol",
+        "price",
+        "description",
+        "department",
+        "contract",
+        "linked_doc_number"
+      ],
+      "hash": "sha256:c379003b3048109e0cb898d5bbc7faae2828633be270bcf23751b15c12f84f8c",
+      "row_count": 143,
+      "size_bytes": 34020
+    },
+    "petty_cash_disburstments_items.csv.manifest": {
+      "columns": null,
+      "hash": "sha256:e601c3b5411cce33c78df86d24971fabee7b7e3b582e9abe944375c2ddbcbbfc",
+      "row_count": null,
+      "size_bytes": 2315
+    }
+  },
+  "version": "1.0"
+}

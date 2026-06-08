@@ -1,0 +1,7 @@
+{
+  "_metadata": {"freeze_time": null, "keboola_vcr_version": "0.5.0", "recorded_at": "2026-06-08T11:38:47.451346+00:00"},
+  "interactions": [
+    {"request": {"body": null, "headers": {"Accept": ["application/json"]}, "method": "GET", "uri": "https://test.demo.uol.cz/api/v1/contacts?per_page=250&page=1"}, "response": {"body": {"string": "{\"status\": \"401\", \"code\": \"REDACTED\", \"message\": \"Authentication failed. Please provide valid identification and token.\", \"developerMessage\": \"User authentication failed. Check that proper authentication header is present and that authenticating user has api access allowed.\"}"}, "headers": {"Content-Length": ["265"], "Content-Type": ["application/json"]}, "status": {"code": 401, "message": "Unauthorized"}}}
+  ],
+  "version": 1
+}

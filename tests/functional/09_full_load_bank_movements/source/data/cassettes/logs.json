@@ -1,0 +1,30 @@
+{
+  "exit_code": null,
+  "stderr": "",
+  "logs": [
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Extracting bank_movements (date_field=None, since=None)",
+      "timestamp": "2026-06-08T13:36:54.000Z"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetched 54 bank_movements records",
+      "timestamp": "2026-06-08T13:36:54.000Z"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Wrote 54 rows to bank_movements",
+      "timestamp": "2026-06-08T13:36:54.000Z"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Wrote 54 rows to bank_movements_items",
+      "timestamp": "2026-06-08T13:36:54.000Z"
+    }
+  ]
+}

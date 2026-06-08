@@ -1,0 +1,63 @@
+{
+  "files": {},
+  "hash_algorithm": "sha256",
+  "tables": {
+    "receivables.csv": {
+      "columns": [
+        "invoice_id",
+        "invoice_public_id",
+        "contact_id",
+        "department_id",
+        "invoice_type",
+        "currency_id",
+        "cancelled",
+        "issue_date",
+        "due_date",
+        "tax_payment_date",
+        "invoice_amount",
+        "total_amount",
+        "total_amount_in_currency",
+        "paid_amount",
+        "last_payment_date",
+        "exchange_rate",
+        "department",
+        "total_amount_currency_ids",
+        "invoice_issue_date",
+        "invoice_currency_id",
+        "invoice_exchange_rate",
+        "last_payment_time",
+        "paid_amount_in_currency",
+        "paid_amount_currency_ids"
+      ],
+      "hash": "sha256:c1ca73f4f1dcd6ff60a64ec7b61bdedd7c93205adcc1896a27bc75b006dc0a37",
+      "row_count": 210,
+      "size_bytes": 32901
+    },
+    "receivables.csv.manifest": {
+      "columns": null,
+      "hash": "sha256:705357207d131f48a695e2016d24c8ea0fe4d6669a48b38b9e1693bd8b79d99d",
+      "row_count": null,
+      "size_bytes": 3887
+    },
+    "receivables_payments.csv": {
+      "columns": [
+        "receivables_invoice_id",
+        "_item_index",
+        "timestamp",
+        "currency_id",
+        "amount",
+        "accounting_amount"
+      ],
+      "hash": "sha256:1610656d40ea5fe33c1c50ca3f94679c89529d4dc34126d217dc9862d772fb34",
+      "row_count": 83,
+      "size_bytes": 5138
+    },
+    "receivables_payments.csv.manifest": {
+      "columns": null,
+      "hash": "sha256:eeb59631ce0731bc2bd636d8b8f77bb0e3b409c0e904cc0ce371ff4ab8a8d24c",
+      "row_count": null,
+      "size_bytes": 1124
+    }
+  },
+  "version": "1.0"
+}

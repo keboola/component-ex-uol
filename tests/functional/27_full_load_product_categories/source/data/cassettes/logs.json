@@ -1,0 +1,24 @@
+{
+  "exit_code": null,
+  "stderr": "",
+  "logs": [
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Extracting product_categories (date_field=None, since=None)",
+      "timestamp": "2026-06-08T13:36:54.000Z"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetched 33 product_categories records",
+      "timestamp": "2026-06-08T13:36:54.000Z"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Wrote 33 rows to product_categories",
+      "timestamp": "2026-06-08T13:36:54.000Z"
+    }
+  ]
+}

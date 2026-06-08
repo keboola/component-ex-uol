@@ -1,0 +1,46 @@
+{
+  "files": {},
+  "hash_algorithm": "sha256",
+  "tables": {
+    "products.csv": {
+      "columns": [
+        "product_id",
+        "created_at",
+        "updated_at",
+        "creator",
+        "modifier",
+        "barcode",
+        "deferred_period_in_months",
+        "description",
+        "dimensions",
+        "external_id",
+        "group_id",
+        "intrastat_id",
+        "status",
+        "hidden",
+        "category_id",
+        "name",
+        "purchase_price",
+        "track_serial_numbers",
+        "reverse_charge_code",
+        "unit_id",
+        "vat_code",
+        "weight_gross",
+        "weight_net",
+        "weight_unit_id",
+        "allow_vat_change",
+        "moss_code"
+      ],
+      "hash": "sha256:66d7b63c751bf705708c1312fac19440080c1cf106639dc7530553dd8cf73632",
+      "row_count": 74,
+      "size_bytes": 14359
+    },
+    "products.csv.manifest": {
+      "columns": null,
+      "hash": "sha256:851ad4656c2feeb85608c84e82579bb3c6d5c712ef517f0a333719786893972b",
+      "row_count": null,
+      "size_bytes": 4086
+    }
+  },
+  "version": "1.0"
+}

@@ -1,0 +1,60 @@
+{
+  "files": {},
+  "hash_algorithm": "sha256",
+  "tables": {
+    "demands_for_payment.csv": {
+      "columns": [
+        "reminder_id",
+        "created_at",
+        "updated_at",
+        "creator",
+        "modifier",
+        "accounting_address",
+        "address",
+        "buyer_address",
+        "confirmed",
+        "contact",
+        "date",
+        "delivery_address",
+        "external_id",
+        "status",
+        "note",
+        "send_by_email",
+        "send_by_mail"
+      ],
+      "hash": "sha256:ada829194168a3cf3419652809b0dbb64943777f1487dbead6711b7139450fb9",
+      "row_count": 3,
+      "size_bytes": 812
+    },
+    "demands_for_payment.csv.manifest": {
+      "columns": null,
+      "hash": "sha256:364b737b6263243b3604f4712a7a1253311071d093e76a89d2121d7061ada4fc",
+      "row_count": null,
+      "size_bytes": 2716
+    },
+    "demands_for_payment_items.csv": {
+      "columns": [
+        "demands_for_payment_reminder_id",
+        "_item_index",
+        "created_at",
+        "updated_at",
+        "creator",
+        "modifier",
+        "debt",
+        "external_id",
+        "invoice_id",
+        "status"
+      ],
+      "hash": "sha256:0fbda40db899e421735c4f53c19dd210bc16b93a5b9259ec40f786531b0e1afa",
+      "row_count": 6,
+      "size_bytes": 859
+    },
+    "demands_for_payment_items.csv.manifest": {
+      "columns": null,
+      "hash": "sha256:86ab7b69e7a070c9e4d2ec3d56c6b0cdd9dd208901c73267b2695feeda20d3a4",
+      "row_count": null,
+      "size_bytes": 1712
+    }
+  },
+  "version": "1.0"
+}

@@ -1,0 +1,29 @@
+{
+  "files": {},
+  "hash_algorithm": "sha256",
+  "tables": {
+    "document_templates.csv": {
+      "columns": [
+        "id",
+        "creator",
+        "language",
+        "modifier",
+        "created_at",
+        "default",
+        "name",
+        "title",
+        "updated_at"
+      ],
+      "hash": "sha256:b126456167eab01fdb1ff58049fbdd2ce16c1366358ee787a8ef6b58cf4a7893",
+      "row_count": 71,
+      "size_bytes": 13814
+    },
+    "document_templates.csv.manifest": {
+      "columns": null,
+      "hash": "sha256:54f789b6472fa4a09b2e4c1eb331fc3ee2555ae1459a16d89edc419cdafe0862",
+      "row_count": null,
+      "size_bytes": 1499
+    }
+  },
+  "version": "1.0"
+}

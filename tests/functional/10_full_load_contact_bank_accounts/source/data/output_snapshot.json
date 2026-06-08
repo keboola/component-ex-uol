@@ -1,0 +1,36 @@
+{
+  "files": {},
+  "hash_algorithm": "sha256",
+  "tables": {
+    "contact_bank_accounts.csv": {
+      "columns": [
+        "bank_account_id",
+        "created_at",
+        "updated_at",
+        "creator",
+        "modifier",
+        "bank_account",
+        "bank_code",
+        "contact",
+        "country",
+        "currency",
+        "external_id",
+        "iban",
+        "default",
+        "status",
+        "name",
+        "published"
+      ],
+      "hash": "sha256:4df2f87550013c1a236dc91a7ae772e30d336fbeeb8c09fd7a89e912ae53c8f8",
+      "row_count": 77,
+      "size_bytes": 21534
+    },
+    "contact_bank_accounts.csv.manifest": {
+      "columns": null,
+      "hash": "sha256:6b2d50b7e30f4fe948daa82783cafb12f7b49d2965f7502dbb40fe974e7eacd2",
+      "row_count": null,
+      "size_bytes": 2545
+    }
+  },
+  "version": "1.0"
+}

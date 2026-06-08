@@ -1,0 +1,81 @@
+{
+  "files": {},
+  "hash_algorithm": "sha256",
+  "tables": {
+    "sales_orders.csv": {
+      "columns": [
+        "order_id",
+        "created_at",
+        "updated_at",
+        "creator",
+        "modifier",
+        "accounting_address",
+        "buyer_address",
+        "document_recipient_address",
+        "delivery_address",
+        "contact",
+        "currency",
+        "date_of_receipt",
+        "delivery_method",
+        "department",
+        "percent_discount",
+        "external_id",
+        "fullfilled_on",
+        "group_id",
+        "invoicing_method",
+        "status",
+        "contract",
+        "shipper_id",
+        "shipping_method",
+        "specific_symbol",
+        "payment_method",
+        "complete_upon_execution",
+        "repeat_start",
+        "repeat_interval",
+        "next_repeat_time",
+        "text",
+        "note"
+      ],
+      "hash": "sha256:5e5715067451b4f194d1d8f4de42e1d210a46309aa0a819e8186311e7f726a4f",
+      "row_count": 4,
+      "size_bytes": 1831
+    },
+    "sales_orders.csv.manifest": {
+      "columns": null,
+      "hash": "sha256:19f7ef8f6f0eefe17a291df39649828b24d21b399608f52a922a857e21f56798",
+      "row_count": null,
+      "size_bytes": 4873
+    },
+    "sales_orders_items.csv": {
+      "columns": [
+        "sales_orders_order_id",
+        "_item_index",
+        "id",
+        "created_at",
+        "updated_at",
+        "creator",
+        "modifier",
+        "batch",
+        "expiration_date",
+        "external_id",
+        "status",
+        "order",
+        "product",
+        "quantity",
+        "description",
+        "serial_numbers",
+        "unit_price"
+      ],
+      "hash": "sha256:a05c4b8eff433fe27ad751f16801c9ca2dd53e470332539f637fbc3a229b815f",
+      "row_count": 4,
+      "size_bytes": 848
+    },
+    "sales_orders_items.csv.manifest": {
+      "columns": null,
+      "hash": "sha256:95c2fabcd01719f5f4a2eab4450493d3d9811e0fc38d169da0682b1a31fe9adf",
+      "row_count": null,
+      "size_bytes": 2738
+    }
+  },
+  "version": "1.0"
+}

@@ -1,0 +1,69 @@
+{
+  "files": {},
+  "hash_algorithm": "sha256",
+  "tables": {
+    "internal_documents.csv": {
+      "columns": [
+        "number",
+        "created_at",
+        "creator",
+        "updated_at",
+        "modifier",
+        "department",
+        "contract",
+        "date",
+        "note",
+        "vat_document",
+        "coefficient",
+        "status"
+      ],
+      "hash": "sha256:17371c05371d2bca54b5a56d8bb767d26a50a856926e9423f85fc1fabbbfeed3",
+      "row_count": 100,
+      "size_bytes": 25343
+    },
+    "internal_documents.csv.manifest": {
+      "columns": null,
+      "hash": "sha256:7254d11ccda03aa1a400a81e3e32d445ba00f22c90091ecdab2e1aa7e3bc1dec",
+      "row_count": null,
+      "size_bytes": 1951
+    },
+    "internal_documents_items.csv": {
+      "columns": [
+        "internal_documents_number",
+        "_item_index",
+        "created_at",
+        "creator",
+        "updated_at",
+        "modifier",
+        "currency",
+        "company",
+        "product",
+        "department",
+        "credit_account_id",
+        "debit_account_id",
+        "amount",
+        "accounting_amount",
+        "description",
+        "linked_doc_type",
+        "linked_doc_code",
+        "quantity",
+        "batch",
+        "warranty",
+        "serial_numbers",
+        "warehouse_changed",
+        "address",
+        "status"
+      ],
+      "hash": "sha256:d3def6e8af9d958a1ceb15ed2ed6d3cbd58a09aa0619778e43dfc725f3c9d45a",
+      "row_count": 674,
+      "size_bytes": 205075
+    },
+    "internal_documents_items.csv.manifest": {
+      "columns": null,
+      "hash": "sha256:8e067336fe05a5c6c6023d3911f42241c347eae262aaf3a6bf3014a7fcd8fff4",
+      "row_count": null,
+      "size_bytes": 3815
+    }
+  },
+  "version": "1.0"
+}

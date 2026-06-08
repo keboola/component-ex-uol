@@ -8,8 +8,7 @@
         "base_url": "https://test.demo.uol.cz/api",
         "email": "DUMMY_EMAIL",
         "#api_token": "DUMMY_TOKEN",
-        "endpoint": "contacts",
-        "load_type": "full_load"
+        "endpoint": "contacts"
       }
     }
   },
@@ -22,69 +21,38 @@
         "base_url": "https://test.demo.uol.cz/api",
         "email": "DUMMY_EMAIL",
         "#api_token": "DUMMY_TOKEN",
-        "endpoint": "contacts",
-        "load_type": "full_load"
+        "endpoint": "contacts"
       }
     }
   },
   {
-    "name": "03_full_load_contacts",
-    "description": "Full load of contacts — parent table contacts.csv + child contacts_addresses.csv",
+    "name": "03_listDateFields_with_fields",
+    "description": "listDateFields for sales_invoices — returns 3 date fields",
     "config": {
-      "action": "run",
+      "action": "listDateFields",
       "parameters": {
         "base_url": "https://test.demo.uol.cz/api",
         "email": "DUMMY_EMAIL",
         "#api_token": "DUMMY_TOKEN",
-        "endpoint": "contacts",
-        "load_type": "full_load"
+        "endpoint": "sales_invoices"
       }
     }
   },
   {
-    "name": "04_full_load_sales_invoices",
-    "description": "Full load of sales_invoices — parent table + child items table",
+    "name": "04_listDateFields_no_fields",
+    "description": "listDateFields for contacts — returns empty list (full-load-only endpoint)",
     "config": {
-      "action": "run",
+      "action": "listDateFields",
       "parameters": {
         "base_url": "https://test.demo.uol.cz/api",
         "email": "DUMMY_EMAIL",
         "#api_token": "DUMMY_TOKEN",
-        "endpoint": "sales_invoices",
-        "load_type": "full_load"
+        "endpoint": "contacts"
       }
     }
   },
   {
-    "name": "05_full_load_currencies",
-    "description": "Full load of currencies — no child arrays, expected small dataset (edge/empty case)",
-    "config": {
-      "action": "run",
-      "parameters": {
-        "base_url": "https://test.demo.uol.cz/api",
-        "email": "DUMMY_EMAIL",
-        "#api_token": "DUMMY_TOKEN",
-        "endpoint": "currencies",
-        "load_type": "full_load"
-      }
-    }
-  },
-  {
-    "name": "full_load_contacts",
-    "description": "Pre-existing full load of contacts (same scenario as 03_full_load_contacts, kept for compatibility)",
-    "config": {
-      "action": "run",
-      "parameters": {
-        "base_url": "https://test.demo.uol.cz/api",
-        "email": "DUMMY_EMAIL",
-        "#api_token": "DUMMY_TOKEN",
-        "endpoint": "contacts",
-        "load_type": "full_load"
-      }
-    }
-  },
-  {
-    "name": "06_auth_failure",
+    "name": "05_auth_failure",
     "description": "Run with invalid credentials — must raise UserException (exit code 1)",
     "config": {
       "action": "run",
@@ -92,14 +60,13 @@
         "base_url": "https://test.demo.uol.cz/api",
         "email": "bad@example.com",
         "#api_token": "bad-token",
-        "endpoint": "contacts",
-        "load_type": "full_load"
+        "endpoint": "contacts"
       }
     }
   },
   {
-    "name": "07_incremental_accounting_records",
-    "description": "Incremental load of accounting_records — watermark from state.json, date_from sent, manifest incremental:true",
+    "name": "06_incremental_accounting_records",
+    "description": "Incremental load of accounting_records — date_field=date_from, date_from=2026-01-01; assert request carries date param and manifest has incremental:true",
     "config": {
       "action": "run",
       "parameters": {
@@ -107,7 +74,385 @@
         "email": "DUMMY_EMAIL",
         "#api_token": "DUMMY_TOKEN",
         "endpoint": "accounting_records",
-        "load_type": "incremental_load"
+        "date_field": "date_from",
+        "date_from": "2026-01-01"
+      }
+    }
+  },
+  {
+    "name": "07_full_load_accounting_records",
+    "description": "Full load of accounting_records",
+    "config": {
+      "action": "run",
+      "parameters": {
+        "base_url": "https://test.demo.uol.cz/api",
+        "email": "DUMMY_EMAIL",
+        "#api_token": "DUMMY_TOKEN",
+        "endpoint": "accounting_records"
+      }
+    }
+  },
+  {
+    "name": "08_full_load_bank_movement_items",
+    "description": "Full load of bank_movement_items",
+    "config": {
+      "action": "run",
+      "parameters": {
+        "base_url": "https://test.demo.uol.cz/api",
+        "email": "DUMMY_EMAIL",
+        "#api_token": "DUMMY_TOKEN",
+        "endpoint": "bank_movement_items"
+      }
+    }
+  },
+  {
+    "name": "09_full_load_bank_movements",
+    "description": "Full load of bank_movements — parent + child items",
+    "config": {
+      "action": "run",
+      "parameters": {
+        "base_url": "https://test.demo.uol.cz/api",
+        "email": "DUMMY_EMAIL",
+        "#api_token": "DUMMY_TOKEN",
+        "endpoint": "bank_movements"
+      }
+    }
+  },
+  {
+    "name": "10_full_load_contact_bank_accounts",
+    "description": "Full load of contact_bank_accounts",
+    "config": {
+      "action": "run",
+      "parameters": {
+        "base_url": "https://test.demo.uol.cz/api",
+        "email": "DUMMY_EMAIL",
+        "#api_token": "DUMMY_TOKEN",
+        "endpoint": "contact_bank_accounts"
+      }
+    }
+  },
+  {
+    "name": "11_full_load_contacts",
+    "description": "Full load of contacts — parent table + child addresses",
+    "config": {
+      "action": "run",
+      "parameters": {
+        "base_url": "https://test.demo.uol.cz/api",
+        "email": "DUMMY_EMAIL",
+        "#api_token": "DUMMY_TOKEN",
+        "endpoint": "contacts"
+      }
+    }
+  },
+  {
+    "name": "12_full_load_contracts",
+    "description": "Full load of contracts",
+    "config": {
+      "action": "run",
+      "parameters": {
+        "base_url": "https://test.demo.uol.cz/api",
+        "email": "DUMMY_EMAIL",
+        "#api_token": "DUMMY_TOKEN",
+        "endpoint": "contracts"
+      }
+    }
+  },
+  {
+    "name": "13_full_load_countries",
+    "description": "Full load of countries",
+    "config": {
+      "action": "run",
+      "parameters": {
+        "base_url": "https://test.demo.uol.cz/api",
+        "email": "DUMMY_EMAIL",
+        "#api_token": "DUMMY_TOKEN",
+        "endpoint": "countries"
+      }
+    }
+  },
+  {
+    "name": "14_full_load_currencies",
+    "description": "Full load of currencies",
+    "config": {
+      "action": "run",
+      "parameters": {
+        "base_url": "https://test.demo.uol.cz/api",
+        "email": "DUMMY_EMAIL",
+        "#api_token": "DUMMY_TOKEN",
+        "endpoint": "currencies"
+      }
+    }
+  },
+  {
+    "name": "15_full_load_demands_for_payment",
+    "description": "Full load of demands_for_payment — parent + child items",
+    "config": {
+      "action": "run",
+      "parameters": {
+        "base_url": "https://test.demo.uol.cz/api",
+        "email": "DUMMY_EMAIL",
+        "#api_token": "DUMMY_TOKEN",
+        "endpoint": "demands_for_payment"
+      }
+    }
+  },
+  {
+    "name": "16_full_load_departments",
+    "description": "Full load of departments",
+    "config": {
+      "action": "run",
+      "parameters": {
+        "base_url": "https://test.demo.uol.cz/api",
+        "email": "DUMMY_EMAIL",
+        "#api_token": "DUMMY_TOKEN",
+        "endpoint": "departments"
+      }
+    }
+  },
+  {
+    "name": "17_full_load_document_templates",
+    "description": "Full load of document_templates",
+    "config": {
+      "action": "run",
+      "parameters": {
+        "base_url": "https://test.demo.uol.cz/api",
+        "email": "DUMMY_EMAIL",
+        "#api_token": "DUMMY_TOKEN",
+        "endpoint": "document_templates"
+      }
+    }
+  },
+  {
+    "name": "18_full_load_internal_documents",
+    "description": "Full load of internal_documents — parent + child items",
+    "config": {
+      "action": "run",
+      "parameters": {
+        "base_url": "https://test.demo.uol.cz/api",
+        "email": "DUMMY_EMAIL",
+        "#api_token": "DUMMY_TOKEN",
+        "endpoint": "internal_documents"
+      }
+    }
+  },
+  {
+    "name": "19_full_load_my_bank_accounts",
+    "description": "Full load of my_bank_accounts",
+    "config": {
+      "action": "run",
+      "parameters": {
+        "base_url": "https://test.demo.uol.cz/api",
+        "email": "DUMMY_EMAIL",
+        "#api_token": "DUMMY_TOKEN",
+        "endpoint": "my_bank_accounts"
+      }
+    }
+  },
+  {
+    "name": "20_full_load_my_companies",
+    "description": "Full load of my_companies",
+    "config": {
+      "action": "run",
+      "parameters": {
+        "base_url": "https://test.demo.uol.cz/api",
+        "email": "DUMMY_EMAIL",
+        "#api_token": "DUMMY_TOKEN",
+        "endpoint": "my_companies"
+      }
+    }
+  },
+  {
+    "name": "21_full_load_payment_rules",
+    "description": "Full load of payment_rules",
+    "config": {
+      "action": "run",
+      "parameters": {
+        "base_url": "https://test.demo.uol.cz/api",
+        "email": "DUMMY_EMAIL",
+        "#api_token": "DUMMY_TOKEN",
+        "endpoint": "payment_rules"
+      }
+    }
+  },
+  {
+    "name": "22_full_load_petty_cash_disburstments",
+    "description": "Full load of petty_cash_disburstments — parent + child items",
+    "config": {
+      "action": "run",
+      "parameters": {
+        "base_url": "https://test.demo.uol.cz/api",
+        "email": "DUMMY_EMAIL",
+        "#api_token": "DUMMY_TOKEN",
+        "endpoint": "petty_cash_disburstments"
+      }
+    }
+  },
+  {
+    "name": "23_full_load_petty_cash_incomes",
+    "description": "Full load of petty_cash_incomes — parent + child items",
+    "config": {
+      "action": "run",
+      "parameters": {
+        "base_url": "https://test.demo.uol.cz/api",
+        "email": "DUMMY_EMAIL",
+        "#api_token": "DUMMY_TOKEN",
+        "endpoint": "petty_cash_incomes"
+      }
+    }
+  },
+  {
+    "name": "24_full_load_petty_cashes",
+    "description": "Full load of petty_cashes",
+    "config": {
+      "action": "run",
+      "parameters": {
+        "base_url": "https://test.demo.uol.cz/api",
+        "email": "DUMMY_EMAIL",
+        "#api_token": "DUMMY_TOKEN",
+        "endpoint": "petty_cashes"
+      }
+    }
+  },
+  {
+    "name": "25_full_load_predefined_texts",
+    "description": "Full load of predefined_texts",
+    "config": {
+      "action": "run",
+      "parameters": {
+        "base_url": "https://test.demo.uol.cz/api",
+        "email": "DUMMY_EMAIL",
+        "#api_token": "DUMMY_TOKEN",
+        "endpoint": "predefined_texts"
+      }
+    }
+  },
+  {
+    "name": "26_full_load_price_lists",
+    "description": "Full load of price_lists — parent + child items",
+    "config": {
+      "action": "run",
+      "parameters": {
+        "base_url": "https://test.demo.uol.cz/api",
+        "email": "DUMMY_EMAIL",
+        "#api_token": "DUMMY_TOKEN",
+        "endpoint": "price_lists"
+      }
+    }
+  },
+  {
+    "name": "27_full_load_product_categories",
+    "description": "Full load of product_categories",
+    "config": {
+      "action": "run",
+      "parameters": {
+        "base_url": "https://test.demo.uol.cz/api",
+        "email": "DUMMY_EMAIL",
+        "#api_token": "DUMMY_TOKEN",
+        "endpoint": "product_categories"
+      }
+    }
+  },
+  {
+    "name": "28_full_load_products",
+    "description": "Full load of products",
+    "config": {
+      "action": "run",
+      "parameters": {
+        "base_url": "https://test.demo.uol.cz/api",
+        "email": "DUMMY_EMAIL",
+        "#api_token": "DUMMY_TOKEN",
+        "endpoint": "products"
+      }
+    }
+  },
+  {
+    "name": "29_full_load_purchase_invoices",
+    "description": "Full load of purchase_invoices — parent + child items",
+    "config": {
+      "action": "run",
+      "parameters": {
+        "base_url": "https://test.demo.uol.cz/api",
+        "email": "DUMMY_EMAIL",
+        "#api_token": "DUMMY_TOKEN",
+        "endpoint": "purchase_invoices"
+      }
+    }
+  },
+  {
+    "name": "30_full_load_purchase_orders",
+    "description": "Full load of purchase_orders — parent + child items",
+    "config": {
+      "action": "run",
+      "parameters": {
+        "base_url": "https://test.demo.uol.cz/api",
+        "email": "DUMMY_EMAIL",
+        "#api_token": "DUMMY_TOKEN",
+        "endpoint": "purchase_orders"
+      }
+    }
+  },
+  {
+    "name": "31_full_load_receivables",
+    "description": "Full load of receivables — parent + child payments",
+    "config": {
+      "action": "run",
+      "parameters": {
+        "base_url": "https://test.demo.uol.cz/api",
+        "email": "DUMMY_EMAIL",
+        "#api_token": "DUMMY_TOKEN",
+        "endpoint": "receivables"
+      }
+    }
+  },
+  {
+    "name": "32_full_load_retails",
+    "description": "Full load of retails — parent + child items",
+    "config": {
+      "action": "run",
+      "parameters": {
+        "base_url": "https://test.demo.uol.cz/api",
+        "email": "DUMMY_EMAIL",
+        "#api_token": "DUMMY_TOKEN",
+        "endpoint": "retails"
+      }
+    }
+  },
+  {
+    "name": "33_full_load_sales_invoices",
+    "description": "Full load of sales_invoices — parent + child items",
+    "config": {
+      "action": "run",
+      "parameters": {
+        "base_url": "https://test.demo.uol.cz/api",
+        "email": "DUMMY_EMAIL",
+        "#api_token": "DUMMY_TOKEN",
+        "endpoint": "sales_invoices"
+      }
+    }
+  },
+  {
+    "name": "34_full_load_sales_orders",
+    "description": "Full load of sales_orders — parent + child items",
+    "config": {
+      "action": "run",
+      "parameters": {
+        "base_url": "https://test.demo.uol.cz/api",
+        "email": "DUMMY_EMAIL",
+        "#api_token": "DUMMY_TOKEN",
+        "endpoint": "sales_orders"
+      }
+    }
+  },
+  {
+    "name": "35_full_load_uploaded_documents",
+    "description": "Full load of uploaded_documents",
+    "config": {
+      "action": "run",
+      "parameters": {
+        "base_url": "https://test.demo.uol.cz/api",
+        "email": "DUMMY_EMAIL",
+        "#api_token": "DUMMY_TOKEN",
+        "endpoint": "uploaded_documents"
       }
     }
   }

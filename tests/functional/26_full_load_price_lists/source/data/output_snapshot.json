@@ -1,0 +1,48 @@
+{
+  "files": {},
+  "hash_algorithm": "sha256",
+  "tables": {
+    "price_lists.csv": {
+      "columns": [
+        "price_list_id",
+        "created_at",
+        "updated_at",
+        "creator",
+        "modifier",
+        "name",
+        "currency"
+      ],
+      "hash": "sha256:dc4bdfb243bd3207ce615a9a21137e35fb818c6f89693370512047df5ecf3497",
+      "row_count": 3,
+      "size_bytes": 410
+    },
+    "price_lists.csv.manifest": {
+      "columns": null,
+      "hash": "sha256:c911196c78f3dc6e950f4af7aeb8339a25db27b31ac78ce720543aeb57467885",
+      "row_count": null,
+      "size_bytes": 1220
+    },
+    "price_lists_items.csv": {
+      "columns": [
+        "price_lists_price_list_id",
+        "_item_index",
+        "created_at",
+        "updated_at",
+        "creator",
+        "modifier",
+        "product",
+        "unit_price"
+      ],
+      "hash": "sha256:d0250616b9653343c968943588a94cf7780b0f40fb4f8049e005b4e2a1122b7e",
+      "row_count": 13,
+      "size_bytes": 2147
+    },
+    "price_lists_items.csv.manifest": {
+      "columns": null,
+      "hash": "sha256:0a3f63edc35fdc4e20de2b88f151935f1f1921759f62d73ccd31dcaa6fe8148a",
+      "row_count": null,
+      "size_bytes": 1414
+    }
+  },
+  "version": "1.0"
+}

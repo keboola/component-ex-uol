@@ -1,0 +1,39 @@
+{
+  "files": {},
+  "hash_algorithm": "sha256",
+  "tables": {
+    "bank_movement_items.csv": {
+      "columns": [
+        "number",
+        "amount",
+        "confirmed",
+        "note",
+        "variable_symbol",
+        "specific_symbol",
+        "constant_symbol",
+        "date",
+        "created_at",
+        "updated_at",
+        "external_id",
+        "creator",
+        "modifier",
+        "payment_rule",
+        "bank_account",
+        "contact",
+        "department",
+        "contract",
+        "linked_doc"
+      ],
+      "hash": "sha256:c2e466a67d443118838ecc0760dccd958f1d415a6946f6bd6aaf727b04668c50",
+      "row_count": 55,
+      "size_bytes": 19946
+    },
+    "bank_movement_items.csv.manifest": {
+      "columns": null,
+      "hash": "sha256:aae502025f943233f0d93a3981c8ae8a072bd39dab5b1a8a43510699362b7ba5",
+      "row_count": null,
+      "size_bytes": 2980
+    }
+  },
+  "version": "1.0"
+}

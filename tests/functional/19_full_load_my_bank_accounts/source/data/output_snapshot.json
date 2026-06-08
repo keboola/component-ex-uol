@@ -1,0 +1,44 @@
+{
+  "files": {},
+  "hash_algorithm": "sha256",
+  "tables": {
+    "my_bank_accounts.csv": {
+      "columns": [
+        "bank_account_id",
+        "created_at",
+        "updated_at",
+        "creator",
+        "modifier",
+        "opening_balance_date",
+        "auth_token_stub",
+        "bank_account",
+        "bank_code",
+        "country",
+        "after_credit_issued",
+        "currency",
+        "statement_download_interval",
+        "statement_download_type",
+        "order_type",
+        "external_id",
+        "iban",
+        "opening_balance",
+        "after_invoice_received",
+        "default",
+        "hidden",
+        "status",
+        "officially_published",
+        "send_order_to_bank"
+      ],
+      "hash": "sha256:95089a092de51d2bde67382c4936897065e9b500399402178f3959e19e0f641b",
+      "row_count": 4,
+      "size_bytes": 1229
+    },
+    "my_bank_accounts.csv.manifest": {
+      "columns": null,
+      "hash": "sha256:5cce45bee4ff35151015b21bf4654f674154f763664d46a8a3787601c38347f0",
+      "row_count": null,
+      "size_bytes": 3832
+    }
+  },
+  "version": "1.0"
+}
