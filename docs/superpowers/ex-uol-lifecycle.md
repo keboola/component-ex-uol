@@ -205,6 +205,14 @@ returned a thin row for the 5-day window — verify the field shape (likely just
 > **accounting_records 258** (incremental `2026-01-01`, upsert by gid) — confirming the earlier thin row
 > was just the empty 5-day window, not a bug. `defaultBucket:true` (Phase 6) removed the need for a
 > per-config bucket override.
+>
+> **Re-validated again 2026-06-08 after the flatten rework** (nested objects → `<parent>_<child>` scalar
+> columns, arrays → cleaned JSON, no child tables): job **`47268424` SUCCESS** on
+> **`initial-implementation-11`**. Output bucket now has 3 clean tables (contacts 188, sales_invoices 238,
+> accounting_records 258) with scalar columns (`creator_user_id`, `currency_currency_id`,
+> `bank_account_bank_account_id`, …) — no JSON-blob reference objects, no child tables. Note: changing the
+> output schema required dropping the pre-existing tables first (Storage rejects column-set mismatch on
+> incremental import) — a known reload-on-schema-change operational step, not a component bug.
 
 ### Phase 8 — Final CF-standards review · owner: `component-checklist-review`
 - [x] complete
