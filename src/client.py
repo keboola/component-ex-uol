@@ -60,6 +60,12 @@ class UolClient:
     def ping_request(self) -> dict:
         return self._request("GET", "v1/ping")
 
+    def sample_record(self, path: str) -> dict | None:
+        """Fetch a single record (cheaply) to derive available columns. None if empty."""
+        data = self._request("GET", path, params={"per_page": 1, "page": 1})
+        items = data.get("items", [])
+        return items[0] if items else None
+
     def _request(self, method: str, path: str, params: dict | None = None) -> dict:
         url = f"{self.base_url}/{path.lstrip('/')}"
         for attempt in range(self._max_retries + 1):

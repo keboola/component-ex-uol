@@ -60,6 +60,9 @@ class Configuration(ConnectionConfig):
     load_type: LoadType = LoadType.full_load
     date_field: str | None = None
     date_from: str | None = None
+    # Optional output-column filter. Empty -> extract all columns (default).
+    # Primary-key columns are always written regardless of this selection.
+    columns: list[str] = Field(default_factory=list)
 
 
 def resolve_since(date_from: str | None, state: dict) -> str | None:

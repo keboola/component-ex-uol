@@ -57,6 +57,26 @@
           "load_type": "incremental_load"
         }
       }
+    },
+    "columns": {
+      "type": "array",
+      "title": "Columns to extract",
+      "description": "Optional; restrict the output table to these columns; leave empty to extract all columns; primary-key columns are always included.",
+      "items": {
+        "type": "string",
+        "enum": []
+      },
+      "format": "select",
+      "uniqueItems": true,
+      "propertyOrder": 5,
+      "options": {
+        "async": {
+          "label": "Re-load columns",
+          "action": "listColumns",
+          "autoload": false,
+          "cache": true
+        }
+      }
     }
   }
 }

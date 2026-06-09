@@ -145,7 +145,14 @@ class Component(ComponentBase):
 
         logging.info("Fetched %d %s records", len(parent_rows), endpoint.name)
 
-        self._write_table(endpoint.name, parent_rows, endpoint.primary_key, incremental, endpoint.columns)
+        self._write_table(
+            endpoint.name,
+            parent_rows,
+            endpoint.primary_key,
+            incremental,
+            endpoint.columns,
+            cfg.columns,
+        )
 
         if incremental:
             self.write_state_file({STATE_LAST_RUN: run_started_at.isoformat()})
@@ -164,11 +171,17 @@ class Component(ComponentBase):
         primary_key: list[str],
         incremental: bool,
         known_columns: tuple[str, ...] = (),
+        selected_columns: list[str] | None = None,
     ) -> None:
         # Guard: if there is no primary key, force full-overwrite (incremental upsert requires a PK)
         if not primary_key:
             incremental = False
         columns = self._collect_columns(rows, primary_key, known_columns)
+        if selected_columns:
+            # Restrict output to the user's selection, but always keep the primary key
+            # (required for the table key and incremental upsert). Order is preserved.
+            keep = set(selected_columns) | set(primary_key)
+            columns = [c for c in columns if c in keep]
         schema = _build_schema(columns, rows, primary_key)
         table = self.create_out_table_definition(
             f"{name}.csv",
@@ -225,6 +238,35 @@ class Component(ComponentBase):
         except KeyError:
             return []
         return [SelectElement(value=f, label=f) for f in endpoint.date_fields]
+
+    @sync_action("listColumns")
+    def list_columns(self) -> list[SelectElement]:
+        endpoint_name = self.configuration.parameters.get("endpoint")
+        if not endpoint_name:
+            return []
+        try:
+            endpoint = get_endpoint(endpoint_name)
+        except KeyError:
+            return []
+
+        # Start from the curated static registry (curated order, available for some endpoints).
+        names: list[str] = list(endpoint.columns)
+
+        # Augment with a live 1-record sample so endpoints without a static registry are
+        # covered and the listed names match the exact flattened output columns. A sync
+        # action must never hard-fail the UI, so any error here is swallowed.
+        try:
+            conn = ConnectionConfig(**self.configuration.parameters)
+            client = UolClient(conn.base_url, conn.email, conn.api_token)
+            sample = client.sample_record(endpoint.path)
+            if sample:
+                for col in flatten_record(sample, endpoint):
+                    if col not in names:
+                        names.append(col)
+        except Exception:  # noqa: BLE001
+            pass
+
+        return [SelectElement(value=c, label=c) for c in names]
 
 
 if __name__ == "__main__":
