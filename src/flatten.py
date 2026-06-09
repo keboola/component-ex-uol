@@ -5,6 +5,7 @@
   API `_meta` envelope).
 - The `_meta` key is dropped at every level.
 """
+
 from __future__ import annotations
 
 import json

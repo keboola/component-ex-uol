@@ -1,3 +1,4 @@
+number,amount,confirmed,note,variable_symbol,specific_symbol,constant_symbol,date,created_at,updated_at,external_id,creator_user_id,modifier_user_id,payment_rule_payment_rule_id,bank_account_bank_account_id,contact_contact_id,department_department_id,contract_contract_id,linked_doc_linked_doc_number,linked_doc_linked_doc_code
 1,2178.0,True,,3686492022,,,2014-09-29,2014-10-21T12:54:07+02:00,2014-10-21T12:54:25+02:00,,robot,jakes,-faktura,cs_czk,vodafone_czech_republi,,,2014000004,
 2,4235.0,True,,689745621,,,2014-09-15,2014-10-21T12:55:18+02:00,2014-10-21T12:55:43+02:00,,robot,jakes,-faktura,cs_czk,auto_palace_butovice_s,,,2014000006,
 3,2420.0,True,,3548963214,,,2014-09-11,2014-10-21T12:57:33+02:00,2014-10-21T12:57:51+02:00,,robot,jakes,-faktura,cs_czk,czccz_sro,,,2014000008,

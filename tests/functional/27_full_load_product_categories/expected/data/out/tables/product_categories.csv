@@ -1,3 +1,4 @@
+type_id,created_at,updated_at,creator_user_id,modifier_user_id,deferred_income,name,external_id,incidental_acquisition_costs,status,may_have_incidental_acquisition_costs,recapitulative_statement_code
 material,2004-07-29T21:01:38+02:00,2004-07-29T21:01:46+02:00,uoladm,uoladm,False,Materiál,,False,locked,True,goods
 cennina,2004-07-29T21:01:38+02:00,2004-07-29T21:01:46+02:00,uoladm,uoladm,False,Cenniny,,False,locked,False,not_entering
 energia,2004-07-29T21:01:38+02:00,2004-07-29T21:01:46+02:00,uoladm,uoladm,False,"Energie, para, plyn voda ...",,False,locked,False,not_entering

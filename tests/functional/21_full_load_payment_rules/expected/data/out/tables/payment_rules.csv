@@ -1,3 +1,4 @@
+gid,created_at,updated_at,creator_user_id,modifier_user_id,rule_id,doc_type,vat_code,description,debit_account_id,credit_account_id
 6164,2004-12-29T20:40:40+01:00,2004-12-28T14:59:48+01:00,uoladm,hlavacova,-cestovne,PV,O,"Cestovné ze služebních cest (diety, ubytování, ...)",512,
 6168,2004-12-29T20:40:40+01:00,2004-12-28T15:02:43+01:00,uoladm,hlavacova,-obcerstveni,PV,O,Občerstvení,513,
 6175,2004-12-29T20:40:40+01:00,2005-12-08T15:57:50+01:00,uoladm,pickova,-ostatni_nakupy,PV,O,Ostatní nakupy (bez DPH),501004,

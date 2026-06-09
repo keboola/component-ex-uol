@@ -1,3 +1,4 @@
+bank_account_id,created_at,updated_at,creator_user_id,modifier_user_id,bank_account,bank_code,contact_contact_id,country_country_id,currency_currency_id,external_id,iban,default,status,name,published
 65969,2014-10-21T19:11:57+02:00,2014-10-21T19:11:57+02:00,uoladm,uoladm,107-8408500267/0100,0100,czccz_sro,CZ,,,CZ0501000001078408500267,True,valid,,False
 65970,2014-10-21T19:11:57+02:00,2014-10-21T19:11:57+02:00,uoladm,uoladm,1684811/0300,0300,skoda_auto_as,CZ,,,CZ4703000000000001684811,True,valid,,False
 65971,2014-10-21T19:11:57+02:00,2014-10-21T19:11:57+02:00,uoladm,uoladm,2014059918/2600,2600,bychl_auto_as,CZ,,,CZ3526000000002014059918,True,valid,,False

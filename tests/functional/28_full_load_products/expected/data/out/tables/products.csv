@@ -1,3 +1,4 @@
+product_id,created_at,updated_at,creator_user_id,modifier_user_id,barcode,deferred_period_in_months,description,dimensions,external_id,group_id,intrastat_id,status,hidden,category_id,name,purchase_price,track_serial_numbers,reverse_charge_code,unit_id,vat_code,weight_gross,weight_net,weight_unit_id,allow_vat_change,moss_code
 konzultace,2017-08-04T15:51:26+02:00,2017-08-04T15:51:26+02:00,prosteckyo,prosteckyo,,,,,,,,valid,False,sluzba,konzultace,,False,,j,Z,,,,False,
 obraz-stredni,2014-10-21T13:49:36+02:00,2015-05-18T11:07:56+02:00,jakes,vanzura,,,,,,,,valid,False,tovar,Střední obrázek,,False,,j,Z,,,,False,
 obraz-maly,2014-10-21T13:50:28+02:00,2015-05-18T11:07:59+02:00,jakes,vanzura,,,,,,,,valid,False,tovar,Malý obrázek,,False,,j,Z,,,,False,

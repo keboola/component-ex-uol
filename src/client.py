@@ -68,16 +68,15 @@ class UolClient:
                 resp = self.session.request(method, url, params=params)
             except requests.exceptions.RequestException as exc:
                 if attempt < self._max_retries:
-                    self._sleep(min(2 ** attempt, MAX_BACKOFF_SECONDS))
+                    self._sleep(min(2**attempt, MAX_BACKOFF_SECONDS))
                     continue
                 raise UserException(
-                    f"Could not reach the UOL API at {url}: {exc}. "
-                    "Check the API Base URL and network connectivity."
+                    f"Could not reach the UOL API at {url}: {exc}. Check the API Base URL and network connectivity."
                 ) from exc
             self._record_call()
             if resp.status_code == 429 or resp.status_code >= 500:
                 if attempt < self._max_retries:
-                    delay = self._retry_after(resp) if resp.status_code == 429 else min(2 ** attempt, MAX_BACKOFF_SECONDS)
+                    delay = self._retry_after(resp) if resp.status_code == 429 else min(2**attempt, MAX_BACKOFF_SECONDS)
                     self._sleep(delay)
                     continue
                 raise UserException(
@@ -109,7 +108,7 @@ class UolClient:
     def _retry_after(resp: requests.Response) -> float:
         try:
             return float(resp.headers.get("Retry-After", MAX_BACKOFF_SECONDS))
-        except (TypeError, ValueError):
+        except TypeError, ValueError:
             return float(MAX_BACKOFF_SECONDS)
 
     def _raise_for_status(self, resp: requests.Response) -> None:
@@ -122,7 +121,6 @@ class UolClient:
             raise UserException(f"UOL endpoint not found: {resp.url} (HTTP 404).")
         if 400 <= resp.status_code < 500:
             raise UserException(
-                f"UOL API rejected the request (HTTP {resp.status_code}) for {resp.url}: "
-                f"{resp.text[:300]}"
+                f"UOL API rejected the request (HTTP {resp.status_code}) for {resp.url}: {resp.text[:300]}"
             )
         resp.raise_for_status()  # 5xx that slipped through -> still surface, but retry handles most

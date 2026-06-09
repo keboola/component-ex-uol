@@ -74,6 +74,7 @@ def _build_schema(
         )
     return schema
 
+
 STATE_LAST_RUN = "last_run"
 
 # VCR sanitizers: DefaultSanitizer strips the Authorization header (which
@@ -100,15 +101,12 @@ def _active_date_field(cfg: Configuration, endpoint: Endpoint) -> str | None:
 
     # incremental_load path
     if not cfg.date_field:
-        raise UserException(
-            "Incremental load requires a Date Field; choose one or switch to full load."
-        )
+        raise UserException("Incremental load requires a Date Field; choose one or switch to full load.")
 
     if cfg.date_field not in endpoint.date_fields:
         available = ", ".join(endpoint.date_fields) or "none (full load only)"
         raise UserException(
-            f"date_field '{cfg.date_field}' is not available for endpoint '{cfg.endpoint}'. "
-            f"Available: {available}."
+            f"date_field '{cfg.date_field}' is not available for endpoint '{cfg.endpoint}'. Available: {available}."
         )
 
     return cfg.date_field
@@ -177,21 +175,21 @@ class Component(ComponentBase):
             schema=schema,
             primary_key=primary_key,
             incremental=incremental,
+            has_header=True,
         )
-        # Headerless CSV: when a `schema` is passed, create_out_table_definition sets
-        # has_header=false (the schema declares the columns), so writing a header row
-        # would make Storage load it as data and fail type enforcement (e.g. "gid" → INTEGER).
+        # Write the header row and set has_header=true in the manifest: Storage skips
+        # the header line and applies the schema's column types. The header is kept for
+        # easier debugging of the produced CSVs.
         with open(table.full_path, "w", encoding="utf-8", newline="") as fh:
             writer = csv.DictWriter(fh, fieldnames=columns, extrasaction="ignore")
+            writer.writeheader()
             for row in rows:
                 writer.writerow(row)
         self.write_manifest(table)
         logging.info("Wrote %d rows to %s", len(rows), name)
 
     @staticmethod
-    def _collect_columns(
-        rows: list[dict], primary_key: list[str], known_columns: tuple[str, ...] = ()
-    ) -> list[str]:
+    def _collect_columns(rows: list[dict], primary_key: list[str], known_columns: tuple[str, ...] = ()) -> list[str]:
         ordered: list[str] = list(primary_key)
         for col in known_columns:
             if col not in ordered:
@@ -215,10 +213,7 @@ class Component(ComponentBase):
 
     @sync_action("listEndpoints")
     def list_endpoints(self) -> list[SelectElement]:
-        return [
-            SelectElement(value=n, label=n.replace("_", " ").title())
-            for n in endpoint_names()
-        ]
+        return [SelectElement(value=n, label=n.replace("_", " ").title()) for n in endpoint_names()]
 
     @sync_action("listDateFields")
     def list_date_fields(self) -> list[SelectElement]:
