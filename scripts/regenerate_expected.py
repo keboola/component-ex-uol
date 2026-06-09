@@ -68,7 +68,8 @@ def _run_replay(test_dir: Path, tmp_dir: Path) -> None:
         if hasattr(ComponentBase, "_should_vcr_replay"):
             component_base_cls = ComponentBase
             original_should_replay = ComponentBase._should_vcr_replay
-            ComponentBase._should_vcr_replay = staticmethod(lambda: False)
+            # Intentional monkeypatch of a class method for the duration of the replay.
+            ComponentBase._should_vcr_replay = staticmethod(lambda: False)  # ty: ignore[invalid-assignment]
     except ImportError:
         pass
 
@@ -95,7 +96,7 @@ def _run_replay(test_dir: Path, tmp_dir: Path) -> None:
         recorder.replay(_run_component)
     finally:
         if component_base_cls is not None:
-            component_base_cls._should_vcr_replay = original_should_replay
+            component_base_cls._should_vcr_replay = original_should_replay  # ty: ignore[invalid-assignment]
 
     # Copy actual output → expected/
     actual_tables = source_data / "out" / "tables"
@@ -115,7 +116,8 @@ def _run_replay(test_dir: Path, tmp_dir: Path) -> None:
 
 def main() -> None:
     test_cases = sorted(
-        d for d in FUNCTIONAL_DIR.iterdir()
+        d
+        for d in FUNCTIONAL_DIR.iterdir()
         if d.is_dir()
         and not d.name.startswith("_")
         and (d / "source" / "data" / "cassettes" / "requests.json").exists()

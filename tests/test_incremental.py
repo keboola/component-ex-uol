@@ -1,3 +1,5 @@
+from typing import Any
+
 import pytest
 from keboola.component.exceptions import UserException
 
@@ -8,7 +10,7 @@ from endpoints import get_endpoint
 
 def _make_cfg(**over) -> Configuration:
     """Build a minimal demo Configuration."""
-    base = {
+    base: dict[str, Any] = {
         "server_type": "demo",
         "email": "demo@example.com",
         "#api_token": "secret",
@@ -19,6 +21,7 @@ def _make_cfg(**over) -> Configuration:
 
 
 # --- _active_date_field: full_load always returns None ---
+
 
 def test_full_load_ignores_date_field():
     cfg = _make_cfg(load_type="full_load", date_field="date_from")
@@ -33,6 +36,7 @@ def test_full_load_no_date_field_returns_none():
 
 
 # --- _active_date_field: incremental_load + valid date_field ---
+
 
 def test_incremental_valid_date_field_returns_field():
     cfg = _make_cfg(load_type="incremental_load", date_field="date_from")
@@ -52,6 +56,7 @@ def test_incremental_valid_date_field_sales_invoices():
 
 # --- _active_date_field: incremental_load + missing date_field → UserException ---
 
+
 def test_incremental_no_date_field_raises():
     cfg = _make_cfg(load_type="incremental_load")
     endpoint = get_endpoint("accounting_records")
@@ -60,6 +65,7 @@ def test_incremental_no_date_field_raises():
 
 
 # --- _active_date_field: incremental_load + invalid date_field → UserException ---
+
 
 def test_incremental_invalid_date_field_raises():
     cfg = _make_cfg(load_type="incremental_load", date_field="issue_date_from")
@@ -80,6 +86,7 @@ def test_incremental_date_field_on_full_load_only_endpoint_raises():
 
 
 # --- params building (unchanged logic) ---
+
 
 def test_params_built_with_active_field_and_since():
     active_field = "date_from"
@@ -103,6 +110,7 @@ def test_params_empty_when_no_active_field():
 
 
 # --- _collect_columns: known_columns seeding ---
+
 
 def test_collect_columns_seeds_known_columns():
     rows: list[dict] = []

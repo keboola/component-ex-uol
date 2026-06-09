@@ -37,6 +37,7 @@ def test_unknown_endpoint_raises():
 
 # --- columns field: flattened names ---
 
+
 def test_sales_invoices_columns_non_empty():
     ep = get_endpoint("sales_invoices")
     assert len(ep.columns) > 0

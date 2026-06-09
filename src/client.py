@@ -91,6 +91,9 @@ class UolClient:
                 raise UserException(
                     f"UOL API returned a non-JSON response (HTTP {resp.status_code}) from {url}."
                 ) from exc
+        # Unreachable: the final attempt always returns or raises above. Present so the
+        # return type is provably `dict` for static analysis.
+        raise UserException(f"Exhausted all retries contacting {url}.")
 
     def _throttle(self) -> None:
         now = self._clock()

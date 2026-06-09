@@ -15,12 +15,16 @@ def _page(items, next_url):
 @responses.activate
 def test_iter_records_follows_next_until_absent():
     responses.add(
-        responses.GET, f"{BASE}/v1/contacts",
-        json=_page([{"contact_id": "a"}], f"{BASE}/v1/contacts?page=2&per_page=250"), status=200,
+        responses.GET,
+        f"{BASE}/v1/contacts",
+        json=_page([{"contact_id": "a"}], f"{BASE}/v1/contacts?page=2&per_page=250"),
+        status=200,
     )
     responses.add(
-        responses.GET, f"{BASE}/v1/contacts",
-        json=_page([{"contact_id": "b"}], None), status=200,
+        responses.GET,
+        f"{BASE}/v1/contacts",
+        json=_page([{"contact_id": "b"}], None),
+        status=200,
     )
     client = UolClient(BASE, "e@x.cz", "t")
     out = list(client.iter_records("v1/contacts"))
@@ -39,6 +43,6 @@ def test_iter_records_passes_extra_params():
     responses.add(responses.GET, f"{BASE}/v1/accounting_records", json=_page([], None), status=200)
     client = UolClient(BASE, "e@x.cz", "t")
     list(client.iter_records("v1/accounting_records", params={"date_from": "2026-01-01"}))
-    qs = responses.calls[0].request.url
+    qs = responses.calls[0].request.url or ""
     assert "date_from=2026-01-01" in qs
     assert "per_page=250" in qs

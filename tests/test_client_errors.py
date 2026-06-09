@@ -78,7 +78,10 @@ def test_ping_connection_error_returns_false():
 @responses.activate
 def test_400_raises_userexception():
     responses.add(
-        responses.GET, f"{BASE}/v1/ping", body='{"error":"bad request"}', status=400,
+        responses.GET,
+        f"{BASE}/v1/ping",
+        body='{"error":"bad request"}',
+        status=400,
         content_type="application/json",
     )
     client = UolClient(BASE, "e@x.cz", "t")
@@ -89,7 +92,10 @@ def test_400_raises_userexception():
 @responses.activate
 def test_422_raises_userexception():
     responses.add(
-        responses.GET, f"{BASE}/v1/ping", body='{"error":"unprocessable"}', status=422,
+        responses.GET,
+        f"{BASE}/v1/ping",
+        body='{"error":"unprocessable"}',
+        status=422,
         content_type="application/json",
     )
     client = UolClient(BASE, "e@x.cz", "t")
@@ -115,7 +121,8 @@ def test_400_does_not_raise_raw_http_error():
 def test_non_json_200_raises_userexception():
     """A 200 response with an HTML body must raise UserException, not JSONDecodeError."""
     responses.add(
-        responses.GET, f"{BASE}/v1/ping",
+        responses.GET,
+        f"{BASE}/v1/ping",
         body="<html>oops</html>",
         status=200,
         content_type="text/html",
@@ -129,7 +136,8 @@ def test_non_json_200_raises_userexception():
 def test_non_json_200_iter_records_raises_userexception():
     """iter_records with a non-JSON 200 body must also raise UserException."""
     responses.add(
-        responses.GET, f"{BASE}/v1/contacts",
+        responses.GET,
+        f"{BASE}/v1/contacts",
         body="<html>maintenance</html>",
         status=200,
         content_type="text/html",

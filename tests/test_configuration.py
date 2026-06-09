@@ -35,6 +35,7 @@ def _full_params(**over):
 
 # --- ConnectionConfig base_url assembly ---
 
+
 def test_demo_base_url_no_customer_id():
     conn = ConnectionConfig(**_conn_params())
     assert conn.base_url == "https://test.demo.uol.cz/api"
@@ -46,20 +47,19 @@ def test_demo_base_url_ignores_customer_id():
 
 
 def test_sandbox_base_url():
-    conn = ConnectionConfig(
-        server_type="sandbox", customer_id="acme", email="u@e.com", **{"#api_token": "t"}
-    )
+    conn = ConnectionConfig(server_type=ServerType.sandbox, customer_id="acme", email="u@e.com", **{"#api_token": "t"})
     assert conn.base_url == "https://acme.sandbox.uol.cz/api"
 
 
 def test_production_base_url():
     conn = ConnectionConfig(
-        server_type="production", customer_id="acme", email="u@e.com", **{"#api_token": "t"}
+        server_type=ServerType.production, customer_id="acme", email="u@e.com", **{"#api_token": "t"}
     )
     assert conn.base_url == "https://acme.ucetnictvi.uol.cz/api"
 
 
 # --- customer_id validation ---
+
 
 def test_demo_without_customer_id_is_valid():
     conn = ConnectionConfig(**_conn_params())
@@ -68,22 +68,21 @@ def test_demo_without_customer_id_is_valid():
 
 def test_sandbox_missing_customer_id_raises():
     with pytest.raises(ValidationError, match="customer_id is required"):
-        ConnectionConfig(server_type="sandbox", email="u@e.com", **{"#api_token": "t"})
+        ConnectionConfig(server_type=ServerType.sandbox, email="u@e.com", **{"#api_token": "t"})
 
 
 def test_production_missing_customer_id_raises():
     with pytest.raises(ValidationError, match="customer_id is required"):
-        ConnectionConfig(server_type="production", email="u@e.com", **{"#api_token": "t"})
+        ConnectionConfig(server_type=ServerType.production, email="u@e.com", **{"#api_token": "t"})
 
 
 def test_production_blank_customer_id_raises():
     with pytest.raises(ValidationError, match="customer_id is required"):
-        ConnectionConfig(
-            server_type="production", customer_id="   ", email="u@e.com", **{"#api_token": "t"}
-        )
+        ConnectionConfig(server_type=ServerType.production, customer_id="   ", email="u@e.com", **{"#api_token": "t"})
 
 
 # --- ConnectionConfig basic field tests ---
+
 
 def test_connection_config_parses_connection_fields():
     conn = ConnectionConfig(**_conn_params())
@@ -106,6 +105,7 @@ def test_connection_config_missing_email_raises():
 
 
 # --- Configuration ---
+
 
 def test_configuration_parses_full_params():
     cfg = Configuration(**_full_params())
@@ -143,6 +143,7 @@ def test_configuration_load_type_incremental():
 
 
 # --- resolve_since ---
+
 
 def test_resolve_since_last_run_with_watermark():
     state = {"last_run": "2026-05-01T00:00:00+00:00"}
