@@ -3,10 +3,14 @@
 from __future__ import annotations
 
 import csv
+import json
 import logging
 import re
+import tempfile
+from collections import defaultdict
 from datetime import UTC, datetime
 from functools import cached_property
+from pathlib import Path
 from typing import Any
 
 from keboola.component.base import ComponentBase, sync_action
@@ -28,6 +32,11 @@ LOGGER = logging.getLogger(__name__)
 
 _ISO_DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 _ISO_DATETIME_RE = re.compile(r"^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}")
+
+# Maximum non-null samples retained per column for type inference.
+# Keeping a bounded sample is sufficient to determine the base type while
+# avoiding unbounded memory growth on large datasets.
+_TYPE_SAMPLE_LIMIT = 1_000
 
 
 def _infer_base_type(values: list[Any]) -> BaseType:
@@ -62,13 +71,17 @@ def _infer_base_type(values: list[Any]) -> BaseType:
 
 def _build_schema(
     columns: list[str],
-    rows: list[dict[str, Any]],
+    type_samples: dict[str, list[Any]],
     primary_key: list[str],
 ) -> dict[str, ColumnDefinition]:
-    """Build a typed schema dict mapping column name → ColumnDefinition."""
+    """Build a typed schema dict mapping column name → ColumnDefinition.
+
+    ``type_samples`` maps column name to a bounded list of non-null values
+    accumulated during the streaming pass — no full row set required.
+    """
     schema: dict[str, ColumnDefinition] = {}
     for col in columns:
-        vals = [row[col] for row in rows if row.get(col) is not None]
+        vals = type_samples.get(col, [])
         base_type = _infer_base_type(vals)
         is_pk = col in primary_key
         schema[col] = ColumnDefinition(
@@ -116,12 +129,98 @@ def _active_date_field(cfg: Configuration, endpoint: Endpoint) -> str | None:
     return cfg.date_field
 
 
-def _fetch_records(client: UolClient, endpoint: Endpoint, params: dict[str, Any]) -> list[dict[str, Any]]:
-    """Fetch all records from the API and return flat parent rows."""
-    parent_rows: list[dict[str, Any]] = []
-    for record in client.iter_records(endpoint.path, params=params):
-        parent_rows.append(flatten_record(record))
-    return parent_rows
+class _SpillState:
+    """Accumulates streaming state during pass 1 (disk spill).
+
+    Attributes
+    ----------
+    spill_path:
+        Path to the NDJSON temp file written during pass 1.
+    columns:
+        Ordered list of all discovered column names (union across all rows).
+    type_samples:
+        Per-column bounded list of non-null values used for type inference.
+        At most _TYPE_SAMPLE_LIMIT entries are retained per column.
+    row_count:
+        Total number of rows written to the spill file.
+    """
+
+    def __init__(self, spill_path: str) -> None:
+        self.spill_path = spill_path
+        self.columns: list[str] = []
+        self._col_set: set[str] = set()
+        self.type_samples: dict[str, list[Any]] = defaultdict(list)
+        self.row_count: int = 0
+
+    def observe_column(self, col: str) -> None:
+        if col not in self._col_set:
+            self._col_set.add(col)
+            self.columns.append(col)
+
+    def observe_value(self, col: str, value: Any) -> None:
+        if value is not None and len(self.type_samples[col]) < _TYPE_SAMPLE_LIMIT:
+            self.type_samples[col].append(value)
+
+
+def _stream_to_spill(
+    client: UolClient,
+    endpoint: Endpoint,
+    params: dict[str, Any],
+    primary_key: list[str],
+    known_columns: tuple[str, ...],
+    spill_path: str,
+) -> _SpillState:
+    """Pass 1 — stream API records to a NDJSON spill file.
+
+    Simultaneously:
+    - Seeds column order: PK first, then known_columns, then discovered keys.
+    - Accumulates bounded type-inference samples (no full row set in memory).
+    - Writes each flattened row as one JSON line to *spill_path*.
+
+    Peak memory is O(columns * _TYPE_SAMPLE_LIMIT) + one row at a time.
+    """
+    state = _SpillState(spill_path)
+
+    # Seed ordering: PK columns first, then known static columns.
+    for col in primary_key:
+        state.observe_column(col)
+    for col in known_columns:
+        state.observe_column(col)
+
+    with open(spill_path, "w", encoding="utf-8") as fh:
+        for record in client.iter_records(endpoint.path, params=params):
+            row = flatten_record(record)
+            for col, value in row.items():
+                state.observe_column(col)
+                state.observe_value(col, value)
+            fh.write(json.dumps(row, ensure_ascii=False))
+            fh.write("\n")
+            state.row_count += 1
+
+    return state
+
+
+def _write_csv_from_spill(
+    spill_path: str,
+    columns: list[str],
+    out_path: str,
+) -> None:
+    """Pass 2 — read the NDJSON spill file and write the final CSV.
+
+    Processes one row at a time so peak memory is O(one row).
+    """
+    with (
+        open(spill_path, encoding="utf-8") as spill_fh,
+        open(out_path, "w", encoding="utf-8", newline="") as csv_fh,
+    ):
+        writer = csv.DictWriter(csv_fh, fieldnames=columns, extrasaction="ignore")
+        writer.writeheader()
+        for line in spill_fh:
+            line = line.strip()
+            if not line:
+                continue
+            row = json.loads(line)
+            writer.writerow(row)
 
 
 class Component(ComponentBase):
@@ -157,17 +256,13 @@ class Component(ComponentBase):
 
         LOGGER.info("Extracting %s (date_field=%s, since=%s)", endpoint.name, active_field, since)
 
-        parent_rows = _fetch_records(self._client, endpoint, params)
-
-        LOGGER.info("Fetched %d %s records", len(parent_rows), endpoint.name)
-
         self._write_table(
             endpoint.name,
-            parent_rows,
             endpoint.primary_key,
             incremental,
             endpoint.columns,
             cfg.columns,
+            params,
         )
 
         if incremental:
@@ -183,51 +278,97 @@ class Component(ComponentBase):
     def _write_table(
         self,
         name: str,
-        rows: list[dict[str, Any]],
         primary_key: list[str],
         incremental: bool,
         known_columns: tuple[str, ...] = (),
         selected_columns: list[str] | None = None,
+        params: dict[str, Any] | None = None,
     ) -> None:
+        """Two-pass disk-spill write.
+
+        Pass 1: stream API records to a temp NDJSON file; collect column union
+                and bounded type-inference samples.
+        Pass 2: read the spill file row-by-row and write the final CSV with the
+                complete header (known only after pass 1 finishes).
+
+        Peak memory is O(columns * _TYPE_SAMPLE_LIMIT) + one row at a time —
+        the full table is never held in RAM.
+        """
         # Guard: if there is no primary key, force full-overwrite (incremental upsert requires a PK)
         if not primary_key:
             incremental = False
-        columns = self._collect_columns(rows, primary_key, known_columns)
-        if selected_columns:
-            # Restrict output to the user's selection, but always keep the primary key
-            # (required for the table key and incremental upsert). Order is preserved.
-            keep = set(selected_columns) | set(primary_key)
-            columns = [c for c in columns if c in keep]
-        schema = _build_schema(columns, rows, primary_key)
-        table = self.create_out_table_definition(
-            f"{name}.csv",
-            schema=schema,
-            primary_key=primary_key,
-            incremental=incremental,
-            has_header=True,
-        )
-        # Write the header row and set has_header=true in the manifest: Storage skips
-        # the header line and applies the schema's column types. The header is kept for
-        # easier debugging of the produced CSVs.
-        with open(table.full_path, "w", encoding="utf-8", newline="") as fh:
-            writer = csv.DictWriter(fh, fieldnames=columns, extrasaction="ignore")
-            writer.writeheader()
-            for row in rows:
-                writer.writerow(row)
-        self.write_manifest(table)
-        LOGGER.info("Wrote %d rows to %s", len(rows), name)
+
+        with tempfile.NamedTemporaryFile(
+            mode="w",
+            suffix=".ndjson",
+            delete=False,
+            encoding="utf-8",
+        ) as tmp:
+            spill_path = tmp.name
+
+        try:
+            # --- Pass 1: stream → spill ---
+            state = _stream_to_spill(
+                self._client,
+                self._get_endpoint_by_name(name),
+                params or {},
+                primary_key,
+                known_columns,
+                spill_path,
+            )
+
+            columns = state.columns
+            if selected_columns:
+                keep = set(selected_columns) | set(primary_key)
+                columns = [c for c in columns if c in keep]
+
+            schema = _build_schema(columns, state.type_samples, primary_key)
+            table = self.create_out_table_definition(
+                f"{name}.csv",
+                schema=schema,
+                primary_key=primary_key,
+                incremental=incremental,
+                has_header=True,
+            )
+
+            # --- Pass 2: spill → CSV ---
+            _write_csv_from_spill(spill_path, columns, table.full_path)
+
+            self.write_manifest(table)
+            LOGGER.info("Wrote %d rows to %s", state.row_count, name)
+
+        finally:
+            # Always remove the temp file, even on error.
+            try:
+                Path(spill_path).unlink(missing_ok=True)
+            except OSError:
+                pass
+
+    def _get_endpoint_by_name(self, name: str) -> Endpoint:
+        """Return the Endpoint for *name*; raises UserException if not found."""
+        try:
+            return get_endpoint(name)
+        except KeyError:
+            raise UserException(f"Unknown endpoint '{name}'. Valid endpoints: {', '.join(endpoint_names())}.") from None
 
     @staticmethod
     def _collect_columns(
         rows: list[dict[str, Any]], primary_key: list[str], known_columns: tuple[str, ...] = ()
     ) -> list[str]:
+        """Return ordered column list from an in-memory row set.
+
+        Retained for unit tests and backward-compatibility; the run() path now
+        uses _stream_to_spill which builds the same ordering incrementally.
+        """
         ordered: list[str] = list(primary_key)
         for col in known_columns:
             if col not in ordered:
                 ordered.append(col)
+        seen = set(ordered)
         for row in rows:
             for key in row:
-                if key not in ordered:
+                if key not in seen:
+                    seen.add(key)
                     ordered.append(key)
         return ordered
 

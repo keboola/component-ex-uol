@@ -76,6 +76,18 @@ class TestInferBaseType(unittest.TestCase):
         assert _infer_base_type(["hello", "world"]) == BaseType.string()
 
 
+def _rows_to_type_samples(rows: list[dict]) -> dict:
+    """Convert a list of row dicts into the type_samples format expected by _build_schema."""
+    from collections import defaultdict
+
+    samples: dict = defaultdict(list)
+    for row in rows:
+        for col, value in row.items():
+            if value is not None:
+                samples[col].append(value)
+    return dict(samples)
+
+
 class TestBuildSchema(unittest.TestCase):
     """Integration-level test: _build_schema produces the right ColumnDefinition types."""
 
@@ -90,8 +102,8 @@ class TestBuildSchema(unittest.TestCase):
 
     def test_schema_types_for_sample_row(self) -> None:
         columns = list(self.SAMPLE_ROW.keys())
-        rows = [self.SAMPLE_ROW]
-        schema = _build_schema(columns, rows, primary_key=[])
+        type_samples = _rows_to_type_samples([self.SAMPLE_ROW])
+        schema = _build_schema(columns, type_samples, primary_key=[])
 
         assert schema["amount"].data_types == BaseType.numeric(), "amount should be NUMERIC"
         assert schema["hidden"].data_types == BaseType.boolean(), "hidden should be BOOLEAN"
@@ -102,8 +114,8 @@ class TestBuildSchema(unittest.TestCase):
 
     def test_primary_key_columns_not_nullable(self) -> None:
         columns = ["id", "name"]
-        rows = [{"id": 1, "name": "foo"}]
-        schema = _build_schema(columns, rows, primary_key=["id"])
+        type_samples = _rows_to_type_samples([{"id": 1, "name": "foo"}])
+        schema = _build_schema(columns, type_samples, primary_key=["id"])
 
         assert schema["id"].primary_key is True
         assert schema["id"].nullable is False
@@ -112,14 +124,15 @@ class TestBuildSchema(unittest.TestCase):
 
     def test_empty_rows_all_string(self) -> None:
         columns = ["a", "b"]
-        schema = _build_schema(columns, rows=[], primary_key=[])
+        schema = _build_schema(columns, type_samples={}, primary_key=[])
         assert schema["a"].data_types == BaseType.string()
         assert schema["b"].data_types == BaseType.string()
 
     def test_null_values_skipped_infer_remaining(self) -> None:
         # Column 'x' has one null row and one integer row → should infer INTEGER
-        rows = [{"x": None}, {"x": 5}]
-        schema = _build_schema(["x"], rows, primary_key=[])
+        # null values are excluded from type_samples, so only the integer 5 is present
+        type_samples = _rows_to_type_samples([{"x": None}, {"x": 5}])
+        schema = _build_schema(["x"], type_samples, primary_key=[])
         assert schema["x"].data_types == BaseType.integer()
 
 

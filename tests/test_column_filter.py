@@ -2,7 +2,7 @@
 
 Covers:
 a) Configuration.columns field.
-b) Component._write_table column filtering.
+b) Component._write_table column filtering (via streaming path).
 c) UolClient.sample_record.
 d) Component.list_columns sync action.
 """
@@ -20,6 +20,7 @@ import responses
 from client import UolClient
 from component import Component
 from configuration import Configuration
+from endpoints import Endpoint
 
 BASE = "https://test.demo.uol.cz/api"
 
@@ -68,6 +69,48 @@ def _read_csv(tmpdir: str, table_name: str) -> tuple[list[str], list[dict]]:
     return fieldnames, rows
 
 
+def _fake_endpoint(name: str = "out", pk: list[str] | None = None, known: tuple[str, ...] = ()) -> Endpoint:
+    """Build a minimal Endpoint fixture for unit tests."""
+    return Endpoint(name=name, path=f"v1/{name}", primary_key=pk or ["id"], columns=known)
+
+
+def _write_and_read(
+    selected_columns: list[str] | None,
+    rows: list[dict],
+    pk: tuple[str, ...] = ("id",),
+    known: tuple[str, ...] = (),
+    table_name: str = "out",
+) -> tuple[list[str], list[dict]]:
+    """Exercise _write_table via the streaming path with a mocked client.
+
+    The client's iter_records is patched to yield the raw rows directly
+    (flatten_record is a no-op when the row is already flat).
+    """
+    comp, tmpdir = _make_component()
+    fake_ep = _fake_endpoint(table_name, list(pk), known)
+    mock_client = MagicMock()
+    mock_client.iter_records.return_value = iter(rows)
+    # Wire the cached_property so _write_table picks up our mock client.
+    comp.__dict__["_client"] = mock_client
+
+    with patch("component.get_endpoint", return_value=fake_ep):
+        comp._write_table(
+            table_name,
+            list(pk),
+            False,
+            known,
+            selected_columns,
+            {},
+        )
+
+    path = os.path.join(tmpdir, "out/tables", f"{table_name}.csv")
+    with open(path, newline="", encoding="utf-8") as fh:
+        reader = csv.DictReader(fh)
+        data = list(reader)
+        header = list(reader.fieldnames or [])
+    return header, data
+
+
 # ---------------------------------------------------------------------------
 # a) Configuration.columns
 # ---------------------------------------------------------------------------
@@ -89,19 +132,8 @@ def test_configuration_columns_single_item():
 
 
 # ---------------------------------------------------------------------------
-# b) _write_table column filtering
+# b) _write_table column filtering (streaming path)
 # ---------------------------------------------------------------------------
-
-
-def _write_and_read(selected_columns, rows, pk=("id",), known=()):
-    comp, tmpdir = _make_component()
-    comp._write_table("out", rows, list(pk), False, known, selected_columns)
-    path = os.path.join(tmpdir, "out/tables/out.csv")
-    with open(path, newline="", encoding="utf-8") as fh:
-        reader = csv.DictReader(fh)
-        data = list(reader)
-        header = list(reader.fieldnames or [])
-    return header, data
 
 
 def test_write_table_filter_restricts_columns():
@@ -121,11 +153,18 @@ def test_write_table_filter_pk_always_present():
 
 
 def test_write_table_filter_column_order_from_collect():
-    """_collect_columns order is PK first, then known, then discovered; filter preserves that."""
+    """Column order is PK first, then known, then discovered; filter preserves that."""
     rows = [{"id": "1", "b": "2", "c": "3", "a": "4"}]
     known = ("id", "b", "c", "a")
     comp, tmpdir = _make_component()
-    comp._write_table("out", rows, ["id"], False, known, ["b", "a"])
+    fake_ep = _fake_endpoint("out", ["id"], known)
+    mock_client = MagicMock()
+    mock_client.iter_records.return_value = iter(rows)
+    comp.__dict__["_client"] = mock_client
+
+    with patch("component.get_endpoint", return_value=fake_ep):
+        comp._write_table("out", ["id"], False, known, ["b", "a"], {})
+
     path = os.path.join(tmpdir, "out/tables/out.csv")
     with open(path, newline="", encoding="utf-8") as fh:
         first_line = fh.readline().rstrip("\r\n")
