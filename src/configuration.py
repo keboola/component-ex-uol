@@ -11,6 +11,7 @@ ConnectionConfig holds only connection fields and is used by sync actions
 from __future__ import annotations
 
 from enum import StrEnum
+from typing import Any
 
 import dateparser
 from keboola.component.exceptions import UserException
@@ -65,7 +66,7 @@ class Configuration(ConnectionConfig):
     columns: list[str] = Field(default_factory=list)
 
 
-def resolve_since(date_from: str | None, state: dict) -> str | None:
+def resolve_since(date_from: str | None, state: dict[str, Any]) -> str | None:
     """Resolve the lower-bound 'since' value for incremental filtering.
 
     - None/empty or 'last_run' (case-insensitive) -> the stored state watermark

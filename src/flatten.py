@@ -9,11 +9,10 @@
 from __future__ import annotations
 
 import json
+from typing import Any
 
-from endpoints import Endpoint
 
-
-def _strip_meta(value):
+def _strip_meta(value: Any) -> Any:
     """Recursively drop `_meta` keys from dicts/lists (used for array JSON columns)."""
     if isinstance(value, dict):
         return {k: _strip_meta(v) for k, v in value.items() if k != "_meta"}
@@ -22,7 +21,7 @@ def _strip_meta(value):
     return value
 
 
-def _flatten_into(prefix: str, value, out: dict) -> None:
+def _flatten_into(prefix: str, value: Any, out: dict[str, Any]) -> None:
     if isinstance(value, dict):
         for k, v in value.items():
             if k == "_meta":
@@ -34,8 +33,8 @@ def _flatten_into(prefix: str, value, out: dict) -> None:
         out[prefix] = value
 
 
-def flatten_record(record: dict, ep: Endpoint) -> dict:  # noqa: ARG001
-    out: dict = {}
+def flatten_record(record: dict[str, Any]) -> dict[str, Any]:
+    out: dict[str, Any] = {}
     for key, value in record.items():
         if key == "_meta":
             continue

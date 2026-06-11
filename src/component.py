@@ -6,6 +6,8 @@ import csv
 import logging
 import re
 from datetime import UTC, datetime
+from functools import cached_property
+from typing import Any
 
 from keboola.component.base import ComponentBase, sync_action
 from keboola.component.dao import BaseType, ColumnDefinition
@@ -18,6 +20,8 @@ from configuration import Configuration, ConnectionConfig, LoadType, resolve_sin
 from endpoints import Endpoint, endpoint_names, get_endpoint
 from flatten import flatten_record
 
+LOGGER = logging.getLogger(__name__)
+
 # ---------------------------------------------------------------------------
 # Type-inference helpers
 # ---------------------------------------------------------------------------
@@ -26,7 +30,7 @@ _ISO_DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 _ISO_DATETIME_RE = re.compile(r"^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}")
 
 
-def _infer_base_type(values: list) -> BaseType:
+def _infer_base_type(values: list[Any]) -> BaseType:
     """Infer a Keboola BaseType from a column's non-null Python values.
 
     Rules (conservative — STRING fallback on any ambiguity):
@@ -58,7 +62,7 @@ def _infer_base_type(values: list) -> BaseType:
 
 def _build_schema(
     columns: list[str],
-    rows: list[dict],
+    rows: list[dict[str, Any]],
     primary_key: list[str],
 ) -> dict[str, ColumnDefinition]:
     """Build a typed schema dict mapping column name → ColumnDefinition."""
@@ -112,15 +116,29 @@ def _active_date_field(cfg: Configuration, endpoint: Endpoint) -> str | None:
     return cfg.date_field
 
 
-def _fetch_records(client: UolClient, endpoint: Endpoint, params: dict) -> list[dict]:
+def _fetch_records(client: UolClient, endpoint: Endpoint, params: dict[str, Any]) -> list[dict[str, Any]]:
     """Fetch all records from the API and return flat parent rows."""
-    parent_rows: list[dict] = []
+    parent_rows: list[dict[str, Any]] = []
     for record in client.iter_records(endpoint.path, params=params):
-        parent_rows.append(flatten_record(record, endpoint))
+        parent_rows.append(flatten_record(record))
     return parent_rows
 
 
 class Component(ComponentBase):
+    @cached_property
+    def _connection_config(self) -> ConnectionConfig:
+        """Validated connection-only config, shared by run() and sync actions."""
+        try:
+            return ConnectionConfig(**self.configuration.parameters)
+        except Exception as exc:
+            raise UserException(f"Invalid configuration: {exc}") from exc
+
+    @cached_property
+    def _client(self) -> UolClient:
+        """Build the API client once per invocation from the connection config."""
+        conn = self._connection_config
+        return UolClient(conn.base_url, conn.email, conn.api_token)
+
     def run(self) -> None:
         cfg = self._get_config()
         try:
@@ -133,17 +151,15 @@ class Component(ComponentBase):
         active_field = _active_date_field(cfg, endpoint)
         incremental = active_field is not None
 
-        client = UolClient(cfg.base_url, cfg.email, cfg.api_token)
-
         run_started_at = datetime.now(UTC)
         since = resolve_since(cfg.date_from, self.get_state_file() or {}) if incremental else None
         params = {active_field: since} if (active_field and since) else {}
 
-        logging.info("Extracting %s (date_field=%s, since=%s)", endpoint.name, active_field, since)
+        LOGGER.info("Extracting %s (date_field=%s, since=%s)", endpoint.name, active_field, since)
 
-        parent_rows = _fetch_records(client, endpoint, params)
+        parent_rows = _fetch_records(self._client, endpoint, params)
 
-        logging.info("Fetched %d %s records", len(parent_rows), endpoint.name)
+        LOGGER.info("Fetched %d %s records", len(parent_rows), endpoint.name)
 
         self._write_table(
             endpoint.name,
@@ -156,18 +172,18 @@ class Component(ComponentBase):
 
         if incremental:
             self.write_state_file({STATE_LAST_RUN: run_started_at.isoformat()})
-            logging.info("Saved incremental watermark last_run=%s", run_started_at.isoformat())
+            LOGGER.info("Saved incremental watermark last_run=%s", run_started_at.isoformat())
 
     def _get_config(self) -> Configuration:
         try:
             return Configuration(**self.configuration.parameters)
-        except Exception as exc:  # noqa: BLE001
+        except Exception as exc:
             raise UserException(f"Invalid configuration: {exc}") from exc
 
     def _write_table(
         self,
         name: str,
-        rows: list[dict],
+        rows: list[dict[str, Any]],
         primary_key: list[str],
         incremental: bool,
         known_columns: tuple[str, ...] = (),
@@ -199,10 +215,12 @@ class Component(ComponentBase):
             for row in rows:
                 writer.writerow(row)
         self.write_manifest(table)
-        logging.info("Wrote %d rows to %s", len(rows), name)
+        LOGGER.info("Wrote %d rows to %s", len(rows), name)
 
     @staticmethod
-    def _collect_columns(rows: list[dict], primary_key: list[str], known_columns: tuple[str, ...] = ()) -> list[str]:
+    def _collect_columns(
+        rows: list[dict[str, Any]], primary_key: list[str], known_columns: tuple[str, ...] = ()
+    ) -> list[str]:
         ordered: list[str] = list(primary_key)
         for col in known_columns:
             if col not in ordered:
@@ -215,12 +233,7 @@ class Component(ComponentBase):
 
     @sync_action("testConnection")
     def test_connection(self) -> ValidationResult:
-        try:
-            conn = ConnectionConfig(**self.configuration.parameters)
-        except Exception as exc:  # noqa: BLE001
-            raise UserException(f"Invalid configuration: {exc}") from exc
-        client = UolClient(conn.base_url, conn.email, conn.api_token)
-        if not client.ping():
+        if not self._client.ping():
             raise UserException("Could not authenticate against UOL (/v1/ping failed).")
         return ValidationResult("Connection established.")
 
@@ -254,17 +267,16 @@ class Component(ComponentBase):
 
         # Augment with a live 1-record sample so endpoints without a static registry are
         # covered and the listed names match the exact flattened output columns. A sync
-        # action must never hard-fail the UI, so any error here is swallowed.
+        # action must never hard-fail the UI, so any error here is swallowed — but logged
+        # at debug level so a bad token / unreachable API is still diagnosable.
         try:
-            conn = ConnectionConfig(**self.configuration.parameters)
-            client = UolClient(conn.base_url, conn.email, conn.api_token)
-            sample = client.sample_record(endpoint.path)
+            sample = self._client.sample_record(endpoint.path)
             if sample:
-                for col in flatten_record(sample, endpoint):
+                for col in flatten_record(sample):
                     if col not in names:
                         names.append(col)
-        except Exception:  # noqa: BLE001
-            pass
+        except Exception as exc:
+            LOGGER.debug("listColumns: could not sample %s, returning registry columns only: %s", endpoint.path, exc)
 
         return [SelectElement(value=c, label=c) for c in names]
 
@@ -275,6 +287,6 @@ if __name__ == "__main__":
     except UserException as exc:
         logging.exception(exc)
         exit(1)
-    except Exception as exc:  # noqa: BLE001
+    except Exception as exc:
         logging.exception(exc)
         exit(2)

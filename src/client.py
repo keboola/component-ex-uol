@@ -5,6 +5,7 @@ from __future__ import annotations
 import time
 from collections import deque
 from collections.abc import Iterator
+from typing import Any
 
 import requests
 from keboola.component.exceptions import UserException
@@ -44,7 +45,7 @@ class UolClient:
             return False
         return resp.status_code == 200
 
-    def iter_records(self, path: str, params: dict | None = None) -> Iterator[dict]:
+    def iter_records(self, path: str, params: dict[str, Any] | None = None) -> Iterator[dict[str, Any]]:
         query = dict(params or {})
         query.setdefault("per_page", 250)
         query["page"] = 1
@@ -57,16 +58,16 @@ class UolClient:
                 break
             query["page"] += 1
 
-    def ping_request(self) -> dict:
+    def ping_request(self) -> dict[str, Any]:
         return self._request("GET", "v1/ping")
 
-    def sample_record(self, path: str) -> dict | None:
+    def sample_record(self, path: str) -> dict[str, Any] | None:
         """Fetch a single record (cheaply) to derive available columns. None if empty."""
         data = self._request("GET", path, params={"per_page": 1, "page": 1})
         items = data.get("items", [])
         return items[0] if items else None
 
-    def _request(self, method: str, path: str, params: dict | None = None) -> dict:
+    def _request(self, method: str, path: str, params: dict[str, Any] | None = None) -> dict[str, Any]:
         url = f"{self.base_url}/{path.lstrip('/')}"
         for attempt in range(self._max_retries + 1):
             self._throttle()
