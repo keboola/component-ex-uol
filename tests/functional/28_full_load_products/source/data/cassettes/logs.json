@@ -4,19 +4,13 @@
   "logs": [
     {
       "level": "INFO",
-      "logger": "root",
+      "logger": "__main__",
       "message": "Extracting products (date_field=None, since=None)",
       "timestamp": "2026-06-08T19:09:41.000Z"
     },
     {
       "level": "INFO",
-      "logger": "root",
-      "message": "Fetched 73 products records",
-      "timestamp": "2026-06-08T19:09:41.000Z"
-    },
-    {
-      "level": "INFO",
-      "logger": "root",
+      "logger": "__main__",
       "message": "Wrote 73 rows to products",
       "timestamp": "2026-06-08T19:09:41.000Z"
     }

@@ -4,19 +4,13 @@
   "logs": [
     {
       "level": "INFO",
-      "logger": "root",
+      "logger": "__main__",
       "message": "Extracting predefined_texts (date_field=None, since=None)",
       "timestamp": "2026-06-08T19:09:41.000Z"
     },
     {
       "level": "INFO",
-      "logger": "root",
-      "message": "Fetched 5 predefined_texts records",
-      "timestamp": "2026-06-08T19:09:41.000Z"
-    },
-    {
-      "level": "INFO",
-      "logger": "root",
+      "logger": "__main__",
       "message": "Wrote 5 rows to predefined_texts",
       "timestamp": "2026-06-08T19:09:41.000Z"
     }

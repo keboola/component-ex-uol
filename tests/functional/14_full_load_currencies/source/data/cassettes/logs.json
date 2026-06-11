@@ -4,19 +4,13 @@
   "logs": [
     {
       "level": "INFO",
-      "logger": "root",
+      "logger": "__main__",
       "message": "Extracting currencies (date_field=None, since=None)",
       "timestamp": "2026-06-08T19:09:41.000Z"
     },
     {
       "level": "INFO",
-      "logger": "root",
-      "message": "Fetched 155 currencies records",
-      "timestamp": "2026-06-08T19:09:41.000Z"
-    },
-    {
-      "level": "INFO",
-      "logger": "root",
+      "logger": "__main__",
       "message": "Wrote 155 rows to currencies",
       "timestamp": "2026-06-08T19:09:41.000Z"
     }
