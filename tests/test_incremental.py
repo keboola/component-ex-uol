@@ -1,11 +1,14 @@
+import tempfile
+from pathlib import Path
 from typing import Any
+from unittest.mock import MagicMock
 
 import pytest
 from keboola.component.exceptions import UserException
 
-from component import Component, _active_date_field
+from component import _active_date_field, _stream_to_spill
 from configuration import Configuration
-from endpoints import get_endpoint
+from endpoints import Endpoint, get_endpoint
 
 
 def _make_cfg(**over) -> Configuration:
@@ -109,40 +112,57 @@ def test_params_empty_when_no_active_field():
     assert params == {}
 
 
-# --- _collect_columns: known_columns seeding ---
+# --- _stream_to_spill: column ordering (replaces _collect_columns tests) ---
 
 
-def test_collect_columns_seeds_known_columns():
-    rows: list[dict] = []
+def _fake_endpoint(name: str = "items", pk: list[str] | None = None, known: tuple[str, ...] = ()) -> Endpoint:
+    return Endpoint(name=name, path=f"v1/{name}", primary_key=pk or ["id"], columns=known)
+
+
+def _run_spill(records: list[dict], pk: list[str], known: tuple[str, ...]) -> list[str]:
+    """Helper: run _stream_to_spill and return the resulting column list."""
+    client = MagicMock()
+    client.iter_records.return_value = iter(records)
+    endpoint = _fake_endpoint(pk=pk, known=known)
+    with tempfile.NamedTemporaryFile(mode="w", suffix=".ndjson", delete=False) as tmp:
+        spill_path = tmp.name
+    try:
+        state = _stream_to_spill(client, endpoint, {}, pk, known, spill_path)
+        return state.columns
+    finally:
+        Path(spill_path).unlink(missing_ok=True)
+
+
+def test_spill_column_order_seeds_known_columns():
+    """PK and known_columns seed the ordering before any rows are seen."""
     pk = ["gid"]
     known = ("gid", "status", "total_amount")
-    cols = Component._collect_columns(rows, pk, known)
-    # PK first, then known (gid already there), then discovered
+    cols = _run_spill([], pk, known)
     assert cols[0] == "gid"
     assert "status" in cols
     assert "total_amount" in cols
 
 
-def test_collect_columns_no_dupes_from_known_and_pk():
-    rows = [{"gid": "1", "extra": "x"}]
+def test_spill_column_order_no_dupes_from_known_and_pk():
+    """gid appears in both pk and known — must appear exactly once."""
     pk = ["gid"]
     known = ("gid", "status")
-    cols = Component._collect_columns(rows, pk, known)
+    cols = _run_spill([{"gid": "1", "extra": "x"}], pk, known)
     assert cols.count("gid") == 1
     assert "extra" in cols
 
 
-def test_collect_columns_empty_rows_uses_known():
+def test_spill_column_order_empty_rows_uses_known():
+    """With zero rows the column list equals pk + known only."""
     pk = ["invoice_id"]
     known = ("invoice_id", "total_amount", "status")
-    cols = Component._collect_columns([], pk, known)
+    cols = _run_spill([], pk, known)
     assert cols == ["invoice_id", "total_amount", "status"]
 
 
-def test_collect_columns_discovered_appended_after_known():
-    rows = [{"gid": "1", "new_field": "v"}]
+def test_spill_column_order_discovered_appended_after_known():
+    """Columns discovered in rows come after known_columns."""
     pk = ["gid"]
     known = ("gid", "status")
-    cols = Component._collect_columns(rows, pk, known)
-    # known fields come before discovered
+    cols = _run_spill([{"gid": "1", "new_field": "v"}], pk, known)
     assert cols.index("status") < cols.index("new_field")

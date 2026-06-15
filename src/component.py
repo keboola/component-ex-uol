@@ -351,27 +351,6 @@ class Component(ComponentBase):
         except KeyError:
             raise UserException(f"Unknown endpoint '{name}'. Valid endpoints: {', '.join(endpoint_names())}.") from None
 
-    @staticmethod
-    def _collect_columns(
-        rows: list[dict[str, Any]], primary_key: list[str], known_columns: tuple[str, ...] = ()
-    ) -> list[str]:
-        """Return ordered column list from an in-memory row set.
-
-        Retained for unit tests and backward-compatibility; the run() path now
-        uses _stream_to_spill which builds the same ordering incrementally.
-        """
-        ordered: list[str] = list(primary_key)
-        for col in known_columns:
-            if col not in ordered:
-                ordered.append(col)
-        seen = set(ordered)
-        for row in rows:
-            for key in row:
-                if key not in seen:
-                    seen.add(key)
-                    ordered.append(key)
-        return ordered
-
     @sync_action("testConnection")
     def test_connection(self) -> ValidationResult:
         if not self._client.ping():
