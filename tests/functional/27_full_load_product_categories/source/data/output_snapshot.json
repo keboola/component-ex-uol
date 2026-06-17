@@ -1,0 +1,32 @@
+{
+  "files": {},
+  "hash_algorithm": "sha256",
+  "tables": {
+    "product_categories.csv": {
+      "columns": [
+        "material",
+        "2004-07-29T21:01:38+02:00",
+        "2004-07-29T21:01:46+02:00",
+        "uoladm",
+        "uoladm",
+        "False",
+        "Materi\u00e1l",
+        "",
+        "False",
+        "locked",
+        "True",
+        "goods"
+      ],
+      "hash": "sha256:69ad8957761e946018458dd533b058d3cc667a7df082cc72e873d390f25613dd",
+      "row_count": 33,
+      "size_bytes": 4863
+    },
+    "product_categories.csv.manifest": {
+      "columns": null,
+      "hash": "sha256:08485ca783c104ed862f36e0dbf02d297ef99fd80df87a298307ec4cf9827230",
+      "row_count": null,
+      "size_bytes": 2028
+    }
+  },
+  "version": "1.0"
+}

@@ -1,0 +1,46 @@
+{
+  "files": {},
+  "hash_algorithm": "sha256",
+  "tables": {
+    "products.csv": {
+      "columns": [
+        "konzultace",
+        "2017-08-04T15:51:26+02:00",
+        "2017-08-04T15:51:26+02:00",
+        "prosteckyo",
+        "prosteckyo",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "valid",
+        "False",
+        "sluzba",
+        "konzultace",
+        "",
+        "False",
+        "",
+        "j",
+        "Z",
+        "",
+        "",
+        "",
+        "False",
+        ""
+      ],
+      "hash": "sha256:cc86d6e625c5d6e194863cec1d8d4e2f25fdb12109afb6c50e62d703dd57d12f",
+      "row_count": 73,
+      "size_bytes": 10981
+    },
+    "products.csv.manifest": {
+      "columns": null,
+      "hash": "sha256:45fffddcd67e7e6b0e0e2173d64007a278e023236f5f7d2db1779074f868c384",
+      "row_count": null,
+      "size_bytes": 4087
+    }
+  },
+  "version": "1.0"
+}

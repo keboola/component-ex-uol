@@ -1,0 +1,10 @@
+{
+  "action": "run",
+  "parameters": {
+    "server_type": "demo",
+    "email": "DUMMY_EMAIL",
+    "#api_token": "DUMMY_TOKEN",
+    "endpoint": "predefined_texts",
+    "load_type": "full_load"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "files": {},
+  "hash_algorithm": "sha256",
+  "tables": {
+    "petty_cash_disburstments.csv": {
+      "columns": [
+        "2817076",
+        "2026-02-10T12:24:59+01:00",
+        "2026-02-10T12:24:59+01:00",
+        "robot",
+        "bazarovad",
+        "[{\"created_at\": \"2026-02-10T12:24:59+01:00\", \"updated_at\": \"2026-02-10T12:24:59+01:00\", \"creator\": {\"user_id\": \"robot\"}, \"modifier\": {\"user_id\": \"robot\"}, \"external_id\": null, \"rule\": {\"rule_id\": \"-faktura\"}, \"variable_symbol\": 36932652, \"price\": \"97.0\", \"description\": \"\u00dahrada faktury 2024000017\", \"department\": {\"department_id\": null}, \"contract\": {\"contract_id\": null}, \"linked_doc_number\": 2024000017}]",
+        "2024000006",
+        "2024-11-22",
+        "2024-11-22",
+        "\u00dahrada faktury",
+        "False",
+        "p1_czk",
+        "brno",
+        "97.0",
+        "ceske_drahy_as",
+        "",
+        "False",
+        "True",
+        "valid"
+      ],
+      "hash": "sha256:211f1b079dd1ffea21d472995ec1706f1fdf562ddc8a51da52b124fba7b7b0ad",
+      "row_count": 140,
+      "size_bytes": 87891
+    },
+    "petty_cash_disburstments.csv.manifest": {
+      "columns": null,
+      "hash": "sha256:e91650afd0b8f0ddbf3e818b030cfc1a70b6d3b7af0d83f8c4b28dbe2531656a",
+      "row_count": null,
+      "size_bytes": 3031
+    }
+  },
+  "version": "1.0"
+}

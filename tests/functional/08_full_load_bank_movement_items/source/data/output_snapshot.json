@@ -1,0 +1,40 @@
+{
+  "files": {},
+  "hash_algorithm": "sha256",
+  "tables": {
+    "bank_movement_items.csv": {
+      "columns": [
+        "1",
+        "2178.0",
+        "True",
+        "",
+        "3686492022",
+        "",
+        "",
+        "2014-09-29",
+        "2014-10-21T12:54:07+02:00",
+        "2014-10-21T12:54:25+02:00",
+        "",
+        "robot",
+        "jakes",
+        "-faktura",
+        "cs_czk",
+        "vodafone_czech_republi",
+        "",
+        "",
+        "2014000004",
+        ""
+      ],
+      "hash": "sha256:df1b41cdf95ad0bf1b7d68c31a5fb95387153afaef4a1ee787acc9eb1dbf779d",
+      "row_count": 54,
+      "size_bytes": 7249
+    },
+    "bank_movement_items.csv.manifest": {
+      "columns": null,
+      "hash": "sha256:1c26f008064cfa98c5bad454911a2963ff2cc1fcae18152bc906f61370b7bb1d",
+      "row_count": null,
+      "size_bytes": 3258
+    }
+  },
+  "version": "1.0"
+}

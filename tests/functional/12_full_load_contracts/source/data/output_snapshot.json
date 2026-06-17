@@ -1,0 +1,19 @@
+{
+  "files": {},
+  "hash_algorithm": "sha256",
+  "tables": {
+    "contracts.csv": {
+      "columns": [],
+      "hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "row_count": 0,
+      "size_bytes": 0
+    },
+    "contracts.csv.manifest": {
+      "columns": null,
+      "hash": "sha256:28358cdb5c897e3d7d1b67d2c12f9b4b5a521994b7a3e3b8888cdb4db436403d",
+      "row_count": null,
+      "size_bytes": 313
+    }
+  },
+  "version": "1.0"
+}

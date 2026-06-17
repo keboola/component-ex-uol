@@ -1,0 +1,41 @@
+{
+  "files": {},
+  "hash_algorithm": "sha256",
+  "tables": {
+    "retails.csv": {
+      "columns": [
+        "2014000001",
+        "2014-10-21T13:18:52+02:00",
+        "2014-10-21T14:13:11+02:00",
+        "jakes",
+        "jakes",
+        "",
+        "",
+        "True",
+        "",
+        "",
+        "",
+        "0.0",
+        "",
+        "confirmed",
+        "3 mal\u00e9 obr\u00e1zky",
+        "cash",
+        "0.0",
+        "sidlo",
+        "600.0",
+        "True",
+        "[{\"created_at\": \"2014-10-21T13:54:49+02:00\", \"updated_at\": \"2014-10-21T13:54:49+02:00\", \"creator\": {\"user_id\": \"jakes\"}, \"modifier\": {\"user_id\": \"jakes\"}, \"batch\": null, \"description\": \"Mal\u00fd obr\u00e1zek\", \"percent_discount\": 0.0, \"expiration_date\": null, \"external_id\": null, \"status\": \"valid\", \"retail_id\": 2014000001, \"product\": {\"product_id\": \"obraz-maly\"}, \"quantity\": \"3.0\", \"serial_numbers\": null, \"department\": {\"department_id\": \"sidlo\"}, \"unit_price\": \"165.28\", \"unit_price_vat_inclusive\": \"200.0\", \"vat_calculation_method\": \"from_above\", \"vat_rate\": 21.0}]"
+      ],
+      "hash": "sha256:5577473ab04db0be4a5766f1657a4a79a536651c45d418aa84fbd093fa426e94",
+      "row_count": 5,
+      "size_bytes": 5193
+    },
+    "retails.csv.manifest": {
+      "columns": null,
+      "hash": "sha256:a2278df759d44b43c9f50446201ecbc5188c4499477fd09e0662c5e286657f3a",
+      "row_count": null,
+      "size_bytes": 3391
+    }
+  },
+  "version": "1.0"
+}

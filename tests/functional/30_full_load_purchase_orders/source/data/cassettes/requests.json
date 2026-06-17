@@ -1,0 +1,7 @@
+{
+  "_metadata": {"freeze_time": "2026-06-08T19:09:41", "keboola_vcr_version": "0.5.0", "recorded_at": "2026-06-08T17:09:49.462937+00:00"},
+  "interactions": [
+    {"request": {"body": null, "headers": {"Accept": ["application/json"]}, "method": "GET", "uri": "https://test.demo.uol.cz/api/v1/purchase_orders?per_page=250&page=1"}, "response": {"body": {"string": "{\"_meta\":{\"href\":\"https://test.demo.uol.cz/api/v1/purchase_orders\",\"pagination\":{\"first\":\"https://test.demo.uol.cz/api/v1/purchase_orders?page=1\\u0026per_page=250\",\"last\":\"https://test.demo.uol.cz/api/v1/purchase_orders?page=1\\u0026per_page=250\"}},\"items\":[]}"}, "headers": {"Content-Length": ["259"], "Content-Type": ["application/json"]}, "status": {"code": 200, "message": "OK"}}}
+  ],
+  "version": 1
+}

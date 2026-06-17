@@ -1,1 +1,1 @@
-Enter short description of the component here.
+Extracts invoices, contacts, products, accounting records and more from UOL Účetnictví via its REST API.

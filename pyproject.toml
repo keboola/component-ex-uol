@@ -4,23 +4,28 @@ dynamic = ["version"]
 readme = "README.md"
 requires-python = "~=3.14.0"
 dependencies = [
-    "freezegun>=1.5.1",
+    "dateparser>=1.4.0",
     "keboola-component>=1.9.0",
     "keboola-http-client>=1.0.1",
     "keboola-utils>=1.1.0",
     "pydantic>=2.11.7",
+    "requests",
 ]
 
 [dependency-groups]
 dev = [
+    "freezegun>=1.5.1",
     "keboola.datadirtest>=2.0.0",
     "pytest>=9.0.2",
+    "responses>=0.26.1",
     "ruff>=0.15.2",
 ]
 
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+
 [tool.ruff]
 line-length = 120
-target-version = "py314"
 
 [tool.ruff.lint]
 extend-select = ["I", "UP", "G"]

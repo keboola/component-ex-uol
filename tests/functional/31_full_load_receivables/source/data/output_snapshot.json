@@ -1,0 +1,45 @@
+{
+  "files": {},
+  "hash_algorithm": "sha256",
+  "tables": {
+    "receivables.csv": {
+      "columns": [
+        "2026000010",
+        "2026000010",
+        "alzacz_as",
+        "praha",
+        "N",
+        "EUR",
+        "False",
+        "2026-02-04",
+        "2026-02-18",
+        "2026-02-04",
+        "",
+        "2942719.96",
+        "121000.0",
+        "0.0",
+        "",
+        "[]",
+        "24.32",
+        "praha",
+        "EUR",
+        "2026-02-04",
+        "EUR",
+        "24.32",
+        "",
+        "",
+        ""
+      ],
+      "hash": "sha256:fb2bd45e9f597baa2950c5b22a1f099735a13175b550ec8ade5c8dfd16e5f598",
+      "row_count": 209,
+      "size_bytes": 44344
+    },
+    "receivables.csv.manifest": {
+      "columns": null,
+      "hash": "sha256:a1d11cc67c412f4711279abb3c30d554ac9f895ca99b008776ace80bdf130372",
+      "row_count": null,
+      "size_bytes": 3999
+    }
+  },
+  "version": "1.0"
+}

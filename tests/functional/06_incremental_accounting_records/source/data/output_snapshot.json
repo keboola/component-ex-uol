@@ -1,0 +1,51 @@
+{
+  "files": {},
+  "hash_algorithm": "sha256",
+  "tables": {
+    "accounting_records.csv": {
+      "columns": [
+        "2815838",
+        "kralikovav",
+        "kralikovav",
+        "drmat",
+        "CZK",
+        "praha",
+        "",
+        "FP",
+        "",
+        "2026",
+        "501004",
+        "321000",
+        "5485.72",
+        "5485.72",
+        "",
+        "2026-01-13T14:21:14+01:00",
+        "2026-01-01T00:00:00.000+01:00",
+        "Lepenkov\u00e1 podlo\u017eka, pidy quiche, pidy tartaletka,...",
+        "",
+        "2026000036",
+        "",
+        "",
+        "True",
+        "3748",
+        "",
+        "",
+        "1.0",
+        "material_spotreba",
+        "",
+        "valid",
+        "2026-01-13T14:21:14+01:00"
+      ],
+      "hash": "sha256:843610019fe635f86e41d25a7f2e3f83b69766b65a8c7b0def2dd679b5dfacdf",
+      "row_count": 257,
+      "size_bytes": 60323
+    },
+    "accounting_records.csv.manifest": {
+      "columns": null,
+      "hash": "sha256:f96d4aa2d8409f8378c437d1ebf61328a9b13dbc677d4181ffadf6c9dd61418d",
+      "row_count": null,
+      "size_bytes": 4931
+    }
+  },
+  "version": "1.0"
+}

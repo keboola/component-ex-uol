@@ -1,0 +1,19 @@
+{
+  "files": {},
+  "hash_algorithm": "sha256",
+  "tables": {
+    "purchase_orders.csv": {
+      "columns": [],
+      "hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "row_count": 0,
+      "size_bytes": 0
+    },
+    "purchase_orders.csv.manifest": {
+      "columns": null,
+      "hash": "sha256:563a6d2f7bf6be6736d2c63c9450684705fd18756860c3b44ed2e1cf7760f2bf",
+      "row_count": null,
+      "size_bytes": 310
+    }
+  },
+  "version": "1.0"
+}

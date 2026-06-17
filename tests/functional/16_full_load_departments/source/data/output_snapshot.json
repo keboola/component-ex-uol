@@ -1,0 +1,43 @@
+{
+  "files": {},
+  "hash_algorithm": "sha256",
+  "tables": {
+    "departments.csv": {
+      "columns": [
+        "mzdy",
+        "2013-10-01T11:34:49+02:00",
+        "2023-01-02T10:52:39+01:00",
+        "uoladm",
+        "uoladm",
+        "",
+        "CZ",
+        "",
+        "",
+        "False",
+        "True",
+        "valid",
+        "",
+        "True",
+        "",
+        "Mzdy",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "hash": "sha256:44716ec56e5cd31074c7ab85c463e97f763171a0a15c908b24252553e35ffe18",
+      "row_count": 4,
+      "size_bytes": 538
+    },
+    "departments.csv.manifest": {
+      "columns": null,
+      "hash": "sha256:2dc36cdf48a6c8b6e9c8f2fe12ba56a0a639428150255d809ce815958109f7ae",
+      "row_count": null,
+      "size_bytes": 3597
+    }
+  },
+  "version": "1.0"
+}

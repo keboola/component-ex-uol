@@ -1,0 +1,29 @@
+{
+  "files": {},
+  "hash_algorithm": "sha256",
+  "tables": {
+    "document_templates.csv": {
+      "columns": [
+        "2187",
+        "uoladm",
+        "en-US",
+        "uoladm",
+        "2017-05-03T17:56:56+02:00",
+        "True",
+        "offer",
+        "Offer - english",
+        "2017-07-13T10:13:39+02:00"
+      ],
+      "hash": "sha256:8200d03bc330158b11713dc03477bca94578b14c5724e4d7d6a682cd8f143203",
+      "row_count": 70,
+      "size_bytes": 9053
+    },
+    "document_templates.csv.manifest": {
+      "columns": null,
+      "hash": "sha256:498fdcba25a691b01e1cc4e8c957edd92d3a5644bbcc6adff01de45d0a0f3a6a",
+      "row_count": null,
+      "size_bytes": 1511
+    }
+  },
+  "version": "1.0"
+}

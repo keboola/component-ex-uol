@@ -1,0 +1,29 @@
+{
+  "files": {},
+  "hash_algorithm": "sha256",
+  "tables": {
+    "predefined_texts.csv": {
+      "columns": [
+        "11134",
+        "uoladm",
+        "2012-01-04T11:26:28+01:00",
+        "uoladm",
+        "2013-01-29T10:58:43+01:00",
+        "valid",
+        "",
+        "False",
+        "Pln\u011bn\u00ed podl\u00e9h\u00e1 p\u0159enesen\u00e9 da\u0148ov\u00e9 povinnosti, dle \u00a792a odst. 2 je v\u00fd\u0161i dan\u011b povinen doplnit a p\u0159iznat pl\u00e1tce, pro kter\u00e9ho je pln\u011bn\u00ed uskute\u010dn\u011bno. Da\u0148 odvede z\u00e1kazn\u00edk."
+      ],
+      "hash": "sha256:81014b39be0ac632e7677c471dc7a0e4e23e072d5aeb5bbbb074177d670862a6",
+      "row_count": 5,
+      "size_bytes": 1461
+    },
+    "predefined_texts.csv.manifest": {
+      "columns": null,
+      "hash": "sha256:e78483822449a531ca9058b1071875675b748099ae8198b5fa36736b92e9fcbc",
+      "row_count": null,
+      "size_bytes": 1519
+    }
+  },
+  "version": "1.0"
+}

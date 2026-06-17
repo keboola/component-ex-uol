@@ -1,0 +1,18 @@
+{
+  "exit_code": null,
+  "stderr": "",
+  "logs": [
+    {
+      "level": "INFO",
+      "logger": "__main__",
+      "message": "Extracting accounting_records (date_field=None, since=None)",
+      "timestamp": "2026-06-08T19:09:41.000Z"
+    },
+    {
+      "level": "INFO",
+      "logger": "__main__",
+      "message": "Wrote 2586 rows to accounting_records",
+      "timestamp": "2026-06-08T19:09:41.000Z"
+    }
+  ]
+}

@@ -1,19 +1,40 @@
 {
   "type": "object",
-  "title": "extractor configuration",
-  "required": [
-    "print_hello"
-  ],
+  "title": "UOL Connection",
+  "required": ["server_type", "customer_id", "email", "#api_token"],
   "properties": {
-    "print_hello": {
-      "type": "boolean",
-      "title": "Print Hello",
+    "server_type": {
+      "type": "string",
+      "title": "Server",
+      "description": "Which UOL environment to connect to.",
+      "enum": ["production", "sandbox"],
+      "default": "production",
+      "format": "select",
       "propertyOrder": 1
     },
-    "debug": {
-      "type": "boolean",
-      "title": "Debug",
+    "customer_id": {
+      "type": "string",
+      "title": "Customer ID",
+      "description": "Your UOL customer ID (the subdomain assigned by UOL).",
       "propertyOrder": 2
+    },
+    "email": {
+      "type": "string",
+      "title": "Email",
+      "description": "UOL login email (Basic-auth username).",
+      "propertyOrder": 3
+    },
+    "#api_token": {
+      "type": "string",
+      "title": "API Token",
+      "format": "password",
+      "description": "Token from UOL Settings → API tokens. The account needs the 'REST API' permission.",
+      "propertyOrder": 4
+    },
+    "test_connection": {
+      "type": "button",
+      "format": "test-connection",
+      "propertyOrder": 5
     }
   }
 }

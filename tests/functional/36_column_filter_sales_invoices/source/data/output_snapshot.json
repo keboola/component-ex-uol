@@ -1,0 +1,25 @@
+{
+  "files": {},
+  "hash_algorithm": "sha256",
+  "tables": {
+    "sales_invoices.csv": {
+      "columns": [
+        "gid",
+        "items",
+        "issue_date",
+        "status",
+        "total_amount"
+      ],
+      "hash": "sha256:73a0e6631c7a931ae85c678bec6976a1a018fc5ca41f6756899762ef7b95f256",
+      "row_count": 238,
+      "size_bytes": 288702
+    },
+    "sales_invoices.csv.manifest": {
+      "columns": null,
+      "hash": "sha256:6d34c640b3f273a9b2047a6324a2e325572a81ec7f7d84952064d0264718c225",
+      "row_count": null,
+      "size_bytes": 551
+    }
+  },
+  "version": "1.0"
+}

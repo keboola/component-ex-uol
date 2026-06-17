@@ -1,0 +1,60 @@
+{
+  "files": {},
+  "hash_algorithm": "sha256",
+  "tables": {
+    "purchase_invoices.csv": {
+      "columns": [
+        "64919",
+        "2014-10-03T13:49:50+02:00",
+        "2014-10-03T14:13:56+02:00",
+        "jakes",
+        "jakes",
+        "CZK",
+        "sidlo",
+        "",
+        "",
+        "[{\"created_at\": \"2014-10-03T13:50:08+02:00\", \"updated_at\": \"2014-10-03T13:50:08+02:00\", \"creator\": {\"user_id\": \"jakes\"}, \"modifier\": {\"user_id\": \"jakes\"}, \"department\": {\"department_id\": null}, \"product\": {\"product_id\": \"drmaj\"}, \"contract\": {\"contract_id\": null}, \"expiration_date\": null, \"batch\": null, \"reduce_vat_deduction\": false, \"percent_discount\": 0.0, \"external_id\": null, \"invoice_id\": 2014000001, \"status\": \"valid\", \"description\": \"Drobn\u00fd majetek\", \"external_product_id\": null, \"quantity\": \"1.0\", \"serial_numbers\": null, \"supplier_code\": null, \"total_price\": \"1000.0\", \"vat_rate\": 21.0}]",
+        "2014-09-23",
+        "2014-09-20",
+        "2014-09-20",
+        "2014-09-20",
+        "",
+        "",
+        "",
+        "False",
+        "308",
+        "0.0",
+        "",
+        "",
+        "2014000001",
+        "confirmed",
+        "",
+        "pam\u011b\u0165ov\u00e1 karta",
+        "cash",
+        "1.0",
+        "0.0",
+        "",
+        "",
+        "1210.0",
+        "standard",
+        "True",
+        "210.0",
+        "0.0",
+        "",
+        "2414128746",
+        "2414128746",
+        ""
+      ],
+      "hash": "sha256:c57c1e6158d5705b63582893cec147076a39e60858e4444d9aa920f8353c6626",
+      "row_count": 601,
+      "size_bytes": 695652
+    },
+    "purchase_invoices.csv.manifest": {
+      "columns": null,
+      "hash": "sha256:7e3bdc8355f9ac308dba0d39ea6c9de9fa0a4c4f7edd574b839452528efb38fe",
+      "row_count": null,
+      "size_bytes": 6212
+    }
+  },
+  "version": "1.0"
+}

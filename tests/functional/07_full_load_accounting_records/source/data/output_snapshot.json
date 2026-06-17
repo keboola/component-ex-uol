@@ -1,0 +1,51 @@
+{
+  "files": {},
+  "hash_algorithm": "sha256",
+  "tables": {
+    "accounting_records.csv": {
+      "columns": [
+        "65706",
+        "jakes",
+        "jakes",
+        "",
+        "CZK",
+        "sidlo",
+        "",
+        "PP",
+        "",
+        "2014",
+        "211001",
+        "261000",
+        "2000.0",
+        "2000.0",
+        "",
+        "2014-10-21T12:21:19+02:00",
+        "2014-08-20T00:00:00.000+02:00",
+        "Vklad hotovosti z B\u00da do pokladny",
+        "p1_czk",
+        "2014000002",
+        "",
+        "",
+        "True",
+        "21",
+        "",
+        "",
+        "",
+        "+vyber_z_banky",
+        "",
+        "valid",
+        "2014-10-21T12:21:19+02:00"
+      ],
+      "hash": "sha256:1abd75a570b851d10d44c82ca1974bbb341276c0603f9bad22c43241e7f80b86",
+      "row_count": 2586,
+      "size_bytes": 596299
+    },
+    "accounting_records.csv.manifest": {
+      "columns": null,
+      "hash": "sha256:3bccc9d3153b2e9b5f81e3575798efb0c488600acd4a02c90ced13bb18e56934",
+      "row_count": null,
+      "size_bytes": 4932
+    }
+  },
+  "version": "1.0"
+}

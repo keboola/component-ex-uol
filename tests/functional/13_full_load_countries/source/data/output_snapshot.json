@@ -1,0 +1,34 @@
+{
+  "files": {},
+  "hash_algorithm": "sha256",
+  "tables": {
+    "countries.csv": {
+      "columns": [
+        "AQ",
+        "2009-02-03T14:46:50+01:00",
+        "2009-02-03T14:47:06+01:00",
+        "uoladm",
+        "uoladm",
+        "",
+        "",
+        "",
+        "Antarctica",
+        "valid",
+        "Antarktida",
+        "",
+        "",
+        ""
+      ],
+      "hash": "sha256:fac7edd4b74fe7b016fd433dbd9fb3f4524f0f8e32c03c1a8aee34470d8bfc33",
+      "row_count": 252,
+      "size_bytes": 32303
+    },
+    "countries.csv.manifest": {
+      "columns": null,
+      "hash": "sha256:33b4084fd907c43391cd44f65bb86955f5f832e07c95ce05f54d15c4b9ad2136",
+      "row_count": null,
+      "size_bytes": 2277
+    }
+  },
+  "version": "1.0"
+}

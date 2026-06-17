@@ -1,1 +1,82 @@
-{}
+{
+  "type": "object",
+  "title": "Object to extract",
+  "required": ["endpoint", "load_type"],
+  "properties": {
+    "endpoint": {
+      "type": "string",
+      "title": "Object / Endpoint",
+      "description": "Which UOL resource to extract.",
+      "format": "select",
+      "enum": [],
+      "propertyOrder": 1,
+      "options": {
+        "async": {
+          "label": "Re-load objects",
+          "action": "listEndpoints",
+          "autoload": true,
+          "cache": true
+        }
+      }
+    },
+    "load_type": {
+      "type": "string",
+      "title": "Load Type",
+      "description": "Full load re-reads everything each run. Incremental load filters by a date field from a chosen starting point.",
+      "enum": ["full_load", "incremental_load"],
+      "default": "full_load",
+      "format": "select",
+      "propertyOrder": 2
+    },
+    "date_field": {
+      "type": "string",
+      "title": "Date Field",
+      "description": "Date field to filter on. Only some endpoints offer date filters.",
+      "format": "select",
+      "enum": [],
+      "propertyOrder": 3,
+      "options": {
+        "async": {
+          "label": "Re-load date fields",
+          "action": "listDateFields",
+          "autoload": true,
+          "cache": true
+        },
+        "dependencies": {
+          "load_type": "incremental_load"
+        }
+      }
+    },
+    "date_from": {
+      "type": "string",
+      "title": "Date From",
+      "description": "Lower bound for the selected date field. Accepts 'last_run' (continue from last run), a relative value like 'yesterday' or '5 days ago', or an ISO date (YYYY-MM-DD).",
+      "propertyOrder": 4,
+      "options": {
+        "dependencies": {
+          "load_type": "incremental_load"
+        }
+      }
+    },
+    "columns": {
+      "type": "array",
+      "title": "Columns to extract",
+      "description": "Optional; restrict the output table to these columns; leave empty to extract all columns; primary-key columns are always included.",
+      "items": {
+        "type": "string",
+        "enum": []
+      },
+      "format": "select",
+      "uniqueItems": true,
+      "propertyOrder": 5,
+      "options": {
+        "async": {
+          "label": "Re-load columns",
+          "action": "listColumns",
+          "autoload": false,
+          "cache": true
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "files": {},
+  "hash_algorithm": "sha256",
+  "tables": {
+    "my_companies.csv": {
+      "columns": [
+        "58",
+        "2004-07-29T21:01:38+02:00",
+        "2026-01-13T22:04:38+01:00",
+        "uoladm",
+        "jac",
+        "",
+        "CZ",
+        "",
+        "",
+        "True",
+        "False",
+        "True",
+        "True",
+        "valid",
+        "True",
+        "",
+        "",
+        "DEMO, s. r. o.",
+        "",
+        "150 00",
+        "",
+        "odd\u00edl C, vlo\u017eka 0",
+        "MS v Praze",
+        "Registrov\u00e1no MS v Praze, odd\u00edl C, vlo\u017eka 0.",
+        "Rovn\u00e1",
+        "",
+        "Praha",
+        "",
+        "2009-01-01",
+        "K",
+        "CZ00000019",
+        ".",
+        "00000019",
+        "False",
+        "False",
+        "False",
+        "False",
+        "False"
+      ],
+      "hash": "sha256:018914a499fb9d3c8dee5d47c178bd110c9f429ff806f54ec5bec18b0ed58c36",
+      "row_count": 1,
+      "size_bytes": 295
+    },
+    "my_companies.csv.manifest": {
+      "columns": null,
+      "hash": "sha256:7b2dde66bc871c002308d89dc8905bcca40433b791b7cbf1356d5926a28dd907",
+      "row_count": null,
+      "size_bytes": 5850
+    }
+  },
+  "version": "1.0"
+}

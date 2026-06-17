@@ -1,0 +1,36 @@
+{
+  "files": {},
+  "hash_algorithm": "sha256",
+  "tables": {
+    "contact_bank_accounts.csv": {
+      "columns": [
+        "65969",
+        "2014-10-21T19:11:57+02:00",
+        "2014-10-21T19:11:57+02:00",
+        "uoladm",
+        "uoladm",
+        "107-8408500267/0100",
+        "0100",
+        "czccz_sro",
+        "CZ",
+        "",
+        "",
+        "CZ0501000001078408500267",
+        "True",
+        "valid",
+        "",
+        "False"
+      ],
+      "hash": "sha256:c6dbadcdf610e89aa4ca5d3a9be3f1f0dd66e108f63808bed9cf7c54758813a4",
+      "row_count": 76,
+      "size_bytes": 12643
+    },
+    "contact_bank_accounts.csv.manifest": {
+      "columns": null,
+      "hash": "sha256:ae5fcb30e9b557d75cd3c85adc8dc739265558e10d521b92ff2210b68d552da1",
+      "row_count": null,
+      "size_bytes": 2580
+    }
+  },
+  "version": "1.0"
+}

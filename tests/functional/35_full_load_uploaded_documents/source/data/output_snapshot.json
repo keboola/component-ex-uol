@@ -1,0 +1,28 @@
+{
+  "files": {},
+  "hash_algorithm": "sha256",
+  "tables": {
+    "uploaded_documents.csv": {
+      "columns": [
+        "1",
+        "/customers/test/uploaded_documents/newtab_45c5ec32b1dbf2f7.pdf",
+        "unprocessed",
+        "",
+        "2025-10-03T16:43:06+02:00",
+        "2025-10-03T16:43:06+02:00",
+        "vallo",
+        "vallo"
+      ],
+      "hash": "sha256:1e2333c3cfbc4ebbb8536f29bbbc143964f0c1e8994a2c15841a631e802483b2",
+      "row_count": 3,
+      "size_bytes": 425
+    },
+    "uploaded_documents.csv.manifest": {
+      "columns": null,
+      "hash": "sha256:665308ca943c1c0a540f5550ce1e9fa4e9e66e3894f4cfc16967c60b78966682",
+      "row_count": null,
+      "size_bytes": 1348
+    }
+  },
+  "version": "1.0"
+}

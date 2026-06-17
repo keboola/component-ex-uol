@@ -1,0 +1,44 @@
+{
+  "files": {},
+  "hash_algorithm": "sha256",
+  "tables": {
+    "my_bank_accounts.csv": {
+      "columns": [
+        "cs_eur",
+        "2014-10-03T13:40:27+02:00",
+        "2014-10-03T13:40:27+02:00",
+        "jakes",
+        "jakes",
+        "2014-01-01",
+        "",
+        "2222222222/0200",
+        "0200",
+        "SK",
+        "nothing",
+        "EUR",
+        "daily",
+        "none",
+        "A",
+        "",
+        "SK2702000000002222222222",
+        "0.0",
+        "nothing",
+        "",
+        "False",
+        "valid",
+        "False",
+        ""
+      ],
+      "hash": "sha256:557bb0b8b049eaaeec88aace98d5a94c39f80e02c0ef005e1f75e280f30713eb",
+      "row_count": 3,
+      "size_bytes": 622
+    },
+    "my_bank_accounts.csv.manifest": {
+      "columns": null,
+      "hash": "sha256:f66b66fdfba2aabfe0d4fa68b3d06b904223f97aa1ab84ec9c96a9575793c47f",
+      "row_count": null,
+      "size_bytes": 3854
+    }
+  },
+  "version": "1.0"
+}
