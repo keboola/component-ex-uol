@@ -461,10 +461,13 @@ class Component(ComponentBase):
     def _probe_limit(self) -> int:
         """Read and clamp the probe sample size from parameters (default 5, max 20)."""
         raw = self.configuration.parameters.get("probe_limit", PROBE_DEFAULT_LIMIT)
+        # bool is an int subclass; a True/False probe_limit is meaningless → default.
+        if isinstance(raw, bool) or not isinstance(raw, (int, float, str)):
+            return PROBE_DEFAULT_LIMIT
         try:
             limit = int(raw)
-        except TypeError, ValueError:
-            limit = PROBE_DEFAULT_LIMIT
+        except ValueError:
+            return PROBE_DEFAULT_LIMIT
         return max(1, min(limit, PROBE_MAX_LIMIT))
 
 

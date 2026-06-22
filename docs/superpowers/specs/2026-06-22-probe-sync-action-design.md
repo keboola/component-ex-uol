@@ -85,8 +85,8 @@ Sample mode (`endpoint` set):
      into a row config (`endpoint` → which object, `date_fields` →
      `date_field` + `load_type`, `columns` → `columns`), error cases, and related
      actions (`listEndpoints` / `listColumns` / `testConnection` / `run`).
-   - `run_probe` — `"type": "button"`, `"format": "sync-action"`,
-     `options.async.action": "probe"`, label "Run Probe (sample data)".
+   - `run_probe` — `"type": "button"`, `"format": "sync-action"`, with
+     `options.async.action` set to `"probe"` and label "Run Probe (sample data)".
 
    The button lives in the row schema (best for humans configuring a row, where
    `endpoint` is already selected → probe runs in sample mode). The action itself
@@ -114,5 +114,5 @@ Sample mode (`endpoint` set):
 
 No change to `run()`, no change to existing sync actions, no Pydantic model
 change. One new component method (+ a small helper), one new client method, two
-schema elements, two functional tests + one unit assertion. No documentation-file
-changes.
+schema elements, two functional tests + one unit assertion. No end-user /
+component documentation changes beyond this design spec.

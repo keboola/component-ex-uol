@@ -123,7 +123,7 @@ class UolClient:
     def _retry_after(resp: requests.Response) -> float:
         try:
             return float(resp.headers.get("Retry-After", MAX_BACKOFF_SECONDS))
-        except TypeError, ValueError:
+        except ValueError:
             return float(MAX_BACKOFF_SECONDS)
 
     def _raise_for_status(self, resp: requests.Response) -> None:
