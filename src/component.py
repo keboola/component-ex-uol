@@ -5,6 +5,7 @@ from __future__ import annotations
 import csv
 import json
 import logging
+import math
 import re
 import tempfile
 from collections import defaultdict
@@ -463,6 +464,9 @@ class Component(ComponentBase):
         raw = self.configuration.parameters.get("probe_limit", PROBE_DEFAULT_LIMIT)
         # bool is an int subclass; a True/False probe_limit is meaningless → default.
         if isinstance(raw, bool) or not isinstance(raw, (int, float, str)):
+            return PROBE_DEFAULT_LIMIT
+        # Non-finite floats (e.g. JSON 1e309 → inf, or nan) would OverflowError in int(); reject them.
+        if isinstance(raw, float) and not math.isfinite(raw):
             return PROBE_DEFAULT_LIMIT
         try:
             limit = int(raw)

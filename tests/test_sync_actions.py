@@ -90,3 +90,21 @@ def test_probe_catalog_mode_returns_full_catalog():
     for entry in result["endpoints"]:
         assert set(entry.keys()) >= {"name", "primary_key", "date_fields", "columns"}
     assert [e["name"] for e in result["endpoints"]] == endpoint_names()
+
+
+def test_probe_limit_clamps_and_rejects_invalid_values():
+    comp = Component.__new__(Component)
+    cases = [
+        (None, 5),  # missing/None → default
+        ("abc", 5),  # unparseable string → default
+        (float("inf"), 5),  # non-finite float would OverflowError in int() → default
+        (float("nan"), 5),  # nan → default
+        (True, 5),  # bool is meaningless → default
+        (0, 1),  # below min → clamped to 1
+        (1000, 20),  # above max → clamped to 20
+        ("7", 7),  # numeric string → coerced
+        (3, 3),  # valid int → unchanged
+    ]
+    for raw, expected in cases:
+        with _patch_configuration(comp, parameters={"probe_limit": raw}, action="probe"):
+            assert comp._probe_limit() == expected, f"probe_limit={raw!r}"
