@@ -93,6 +93,8 @@ def _build_schema(
 
 
 STATE_LAST_RUN = "last_run"
+PROBE_DEFAULT_LIMIT = 5
+PROBE_MAX_LIMIT = 20
 
 # VCR sanitizers: DefaultSanitizer strips the Authorization header (which
 # carries the Basic-auth email:token credential) from every recorded cassette.
@@ -399,6 +401,71 @@ class Component(ComponentBase):
             LOGGER.debug("listColumns: could not sample %s, returning registry columns only: %s", endpoint.path, exc)
 
         return [SelectElement(value=c, label=c) for c in names]
+
+    @sync_action("probe")
+    def probe(self) -> dict[str, Any]:
+        """Fast, read-only introspection for an AI agent (e.g. KAI) configuring the extractor.
+
+        Two modes, decided by whether `endpoint` is present in the parameters:
+        - Catalog mode (no endpoint): list every object with its primary key, date fields
+          and known columns. No API call.
+        - Sample mode (endpoint set): fetch up to `probe_limit` real records (default 5,
+          hard-capped at 20), flattened exactly as `run` writes them, plus that object's
+          primary key, date fields and discovered columns.
+
+        Returns a plain dict; keboola.component serialises it via json.dumps without
+        injecting status, so "status": "success" is included explicitly.
+        """
+        endpoint_name = self.configuration.parameters.get("endpoint")
+
+        # Catalog mode — no endpoint selected. Pure registry; no API call.
+        if not endpoint_name:
+            return {
+                "status": "success",
+                "endpoints": [
+                    {
+                        "name": ep.name,
+                        "primary_key": list(ep.primary_key),
+                        "date_fields": list(ep.date_fields),
+                        "columns": list(ep.columns),
+                    }
+                    for ep in (get_endpoint(n) for n in endpoint_names())
+                ],
+            }
+
+        # Sample mode — endpoint selected. _get_endpoint_by_name raises UserException for an
+        # unknown endpoint; accessing self._client validates the connection config and surfaces
+        # auth/connectivity errors as UserExceptions.
+        endpoint = self._get_endpoint_by_name(endpoint_name)
+        limit = self._probe_limit()
+        records = self._client.sample_records(endpoint.path, limit)
+        sample = [flatten_record(record) for record in records]
+
+        # Columns: curated registry first, then any discovered in the sample.
+        columns: list[str] = list(endpoint.columns)
+        for row in sample:
+            for col in row:
+                if col not in columns:
+                    columns.append(col)
+
+        return {
+            "status": "success",
+            "endpoint": endpoint.name,
+            "primary_key": list(endpoint.primary_key),
+            "date_fields": list(endpoint.date_fields),
+            "columns": columns,
+            "sample_count": len(sample),
+            "sample": sample,
+        }
+
+    def _probe_limit(self) -> int:
+        """Read and clamp the probe sample size from parameters (default 5, max 20)."""
+        raw = self.configuration.parameters.get("probe_limit", PROBE_DEFAULT_LIMIT)
+        try:
+            limit = int(raw)
+        except TypeError, ValueError:
+            limit = PROBE_DEFAULT_LIMIT
+        return max(1, min(limit, PROBE_MAX_LIMIT))
 
 
 if __name__ == "__main__":

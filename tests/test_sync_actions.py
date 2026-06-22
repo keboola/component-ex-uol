@@ -76,3 +76,17 @@ def test_list_date_fields_no_endpoint_returns_empty():
         elements = comp.list_date_fields()
 
     assert elements == []
+
+
+def test_probe_catalog_mode_returns_full_catalog():
+    comp = Component.__new__(Component)
+    with _patch_configuration(comp, parameters={}, action="probe"):
+        result = comp.probe()
+
+    assert isinstance(result, dict)
+    assert result["status"] == "success"
+    assert isinstance(result["endpoints"], list)
+    assert len(result["endpoints"]) > 0
+    for entry in result["endpoints"]:
+        assert set(entry.keys()) >= {"name", "primary_key", "date_fields", "columns"}
+    assert [e["name"] for e in result["endpoints"]] == endpoint_names()
