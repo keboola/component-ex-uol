@@ -119,5 +119,5 @@ def test_probe_limit_clamps_and_rejects_invalid_values():
         (3, 3),  # valid int → unchanged
     ]
     for raw, expected in cases:
-        with _patch_configuration(comp, parameters={"probe_limit": raw}, action="probe"):
+        with _patch_configuration(comp, parameters={"probe": {"probe_limit": raw}}, action="probe"):
             assert comp._probe_limit() == expected, f"probe_limit={raw!r}"

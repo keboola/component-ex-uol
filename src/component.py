@@ -471,9 +471,10 @@ class Component(ComponentBase):
         return ValidationResult(message, MessageType.INFO)
 
     def _probe_limit(self) -> int:
-        """Read and clamp the probe sample size from parameters (default 5, max 20)."""
-        raw = self.configuration.parameters.get("probe_limit", PROBE_DEFAULT_LIMIT)
-        # bool is an int subclass; a True/False probe_limit is meaningless → default.
+        """Read and clamp the probe sample size from the probe section (default 5, max 20)."""
+        probe = self.configuration.parameters.get("probe")
+        raw = probe.get("probe_limit", PROBE_DEFAULT_LIMIT) if isinstance(probe, dict) else PROBE_DEFAULT_LIMIT
+        # bool is an int subclass; a True/False sample size is meaningless → default.
         if isinstance(raw, bool) or not isinstance(raw, (int, float, str)):
             return PROBE_DEFAULT_LIMIT
         # Non-finite floats (e.g. JSON 1e309 → inf, or nan) would OverflowError in int(); reject them.

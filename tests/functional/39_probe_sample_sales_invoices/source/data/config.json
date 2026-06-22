@@ -5,6 +5,8 @@
     "email": "DUMMY_EMAIL",
     "#api_token": "DUMMY_TOKEN",
     "endpoint": "sales_invoices",
-    "probe_limit": 5
+    "probe": {
+      "probe_limit": 5
+    }
   }
 }
