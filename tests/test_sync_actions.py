@@ -1,7 +1,16 @@
+import json
 from unittest.mock import MagicMock, patch
+
+from keboola.component.sync_actions import MessageType, ValidationResult
 
 from component import Component
 from endpoints import endpoint_names
+
+
+def _parse_probe_payload(result: ValidationResult) -> dict:
+    """Extract the structured payload from a probe ValidationResult message (a fenced json block)."""
+    block = result.message.split("```json", 1)[1].rsplit("```", 1)[0]
+    return json.loads(block)
 
 
 def _patch_configuration(comp, parameters=None, action="run"):
@@ -83,13 +92,17 @@ def test_probe_catalog_mode_returns_full_catalog():
     with _patch_configuration(comp, parameters={}, action="probe"):
         result = comp.probe()
 
-    assert isinstance(result, dict)
-    assert result["status"] == "success"
-    assert isinstance(result["endpoints"], list)
-    assert len(result["endpoints"]) > 0
-    for entry in result["endpoints"]:
+    # The sync-action button contract requires a ValidationResult {message, type, status};
+    # the structured catalog is embedded in the message as a fenced json block.
+    assert isinstance(result, ValidationResult)
+    assert result.status == "success"
+    assert result.type == MessageType.INFO
+    payload = _parse_probe_payload(result)
+    assert isinstance(payload["endpoints"], list)
+    assert len(payload["endpoints"]) > 0
+    for entry in payload["endpoints"]:
         assert set(entry.keys()) >= {"name", "primary_key", "date_fields", "columns"}
-    assert [e["name"] for e in result["endpoints"]] == endpoint_names()
+    assert [e["name"] for e in payload["endpoints"]] == endpoint_names()
 
 
 def test_probe_limit_clamps_and_rejects_invalid_values():

@@ -17,7 +17,7 @@ from typing import Any
 from keboola.component.base import ComponentBase, sync_action
 from keboola.component.dao import BaseType, ColumnDefinition
 from keboola.component.exceptions import UserException
-from keboola.component.sync_actions import SelectElement, ValidationResult
+from keboola.component.sync_actions import MessageType, SelectElement, ValidationResult
 from keboola.vcr import DefaultSanitizer
 
 from client import UolClient
@@ -404,7 +404,7 @@ class Component(ComponentBase):
         return [SelectElement(value=c, label=c) for c in names]
 
     @sync_action("probe")
-    def probe(self) -> dict[str, Any]:
+    def probe(self) -> ValidationResult:
         """Fast, read-only introspection for an AI agent (e.g. KAI) configuring the extractor.
 
         Two modes, decided by whether `endpoint` is present in the parameters:
@@ -414,25 +414,27 @@ class Component(ComponentBase):
           hard-capped at 20), flattened exactly as `run` writes them, plus that object's
           primary key, date fields and discovered columns.
 
-        Returns a plain dict; keboola.component serialises it via json.dumps without
-        injecting status, so "status": "success" is included explicitly.
+        A ``format: "sync-action"`` button requires the {message, type, status} contract,
+        so the structured payload is returned inside a ValidationResult message as a fenced
+        json code block for the agent (or a human) to parse.
         """
         endpoint_name = self.configuration.parameters.get("endpoint")
 
         # Catalog mode — no endpoint selected. Pure registry; no API call.
         if not endpoint_name:
-            return {
-                "status": "success",
-                "endpoints": [
-                    {
-                        "name": ep.name,
-                        "primary_key": list(ep.primary_key),
-                        "date_fields": list(ep.date_fields),
-                        "columns": list(ep.columns),
-                    }
-                    for ep in (get_endpoint(n) for n in endpoint_names())
-                ],
-            }
+            return self._probe_result(
+                {
+                    "endpoints": [
+                        {
+                            "name": ep.name,
+                            "primary_key": list(ep.primary_key),
+                            "date_fields": list(ep.date_fields),
+                            "columns": list(ep.columns),
+                        }
+                        for ep in (get_endpoint(n) for n in endpoint_names())
+                    ],
+                }
+            )
 
         # Sample mode — endpoint selected. _get_endpoint_by_name raises UserException for an
         # unknown endpoint; accessing self._client validates the connection config and surfaces
@@ -449,15 +451,24 @@ class Component(ComponentBase):
                 if col not in columns:
                     columns.append(col)
 
-        return {
-            "status": "success",
-            "endpoint": endpoint.name,
-            "primary_key": list(endpoint.primary_key),
-            "date_fields": list(endpoint.date_fields),
-            "columns": columns,
-            "sample_count": len(sample),
-            "sample": sample,
-        }
+        return self._probe_result(
+            {
+                "endpoint": endpoint.name,
+                "primary_key": list(endpoint.primary_key),
+                "date_fields": list(endpoint.date_fields),
+                "columns": columns,
+                "sample_count": len(sample),
+                "sample": sample,
+            }
+        )
+
+    @staticmethod
+    def _probe_result(payload: dict[str, Any]) -> ValidationResult:
+        """Wrap a probe payload as a ValidationResult — the {message, type, status} contract a
+        ``format: "sync-action"`` button requires. The structured data is embedded as a fenced
+        json code block so an agent can parse it back out and a human can read it."""
+        message = "```json\n" + json.dumps(payload, ensure_ascii=False, indent=2) + "\n```"
+        return ValidationResult(message, MessageType.INFO)
 
     def _probe_limit(self) -> int:
         """Read and clamp the probe sample size from parameters (default 5, max 20)."""
