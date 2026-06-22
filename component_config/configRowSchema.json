@@ -77,6 +77,37 @@
           "cache": true
         }
       }
+    },
+    "probe": {
+      "type": "object",
+      "title": "Probe",
+      "description": "Preview real sample data for this object before running a full extraction.",
+      "propertyOrder": 6,
+      "options": {
+        "collapsed": true
+      },
+      "properties": {
+        "probe_limit": {
+          "type": "integer",
+          "title": "Sample size",
+          "default": 5,
+          "minimum": 1,
+          "maximum": 20,
+          "propertyOrder": 1,
+          "description": "Preview real sample data for this object before committing to a full extraction. Set the sample size and click **Run Probe**.\n\nWith an object selected (this row), it returns up to this many real records (1–20), flattened exactly as the extraction writes them, plus the object's primary key, date fields and columns. Run it from the connection with no object selected to instead list every available object with its primary key, date fields and columns.\n\nThe result is a JSON object inside the result message (a fenced ```json block).\n\nUse what it returns to set the row up:\n- if the object has date fields → set **Load Type** to incremental and choose a **Date Field**\n- pick the **Columns to extract** you want (the primary key is always kept)\n\nKeep the sample size small; very large results may be truncated."
+        },
+        "run_probe": {
+          "type": "button",
+          "format": "sync-action",
+          "propertyOrder": 2,
+          "options": {
+            "async": {
+              "label": "Run Probe",
+              "action": "probe"
+            }
+          }
+        }
+      }
     }
   }
 }

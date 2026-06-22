@@ -5,6 +5,7 @@ from __future__ import annotations
 import csv
 import json
 import logging
+import math
 import re
 import tempfile
 from collections import defaultdict
@@ -16,7 +17,7 @@ from typing import Any
 from keboola.component.base import ComponentBase, sync_action
 from keboola.component.dao import BaseType, ColumnDefinition
 from keboola.component.exceptions import UserException
-from keboola.component.sync_actions import SelectElement, ValidationResult
+from keboola.component.sync_actions import MessageType, SelectElement, ValidationResult
 from keboola.vcr import DefaultSanitizer
 
 from client import UolClient
@@ -93,6 +94,8 @@ def _build_schema(
 
 
 STATE_LAST_RUN = "last_run"
+PROBE_DEFAULT_LIMIT = 5
+PROBE_MAX_LIMIT = 20
 
 # VCR sanitizers: DefaultSanitizer strips the Authorization header (which
 # carries the Basic-auth email:token credential) from every recorded cassette.
@@ -399,6 +402,89 @@ class Component(ComponentBase):
             LOGGER.debug("listColumns: could not sample %s, returning registry columns only: %s", endpoint.path, exc)
 
         return [SelectElement(value=c, label=c) for c in names]
+
+    @sync_action("probe")
+    def probe(self) -> ValidationResult:
+        """Fast, read-only introspection for an AI agent (e.g. KAI) configuring the extractor.
+
+        Two modes, decided by whether `endpoint` is present in the parameters:
+        - Catalog mode (no endpoint): list every object with its primary key, date fields
+          and known columns. No API call.
+        - Sample mode (endpoint set): fetch up to `probe_limit` real records (default 5,
+          hard-capped at 20), flattened exactly as `run` writes them, plus that object's
+          primary key, date fields and discovered columns.
+
+        A ``format: "sync-action"`` button requires the {message, type, status} contract,
+        so the structured payload is returned inside a ValidationResult message as a fenced
+        json code block for the agent (or a human) to parse.
+        """
+        endpoint_name = self.configuration.parameters.get("endpoint")
+
+        # Catalog mode — no endpoint selected. Pure registry; no API call.
+        if not endpoint_name:
+            return self._probe_result(
+                {
+                    "endpoints": [
+                        {
+                            "name": ep.name,
+                            "primary_key": list(ep.primary_key),
+                            "date_fields": list(ep.date_fields),
+                            "columns": list(ep.columns),
+                        }
+                        for ep in (get_endpoint(n) for n in endpoint_names())
+                    ],
+                }
+            )
+
+        # Sample mode — endpoint selected. _get_endpoint_by_name raises UserException for an
+        # unknown endpoint; accessing self._client validates the connection config and surfaces
+        # auth/connectivity errors as UserExceptions.
+        endpoint = self._get_endpoint_by_name(endpoint_name)
+        limit = self._probe_limit()
+        records = self._client.sample_records(endpoint.path, limit)
+        sample = [flatten_record(record) for record in records]
+
+        # Columns: curated registry first, then any discovered in the sample.
+        columns: list[str] = list(endpoint.columns)
+        for row in sample:
+            for col in row:
+                if col not in columns:
+                    columns.append(col)
+
+        return self._probe_result(
+            {
+                "endpoint": endpoint.name,
+                "primary_key": list(endpoint.primary_key),
+                "date_fields": list(endpoint.date_fields),
+                "columns": columns,
+                "sample_count": len(sample),
+                "sample": sample,
+            }
+        )
+
+    @staticmethod
+    def _probe_result(payload: dict[str, Any]) -> ValidationResult:
+        """Wrap a probe payload as a ValidationResult — the {message, type, status} contract a
+        ``format: "sync-action"`` button requires. The structured data is embedded as a fenced
+        json code block so an agent can parse it back out and a human can read it."""
+        message = "```json\n" + json.dumps(payload, ensure_ascii=False, indent=2) + "\n```"
+        return ValidationResult(message, MessageType.INFO)
+
+    def _probe_limit(self) -> int:
+        """Read and clamp the probe sample size from the probe section (default 5, max 20)."""
+        probe = self.configuration.parameters.get("probe")
+        raw = probe.get("probe_limit", PROBE_DEFAULT_LIMIT) if isinstance(probe, dict) else PROBE_DEFAULT_LIMIT
+        # bool is an int subclass; a True/False sample size is meaningless → default.
+        if isinstance(raw, bool) or not isinstance(raw, (int, float, str)):
+            return PROBE_DEFAULT_LIMIT
+        # Non-finite floats (e.g. JSON 1e309 → inf, or nan) would OverflowError in int(); reject them.
+        if isinstance(raw, float) and not math.isfinite(raw):
+            return PROBE_DEFAULT_LIMIT
+        try:
+            limit = int(raw)
+        except ValueError:
+            return PROBE_DEFAULT_LIMIT
+        return max(1, min(limit, PROBE_MAX_LIMIT))
 
 
 if __name__ == "__main__":

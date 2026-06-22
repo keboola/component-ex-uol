@@ -1,7 +1,16 @@
+import json
 from unittest.mock import MagicMock, patch
+
+from keboola.component.sync_actions import MessageType, ValidationResult
 
 from component import Component
 from endpoints import endpoint_names
+
+
+def _parse_probe_payload(result: ValidationResult) -> dict:
+    """Extract the structured payload from a probe ValidationResult message (a fenced json block)."""
+    block = result.message.split("```json", 1)[1].rsplit("```", 1)[0]
+    return json.loads(block)
 
 
 def _patch_configuration(comp, parameters=None, action="run"):
@@ -76,3 +85,39 @@ def test_list_date_fields_no_endpoint_returns_empty():
         elements = comp.list_date_fields()
 
     assert elements == []
+
+
+def test_probe_catalog_mode_returns_full_catalog():
+    comp = Component.__new__(Component)
+    with _patch_configuration(comp, parameters={}, action="probe"):
+        result = comp.probe()
+
+    # The sync-action button contract requires a ValidationResult {message, type, status};
+    # the structured catalog is embedded in the message as a fenced json block.
+    assert isinstance(result, ValidationResult)
+    assert result.status == "success"
+    assert result.type == MessageType.INFO
+    payload = _parse_probe_payload(result)
+    assert isinstance(payload["endpoints"], list)
+    assert len(payload["endpoints"]) > 0
+    for entry in payload["endpoints"]:
+        assert set(entry.keys()) >= {"name", "primary_key", "date_fields", "columns"}
+    assert [e["name"] for e in payload["endpoints"]] == endpoint_names()
+
+
+def test_probe_limit_clamps_and_rejects_invalid_values():
+    comp = Component.__new__(Component)
+    cases = [
+        (None, 5),  # missing/None → default
+        ("abc", 5),  # unparseable string → default
+        (float("inf"), 5),  # non-finite float would OverflowError in int() → default
+        (float("nan"), 5),  # nan → default
+        (True, 5),  # bool is meaningless → default
+        (0, 1),  # below min → clamped to 1
+        (1000, 20),  # above max → clamped to 20
+        ("7", 7),  # numeric string → coerced
+        (3, 3),  # valid int → unchanged
+    ]
+    for raw, expected in cases:
+        with _patch_configuration(comp, parameters={"probe": {"probe_limit": raw}}, action="probe"):
+            assert comp._probe_limit() == expected, f"probe_limit={raw!r}"

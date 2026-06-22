@@ -61,10 +61,15 @@ class UolClient:
     def ping_request(self) -> dict[str, Any]:
         return self._request("GET", "v1/ping")
 
+    def sample_records(self, path: str, limit: int) -> list[dict[str, Any]]:
+        """Fetch up to `limit` records cheaply (single page) for probing / column discovery."""
+        data = self._request("GET", path, params={"per_page": limit, "page": 1})
+        items = data.get("items", [])
+        return items[:limit]
+
     def sample_record(self, path: str) -> dict[str, Any] | None:
         """Fetch a single record (cheaply) to derive available columns. None if empty."""
-        data = self._request("GET", path, params={"per_page": 1, "page": 1})
-        items = data.get("items", [])
+        items = self.sample_records(path, 1)
         return items[0] if items else None
 
     def _request(self, method: str, path: str, params: dict[str, Any] | None = None) -> dict[str, Any]:
@@ -118,7 +123,7 @@ class UolClient:
     def _retry_after(resp: requests.Response) -> float:
         try:
             return float(resp.headers.get("Retry-After", MAX_BACKOFF_SECONDS))
-        except (TypeError, ValueError):
+        except ValueError:
             return float(MAX_BACKOFF_SECONDS)
 
     def _raise_for_status(self, resp: requests.Response) -> None:
