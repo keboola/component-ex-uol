@@ -1,1 +1,1 @@
-/blob/main/README.md
+https://github.com/keboola/component-ex-uol/blob/main/README.md
