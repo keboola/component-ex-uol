@@ -1,1 +1,1 @@
-/blob/main/LICENSE.md
+https://github.com/keboola/component-ex-uol/blob/main/LICENSE.md
